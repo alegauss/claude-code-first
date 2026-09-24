@@ -4,18 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF12 Threats to validity
-
-`evidence/validity.md` covers the four classic threats. Construct: "Claude Code first"
-is defined operationally, by who authored the commits and where instructions live, not
-by self-description. Internal: the projects share an owner, a commit tool and roadkeep,
-so a practice can recur because it was copied rather than rediscovered; the direction of
-copying is traced from dates. External: one person, Windows, Claude models of 2026,
-repositories from 132 to 3,446 commits; say which rules may not transfer to teams or to
-other harnesses. Reliability: extraction was done by agents, so report the error rate
-the field-note verification measured. Each rule later names the threat that applies to
-it most.
-
 ### §CCF13 A register of harness facts
 
 `evidence/harness.md` lists every Claude Code behaviour a rule depends on: CLAUDE.md
@@ -48,11 +36,26 @@ inline code spans from a line before it matches pointers, so a quote that contai
 backticked name loses those words and can no longer be checked as written; the winwright
 verifier rewrote such quotes. It also compares whitespace-normalised text only, so a
 quote spanning several lines of a C# `///` comment, or two JSON strings, never matches,
-and verifiers split those into one pointer per line. Build: skip only pointers that lie
-inside a code span, rather than deleting the spans before matching, and let the quote
-keep its backticks; when comparing, drop a leading comment marker (`///`, `//`, `#`,
-`*`) from each source line of the range. Add test cases for both, and re-run the
-resolver on the five notes, which must stay green.
+and verifiers split those into one pointer per line. Worse, a quote wrapped onto the
+line before its pointer is not read as a quote at all, so it passes unchecked and
+nothing reports it; CCF12 met this. Match the quote across a line break too. Build: skip
+only pointers that lie inside a code span, rather than deleting the spans before
+matching, and let the quote keep its backticks; when comparing, drop a leading comment
+marker (`///`, `//`, `#`, `*`) from each source line of the range. Add test cases for
+both, and re-run the resolver on the five notes, which must stay green.
+
+### §CCF64 A resolver fast enough to run on every commit
+
+Found while writing the validity threats (CCF12): a full run of
+`scripts/resolve_citations.py` over the 795 pointers in `evidence/` took about five
+minutes on the owner's machine, because every pointer spawns three to five `git`
+processes (`rev-parse`, `merge-base`, `show`, `log`). Each field note that joins the
+corpus, and every chapter of the spec, adds hundreds more, so the gate will soon be the
+slowest thing a commit waits for and the first one skipped. Build: group pointers by
+project, resolve every commit and blob through one long-lived `git cat-file --batch`
+process per repository, cache the ancestor check and each file's lines by commit, and
+keep the output and exit codes as they are. Measure the run before and after and record
+both figures in the commit.
 
 ## Block C — Case studies and the findings register
 

@@ -4,10 +4,10 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF12** (deps: CCF7 ✅) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
 - 📋 **CCF13** (deps: —) **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — Several lessons are harness facts, such as plugins absent on the web or settings rewritten mid-session, that a release can change. → §CCF13
 - 📋 **CCF14** (deps: —) **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — An academic reader first asks what a work adds to what already exists, and without a survey the answer is an assertion. → §CCF14
 - 📋 **CCF63** (deps: —) **the resolver cannot check a quote that holds inline code or runs across comment-prefixed source lines** — Verifiers had to rewrite or split such quotes, so the text a finding quotes is not always the text that was checked. → §CCF63
+- 📋 **CCF64** (deps: —) **the citation resolver takes about five minutes over 795 pointers, so it will be the gate a commit skips first** — Every pointer spawns several git processes, and each new case study or chapter adds hundreds of pointers. → §CCF64
 
 ## Block C — Case studies and the findings register
 
