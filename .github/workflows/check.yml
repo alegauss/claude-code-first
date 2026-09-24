@@ -1,0 +1,35 @@
+# The gates of this repository, on every push and pull request.
+#
+# A gate that runs only on one machine is not a gate: freewilly removed its lint from CI
+# (cd630d6) and restored it (714360e) after drift reached main unremarked. Later gates,
+# such as citation resolution and traceability, are added here as jobs, not as new files.
+# `roadkeep lint` is the one exception: it is roadkeep.yml, the workflow
+# `roadkeep install` writes, so a later install finds it and adds no second copy.
+name: check
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Settings live in lychee.toml, so a local run checks exactly what this one does.
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml --no-progress './**/*.md'
+          fail: true
+
+  markdown:
+    name: markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Rules and ignores live in .markdownlint-cli2.jsonc.
+      - uses: DavidAnson/markdownlint-cli2-action@v24
+        with:
+          globs: '**/*.md'

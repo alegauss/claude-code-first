@@ -1,0 +1,34 @@
+// Markdown lint, run by .github/workflows/check.yml and by `npx markdownlint-cli2` locally.
+//
+// Every rule is off unless listed: a small declared set a reader can hold in their head,
+// each one a structural fault rather than a matter of taste. Line length is not here;
+// prose is wrapped by hand and a table row cannot be.
+{
+  "config": {
+    "default": false,
+    "MD001": true, // heading levels go up one at a time
+    "MD003": { "style": "atx" }, // headings are written with #
+    "MD009": true, // no trailing spaces
+    "MD010": true, // no hard tabs
+    "MD011": true, // no reversed link syntax
+    "MD012": true, // no runs of blank lines
+    "MD018": true, // a space after the # of a heading
+    "MD019": true, // one space after the # of a heading
+    "MD022": true, // blank lines around headings
+    "MD023": true, // headings start at the left margin
+    "MD025": true, // one top-level heading per file
+    "MD031": true, // blank lines around fenced code
+    "MD042": true, // no empty links
+    "MD047": true // a file ends with one newline
+  },
+  // The governed docs are rendered by roadkeep and gated by `roadkeep lint`; the roadkeep
+  // skill is a copy `roadkeep install` refreshes; .roadkeep/ is the vendored engine.
+  "ignores": [
+    "docs/ROADMAP.md",
+    "docs/CHANGELOG.md",
+    "docs/IMPROVEMENTS.md",
+    "docs/DECISIONS.md",
+    ".claude/skills/roadkeep/**",
+    ".roadkeep/**"
+  ]
+}

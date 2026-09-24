@@ -1,0 +1,10 @@
+# Link check for every Markdown file in the repository, run by .github/workflows/check.yml.
+#
+# Offline: only links inside this repository are checked, with their #fragments. A link to
+# a web page fails when that site is slow or down, which would turn this gate red on a day
+# nothing here changed; citations into the corpus are checked by their own resolver.
+offline = true
+include_fragments = "anchor-only"
+
+# The engine `roadkeep install --vendor` copies here is ignored by git, so CI never sees it.
+exclude_path = ["\\.roadkeep"]

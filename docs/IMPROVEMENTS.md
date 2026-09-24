@@ -2,18 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF3 A CI gate from the first commit
-
-A GitHub workflow on every push and pull request running `roadkeep lint` through the
-`alegauss/roadkeep` action, as polyweave and freewilly do, a Markdown link check and a
-Markdown lint with a small declared rule set, under `permissions: contents: read`.
-Evidence: freewilly `cd630d6` removed the lint and `714360e` restored it after drift
-"reached main unremarked" (`check.yml:12-15`); roadkeep RK17, "A gate that runs only on
-a developer's machine is not a gate"; Shio's red suites went nineteen commits unnoticed
-until CI ran on every push (SH579). Later gates, such as citation resolution and
-traceability, join this workflow as their tasks ship, so this task fixes the workflow's
-shape and they become additions rather than new files.
-
 ### §CCF4 A trigger-loaded commit discipline
 
 A project skill `.claude/skills/ccf-dev/SKILL.md`, loaded on commit, stage, ship or
