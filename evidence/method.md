@@ -111,8 +111,8 @@ An inference is never promoted to a fact by being repeated. It becomes a fact on
 source is found that states it.
 
 A **finding** groups the observations that support one claim across cases. It carries
-their loci, the cases it holds in, the cases that contradict it, and a grade whose scale
-CCF10 defines. Findings, not observations, are what the specification's rules cite.
+their loci, the cases it holds in, the cases that contradict it, and a grade on the scale
+in [grading.md](grading.md). Findings, not observations, are what the specification's rules cite.
 
 ## 6. Verification
 

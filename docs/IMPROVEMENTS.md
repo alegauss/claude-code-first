@@ -4,19 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF10 An evidence grading scale
-
-Grades on two axes. Recurrence: seen once; recurring within one project; independently
-in two or more projects; in all five. Strength: asserted in prose; recorded as an
-incident in a commit or ledger entry; measured with numbers; encoded in a test or gate.
-Every finding carries both, and every normative rule inherits a minimum from its
-findings. Borrow the idea of levels of evidence from evidence-based software engineering
-(Kitchenham, Dybå and Jørgensen) and state how this scale differs. Fix the admission
-threshold: a MUST needs recurrence in two or more projects or a measured incident, and
-weaker support yields SHOULD or MAY. The projects share an author and tools (roadkeep,
-the commit tool), so recurrence is not independence, and the scale must say how a
-practice copied from one project to another is counted.
-
 ### §CCF11 Verifying the field notes
 
 Walk each file in `evidence/field-notes/` claim by claim against the pinned commit,

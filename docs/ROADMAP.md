@@ -4,7 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF10** (deps: CCF7 ✅) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
 - 📋 **CCF11** (deps: CCF8 ✅, CCF9 ✅) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
 - 📋 **CCF12** (deps: CCF7 ✅) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
 - 📋 **CCF13** (deps: —) **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — Several lessons are harness facts, such as plugins absent on the web or settings rewritten mid-session, that a release can change. → §CCF13
@@ -17,14 +16,14 @@
 - 📋 **CCF17** (deps: CCF11) **no case study describes freewilly, the project that works without any instruction file** — Freewilly has no every-turn file and a drained backlog, so it tests which rules survive when nothing is loaded by default. → §CCF17
 - 📋 **CCF18** (deps: CCF11) **no case study describes winwright, whose agent surface is shipped for other repositories to use** — Winwright designs for an agent that is not its author, which makes it the corpus's evidence on agent-facing products. → §CCF18
 - 📋 **CCF19** (deps: CCF11) **no case study describes shio, the only project that adopted the practice after years of history** — Shio had 1,778 commits before adoption, so its transition is the corpus's only record of adopting late. → §CCF19
-- 📋 **CCF20** (deps: CCF10, CCF15, CCF16, CCF17, CCF18, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
+- 📋 **CCF20** (deps: CCF10 ✅, CCF15, CCF16, CCF17, CCF18, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
 - 📋 **CCF21** (deps: CCF20) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
 - 📋 **CCF22** (deps: CCF15, CCF16, CCF17, CCF18, CCF19) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
 - 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
 ## Block D — The normative specification
 
-- 📋 **CCF24** (deps: CCF10) **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — Chapters written before the frame exists would each invent a rule format, and no reader could cite a rule by address. → §CCF24
+- 📋 **CCF24** (deps: CCF10 ✅) **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — Chapters written before the frame exists would each invent a rule format, and no reader could cite a rule by address. → §CCF24
 - 📋 **CCF25** (deps: CCF24) **terms such as every-turn file, governed file, gate, guard, ledger and verdict are used without definitions** — The five projects use the same words with different meanings, and a spec whose terms drift cannot be conformed to. → §CCF25
 - 📋 **CCF26** (deps: CCF20, CCF24) **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — Context economy is the most strongly supported finding, measured in three projects, and it still has no rule. → §CCF26
 - 📋 **CCF27** (deps: CCF20, CCF24) **no normative chapter says how an agent plans, records and closes work** — Every project converged on governed roadmap, ledger and rationale files after prose limits failed, and that convergence needs stating. → §CCF27
@@ -74,7 +73,7 @@
 ## Block I — Governance and publication of the specification
 
 - 📋 **CCF58** (deps: CCF24) **the specification has no version, so an audit cannot say which text it judged a project against** — Rules will change as evidence arrives, and a conformance claim without a version becomes false the day a rule tightens. → §CCF58
-- 📋 **CCF59** (deps: CCF10, CCF58) **no process admits new evidence or a new rule, so the spec would either freeze or grow by opinion** — Other projects will realign and report what failed, and that feedback needs a path that keeps the evidence standard intact. → §CCF59
+- 📋 **CCF59** (deps: CCF10 ✅, CCF58) **no process admits new evidence or a new rule, so the spec would either freeze or grow by opinion** — Other projects will realign and report what failed, and that feedback needs a path that keeps the evidence standard intact. → §CCF59
 - 📋 **CCF60** (deps: CCF41) **an agent in another repository cannot consume the spec cheaply: no llms.txt and no page per rule** — Winwright measured an agent rendering three pages to learn a tool; reading the spec must cost less than the waste it prevents. → §CCF60
 - 📋 **CCF61** (deps: —) **the work has no license, no citation metadata and no statement of how it was authored** — An academic reader must know how to cite it, and that an agent wrote most of it under a person's direction and with which checks. → §CCF61
 - 📋 **CCF62** (deps: CCF24) **the repository has no README telling a newcomer what the spec is, how to read it and how to adopt it** — The README is the first page an expert or an adopter opens, and today it does not exist. → §CCF62
