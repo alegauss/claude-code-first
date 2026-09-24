@@ -2,8 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-- 📋 **CCF6** (deps: CCF2 ✅) **a Write over an existing file is accepted silently here, the path that destroyed about 700 lines in pportal** — The loss is invisible in the tool's own report, so a rule cannot catch it and only a PreToolUse refusal naming Edit does. → §CCF6
-
 ## Block B — Research method and the evidence corpus
 
 - 📋 **CCF7** (deps: —) **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — An academic specification is only as strong as the method behind it, and today that method is five agent prompts nobody recorded. → §CCF7

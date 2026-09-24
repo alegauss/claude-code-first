@@ -2,17 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF6 No clobbering Write
-
-Adopt polyweave's `.claude/hooks/no-clobber.py`: a PreToolUse hook on Write that refuses
-to overwrite an existing non-empty file, exits 2 and names Edit; generated trees are
-exempt; an internal error exits 0 so it never blocks a turn; and it strips the
-byte-order mark that PowerShell 5.1 adds to piped input. Its docstring records roughly
-700 lines lost over four occasions in pportal, one of them committed before anyone
-noticed. Vendor it rather than rewrite it, naming the source repository and commit in
-the header so drift from the original can be detected. The same file later becomes a
-template (Block G), which makes this repository its first adopter.
-
 ## Block B — Research method and the evidence corpus
 
 ### §CCF7 A written research protocol

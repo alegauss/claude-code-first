@@ -38,7 +38,8 @@ Use it only when step 1 shows nothing but this task's files, and then always wit
 
 ## The message
 
-Write it to a scratchpad file and run `git commit -F <file>` from the repository root.
+Write it to a new scratchpad file and run `git commit -F <file>` from the repository root;
+the `no-clobber` hook refuses a Write over the last commit's file.
 A message composed on the command line can lose an em dash or an accent on the way
 (roadkeep RK1474).
 
