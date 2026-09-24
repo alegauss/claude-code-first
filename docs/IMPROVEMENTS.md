@@ -2,20 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF1 An every-turn file that is an index
-
-Write `agents.md` as the one file loaded every turn and a `.claude/CLAUDE.md` that only
-imports it (`@../agents.md`), as roadkeep does: its pointer sits under `.claude/`
-because a root CLAUDE.md ships inside a plugin payload (RK323), and this repository will
-ship an audit plugin (Block F). Content: the purpose in two sentences; three laws (every
-normative statement traces to evidence; every artefact is in English; governed files are
-written by roadkeep only); a layout index of the top-level directories with no task ids;
-and where the detail lives, which is skills and not this file. Evidence that the file
-must stay an index: Shio's agents.md reached 185,734 bytes before its split, and
-winwright keeps no instruction file at all because it is paid on every turn (WW69). Done
-when a fresh session can answer what this is, in what language, and how a task is filed,
-from that file alone.
-
 ### §CCF2 The roadkeep guard, wired and committed
 
 Run `roadkeep install --committed` so the hook launcher, `.mcp.json` and settings reach
@@ -52,7 +38,9 @@ skill l.17-19); check `git status` first, because that tool stages everything (S
 `b04ee918` committed sh545.log; freewilly DD117); and a task that revealed nothing wrong
 files nothing (roadkeep `35fc90c2`: 5 shipped, 10 filed). Add the `.gitignore` entries
 that make stage-everything safe here: logs, scratch files, bytecode caches and
-`.roadkeep/`.
+`.roadkeep/`. The committed `.claude/skills/roadkeep-gui-roadmap-docs` skill was copied
+from roadkeep-gui and names its npm gates and RG ids; this skill replaces it, and it is
+deleted in the same commit.
 
 ### §CCF5 Budgets on what loads every turn
 
