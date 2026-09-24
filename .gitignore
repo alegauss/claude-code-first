@@ -1,0 +1,2 @@
+# per-machine permission grants; every corpus project keeps this file out of git
+.claude/settings.local.json
