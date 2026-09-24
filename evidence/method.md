@@ -141,6 +141,9 @@ verbatim so the extraction can be repeated and its biases read.
 - [instruments/extraction-2026-09-24.md](instruments/extraction-2026-09-24.md): the five
   prompts behind the field notes. Its limits are stated there: read-only, one pass per
   case, one model, and prompts that carried the orchestrator's expectations.
+- [instruments/verification-2026-09-24.md](instruments/verification-2026-09-24.md): the
+  prompt that verified those notes claim by claim against the pins, and what the
+  resolver could and could not check of its output.
 
 ## References
 

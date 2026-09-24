@@ -4,17 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF11 Verifying the field notes
-
-Walk each file in `evidence/field-notes/` claim by claim against the pinned commit,
-checking quotes verbatim, line numbers, commit hashes and counts. Mark each claim
-verified, corrected (with the correction) or refuted, and convert each verified pointer
-into the citation grammar so the resolver checks it. An item labelled as inference is
-either upgraded with a source or kept as the extractor's interpretation, and is never
-cited as fact. Record the error rate per project: it is evidence about how far research
-extracted by agents can be trusted, which the threats to validity need. The corrected
-notes remain as the audit trail; findings cite the sources, never the notes.
-
 ### §CCF12 Threats to validity
 
 `evidence/validity.md` covers the four classic threats. Construct: "Claude Code first"
@@ -51,6 +40,19 @@ coding agents working in real repositories. For each: one paragraph on what it
 contributes and where this specification agrees, departs or extends. Web sources carry
 retrieval dates. Mark the claims for which no precedent was found, since those carry the
 burden of evidence.
+
+### §CCF63 A quote checked as written
+
+Found while verifying the field notes (CCF11). `scripts/resolve_citations.py` strips
+inline code spans from a line before it matches pointers, so a quote that contains a
+backticked name loses those words and can no longer be checked as written; the winwright
+verifier rewrote such quotes. It also compares whitespace-normalised text only, so a
+quote spanning several lines of a C# `///` comment, or two JSON strings, never matches,
+and verifiers split those into one pointer per line. Build: skip only pointers that lie
+inside a code span, rather than deleting the spans before matching, and let the quote
+keep its backticks; when comparing, drop a leading comment marker (`///`, `//`, `#`,
+`*`) from each source line of the range. Add test cases for both, and re-run the
+resolver on the five notes, which must stay green.
 
 ## Block C — Case studies and the findings register
 

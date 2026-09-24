@@ -15,6 +15,7 @@
 - ✅ **CCF8** **the corpus is named by path only, so a citation breaks as soon as a source repository moves on** — evidence/corpus.md pins each project to the full commit the notes read, each confirmed as HEAD during extraction, with remotes, work outside the pins and descriptive data.
 - ✅ **CCF9** **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — A pointer grammar is defined, and a tested resolver checks each pointer's project, commit, path, lines and quote against the pinned corpus in CI (design recorded in `evidence/method.md`).
 - ✅ **CCF10** **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — evidence/grading.md grades findings on recurrence and strength, counts copied practice once, maps grades to MUST, SHOULD and MAY, and sets itself against EBSE levels.
+- ✅ **CCF11** **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — All 564 field-note claims are marked against the pins, 789 pointers resolve, and the error rate is recorded: 13.8% overall, 12.9% to 16.3% per project.
 
 ## Block C — Case studies and the findings register
 

@@ -23,7 +23,7 @@ agents.md, roadkeep.toml   this file, and the backlog's configuration (prefix CC
 .claude/skills/            the detail, loaded when a task needs it
 docs/                      the governed backlog, ledger, rationale and decisions
 evidence/                  the protocol, corpus pins, grading scale and instruments
-evidence/field-notes/      preliminary extraction per corpus project: leads, not evidence
+evidence/field-notes/      extraction per corpus project, verified claim by claim
 scripts/                   the gates that are not roadkeep's, run by CI and by hand
 ```
 
@@ -35,5 +35,5 @@ scripts/                   the gates that are not roadkeep's, run by CI and by h
   `docs/IMPROVEMENTS.md`, which `brief` prints.
 - **Committing, and the gates before it**: the `ccf-dev` skill. One task, one commit,
   staged by path.
-- **The corpus**: `evidence/field-notes/README.md` names each project's root. Nothing in
-  the field notes may be cited until it is verified against a pinned commit.
+- **The corpus**: `evidence/corpus.md` pins each project. A finding cites the source
+  through a pointer, as the field notes' verification tables do, and never the notes.
