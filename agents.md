@@ -31,5 +31,7 @@ evidence/field-notes/      preliminary extraction per corpus project: leads, not
   `roadkeep brief --claim`, file with `roadkeep add`, close with `roadkeep ship`, and run
   `roadkeep lint` before every commit. The rationale for an open task is its section in
   `docs/IMPROVEMENTS.md`, which `brief` prints.
+- **Committing, and the gates before it**: the `ccf-dev` skill. One task, one commit,
+  staged by path.
 - **The corpus**: `evidence/field-notes/README.md` names each project's root. Nothing in
   the field notes may be cited until it is verified against a pinned commit.

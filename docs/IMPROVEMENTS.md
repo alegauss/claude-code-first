@@ -2,22 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF4 A trigger-loaded commit discipline
-
-A project skill `.claude/skills/ccf-dev/SKILL.md`, loaded on commit, stage, ship or
-file, instead of every-turn text (roadkeep RK1136 moved 26 such lines out of agents.md).
-Rules, each with its evidence: one task, one commit, with roadkeep's writes in the same
-commit (Shio agents.md L247; freewilly calls it "the single most violated rule"); a
-batch of two or more tasks driven by `/loop`; `run-commit.cmd -m` with a conventional
-title every time, because without it a docs commit is misread as a feature (freewilly
-skill l.17-19); check `git status` first, because that tool stages everything (Shio
-`b04ee918` committed sh545.log; freewilly DD117); and a task that revealed nothing wrong
-files nothing (roadkeep `35fc90c2`: 5 shipped, 10 filed). Add the `.gitignore` entries
-that make stage-everything safe here: logs, scratch files, bytecode caches and
-`.roadkeep/`. The committed `.claude/skills/roadkeep-gui-roadmap-docs` skill was copied
-from roadkeep-gui and names its npm gates and RG ids; this skill replaces it, and it is
-deleted in the same commit.
-
 ### §CCF5 Budgets on what loads every turn
 
 Declare `[budgets]` in `roadkeep.toml` for `agents.md` and `.claude/CLAUDE.md`, in lines

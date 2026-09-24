@@ -4,3 +4,13 @@
 # the roadkeep engine `roadkeep install --vendor` copies here, pinned per machine; the
 # committed launcher finds it, and committing it would make every upgrade a diff
 .roadkeep/
+
+# what a session leaves behind, which a stage-everything commit would sweep up: Shio
+# committed sh545.log in b04ee918, and freewilly's launcher left bytecode (DD116)
+*.log
+*.log.progress
+__pycache__/
+*.pyc
+scratch/
+*.tmp
+node_modules/
