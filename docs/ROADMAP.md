@@ -4,10 +4,9 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF8** (deps: —) **the corpus is named by path only, so a citation breaks as soon as a source repository moves on** — Every source project commits daily, and a line number without a commit cannot be found again within a week. → §CCF8
-- 📋 **CCF9** (deps: CCF8) **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — Shio's figures in agents.md drifted from 25 to 28 unnoticed until a test demanded a source; citations here need the same check. → §CCF9
+- 📋 **CCF9** (deps: CCF8 ✅) **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — Shio's figures in agents.md drifted from 25 to 28 unnoticed until a test demanded a source; citations here need the same check. → §CCF9
 - 📋 **CCF10** (deps: CCF7 ✅) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
-- 📋 **CCF11** (deps: CCF8, CCF9) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
+- 📋 **CCF11** (deps: CCF8 ✅, CCF9) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
 - 📋 **CCF12** (deps: CCF7 ✅) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
 - 📋 **CCF13** (deps: —) **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — Several lessons are harness facts, such as plugins absent on the web or settings rewritten mid-session, that a release can change. → §CCF13
 - 📋 **CCF14** (deps: —) **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — An academic reader first asks what a work adds to what already exists, and without a survey the answer is an assertion. → §CCF14
@@ -18,11 +17,11 @@
 - 📋 **CCF16** (deps: CCF11) **no case study describes polyweave, the one project governed from its very first commit** — Polyweave shipped about a hundred tasks in three days, so it shows a mature practice applied from day one, with the least history. → §CCF16
 - 📋 **CCF17** (deps: CCF11) **no case study describes freewilly, the project that works without any instruction file** — Freewilly has no every-turn file and a drained backlog, so it tests which rules survive when nothing is loaded by default. → §CCF17
 - 📋 **CCF18** (deps: CCF11) **no case study describes winwright, whose agent surface is shipped for other repositories to use** — Winwright designs for an agent that is not its author, which makes it the corpus's evidence on agent-facing products. → §CCF18
-- 📋 **CCF19** (deps: CCF11) **no case study describes shio, the only project that adopted the practice after years of history** — Shio had 1,777 commits before adoption, so its transition is the corpus's only record of adopting late. → §CCF19
+- 📋 **CCF19** (deps: CCF11) **no case study describes shio, the only project that adopted the practice after years of history** — Shio had 1,778 commits before adoption, so its transition is the corpus's only record of adopting late. → §CCF19
 - 📋 **CCF20** (deps: CCF10, CCF15, CCF16, CCF17, CCF18, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
 - 📋 **CCF21** (deps: CCF20) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
 - 📋 **CCF22** (deps: CCF15, CCF16, CCF17, CCF18, CCF19) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
-- 📋 **CCF23** (deps: CCF8) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
+- 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
 ## Block D — The normative specification
 

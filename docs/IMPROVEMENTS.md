@@ -4,18 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF8 A pinned corpus
-
-`evidence/corpus.md` lists each project with its remote, the worktree or branch read,
-and the commit the study is pinned to, together with descriptive data: language, domain,
-first commit, adoption commit (Shio `6bf11b754`, 2026-03-24), commit count, active days,
-and whether it is greenfield or brownfield. The field notes were read at roadkeep
-`91754240`, polyweave `6d1c136`, winwright `861b82e`, freewilly `c1c2eaf` and Shio
-`821f18d74`; confirm each, and record the uncommitted work present at extraction, such
-as roadkeep's staged `gui/` and polyweave's working tree. A re-pin is a deliberate act
-with its own changelog entry, because every citation in the repository is read against
-these commits.
-
 ### §CCF9 A citation grammar and its resolver
 
 Define one syntax for a pointer to primary evidence, such as

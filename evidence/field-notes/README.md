@@ -6,7 +6,8 @@ in them must be checked against the pinned source before it is cited by a findin
 rule (see the backlog task that verifies them). Paths are relative to each project's root.
 The prompts that produced them, and their limits, are in
 [../instruments/extraction-2026-09-24.md](../instruments/extraction-2026-09-24.md); the
-protocol they are held to is [../method.md](../method.md).
+protocol they are held to is [../method.md](../method.md), and the commit each project is
+pinned to is in [../corpus.md](../corpus.md).
 
 | Project | Root | Notes |
 |---|---|---|
