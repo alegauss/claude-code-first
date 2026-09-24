@@ -2,18 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF2 The roadkeep guard, wired and committed
-
-Run `roadkeep install --committed` so the hook launcher, `.mcp.json` and settings reach
-every clone, including Claude Code on the web, where plugins do not load (roadkeep
-RK1108; Shio `c215718bb`). Hooks on SessionStart, on PreToolUse for Edit, MultiEdit,
-NotebookEdit, Write and Bash, and on Stop running lint. Decide and record whether the
-engine is vendored under `.roadkeep/`: freewilly's fixed engine path saved one
-permission prompt per distinct command path (`89371b8`). Ignore `.roadkeep/` in git.
-Register the merge driver so parallel branches do not conflict on governed files.
-Verified by attempting a hand edit of the roadmap in a new session and seeing it denied
-with the command to use named in the refusal.
-
 ### §CCF3 A CI gate from the first commit
 
 A GitHub workflow on every push and pull request running `roadkeep lint` through the

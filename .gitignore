@@ -1,2 +1,6 @@
 # per-machine permission grants; every corpus project keeps this file out of git
 .claude/settings.local.json
+
+# the roadkeep engine `roadkeep install --vendor` copies here, pinned per machine; the
+# committed launcher finds it, and committing it would make every upgrade a diff
+.roadkeep/

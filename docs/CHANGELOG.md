@@ -3,6 +3,7 @@
 ## Block A — The repository follows its own rule
 
 - ✅ **CCF1** **a session opening this repository is told nothing: no every-turn file states purpose, language or write paths** — A session opening this repository now loads agents.md through .claude/CLAUDE.md, stating the purpose, three laws on evidence, English and roadkeep writes, and the layout.
+- ✅ **CCF2** **the governed docs have no guard here, so a hand edit of ROADMAP.md or IMPROVEMENTS.md passes unnoticed** — A hand edit of a governed doc is now denied by a committed PreToolUse guard naming the roadkeep command to use, on every clone, with a merge driver for the four files.
 
 ## Block B — Research method and the evidence corpus
 

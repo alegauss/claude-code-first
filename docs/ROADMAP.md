@@ -2,11 +2,10 @@
 
 ## Block A — The repository follows its own rule
 
-- 📋 **CCF2** (deps: —) **the governed docs have no guard here, so a hand edit of ROADMAP.md or IMPROVEMENTS.md passes unnoticed** — Every project in the corpus that relied on a written rule against hand edits saw the edits happen; only the hook stopped them. → §CCF2
-- 📋 **CCF3** (deps: CCF2) **no gate runs on push, so a lint failure or a broken link in the specification reaches main unremarked** — Freewilly removed its lint from CI and drift reached main unremarked until it was restored; a gate on one machine is not a gate. → §CCF3
+- 📋 **CCF3** (deps: CCF2 ✅) **no gate runs on push, so a lint failure or a broken link in the specification reaches main unremarked** — Freewilly removed its lint from CI and drift reached main unremarked until it was restored; a gate on one machine is not a gate. → §CCF3
 - 📋 **CCF4** (deps: —) **nothing states how work is committed here, so batching, stray files and mislabelled docs commits are all possible** — One task per commit is the most violated rule in two projects, and stage-everything commits swept logs and bytecode into unrelated work. → §CCF4
-- 📋 **CCF5** (deps: CCF1 ✅, CCF2) **the every-turn files carry no size budget, so they can grow the way Shio's agents.md reached 186 KB** — A budget written as a sentence was not enforced in roadkeep or Shio; only a gate holding a number stopped the growth. → §CCF5
-- 📋 **CCF6** (deps: CCF2) **a Write over an existing file is accepted silently here, the path that destroyed about 700 lines in pportal** — The loss is invisible in the tool's own report, so a rule cannot catch it and only a PreToolUse refusal naming Edit does. → §CCF6
+- 📋 **CCF5** (deps: CCF1 ✅, CCF2 ✅) **the every-turn files carry no size budget, so they can grow the way Shio's agents.md reached 186 KB** — A budget written as a sentence was not enforced in roadkeep or Shio; only a gate holding a number stopped the growth. → §CCF5
+- 📋 **CCF6** (deps: CCF2 ✅) **a Write over an existing file is accepted silently here, the path that destroyed about 700 lines in pportal** — The loss is invisible in the tool's own report, so a rule cannot catch it and only a PreToolUse refusal naming Edit does. → §CCF6
 
 ## Block B — Research method and the evidence corpus
 
