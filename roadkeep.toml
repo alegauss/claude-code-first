@@ -51,3 +51,13 @@ held = 60
 
 [install]
 wired = "0.2.489"
+
+[budgets]
+# Measured at 37 lines and 1923 bytes when the index was written (CCF1); the headroom is
+# one layout entry per directory the spec still has to add. A budget in prose was not
+# enforced in roadkeep (RK30) or Shio, whose file reached 185.7 KB; lower it when
+# content moves out.
+"agents.md" = { lines = 45, bytes = 2500 }
+# Measured at 9 lines and 331 bytes: it only imports agents.md, and a second paragraph
+# here would be a second place the rules live.
+".claude/CLAUDE.md" = { lines = 12, bytes = 400 }

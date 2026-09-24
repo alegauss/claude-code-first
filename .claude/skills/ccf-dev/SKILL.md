@@ -19,6 +19,8 @@ which are leads still to be verified (CCF11).
 - **Never do a second task before committing the first.** A request naming a block or
   several ids is a request to run them one at a time. A batch of two or more runs under
   `/loop`, one task per iteration (Shio agents.md L250-251).
+- **Before growing `agents.md`**, `roadkeep budget --file agents.md` says what room is
+  left; the budget is lowered when content moves out, never raised to fit.
 - **Before starting the next task**, `git status --short` holds none of the last one's
   files.
 
@@ -52,11 +54,12 @@ Run all of them before every commit. A red gate is fixed, never skipped.
 
 | Command | What it holds |
 |---|---|
-| `python .claude/hooks/roadkeep-launch.py lint` | the governed docs; exits non-zero on drift |
+| `python .claude/hooks/roadkeep-launch.py lint` | the governed docs, and the `[budgets]` on the every-turn files |
+| `python scripts/check_skills.py` | the size caps on every skill this repository writes |
 | `npx markdownlint-cli2 "**/*.md"` | the rule set in `.markdownlint-cli2.jsonc` |
 | `lychee --config lychee.toml "./**/*.md"` | every internal link and anchor; with no local lychee, run the `lycheeverse/lychee` image with the repository mounted at `/input` |
 
-CI runs the same three on every push (`.github/workflows/`), so a local green that CI
+CI runs the same four on every push (`.github/workflows/`), so a local green that CI
 turns red means the two have drifted.
 
 ## Filing what a task revealed

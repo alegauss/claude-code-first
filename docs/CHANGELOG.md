@@ -6,6 +6,7 @@
 - ✅ **CCF2** **the governed docs have no guard here, so a hand edit of ROADMAP.md or IMPROVEMENTS.md passes unnoticed** — A hand edit of a governed doc is now denied by a committed PreToolUse guard naming the roadkeep command to use, on every clone, with a merge driver for the four files.
 - ✅ **CCF3** **no gate runs on push, so a lint failure or a broken link in the specification reaches main unremarked** — Every push and pull request now runs roadkeep lint, an offline link check and a Markdown rule set; both new gates were seen failing locally (design superseded: lint is in roadkeep.yml).
 - ✅ **CCF4** **nothing states how work is committed here, so batching, stray files and mislabelled docs commits are all possible** — Committing here is a trigger-loaded ccf-dev skill: one task per commit, staged by path, message from a file, the three gates first (design superseded: staged by path).
+- ✅ **CCF5** **the every-turn files carry no size budget, so they can grow the way Shio's agents.md reached 186 KB** — agents.md and .claude/CLAUDE.md now carry line and byte budgets lint enforces, and every skill written here is capped at 700 characters of description and 6,000 of body.
 
 ## Block B — Research method and the evidence corpus
 

@@ -2,7 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-- 📋 **CCF5** (deps: CCF1 ✅, CCF2 ✅) **the every-turn files carry no size budget, so they can grow the way Shio's agents.md reached 186 KB** — A budget written as a sentence was not enforced in roadkeep or Shio; only a gate holding a number stopped the growth. → §CCF5
 - 📋 **CCF6** (deps: CCF2 ✅) **a Write over an existing file is accepted silently here, the path that destroyed about 700 lines in pportal** — The loss is invisible in the tool's own report, so a rule cannot catch it and only a PreToolUse refusal naming Edit does. → §CCF6
 
 ## Block B — Research method and the evidence corpus

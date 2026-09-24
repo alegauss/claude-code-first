@@ -33,3 +33,11 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@v24
         with:
           globs: '**/*.md'
+
+  skills:
+    name: skill size
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # A skill's description is paid on every turn; the caps are in the script.
+      - run: python3 scripts/check_skills.py

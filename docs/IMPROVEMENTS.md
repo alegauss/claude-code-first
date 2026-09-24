@@ -2,18 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF5 Budgets on what loads every turn
-
-Declare `[budgets]` in `roadkeep.toml` for `agents.md` and `.claude/CLAUDE.md`, in lines
-and bytes, set just above the size the index lands at, so `lint` fails the growth.
-Evidence: roadkeep RK30, "This budget lived in prose at the bottom of agents.md until
-the gate could hold it"; roadkeep lowers its figure after content moves out, because "a
-budget left at the old figure is room the prose grows back into"; Shio's file grew from
-9.8 KB to 185.7 KB in four months without one. Also cap the skills this repository
-writes, as winwright's `SkillTests.cs` caps the description at 700 characters and the
-body at 6,000, because a skill description is paid on every turn too. The config comment
-records each number and the measurement it came from.
-
 ### §CCF6 No clobbering Write
 
 Adopt polyweave's `.claude/hooks/no-clobber.py`: a PreToolUse hook on Write that refuses
