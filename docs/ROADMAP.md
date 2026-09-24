@@ -4,7 +4,7 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF7** (deps: —) **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — An academic specification is only as strong as the method behind it, and today that method is five agent prompts nobody recorded. → §CCF7
+- 🛠 **CCF7** (deps: —) **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — An academic specification is only as strong as the method behind it, and today that method is five agent prompts nobody recorded. → §CCF7
 - 📋 **CCF8** (deps: —) **the corpus is named by path only, so a citation breaks as soon as a source repository moves on** — Every source project commits daily, and a line number without a commit cannot be found again within a week. → §CCF8
 - 📋 **CCF9** (deps: CCF8) **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — Shio's figures in agents.md drifted from 25 to 28 unnoticed until a test demanded a source; citations here need the same check. → §CCF9
 - 📋 **CCF10** (deps: CCF7) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
