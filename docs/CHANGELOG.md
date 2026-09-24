@@ -13,6 +13,7 @@
 
 - ✅ **CCF7** **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — evidence/method.md states the research questions, case design, sources, extraction queries, coding scheme and disagreement rule; the first five prompts are kept verbatim.
 - ✅ **CCF8** **the corpus is named by path only, so a citation breaks as soon as a source repository moves on** — evidence/corpus.md pins each project to the full commit the notes read, each confirmed as HEAD during extraction, with remotes, work outside the pins and descriptive data.
+- ✅ **CCF9** **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — A pointer grammar is defined, and a tested resolver checks each pointer's project, commit, path, lines and quote against the pinned corpus in CI (design recorded in `evidence/method.md`).
 
 ## Block C — Case studies and the findings register
 

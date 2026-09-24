@@ -50,9 +50,26 @@ Session transcripts are not a source in the first extraction. They are local to 
 machine and are not part of any repository, so a claim resting on one could not be
 checked by a reader.
 
-Every source is read at a pinned commit. The pins are recorded per case (CCF8), and an
-evidence pointer names the commit it was read at (CCF9). A pointer without a commit is a
-lead, not evidence.
+Every source is read at a pinned commit. The pins are recorded per case in
+[corpus.md](corpus.md), and an evidence pointer names the commit it was read at. A
+pointer without a commit is a lead, not evidence.
+
+**Evidence pointers.** A pointer names a project from the corpus, a commit in the history
+of that project's pin, and optionally a path and a line range at that commit:
+
+| Form | Points at |
+|---|---|
+| `[shio@821f18d74]` | a commit, such as the one that introduced a rule |
+| `[shio@821f18d74:agents.md]` | a file at that commit |
+| `[shio@821f18d74:agents.md#L247]` | one line of it |
+| `[shio@821f18d74:agents.md#L247-L251]` | a range of lines |
+
+A quoted string directly before a pointer is a quote the pointer vouches for, as in
+`"the most violated rule in the project" [shio@821f18d74:agents.md#L247]`. It must occur,
+whitespace aside, in those lines, in the file when no range is given, or in the commit
+message for a bare commit. `scripts/resolve_citations.py` checks every pointer under
+`evidence/` and `spec/` against the corpus, and a pointer that does not resolve fails the
+build. Pointers written inside code, as in this table, are examples and are not checked.
 
 ## 4. Extraction procedure
 

@@ -4,9 +4,8 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF9** (deps: CCF8 ✅) **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — Shio's figures in agents.md drifted from 25 to 28 unnoticed until a test demanded a source; citations here need the same check. → §CCF9
 - 📋 **CCF10** (deps: CCF7 ✅) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
-- 📋 **CCF11** (deps: CCF8 ✅, CCF9) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
+- 📋 **CCF11** (deps: CCF8 ✅, CCF9 ✅) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
 - 📋 **CCF12** (deps: CCF7 ✅) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
 - 📋 **CCF13** (deps: —) **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — Several lessons are harness facts, such as plugins absent on the web or settings rewritten mid-session, that a release can change. → §CCF13
 - 📋 **CCF14** (deps: —) **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — An academic reader first asks what a work adds to what already exists, and without a survey the answer is an assertion. → §CCF14
@@ -49,7 +48,7 @@
 
 - 📋 **CCF40** (deps: Block D) **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — All-or-nothing conformance would stop every brownfield project, Shio included, from ever claiming any of it. → §CCF40
 - 📋 **CCF41** (deps: CCF40) **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — An audit that must reread the whole spec to learn what to check spends the context the spec tells projects to save. → §CCF41
-- 📋 **CCF42** (deps: CCF9, CCF41) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
+- 📋 **CCF42** (deps: CCF9 ✅, CCF41) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
 - 📋 **CCF43** (deps: CCF41) **automatable rules have no checker, so each audit rederives by reading what a script could measure** — Budgets, hook wiring, ignore rules and CI presence are facts about files, and paying for an agent's judgement on them is waste. → §CCF43
 - 📋 **CCF44** (deps: CCF43) **the rules that need judgement cannot be audited without an agent reading the whole spec** — Polyweave's scanner and verifier pair shows that a cheap scan plus a strong verification finds more, with fewer false findings. → §CCF44
 - 📋 **CCF45** (deps: CCF41) **an audit report has no fixed format, so two audits of one project cannot be compared over time** — Realignment is measured by the difference between two audits, which needs the same fields, the spec version and the commit audited. → §CCF45

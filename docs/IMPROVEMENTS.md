@@ -4,18 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF9 A citation grammar and its resolver
-
-Define one syntax for a pointer to primary evidence, such as
-`[shio@821f18d74:agents.md#L247]` for a file and line and `[roadkeep@a39c73fd]` for a
-commit, with the project name drawn from the corpus. Write a resolver that reads every
-Markdown file under `evidence/` and `spec/` and checks each pointer against the pinned
-repository: the object exists, the path exists at that commit, and the line range lies
-within the file. It exits non-zero on any failure, and runs locally and in CI where the
-sources are reachable. It is modelled on Shio's `agents-md-figures.test.mjs` (SH974),
-which fails a figure not cited from the run that produced it. It also checks quotes: a
-quoted string attached to a pointer must occur at that location.
-
 ### §CCF10 An evidence grading scale
 
 Grades on two axes. Recurrence: seen once; recurring within one project; independently

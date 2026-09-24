@@ -14,3 +14,6 @@ __pycache__/
 scratch/
 *.tmp
 node_modules/
+
+# partial clones of the corpus that scripts/resolve_citations.py makes to check pointers
+.cache/
