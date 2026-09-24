@@ -22,6 +22,7 @@ agents.md, roadkeep.toml   this file, and the backlog's configuration (prefix CC
 .claude/CLAUDE.md          imports this file and nothing else
 .claude/skills/            the detail, loaded when a task needs it
 docs/                      the governed backlog, ledger, rationale and decisions
+evidence/method.md         the research protocol; evidence/instruments/ holds its prompts
 evidence/field-notes/      preliminary extraction per corpus project: leads, not evidence
 scripts/                   the gates that are not roadkeep's, run by CI and by hand
 ```

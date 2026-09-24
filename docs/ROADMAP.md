@@ -4,12 +4,11 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 🛠 **CCF7** (deps: —) **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — An academic specification is only as strong as the method behind it, and today that method is five agent prompts nobody recorded. → §CCF7
 - 📋 **CCF8** (deps: —) **the corpus is named by path only, so a citation breaks as soon as a source repository moves on** — Every source project commits daily, and a line number without a commit cannot be found again within a week. → §CCF8
 - 📋 **CCF9** (deps: CCF8) **an evidence pointer has no grammar, so nothing can check that the path, line or commit it names exists** — Shio's figures in agents.md drifted from 25 to 28 unnoticed until a test demanded a source; citations here need the same check. → §CCF9
-- 📋 **CCF10** (deps: CCF7) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
+- 📋 **CCF10** (deps: CCF7 ✅) **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — Expert readers weigh a rule by its support; without a grade they must reread the sources to learn it. → §CCF10
 - 📋 **CCF11** (deps: CCF8, CCF9) **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — The notes already mix quotes with inferences, and every later finding would inherit whatever error they carry. → §CCF11
-- 📋 **CCF12** (deps: CCF7) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
+- 📋 **CCF12** (deps: CCF7 ✅) **threats to validity are unstated: one author, one harness, one model family, five projects in three months** — A specification consulted by experts must say where its conclusions stop, or it will be read as general law. → §CCF12
 - 📋 **CCF13** (deps: —) **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — Several lessons are harness facts, such as plugins absent on the web or settings rewritten mid-session, that a release can change. → §CCF13
 - 📋 **CCF14** (deps: —) **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — An academic reader first asks what a work adds to what already exists, and without a survey the answer is an assertion. → §CCF14
 

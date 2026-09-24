@@ -4,19 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF7 A written research protocol
-
-`evidence/method.md` states the design as a multiple-case study, following Yin and
-Runeson and Höst's guidelines for case study research in software engineering. The unit
-of analysis is a repository developed with Claude Code as its primary author under a
-person's governance. The sources are git history, governed planning files, agent
-configuration, tests and CI. The extraction procedure, meaning the queries, files and
-keywords, is written down so that a second extractor can repeat it. The protocol also
-fixes the coding scheme that turns an observation into a finding (claim, source, locus,
-mechanism, consequence) and how a disagreement between extractors is settled. The five
-agent prompts used on 2026-09-24 are recorded verbatim as the first instrument, with
-their limits stated: read-only, a single pass, a single model.
-
 ### §CCF8 A pinned corpus
 
 `evidence/corpus.md` lists each project with its remote, the worktree or branch read,

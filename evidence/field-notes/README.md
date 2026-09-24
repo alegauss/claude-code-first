@@ -4,6 +4,9 @@ These five files are the first extraction pass over the corpus, made on 2026-09-
 read-only research agents, one per project. They are **leads, not evidence**: every claim
 in them must be checked against the pinned source before it is cited by a finding or a
 rule (see the backlog task that verifies them). Paths are relative to each project's root.
+The prompts that produced them, and their limits, are in
+[../instruments/extraction-2026-09-24.md](../instruments/extraction-2026-09-24.md); the
+protocol they are held to is [../method.md](../method.md).
 
 | Project | Root | Notes |
 |---|---|---|

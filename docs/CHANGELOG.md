@@ -11,6 +11,8 @@
 
 ## Block B — Research method and the evidence corpus
 
+- ✅ **CCF7** **no protocol says how evidence is gathered or judged, so a finding here cannot be reproduced or challenged** — evidence/method.md states the research questions, case design, sources, extraction queries, coding scheme and disagreement rule; the first five prompts are kept verbatim.
+
 ## Block C — Case studies and the findings register
 
 ## Block D — The normative specification
