@@ -17,6 +17,7 @@
 - ✅ **CCF10** **claims carry no strength, so one incident in one project reads like a pattern seen in all five** — evidence/grading.md grades findings on recurrence and strength, counts copied practice once, maps grades to MUST, SHOULD and MAY, and sets itself against EBSE levels.
 - ✅ **CCF11** **the field notes were extracted by agents and not one of their claims has been checked against the pinned sources** — All 564 field-note claims are marked against the pins, 789 pointers resolve, and the error rate is recorded: 13.8% overall, 12.9% to 16.3% per project.
 - ✅ **CCF12** **threats to validity are unstated: one author, one harness, one model family, five projects over six months** — evidence/validity.md states the construct, internal, external and reliability threats, traces the direction of copying from dated commits, and reports the measured error rate.
+- ✅ **CCF13** **the Claude Code behaviour the spec relies on is cited from memory rather than from versioned documentation** — evidence/harness.md registers 14 documented harness facts with page, date and CLI 2.1.280, and 3 observed ones with evidence, one now contradicted by the docs.
 
 ## Block C — Case studies and the findings register
 

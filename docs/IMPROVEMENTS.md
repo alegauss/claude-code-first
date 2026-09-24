@@ -4,18 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF13 A register of harness facts
-
-`evidence/harness.md` lists every Claude Code behaviour a rule depends on: CLAUDE.md
-import syntax, skill loading by description, hook events and exit-code semantics, plugin
-and marketplace loading, settings precedence, MCP tool schemas in context, and `/loop`.
-Each has the official documentation page, the retrieval date and the CLI version it was
-observed on; roadkeep pins `claude plugin validate` to 2.1.220 (RK335). Behaviour that
-was observed but is not documented, such as freewilly's settings trimmed mid-session
-(`ac7e7ec`) or roadkeep's silent drop of invalid YAML frontmatter (RK331), is marked as
-an observation with its evidence. A rule depending on a fact names it, so a harness
-release that changes the fact identifies the rules to revisit.
-
 ### §CCF14 Related work and bibliography
 
 A bibliography file and `evidence/related-work.md` covering: architecture decision
@@ -289,8 +277,10 @@ detected (RK153, RK234; freewilly `89371b8`); line endings are pinned by
 `.gitattributes` and tested (RK1132: 45 modules ending CRLF and 11 ending LF); encoding
 is judged on bytes before a defect is filed (Shio SH519; polyweave `f203b0a`); source is
 never edited through a heredoc (RK1091); and PowerShell 5.1 adds a byte-order mark to
-piped input (polyweave's no-clobber, L63-66). Each rule names the platform facts it
-depends on through the harness register.
+piped input (polyweave's no-clobber, L59-62, corrected by CCF11). The first rule rests
+on observation O3 in evidence/harness.md, which the documentation now contradicts (H10:
+synced plugins load in cloud sessions); test a plugin in a cloud session before writing
+it. Each rule names the platform facts it depends on through the harness register.
 
 ### §CCF33 Chapter: agent-facing product surfaces
 
