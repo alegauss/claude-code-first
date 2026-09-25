@@ -1,15 +1,19 @@
-"""Build the published site: a page per rule and per finding, Markdown twins, llms.txt.
+"""Build the published site: a plain-language guide, and the specification under spec/.
 
 Everything is generated from the repository; nothing in the output is edited by hand.
 
     python scripts/build_site.py [--out site]
 
-The output holds, for every rule and every finding, an HTML page and its Markdown twin
-(rules/IS-1.html and rules/IS-1.md), an index page, `llms.txt` listing the Markdown
-twins for agents, and the rule registry as data (rules.toml and rules.json) so a tool can
-fetch one version's rules without the prose. Every page names the specification version
-and the evidence grade. Standard library only: the HTML conversion covers the Markdown
-this repository writes (headings, paragraphs, lists, tables, emphasis, code and links).
+The root is the guide, rendered from guide/index.html: its copy is written there, and every
+figure and chart on it is computed here from the registry, the findings, the corpus and
+the metrics, so none can go stale in the template (F7). Under spec/ is the site as first
+published: for every rule and every finding, an HTML page and its Markdown twin
+(spec/rules/IS-1.html and spec/rules/IS-1.md), an index page, and the rule registry as
+data (rules.toml and rules.json) so a tool can fetch one version's rules without the
+prose. `llms.txt` stays at the root, where agents look for it, and lists the twins. Every
+specification page names the version and the evidence grade, and links back to the
+guide. Standard library only: the HTML conversion covers the Markdown this repository
+writes (headings, paragraphs, lists, tables, emphasis, code and links).
 """
 
 from __future__ import annotations
@@ -17,6 +21,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import math
 import posixpath
 import re
 import shutil
@@ -39,7 +44,7 @@ def inline(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
 
 
-def to_html(markdown: str, title: str, version: str) -> str:
+def to_html(markdown: str, title: str, version: str, home: str) -> str:
     out, paragraph, in_list, in_code, table = [], [], False, False, []
 
     def flush():
@@ -95,7 +100,8 @@ def to_html(markdown: str, title: str, version: str) -> str:
         "<style>body{max-width:46rem;margin:2rem auto;padding:0 1rem;font:16px/1.55 system-ui,sans-serif}"
         "table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:.25rem .5rem;text-align:left}"
         "code{font-size:.9em}pre{overflow-x:auto}</style></head><body>"
-        f"<p><small>Claude Code First, specification version {html.escape(version)}</small></p>"
+        f"<p><small>Claude Code First, specification version {html.escape(version)}. "
+        f"<a href=\"{home}\">The plain-language guide</a></small></p>"
         + "\n".join(out) + "</body></html>\n"
     )
 
@@ -117,6 +123,7 @@ def rule_sections(root: Path) -> dict[str, str]:
 
 
 SOURCE = "https://github.com/alegauss/claude-code-first/blob/main/"
+SPEC = "spec"  # the folder of the site as first published, under the guide
 LINK = re.compile(r"\]\((?!https?://|#)([^)\s]+)\)")
 
 
@@ -145,8 +152,9 @@ def build(out: Path, root: Path = ROOT) -> dict:
             findings[f"F{finding['number']}"] = (finding, path.read_text(encoding="utf-8"))
     if out.exists():
         shutil.rmtree(out)
-    (out / "rules").mkdir(parents=True)
-    (out / "findings").mkdir()
+    spec = out / SPEC
+    (spec / "rules").mkdir(parents=True)
+    (spec / "findings").mkdir()
     sections = rule_sections(root)
 
     def grade_of(rule: dict) -> str:
@@ -156,43 +164,195 @@ def build(out: Path, root: Path = ROOT) -> dict:
     for rule in registry:
         header = (f"Version {version}. Level {rule['level']}. Best evidence grade {grade_of(rule)}.\n\n")
         text = header + relink(sections.get(rule["address"], f"# {rule['address']}\n\n{rule['statement']}\n"), "spec")
-        (out / "rules" / f"{rule['address']}.md").write_text(text, encoding="utf-8", newline="\n")
+        (spec / "rules" / f"{rule['address']}.md").write_text(text, encoding="utf-8", newline="\n")
         title = f"{rule['address']} {rule['title']}"
-        (out / "rules" / f"{rule['address']}.html").write_text(
-            to_html(text.replace(".md)", ".html)"), title, version), encoding="utf-8", newline="\n")
+        (spec / "rules" / f"{rule['address']}.html").write_text(
+            to_html(text.replace(".md)", ".html)"), title, version, "../../index.html"),
+            encoding="utf-8", newline="\n")
     for fid, (finding, text) in sorted(findings.items(), key=lambda kv: int(kv[0][1:])):
         body = f"Version {version}. Grade {finding['Grade']}.\n\n" + relink(text, "evidence/findings")
-        (out / "findings" / f"{fid}.md").write_text(body, encoding="utf-8", newline="\n")
-        (out / "findings" / f"{fid}.html").write_text(
-            to_html(body, f"{fid} {finding['claim']}", version), encoding="utf-8", newline="\n")
+        (spec / "findings" / f"{fid}.md").write_text(body, encoding="utf-8", newline="\n")
+        (spec / "findings" / f"{fid}.html").write_text(
+            to_html(body, f"{fid} {finding['claim']}", version, "../../index.html"), encoding="utf-8", newline="\n")
 
-    shutil.copyfile(root / "spec" / "rules.toml", out / "rules.toml")
-    (out / "rules.json").write_text(json.dumps({"version": version, "rules": registry}, indent=2) + "\n",
-                                    encoding="utf-8", newline="\n")
+    shutil.copyfile(root / "spec" / "rules.toml", spec / "rules.toml")
+    (spec / "rules.json").write_text(json.dumps({"version": version, "rules": registry}, indent=2) + "\n",
+                                     encoding="utf-8", newline="\n")
     llms = [
         "# Claude Code First",
         "",
         "> An evidence-based specification of how to run a software project with Claude Code as",
         "> its primary author. Each rule cites graded findings from five projects.",
         "",
-        f"Version {version}. The rule registry as data: [rules.toml](rules.toml), [rules.json](rules.json).",
+        f"Version {version}. The rule registry as data: [rules.toml]({SPEC}/rules.toml), "
+        f"[rules.json]({SPEC}/rules.json). A plain-language guide for people: [index.html](index.html).",
         "",
         "## Rules",
         "",
     ]
-    llms += [f"- [{r['address']} {r['title']}](rules/{r['address']}.md): {r['keyword']}, level {r['level']}"
+    llms += [f"- [{r['address']} {r['title']}]({SPEC}/rules/{r['address']}.md): {r['keyword']}, level {r['level']}"
              for r in registry]
     llms += ["", "## Findings", ""]
-    llms += [f"- [{fid} {f[0]['claim']}](findings/{fid}.md): {f[0]['Grade']}"
+    llms += [f"- [{fid} {f[0]['claim']}]({SPEC}/findings/{fid}.md): {f[0]['Grade']}"
              for fid, f in sorted(findings.items(), key=lambda kv: int(kv[0][1:]))]
     (out / "llms.txt").write_text("\n".join(llms) + "\n", encoding="utf-8", newline="\n")
     index = ["# Claude Code First", "", f"Specification version {version}.", "", "## Rules", "",
              "| Rule | Keyword | Level | Statement |", "|---|---|---|---|"]
     index += [f"| [{r['address']}](rules/{r['address']}.html) | {r['keyword']} | {r['level']} | {r['statement']} |"
               for r in registry]
-    (out / "index.html").write_text(to_html("\n".join(index), "Claude Code First", version),
-                                    encoding="utf-8", newline="\n")
+    (spec / "index.html").write_text(to_html("\n".join(index), "Claude Code First", version, "../index.html"),
+                                     encoding="utf-8", newline="\n")
+    guide(out, root, version, registry, {fid: f for fid, (f, _) in findings.items()})
     return {"rules": len(registry), "findings": len(findings)}
+
+
+# ---------- the guide ----------
+
+PLACEHOLDER = re.compile(r"\{\{(\w+)\}\}")
+LEVELS = [("1", "Level 1", "--lv-1"), ("2", "Level 2", "--lv-2"), ("3", "Level 3", "--lv-3"),
+          ("profile", "Agent-facing profile", "--lv-p")]
+LEVEL_KEYS = [lv for lv, _, _ in LEVELS]
+GRADE = re.compile(r"R(\d)/S(\d)")
+
+
+def corpus_rows(root: Path) -> list[dict]:
+    """The projects, in the order and words of the descriptive table in evidence/corpus.md."""
+    rows = []
+    for line in (root / "evidence" / "corpus.md").read_text(encoding="utf-8").splitlines():
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) == 8 and cells[7] in ("greenfield", "brownfield"):
+            rows.append({"name": cells[0], "language": cells[1], "what": cells[2], "kind": cells[7]})
+    return rows
+
+
+def chapter_names(root: Path) -> list[tuple[str, str]]:
+    """The chapters, in the order of the table in spec/README.md."""
+    text = (root / "spec" / "README.md").read_text(encoding="utf-8")
+    return re.findall(r"^\| ([A-Z]{2}) \| \[([^\]]+)\]\([A-Z]{2}\.md\)", text, re.MULTILINE)
+
+
+def bar_row(label: str, segments: list[tuple[int, str]], share: float, value: str, tip: str) -> str:
+    """One row of a bar chart: the fill's width is `share` of the track, split into segments."""
+    fills = "".join(f'<i style="flex:{n};--sw:var({sw})"></i>' for n, sw in segments if n)
+    return (f'<div class="bar-row" title="{html.escape(tip)}"><span class="bar-label">{html.escape(label)}</span>'
+            f'<span class="bar-track"><span class="bar-fill" style="width:{share * 82:.1f}%">{fills}</span>'
+            f'<span class="bar-value">{html.escape(value)}</span></span></div>')
+
+
+def table_view(head: list[str], rows: list[list[str]]) -> str:
+    """The chart's figures as a table, for a reader who cannot or would rather not read the marks."""
+    body = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>" for row in rows)
+    heads = "".join(f"<th>{html.escape(h)}</th>" for h in head)
+    return (f'<details><summary>Show the figures as a table</summary><div class="table-scroll">'
+            f"<table><thead><tr>{heads}</tr></thead><tbody>{body}</tbody></table></div></details>")
+
+
+def chart_every_turn(metrics: list[dict], names: dict[str, str]) -> str:
+    ordered = sorted(metrics, key=lambda m: -m["every_turn_tokens"])
+    top = max(m["every_turn_tokens"] for m in ordered) or 1
+    rows = [bar_row(names.get(m["project"], m["project"]), [(1, "--lv-2")], m["every_turn_tokens"] / top,
+                    f"about {m['every_turn_tokens']:,} tokens",
+                    f"{names.get(m['project'], m['project'])}: {m['every_turn_bytes']:,} bytes, "
+                    f"about {m['every_turn_tokens']:,} tokens")
+            for m in ordered]
+    table = table_view(["Project", "Bytes", "Tokens (estimate)"],
+                       [[html.escape(names.get(m["project"], m["project"])), f"{m['every_turn_bytes']:,}",
+                         f"{m['every_turn_tokens']:,}"] for m in ordered])
+    return f'<div class="bars">{"".join(rows)}</div>{table}'
+
+
+def chart_levels(registry: list[dict], chapters: list[tuple[str, str]]) -> str:
+    counts = {code: dict.fromkeys(LEVEL_KEYS, 0) for code, _ in chapters}
+    for rule in registry:
+        counts.setdefault(rule["chapter"], dict.fromkeys(LEVEL_KEYS, 0))[rule["level"]] += 1
+    top = max(sum(c.values()) for c in counts.values()) or 1
+    legend = "".join(f'<span><i style="--sw:var({sw})"></i>{name}</span>' for _, name, sw in LEVELS)
+    rows, table = [], []
+    for code, name in chapters:
+        c = counts[code]
+        total = sum(c.values())
+        split = ", ".join(f"{c[lv]} at {label.lower()}" for lv, label, _ in LEVELS if c[lv])
+        rows.append(bar_row(name, [(c[lv], sw) for lv, _, sw in LEVELS], total / top,
+                            f"{total} rule{'s' if total != 1 else ''}", f"{code}, {name}: {split}"))
+        table.append([f'<a href="{SPEC}/index.html">{code}</a> {html.escape(name)}'] + [str(c[lv]) for lv, _, _ in LEVELS]
+                     + [str(total)])
+    head = ["Chapter"] + [label for _, label, _ in LEVELS] + ["Total"]
+    return (f'<div class="legend">{legend}</div><div class="bars wide">{"".join(rows)}</div>'
+            + table_view(head, table))
+
+
+def chart_grades(findings: dict[str, dict]) -> str:
+    cells: dict[tuple[int, int], list[str]] = {}
+    for fid, finding in findings.items():
+        grade = GRADE.search(finding["Grade"])
+        if grade:
+            cells.setdefault((int(grade.group(1)), int(grade.group(2))), []).append(fid)
+    top = max((len(v) for v in cells.values()), default=1)
+    grid = ['<span class="corner">R \\ S</span>'] + [f'<span class="axis">S{s}</span>' for s in range(1, 5)]
+    table = []
+    for r in range(4, 0, -1):
+        grid.append(f'<span class="axis">R{r}</span>')
+        for s in range(1, 5):
+            ids = sorted(cells.get((r, s), []), key=lambda f: int(f[1:]))
+            n = len(ids)
+            # a square root, so the few findings in most cells stay tellable from none
+            pct = 0 if not n else max(18, round(100 * math.sqrt(n / top)))
+            klass = "cell zero" if not n else ("cell hi" if pct >= 55 else "cell")
+            tip = f"R{r}/S{s}: {n} finding{'s' if n != 1 else ''}" + (f" ({', '.join(ids)})" if ids else "")
+            grid.append(f'<span class="{klass}" style="--pct:{pct}%" title="{tip}">{n}</span>')
+            if ids:
+                links = " ".join(f'<a href="{SPEC}/findings/{f}.html">{f}</a>' for f in ids)
+                table.append([f"R{r}/S{s}", str(n), links])
+    foot = ('<p class="heat-foot">Rows: recurrence, R4 seen in all five projects. '
+            "Columns: strength, S4 held by a test that fails.</p>")
+    return (f'<div class="heat" role="img" aria-label="Findings counted by recurrence and strength grade">'
+            f'{"".join(grid)}</div>{foot}' + table_view(["Grade", "Findings", "Which"], table))
+
+
+def project_cards(root: Path, metrics: list[dict]) -> str:
+    by_name = {m["project"].lower(): m for m in metrics}
+    kinds = {"greenfield": "run this way from its first days",
+             "brownfield": "adopted the practice after years of history"}
+    cards = []
+    for row in corpus_rows(root):
+        m = by_name[row["name"].lower()]
+        what = row["what"][0].upper() + row["what"][1:]
+        cards.append(
+            f'      <article class="card"><h3>{html.escape(row["name"])}</h3>'
+            f"<p>{html.escape(what)}, {kinds[row['kind']]}.</p>"
+            f'<p class="stat"><b>{m["commits"]:,}</b> commits over <b>{m["active_days"]:,}</b> active days '
+            f"&middot; {html.escape(row['language'])}</p></article>")
+    if len(cards) != len(metrics):
+        raise ValueError(f"evidence/corpus.md describes {len(cards)} project(s), the metrics {len(metrics)}")
+    return "\n".join(cards)
+
+
+def guide(out: Path, root: Path, version: str, registry: list[dict], findings: dict[str, dict]) -> None:
+    """Render guide/index.html at the root, refusing a placeholder the build does not fill."""
+    metrics = json.loads((root / "evidence" / "metrics" / "metrics.json").read_text(encoding="utf-8"))
+    chapters = chapter_names(root)
+    names = {row["name"].lower(): row["name"] for row in corpus_rows(root)}
+    values = {
+        "version": html.escape(version),
+        "rules": str(len(registry)),
+        "findings": str(len(findings)),
+        "chapters": str(len(chapters)),
+        "projects": str(len(metrics)),
+        "commits": f"{sum(m['commits'] for m in metrics):,}",
+        "repo": SOURCE,
+        "repo_home": SOURCE.removesuffix("blob/main/"),
+        "project_cards": project_cards(root, metrics),
+        "chart_every_turn": chart_every_turn(metrics, names),
+        "chart_levels": chart_levels(registry, chapters),
+        "chart_grades": chart_grades(findings),
+    }
+    template = (root / "guide" / "index.html").read_text(encoding="utf-8")
+    missing = sorted({name for name in PLACEHOLDER.findall(template) if name not in values})
+    if missing:
+        raise ValueError(f"guide/index.html names placeholders the build does not fill: {', '.join(missing)}")
+    page = PLACEHOLDER.sub(lambda m: values[m.group(1)], template)
+    (out / "index.html").write_text(page, encoding="utf-8", newline="\n")
+    shutil.copyfile(root / "guide" / "style.css", out / "style.css")
 
 
 def main(argv: list[str] | None = None) -> int:

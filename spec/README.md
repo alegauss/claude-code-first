@@ -47,7 +47,8 @@ the form of the audit report that backs a claim. [versioning.md](versioning.md) 
 the version moves when a rule changes, and [changing.md](changing.md) how a change is
 proposed and admitted. [rules.toml](rules.toml) is every rule
 in one machine-readable file, generated from the chapters, and `scripts/build_site.py`
-publishes a page per rule and per finding, Markdown twins and an `llms.txt` for agents; `python scripts/rules.py query`
+publishes a page per rule and per finding under `spec/`, Markdown twins, an `llms.txt` for
+agents and, at the root, a plain-language guide rendered from `guide/`; `python scripts/rules.py query`
 answers questions such as which level 2 rules need judgement, without reading the chapters. Then read the chapters in any order; each opens with the
 problem it answers, stated from the findings, and each rule links the findings it rests
 on. A reader who doubts a rule follows its findings to their observations, and the
