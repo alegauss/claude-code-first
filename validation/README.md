@@ -9,6 +9,7 @@ tasks offered to the project's owner, and what the audit cost (`<project>-notes.
 | Project | Report | Notes |
 |---|---|---|
 | roadkeep | [roadkeep.md](roadkeep.md) | [roadkeep-notes.md](roadkeep-notes.md) |
+| polyweave | [polyweave.md](polyweave.md) | [polyweave-notes.md](polyweave-notes.md) |
 
 A report's verdicts are the audit's, not the owner's: a failure is classified and acted on
 only when the owner decides. How far the audit itself can be trusted is measured

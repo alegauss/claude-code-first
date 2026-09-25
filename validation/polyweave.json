@@ -1,0 +1,453 @@
+{
+  "spec_version": "0.1.0",
+  "repository": "polyweave",
+  "commit": "15874cc0a331f70d6964aa41604cd0befe9491cc",
+  "date": "2026-09-25",
+  "claimed_level": 3,
+  "achieved_level": 0,
+  "profile": true,
+  "tools": {
+    "checker": "0.1.0",
+    "skill": "0.1.0"
+  },
+  "rules": [
+    {
+      "rule": "IS-1",
+      "level": "1",
+      "verdict": "could not run",
+      "by": "checker",
+      "evidence": "every-turn files present; no budget declared in a format this checker reads"
+    },
+    {
+      "rule": "PG-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "planning files declared in roadkeep.toml, and a PreToolUse guard is wired"
+    },
+    {
+      "rule": "CD-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "every commit adds at most one ledger entry"
+    },
+    {
+      "rule": "VG-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "5 instruction file(s) scanned, no piped gate"
+    },
+    {
+      "rule": "VG-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "on push: gates.yml, roadkeep.yml, site.yml"
+    },
+    {
+      "rule": "EP-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "line terminators declared in .gitattributes"
+    },
+    {
+      "rule": "AP-1",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "src/polyweave/server.py:41-49",
+      "evidence": "Tool, list, skill and response budgets have reasons beside them and are enforced by tests."
+    },
+    {
+      "rule": "AP-2",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/test_plugin.py:53-58",
+      "evidence": "Every name in the shipped skill and specs is checked against the registry and the code."
+    },
+    {
+      "rule": "AP-3",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".github/workflows/gates.yml:27",
+      "evidence": "CI installs editable and tests the checkout; no test loads the MCP server or skill from a built or installed artefact."
+    },
+    {
+      "rule": "AP-4",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "commits 5eb1a8e, ddad82d",
+      "evidence": "Adoption claims name Cottony and a counted change there."
+    },
+    {
+      "rule": "AW-1",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "CLAUDE.md:58",
+      "evidence": "CLAUDE.md says five constraints bind the project while docs/ROADMAP.md lists six non-goals, and nothing checks the count."
+    },
+    {
+      "rule": "AW-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:16-26",
+      "evidence": "[limits] are enforced by the roadkeep write path."
+    },
+    {
+      "rule": "AW-3",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:24-26",
+      "evidence": "No house style is declared beyond the fill width roadkeep applies."
+    },
+    {
+      "rule": "CD-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git log",
+      "evidence": "No commit bundles several finished tasks; parts are marked."
+    },
+    {
+      "rule": "CD-3",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "CLAUDE.md:64",
+      "evidence": "The prescribed commit tool stages the whole tree while the audit skill expects other sessions to share the checkout."
+    },
+    {
+      "rule": "CD-4",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 8d762a2 (also 3771c41)",
+      "evidence": "Titles carry no task id and bodies are generated bullets walking the diff."
+    },
+    {
+      "rule": "CD-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/DEFERRED.md",
+      "evidence": "Open lines and deferral entries each name a symptom."
+    },
+    {
+      "rule": "CD-6",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "CLAUDE.md:61-64",
+      "evidence": "The commit rules do not say whether commits carry attribution."
+    },
+    {
+      "rule": "CS-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:33-35",
+      "evidence": "Claims are configured and tasks start through roadkeep brief."
+    },
+    {
+      "rule": "CS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".gitignore:7-9",
+      "evidence": "The commit tool stages the whole tree, so in a shared checkout it stages outside any claim."
+    },
+    {
+      "rule": "CS-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "repository root",
+      "evidence": "No commit-time hook is tracked."
+    },
+    {
+      "rule": "CS-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tools/gate.py:136-141",
+      "evidence": "The lock detects only another run of the gate itself, so a run disturbed by another session's edits still reports green or red."
+    },
+    {
+      "rule": "CS-5",
+      "level": "3",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "The clone keeps no record of other sessions' uncommitted work when counts were taken."
+    },
+    {
+      "rule": "EP-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/hooks/roadkeep-launch.py:26-36",
+      "evidence": "The launcher declares the resolution order and roadkeep.toml pins the version."
+    },
+    {
+      "rule": "EP-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "src/polyweave/capabilities.py:57-63",
+      "evidence": "Child output is decoded with the locale default; also loop.py:81-88 and tools/gate.py."
+    },
+    {
+      "rule": "EP-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "hooks/guard.py:167",
+      "evidence": "The shipped guard does not strip a byte-order mark, and its bare except then allows the call silently."
+    },
+    {
+      "rule": "EP-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/test_readable.py",
+      "evidence": "The PW73 encoding defect is checked on bytes."
+    },
+    {
+      "rule": "EP-6",
+      "level": "2",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "The clone does not record which tool wrote source files."
+    },
+    {
+      "rule": "GH-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md PW137, PW135",
+      "evidence": "Recorded breaches were moved into gates."
+    },
+    {
+      "rule": "GH-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:24-34",
+      "evidence": "The no-clobber guard's rule has no gate in CI and no test."
+    },
+    {
+      "rule": "GH-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:26",
+      "evidence": "no-clobber is matched only on Write, so a shell redirect can replace a file unguarded."
+    },
+    {
+      "rule": "GH-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/hooks/roadkeep-launch.py:421-427",
+      "evidence": "When no engine runs, the guard returns 0 silently, so the session is not told it is unguarded."
+    },
+    {
+      "rule": "GH-5",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:1-69",
+      "evidence": "No test reads settings.json or .mcp.json; losing a PreToolUse or Stop entry fails nothing."
+    },
+    {
+      "rule": "GH-6",
+      "level": "3",
+      "verdict": "could not run",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep/",
+      "evidence": "No gate in the tree compares the vendored copy with its source; the external lint action cannot be judged from the clone."
+    },
+    {
+      "rule": "HR-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/DEFERRED.md",
+      "evidence": "Work needing a person's judgement is set aside rather than shipped."
+    },
+    {
+      "rule": "HR-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "skills/polyweave/references/specs.md",
+      "evidence": "Bounds record a person as their origin, and the agent is told not to move them."
+    },
+    {
+      "rule": "PG-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md",
+      "evidence": "Open lines state symptoms."
+    },
+    {
+      "rule": "PG-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "commit 5eb1a8e",
+      "evidence": "The false premise under PW56 was recorded in the open."
+    },
+    {
+      "rule": "PG-4",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "Shipped entries point to where the design lives."
+    },
+    {
+      "rule": "PG-5",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "site/src/lib/roadmap.ts:42-44",
+      "evidence": "The site counts a block as built when nothing under it is open, regardless of its declared criteria."
+    },
+    {
+      "rule": "PG-6",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/DEFERRED.md",
+      "evidence": "Waiting work is recorded as deferrals with reasons."
+    },
+    {
+      "rule": "PS-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:5",
+      "evidence": "Bash(*) is allowed with empty deny and ask lists, and nothing committed names what stands in."
+    },
+    {
+      "rule": "PS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "CLAUDE.md:64",
+      "evidence": "Never pushing is prose only; no deny or ask rule and no guard refuses git push."
+    },
+    {
+      "rule": "PS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git ls-files",
+      "evidence": "No credential-like file is tracked."
+    },
+    {
+      "rule": "VG-1",
+      "level": "2",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "CI run results per commit are not in the clone."
+    },
+    {
+      "rule": "VG-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/gate.py:83-102,136-141",
+      "evidence": "Skipped tests are reported apart from passed, and a held lock exits without a verdict."
+    },
+    {
+      "rule": "VG-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tools/gate.py:83-102",
+      "evidence": "The gate tallies the JUnit report and never compares it with the tests collected."
+    },
+    {
+      "rule": "VG-6",
+      "level": "2",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "CI history is not in the clone."
+    },
+    {
+      "rule": "VG-7",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".github/workflows/gates.yml",
+      "evidence": "No gate is recorded as kept red while work continued."
+    },
+    {
+      "rule": "VG-8",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git log",
+      "evidence": "Sampled behaviour-changing commits each add or change a test."
+    },
+    {
+      "rule": "VG-9",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/test_budgets.py",
+      "evidence": "Size budgets are set from measured values written beside them."
+    },
+    {
+      "rule": "IS-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "CLAUDE.md:1-64",
+      "evidence": "The every-turn file holds purpose, gates and commit rule, and points to specs and skills for the rest."
+    },
+    {
+      "rule": "IS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/*/SKILL.md",
+      "evidence": "Skill descriptions name the occasions they load on."
+    },
+    {
+      "rule": "IS-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "CLAUDE.md:42-47",
+      "evidence": "Only skills/polyweave has a ceiling; nothing bounds docs/specs (196 KB the agent is sent to), the audit skill or the roadkeep pages."
+    },
+    {
+      "rule": "IS-5",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/audit/SKILL.md:36-37",
+      "evidence": "Config keys and paths named in the audit skill and CLAUDE.md are not checked against their source."
+    },
+    {
+      "rule": "IS-6",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "src/polyweave/server.py:41-49",
+      "evidence": "The served MCP schemas are held under budgets by tests that CI runs."
+    }
+  ]
+}

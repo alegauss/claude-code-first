@@ -16,17 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-### §CCF52 Audit: polyweave
-
-Run the deterministic checker and the audit skill against the project's current head and
-commit the report under `validation/`. Each failure is classified as drift, divergence
-or obsolescence. Realignment tasks are offered to the owner; filing them into that
-project's backlog is the owner's decision, and the report records which were accepted.
-The audit's own cost, in tokens and wall time, is recorded as data for the audit design.
-Expected from the field notes: pytest and ruff run only locally, and CLAUDE.md counts
-non-goals differently from the roadmap. Compare the findings with what polyweave's own
-audit skill reports on the same head, since both use a scanner and a verifier.
-
 ### §CCF53 Audit: freewilly
 
 Run the deterministic checker and the audit skill against the project's current head and
