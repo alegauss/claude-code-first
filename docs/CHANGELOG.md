@@ -22,6 +22,8 @@
 
 ## Block C — Case studies and the findings register
 
+- ✅ **CCF15** **no case study describes roadkeep: its timeline, agent surfaces, gates and the incidents that shaped them** — evidence/cases/roadkeep.md tells roadkeep's case in the shared nine sections with 121 resolving pointers, correcting the design where the pinned sources disagree.
+
 ## Block D — The normative specification
 
 ## Block E — Patterns and anti-patterns

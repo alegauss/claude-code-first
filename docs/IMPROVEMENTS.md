@@ -34,19 +34,6 @@ both figures in the commit.
 
 ## Block C — Case studies and the findings register
 
-### §CCF15 Case study: roadkeep
-
-Structure shared by all five case studies: context (domain, size, dates, greenfield or
-brownfield); the agent surface as built (every-turn file, skills, hooks, MCP, plugin);
-planning governance; gates; commit practice; a dated timeline of incidents and the rule
-each produced; metrics from the corpus script; open questions. Specific to roadkeep: its
-dual role as subject and instrument, and the risk that its own laws are read as findings
-rather than as the design of one tool; the measured sequence on context economy (RK23,
-RK30, RK203 reversed by RK1094, RK1136, RK1437, RK1643); the guard design (a deny names
-the command, the guard never emits allow, every failure allows); the concurrency
-incidents (RK280, RK1117, RK320); and the change in attribution policy around
-2026-09-01.
-
 ### §CCF16 Case study: polyweave
 
 Structure shared by all five case studies: context (domain, size, dates, greenfield or
@@ -132,11 +119,13 @@ allow a documented deviation where the evidence cannot decide.
 contradictory facts at the pinned commit: freewilly's CONTRIBUTING describing a CI lint
 removal that `714360e` undid; Shio's build skill piping a gate into grep, which
 agents.md forbids; Shio's `roadkeep.toml` header denying the vendoring that agents.md
-describes; polyweave's CLAUDE.md counting five non-goals where the roadmap has six; and
-freewilly's DD23 law overridden by `4575583` without amendment. For each: the two loci,
-how long the contradiction has stood, and whether any check could have caught it. The
-inventory supports the rule that a fact lives in one place, and feeds the realignment of
-those projects in Block H.
+describes; roadkeep's roadkeep.toml calling the index the cheap cut while agents.md says
+the prose is what to compress (evidence/cases/roadkeep.md); polyweave's five non-goals,
+which match at the pin (the sixth was uncommitted, so drop it unless a later pin shows
+it); and freewilly's DD23 law overridden by `4575583` without amendment. For each: the
+two loci, how long the contradiction has stood, and whether any check could have caught
+it. The inventory supports the rule that a fact lives in one place, and feeds the
+realignment of those projects in Block H.
 
 ### §CCF23 Reproducible corpus metrics
 
