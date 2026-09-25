@@ -42,6 +42,7 @@
 - ✅ **CCF36** **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — spec/AW.md states three rules on agent prose: generated or checked figures (MUST, F7), length limits refused at the write (MUST), and gated style rules (SHOULD, per D7).
 - ✅ **CCF28** **no normative chapter says how an agent turns finished work into commits** — spec/CD.md states six rules on turning work into commits: one task per commit, a gate between tasks, staging by path, the agent's own title, no empty filings, and a stated attribution policy.
 - ✅ **CCF27** **no normative chapter says how an agent plans, records and closes work** — spec/PG.md states six planning rules satisfiable by any tool: governed files, symptom-first tasks, recorded false premises, rationale moved before deletion, criteria-closed blocks and deferral.
+- ✅ **CCF33** **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — spec/AP.md states four rules for products agents use: gated token ceilings, names checked against the catalogue, tests from the published artefact, adoption proved in a consumer.
 
 ## Block E — Patterns and anti-patterns
 

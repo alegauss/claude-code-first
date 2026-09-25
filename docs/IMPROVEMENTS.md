@@ -61,19 +61,6 @@ on observation O3 in evidence/harness.md, which the documentation now contradict
 synced plugins load in cloud sessions); test a plugin in a cloud session before writing
 it. Each rule names the platform facts it depends on through the harness register.
 
-### §CCF33 Chapter: agent-facing product surfaces
-
-An optional chapter, applying only where a project's product is used by agents. Rules:
-the input format reaches the agent as a schema, never as prose to type from memory
-(winwright WW66); every response and tool schema has a token budget held by a test, and
-raising one is argued in its commit (freewilly `agent-budget.json`; roadkeep's tool and
-read ceilings); an unknown name is refused with the near matches (polyweave PW128); a
-remedy names a command that exists (PW127); the product's own skills are loaded by its
-own repository and kept apart from project skills (Shio SH949); discoverability is
-tested with the published artefacts alone, never with the source mounted (Shio SH605);
-agents are given Markdown twins and `llms.txt` rather than rendered pages (winwright
-WW495); and adoption is proved by code deleted in a consumer (WW86).
-
 ### §CCF34 Chapter: the human role
 
 Rules: the person owns non-goals, priorities, releases and pushes; a judgement of

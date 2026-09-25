@@ -55,7 +55,7 @@ observations to the pinned sources.
 | GH | Guards and hooks | which rules the harness enforces rather than instructions |
 | PS | Permissions and safety | what an agent may do without asking, and what stands in for asking |
 | EP | Environment portability | where a session runs: web or local, shells, encodings |
-| AP | Agent-facing product surfaces | projects that ship tools, skills or plugins for other agents |
+| AP | [Agent-facing product surfaces](AP.md) | projects that ship tools, skills or plugins for other agents |
 | HR | The human role | what the person decides, and what an agent must not certify |
 | CS | Concurrent sessions | several agent sessions in one repository |
 | AW | [Agent-written prose](AW.md) | the prose an agent writes, and how it is kept true |
