@@ -24,6 +24,7 @@ agents.md, roadkeep.toml   this file, and the backlog's configuration (prefix CC
 docs/                      the governed backlog, ledger, rationale and decisions
 evidence/                  the research method, its registers and the related work
 evidence/field-notes/      extraction per corpus project, verified claim by claim
+spec/                      the specification: conventions, then one file per chapter
 scripts/                   the gates that are not roadkeep's, run by CI and by hand
 ```
 

@@ -8,20 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF24 The specification's frame
-
-Create `spec/` with an introduction (scope, audience, how to read), a
-conformance-language section adopting RFC 2119 and RFC 8174, the rule format and the
-chapter list. A rule has a stable address in its own namespace, distinct from the
-backlog prefix; a keyword (MUST, SHOULD, MAY); one normative sentence; a rationale
-paragraph; the findings it rests on; its conformance level; and whether it is checked
-automatically. Rules are never renumbered, and a withdrawn rule keeps its address with a
-status. Planned chapters: instruction surface and context economy; planning governance;
-change discipline; verification gates; guards and hooks; permissions and safety;
-environment portability; agent-facing product surfaces; the human role; concurrent
-sessions; agent-written prose. Each chapter opens with the problem it answers, stated
-from the findings.
-
 ### §CCF25 A glossary of terms
 
 `spec/glossary.md` defines each term once and links its first use: Claude-Code-first
