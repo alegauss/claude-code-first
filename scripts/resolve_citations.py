@@ -139,22 +139,61 @@ def normalise(text: str) -> str:
     return " ".join(text.split())
 
 
-def check(pointer: Pointer, repo: Path, pin: str) -> str | None:
+class Source:
+    """One corpus repository, read through a single `git cat-file --batch` process.
+
+    Spawning git once per pointer made a full run take minutes (CCF64). Here every object
+    is read through one long-lived process, the pin's ancestry is listed once as a set,
+    and each object is read at most once.
+    """
+
+    def __init__(self, repo: Path, pin: str):
+        self.batch = subprocess.Popen(
+            ["git", "-C", str(repo), "cat-file", "--batch"],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},
+        )
+        history = git(repo, "rev-list", pin)
+        self.ancestry = set(history.stdout.split())
+        self.objects: dict[str, tuple[str, bytes] | None] = {}
+
+    def read(self, rev: str) -> tuple[str, bytes] | None:
+        """(sha, content) of an object, or None where the revision names none."""
+        if rev not in self.objects:
+            self.batch.stdin.write(rev.encode("utf-8") + b"\n")
+            self.batch.stdin.flush()
+            header = self.batch.stdout.readline().decode("utf-8", "replace").split()
+            if len(header) != 3:
+                self.objects[rev] = None
+            else:
+                content = self.batch.stdout.read(int(header[2]))
+                self.batch.stdout.read(1)
+                self.objects[rev] = (header[0], content)
+        return self.objects[rev]
+
+    def close(self):
+        self.batch.stdin.close()
+        self.batch.wait()
+
+
+def check(pointer: Pointer, source: Source, pin: str) -> str | None:
     """The reason a pointer does not resolve, or None where it does."""
-    full = git(repo, "rev-parse", "--verify", "--quiet", f"{pointer.commit}^{{commit}}")
-    if full.returncode != 0:
+    found = source.read(f"{pointer.commit}^{{commit}}")
+    if found is None:
         return f"no commit {pointer.commit} in {pointer.project}"
-    commit = full.stdout.strip()
-    if git(repo, "merge-base", "--is-ancestor", commit, pin).returncode != 0:
+    commit, body = found
+    if commit not in source.ancestry:
         return f"{pointer.commit} is not in the history of the {pointer.project} pin {pin[:12]}"
     if pointer.path is None:
-        haystack = git(repo, "log", "-1", "--format=%B", commit).stdout
+        text = body.decode("utf-8", "replace")
+        haystack = text.split("\n\n", 1)[1] if "\n\n" in text else ""
     else:
-        shown = git(repo, "show", f"{commit}:{pointer.path}")
-        if shown.returncode != 0:
+        shown = source.read(f"{commit}:{pointer.path}")
+        if shown is None:
             return f"no file {pointer.path} at {pointer.commit}"
-        lines = shown.stdout.splitlines()
-        haystack = shown.stdout
+        haystack = shown[1].decode("utf-8", "replace")
+        lines = haystack.splitlines()
         if pointer.start is not None:
             if pointer.start < 1 or pointer.end < pointer.start:
                 return f"line range L{pointer.start}-L{pointer.end} is empty"
@@ -181,7 +220,7 @@ def main(argv: list[str] | None = None) -> int:
     pointers = scan(root)
 
     failures, unreachable, resolved = [], {}, 0
-    repos: dict[str, Path | None] = {}
+    repos: dict[str, Source | None] = {}
     for pointer in pointers:
         where = f"{pointer.file.as_posix()}:{pointer.line}: {pointer.text}"
         if pointer.project not in pins:
@@ -189,16 +228,20 @@ def main(argv: list[str] | None = None) -> int:
             continue
         remote, pin = pins[pointer.project]
         if pointer.project not in repos:
-            repos[pointer.project] = locate(pointer.project, remote, pin, sources, root)
-        repo = repos[pointer.project]
-        if repo is None:
+            repo = locate(pointer.project, remote, pin, sources, root)
+            repos[pointer.project] = Source(repo, pin) if repo else None
+        source = repos[pointer.project]
+        if source is None:
             unreachable[pointer.project] = unreachable.get(pointer.project, 0) + 1
             continue
-        reason = check(pointer, repo, pin)
+        reason = check(pointer, source, pin)
         if reason:
             failures.append(f"{where}: {reason}")
         else:
             resolved += 1
+    for source in repos.values():
+        if source:
+            source.close()
 
     for failure in failures:
         print(failure)
