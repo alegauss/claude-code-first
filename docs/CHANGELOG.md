@@ -61,6 +61,7 @@
 - ✅ **CCF40** **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — spec/conformance.md defines three cumulative levels, governed, gated and measured, plus the agent-facing profile, assigns all 56 rules with reasons, and says how a claim is made.
 - ✅ **CCF41** **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — spec/rules.toml lists all 56 rules with keyword, level, statement, findings and harness facts, generated from the chapters with a CI check, and a query command answers without reading them.
 - ✅ **CCF42** **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — A CI gate traces every rule to findings whose grade admits its keyword and every finding to a primary pointer, and regenerates spec/traceability.md, the matrix.
+- ✅ **CCF43** **automatable rules have no checker, so each audit rederives by reading what a script could measure** — scripts/check_conformance.py decides six rules from a repository's files with a third verdict, exits non-zero below the claimed level, and passes and fails its fixture repositories.
 
 ## Block G — Adoption and realignment
 

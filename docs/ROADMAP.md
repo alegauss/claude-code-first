@@ -2,6 +2,8 @@
 
 ## Block A — The repository follows its own rule
 
+- 📋 **CCF65** (deps: —) **this repository declares no line terminators in .gitattributes, so it fails its own rule EP-2** — The specification cannot ask adopters for a rule its own repository breaks, and CRLF warnings already show the drift. → §CCF65
+
 ## Block B — Research method and the evidence corpus
 
 ## Block C — Case studies and the findings register
@@ -12,8 +14,7 @@
 
 ## Block F — Conformance and the audit
 
-- 📋 **CCF43** (deps: CCF41 ✅) **automatable rules have no checker, so each audit rederives by reading what a script could measure** — Budgets, hook wiring, ignore rules and CI presence are facts about files, and paying for an agent's judgement on them is waste. → §CCF43
-- 📋 **CCF44** (deps: CCF43) **the rules that need judgement cannot be audited without an agent reading the whole spec** — Polyweave's scanner and verifier pair shows that a cheap scan plus a strong verification finds more, with fewer false findings. → §CCF44
+- 📋 **CCF44** (deps: CCF43 ✅) **the rules that need judgement cannot be audited without an agent reading the whole spec** — Polyweave's scanner and verifier pair shows that a cheap scan plus a strong verification finds more, with fewer false findings. → §CCF44
 - 📋 **CCF45** (deps: CCF41 ✅) **an audit report has no fixed format, so two audits of one project cannot be compared over time** — Realignment is measured by the difference between two audits, which needs the same fields, the spec version and the commit audited. → §CCF45
 - 📋 **CCF46** (deps: CCF41 ✅) **a deliberate deviation from a rule cannot be recorded, so it reads as drift in every audit** — Shio's red-suite ledger shows exceptions work when dated, tied to a task and expiring; unrecorded ones become permanent. → §CCF46
 

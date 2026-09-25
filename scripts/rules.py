@@ -63,6 +63,13 @@ def parse(root: Path) -> list[dict]:
                     current["findings" if name == "Findings" else "harness"] = IDS.findall(value)
                 else:
                     current[name.lower()] = value
+    sys.path.insert(0, str(Path(__file__).parent))
+    from check_conformance import DETECTORS  # noqa: E402
+
+    for rule in rules:
+        if rule["address"] in DETECTORS:
+            rule["detector"] = f"scripts/check_conformance.py:{DETECTORS[rule['address']][1].__name__}"
+
     def order(rule):
         return (rule["address"][:2], int(rule["address"].split("-")[1]))
     return sorted(rules, key=order)
