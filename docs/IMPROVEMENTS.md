@@ -8,18 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF26 Chapter: instruction surface and context economy
-
-Rules to derive and grade from the findings: the every-turn file is an index with a
-budget that a gate enforces (roadkeep RK30; Shio's 186 KB; winwright WW69); procedures
-are trigger-loaded skills whose descriptions name their trigger words; a skill is an
-orientation plus reference pages opened on demand, each with a ceiling (RK1437, RK1643);
-every artefact a skill names is checked against the code (winwright
-`SkillTests.cs:16-18`); a fact lives in one file and the others point to it (winwright's
-roadmap-docs skill; Shio agents.md L268-269); moving text out of the every-turn file
-does not lift the obligation to bound it (Shio's `docs/agents/` at 1.73 MB); and MCP
-tool schemas count as every-turn cost (RK1059; freewilly DD33).
-
 ### §CCF27 Chapter: planning governance
 
 Rules stated so that another tool could satisfy them, with roadkeep named as the

@@ -48,7 +48,7 @@ observations to the pinned sources.
 
 | Code | Chapter | Answers |
 |---|---|---|
-| IS | Instruction surface and context economy | what an agent is told on every turn, and what that costs |
+| IS | [Instruction surface and context economy](IS.md) | what an agent is told on every turn, and what that costs |
 | PG | Planning governance | how work is planned, recorded and closed |
 | CD | Change discipline | how finished work becomes commits |
 | VG | Verification gates | what must run, and pass, before work is called done |
