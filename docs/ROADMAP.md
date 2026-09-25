@@ -29,8 +29,6 @@
 
 ## Block I — Governance and publication of the specification
 
-- 📋 **CCF62** (deps: CCF24 ✅) **the repository has no README telling a newcomer what the spec is, how to read it and how to adopt it** — The README is the first page an expert or an adopter opens, and today it does not exist. → §CCF62
-
 ## Done when — Block A
 
 - **A hand edit of a governed file is denied in a fresh session** The guard is the

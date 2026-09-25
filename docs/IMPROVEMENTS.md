@@ -128,11 +128,3 @@ author, title, version and date; and an authorship statement describing the meth
 Claude Code as primary author under the owner's governance, and the checks that guard
 the result (the resolver, the traceability gate, the measured audit accuracy). The
 reader can then judge the work by the standard it asks of others.
-
-### §CCF62 A README as the entry point
-
-A short README: what Claude Code first means here, in one paragraph; the three audiences
-(adopters, auditors and researchers) and where each starts; the repository layout (spec,
-evidence, patterns, conformance, adoption, templates, validation); the current version
-and the corpus's conformance status; and how to cite. It links rather than restates, so
-it stays small, and its figures come from the generated metrics.
