@@ -49,7 +49,7 @@ observations to the pinned sources.
 | Code | Chapter | Answers |
 |---|---|---|
 | IS | [Instruction surface and context economy](IS.md) | what an agent is told on every turn, and what that costs |
-| PG | Planning governance | how work is planned, recorded and closed |
+| PG | [Planning governance](PG.md) | how work is planned, recorded and closed |
 | CD | [Change discipline](CD.md) | how finished work becomes commits |
 | VG | Verification gates | what must run, and pass, before work is called done |
 | GH | Guards and hooks | which rules the harness enforces rather than instructions |

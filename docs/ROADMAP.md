@@ -8,7 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF27** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says how an agent plans, records and closes work** — Every project converged on governed roadmap, ledger and rationale files after prose limits failed, and that convergence needs stating. → §CCF27
 - 📋 **CCF29** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what an agent must run, keep and report before calling work done** — Silent greens, piped exit codes and suites red for nineteen commits recur across the corpus, each costing more than a gate would. → §CCF29
 - 📋 **CCF30** (deps: CCF13 ✅, CCF20 ✅, CCF24 ✅) **no normative chapter says which rules must be enforced by hooks rather than by instructions** — Every rule the corpus enforces reliably is a hook or a gate, and every rule left to prose recurs as an incident. → §CCF30
 - 📋 **CCF31** (deps: CCF21 ✅, CCF30) **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — Two projects bypass permission prompts locally; whether guards and gates compensate is a claim to test, not to recommend. → §CCF31

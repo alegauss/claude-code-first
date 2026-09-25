@@ -41,6 +41,7 @@
 - ✅ **CCF26** **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — spec/IS.md states six rules on the instruction surface, each capped by its findings: a gated budget on any every-turn file, bounded skills and read-on-demand files, checked name lists.
 - ✅ **CCF36** **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — spec/AW.md states three rules on agent prose: generated or checked figures (MUST, F7), length limits refused at the write (MUST), and gated style rules (SHOULD, per D7).
 - ✅ **CCF28** **no normative chapter says how an agent turns finished work into commits** — spec/CD.md states six rules on turning work into commits: one task per commit, a gate between tasks, staging by path, the agent's own title, no empty filings, and a stated attribution policy.
+- ✅ **CCF27** **no normative chapter says how an agent plans, records and closes work** — spec/PG.md states six planning rules satisfiable by any tool: governed files, symptom-first tasks, recorded false premises, rationale moved before deletion, criteria-closed blocks and deferral.
 
 ## Block E — Patterns and anti-patterns
 

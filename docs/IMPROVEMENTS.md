@@ -8,19 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF27 Chapter: planning governance
-
-Rules stated so that another tool could satisfy them, with roadkeep named as the
-reference implementation: planning files are written through a tool that enforces their
-schema, and a hand edit is refused (roadkeep L1; Shio's lines averaging 142 words,
-SH341); a task states a falsifiable symptom, never a solution; rationale is bounded and
-deleted when the work ships; decisions outlive the work and are superseded, not deleted;
-a block is finished by stated criteria, not by an empty count (winwright's six
-reopenings); non-goals are read before work is proposed; work waiting on a person or on
-absent resources is deferred, not left open (polyweave `DEFERRED.md`); a false premise
-is restated or retired, never silently rewritten (freewilly DD195, DD268). Separate what
-the evidence makes a MUST from what only one tool's design motivates.
-
 ### §CCF29 Chapter: verification gates
 
 Rules: the agent runs the project's gates before committing, and a red gate stops the
