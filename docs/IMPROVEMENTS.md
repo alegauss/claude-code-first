@@ -16,18 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-### §CCF55 Audit: shio
-
-Run the deterministic checker and the audit skill against the project's current head and
-commit the report under `validation/`. Each failure is classified as drift, divergence
-or obsolescence. Realignment tasks are offered to the owner; filing them into that
-project's backlog is the owner's decision, and the report records which were accepted.
-The audit's own cost, in tokens and wall time, is recorded as data for the audit design.
-Audit the `latest` worktree. Expected: `docs/agents/` without a size cap; the build
-skill contradicting agents.md on piping gates; the stale `roadkeep.toml` header; about
-sixty ad hoc log files in the working tree. Measure whether loading only the rules of
-the claimed level keeps the audit of a repository this size within budget.
-
 ### §CCF56 Measuring audit accuracy
 
 For a sample of rules across all five projects, the person records a verdict

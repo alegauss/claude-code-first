@@ -1,0 +1,457 @@
+{
+  "spec_version": "0.1.0",
+  "repository": "shio",
+  "commit": "fb966f8dae563c5b188933f894cc84b6da3f4c48",
+  "date": "2026-09-25",
+  "claimed_level": 3,
+  "achieved_level": 0,
+  "profile": true,
+  "tools": {
+    "checker": "0.1.0",
+    "skill": "0.1.0"
+  },
+  "rules": [
+    {
+      "rule": "IS-1",
+      "level": "1",
+      "verdict": "could not run",
+      "by": "checker",
+      "evidence": "every-turn files present; no budget declared in a format this checker reads"
+    },
+    {
+      "rule": "PG-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "planning files declared in roadkeep.toml, and a PreToolUse guard is wired"
+    },
+    {
+      "rule": "CD-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "checker",
+      "evidence": "1 commit(s) add several ledger entries, e.g. 543c6c2e7"
+    },
+    {
+      "rule": "VG-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "checker",
+      "evidence": "gate piped in .claude/skills/shio-build-test/SKILL.md:17"
+    },
+    {
+      "rule": "VG-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "on push: suites.yml"
+    },
+    {
+      "rule": "EP-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "line terminators declared in .gitattributes"
+    },
+    {
+      "rule": "AP-1",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "claude-plugin/test/plugin.test.mjs:94-97",
+      "evidence": "MCP schemas, responses and CLI help are capped, but the published plugin's skill descriptions and bodies have no ceiling, only a minimum length."
+    },
+    {
+      "rule": "AP-2",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "claude-plugin/skills/shio-verify/SKILL.md:31",
+      "evidence": "The plugin skill names MCP tools, and no test checks plugin skill text against the tool catalogue."
+    },
+    {
+      "rule": "AP-3",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "claude-plugin/test/plugin.test.mjs:266",
+      "evidence": "Sessions load the published plugin from its marketplace, the SH949 test holds that, and clean-room.test.mjs checks the packed CLI."
+    },
+    {
+      "rule": "AP-4",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "README.md",
+      "evidence": "No claim that a consumer adopted Shio."
+    },
+    {
+      "rule": "AW-1",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:181",
+      "evidence": "The every-turn file says ten IT classes while 13 are tracked, and the figures test does not cover the sentence."
+    },
+    {
+      "rule": "AW-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:327-351",
+      "evidence": "[limits] declared for roadkeep to refuse at the write."
+    },
+    {
+      "rule": "AW-3",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "shio-site/scripts/ai-writing.test.mjs",
+      "evidence": "The declared writing pass is backed by a tracked lint."
+    },
+    {
+      "rule": "CD-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "f88c4616a",
+      "evidence": "The commit files SH577-SH579 as new open lines and ships no task, so no batch is shown."
+    },
+    {
+      "rule": "CD-3",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:239-245",
+      "evidence": "The mandated run-commit.cmd runs git add * in a checkout other sessions share, with no step checking the tree first."
+    },
+    {
+      "rule": "CD-4",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "agents.md:251-253",
+      "evidence": "The agent writes the title with -m, and recent subjects carry task ids."
+    },
+    {
+      "rule": "CD-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "ebe36e63c",
+      "evidence": "Filings and retirements each name a defect or a wrong premise."
+    },
+    {
+      "rule": "CD-6",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:237-253",
+      "evidence": "Nothing the agent reads states a commit attribution policy, while some agent commits carry the trailer."
+    },
+    {
+      "rule": "CS-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep/SKILL.md:24-26,122-160",
+      "evidence": "The committed roadkeep skill tells a session to claim its line and declare its paths."
+    },
+    {
+      "rule": "CS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:241",
+      "evidence": "In a shared checkout the prescribed tool stages with git add *, sweeping paths outside any session's claim."
+    },
+    {
+      "rule": "CS-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "package.json",
+      "evidence": "No commit-time hook."
+    },
+    {
+      "rule": "CS-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "632cbdac4",
+      "evidence": "Another session's uncommitted edits turned pnpm test red and it was reported failed; the gate has no detection that would yield could not run."
+    },
+    {
+      "rule": "CS-5",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "1dcd16a1e",
+      "evidence": "The census was deliberately taken after another session's edits left the tree."
+    },
+    {
+      "rule": "EP-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "roadkeep.toml:7-11",
+      "evidence": "roadkeep.toml and agents.md disagree on which roadkeep copy answers, and no committed file fixes the copy and version."
+    },
+    {
+      "rule": "EP-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "scripts/install_roadkeep.py:76-78",
+      "evidence": "A child's stdout is decoded with the locale default."
+    },
+    {
+      "rule": "EP-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "cli/src/commands/apply.mjs:139-143",
+      "evidence": "A leading BOM on piped stdin is refused by JSON.parse, not kept as content."
+    },
+    {
+      "rule": "EP-5",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "08eeb9290",
+      "evidence": "SH519 was filed after byte checks along the product path only, and retired four hours later when the fault was the agent's own reads."
+    },
+    {
+      "rule": "EP-6",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:29",
+      "evidence": "SH1119 records a heredoc that corrupted two committed regexes."
+    },
+    {
+      "rule": "GH-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:247",
+      "evidence": "One task one commit, called the most violated rule, is read by no hook, test or workflow."
+    },
+    {
+      "rule": "GH-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".github/workflows/roadkeep.yml:12-13",
+      "evidence": "roadkeep lint, the gate behind the guard, runs only on workflow_dispatch."
+    },
+    {
+      "rule": "GH-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:74",
+      "evidence": "The guard's matcher omits PowerShell, which settings.json allows and which can write the governed files."
+    },
+    {
+      "rule": "GH-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/hooks/roadkeep-launch.py:420-427",
+      "evidence": "With no engine, the guard returns 0 without telling the session."
+    },
+    {
+      "rule": "GH-5",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "claude-plugin/test/plugin.test.mjs:266-289",
+      "evidence": "Only two keys of .claude/settings.json are asserted; the hook wiring, permissions and .mcp.json are read by no test."
+    },
+    {
+      "rule": "GH-6",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "install-roadkeep.cmd:38",
+      "evidence": "Several roadkeep copies are reachable, and the staleness check is run by no workflow or test."
+    },
+    {
+      "rule": "HR-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "No ship closed work that needed a person or hardware."
+    },
+    {
+      "rule": "HR-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "cli/src/acceptance.properties",
+      "evidence": "The acceptance bar is stored where a test reads it."
+    },
+    {
+      "rule": "IS-2",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:109-124",
+      "evidence": "The every-turn index carries area-specific rules also held in area files and skills."
+    },
+    {
+      "rule": "IS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/*/SKILL.md",
+      "evidence": "All skill descriptions state their occasions."
+    },
+    {
+      "rule": "IS-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "docs/agents/cli.md",
+      "evidence": "No gate caps skill bodies or the area files the index points to (cli.md 376,898 bytes, agent-surface.md 305,908)."
+    },
+    {
+      "rule": "IS-5",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:65-84",
+      "evidence": "The area table's paths and skill names are read by no test."
+    },
+    {
+      "rule": "IS-6",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "ShMcpToolBudgetTest.java",
+      "evidence": "Served MCP schema sizes are capped by a test that runs on push."
+    },
+    {
+      "rule": "PG-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:29",
+      "evidence": "Open lines state a symptom and point to their rationale."
+    },
+    {
+      "rule": "PG-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "c17ed995a",
+      "evidence": "The false SH519 premise was recorded as a retirement with its reason."
+    },
+    {
+      "rule": "PG-4",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "agents.md:285-288",
+      "evidence": "Shipped decisions go to area files."
+    },
+    {
+      "rule": "PG-5",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "ca57c16b4",
+      "evidence": "Block S was declared closed because its only task was retired, and a test enforces dropping any block with no open task while [criteria] stays empty."
+    },
+    {
+      "rule": "PG-6",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md",
+      "evidence": "No open line waits on a person or hardware."
+    },
+    {
+      "rule": "PS-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:7-54",
+      "evidence": "Bash, PowerShell, Edit and Write are allowed under acceptEdits, and nothing committed names what stands in."
+    },
+    {
+      "rule": "PS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:244-245",
+      "evidence": "Hand-authored commits are forbidden in prose only, and 871410748 was hand-authored anyway."
+    },
+    {
+      "rule": "PS-3",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "scripts/sonar/sonar-scan.sh:34,70",
+      "evidence": "An analysis token is written into the working tree, excluded only by an ignore line."
+    },
+    {
+      "rule": "VG-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "632cbdac4",
+      "evidence": "The commit landed with pnpm test red on the tree the gate ran on, with no red-suite exception."
+    },
+    {
+      "rule": "VG-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "agents.md:188-193",
+      "evidence": "Schema ITs skip without Docker and count as Skipped under a green run, not as could not run."
+    },
+    {
+      "rule": "VG-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "scripts/gate-stamp.mjs:356",
+      "evidence": "The gate checks only that a suite printed a summary, never tests discovered against tests reported."
+    },
+    {
+      "rule": "VG-6",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "scripts/gate-stamp.mjs:330-365",
+      "evidence": "Outside-cause reds were filed and fixed by narrowing, not rerun."
+    },
+    {
+      "rule": "VG-7",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "red-suites.json",
+      "evidence": "Exceptions carry a task, a date and an expiry, and a test kills an expired entry."
+    },
+    {
+      "rule": "VG-8",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "cli/test/assertion-debt.test.mjs:197-233",
+      "evidence": "The DEBT list names shipped behaviour-changing tasks with no covering assertion."
+    },
+    {
+      "rule": "VG-9",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "agents.md:195-202",
+      "evidence": "Measurement comes before a fix, as SH957 shows."
+    }
+  ]
+}

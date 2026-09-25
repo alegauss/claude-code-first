@@ -12,6 +12,7 @@ tasks offered to the project's owner, and what the audit cost (`<project>-notes.
 | polyweave | [polyweave.md](polyweave.md) | [polyweave-notes.md](polyweave-notes.md) |
 | freewilly | [freewilly.md](freewilly.md) | [freewilly-notes.md](freewilly-notes.md) |
 | winwright | [winwright.md](winwright.md) | [winwright-notes.md](winwright-notes.md) |
+| Shio | [shio.md](shio.md) | [shio-notes.md](shio-notes.md) |
 
 A report's verdicts are the audit's, not the owner's: a failure is classified and acted on
 only when the owner decides. How far the audit itself can be trusted is measured
