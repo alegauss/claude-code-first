@@ -35,6 +35,20 @@ carry trailers on 33 commits.
 
 ## Block D — The normative specification
 
+- ✅ **CCF70** **no rule says when a capability belongs on a CLI verb rather than on an MCP tool list** — A CLI verb over an MCP tool stays a MAY scoped to agents with a shell until the cost of a tool list under tool search is measured; winwright's typed input is excluded, not a reason to lower it.
+
+### §CCF70 A CLI verb or an MCP tool
+
+Proposed by the owner as "a CLI is better than MCP". Weighed: F8 (R2/S2) admits SHOULD,
+from three Shio decisions that kept a capability off the tool list because its agent had
+a shell; freewilly's policy is a stated copy and adds no origin. Against it, winwright
+serves MCP tools so a structured input arrives as the loader's schema, which the rule
+excludes by scope, since the difference is the kind of input and not the shell. Shio's
+first law puts MCP first for clients without a shell, which the rule keeps. H9 disputes
+the cost the choice avoids, as it does for IS-6, so the rule stands one level lower, at
+MAY. A measurement of what a tool list costs a session with tool search on and off
+re-opens it.
+
 ## Block E — Patterns and anti-patterns
 
 ## Block F — Conformance and the audit

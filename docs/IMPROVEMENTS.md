@@ -8,19 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF70 Where a capability lands
-
-The owner proposed that a CLI is better than MCP. The finding CCF69 writes supports a
-narrower rule: where the consuming agent has a shell, offer a capability as a CLI verb,
-and add an MCP tool only for a client without one, or where a schema is what keeps the
-input correct. The keyword is set by that finding's grade after the contrary observation
-is weighed. winwright's choice is explained by a stated property, an input that is a
-structured document its loader validates, so the rule is scoped to exclude it rather
-than lowered for it. H9 is named, because with tool search on by default the per-turn
-cost that makes the argument is disputed, and a change there re-opens the rule. The rule
-sits in the AP chapter, since in the corpus it was decided for surfaces served to
-agents, and cross-refers IS-6 for a tool list a project serves to its own agent.
-
 ### §CCF71 Two claims the corpus argues and never measured
 
 The owner proposed two more corrections. First, that an agent manipulating files is

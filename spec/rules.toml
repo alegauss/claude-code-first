@@ -56,6 +56,19 @@ harness = []
 status = "active"
 
 [[rule]]
+address = "AP-5"
+chapter = "AP"
+title = "A capability for agents with a shell may land as a command"
+keyword = "MAY"
+level = "profile"
+statement = "Where the agents that consume a capability have a shell, a product MAY offer it as a command-line verb rather than as an MCP tool, keeping MCP tools for clients without a shell and for input that is a structured document a served schema validates."
+checked = "by judgement"
+detector = ""
+findings = ["F8", "F4"]
+harness = ["H9"]
+status = "active"
+
+[[rule]]
 address = "AW-1"
 chapter = "AW"
 title = "Figures in prose are generated or checked"

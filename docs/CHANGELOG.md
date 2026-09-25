@@ -53,6 +53,7 @@
 - ✅ **CCF32** **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — spec/EP.md states six portability rules bounded to Windows: a declared tool copy, pinned line endings, named encodings, BOM handling, bytes before blame and no heredoc edits.
 - ✅ **CCF34** **no normative chapter says what the person decides and what an agent must never certify for itself** — spec/HR.md states that an agent does not close work needing a person's judgement or absent hardware, and applies a stored human bar instead of its own margin.
 - ✅ **CCF35** **no normative chapter covers several agent sessions working in one repository at once** — spec/CS.md states five rules for sessions sharing a checkout: claims on task and paths, staging within the claim, disturbed gate runs as could-not-run, no cited figures from a busy tree.
+- ✅ **CCF70** **no rule says when a capability belongs on a CLI verb rather than on an MCP tool list** — AP-5 lets a product offer a capability as a CLI verb where its agents have a shell, keeping MCP for shell-less clients and schema-checked input, at MAY because H9 disputes the cost.
 
 ## Block E — Patterns and anti-patterns
 

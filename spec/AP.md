@@ -16,7 +16,9 @@ it passed there while an installing consumer met it broken or missing: a skill w
 frontmatter the loader dropped, an MCP server that served no tool, skills published and
 never loaded by their own repository ([F407](../evidence/findings/F407.md)). Names and
 counts written into agent-facing prose went stale when the product changed
-([F7](../evidence/findings/F7.md)). And the evidence that a tool works came from named
+([F7](../evidence/findings/F7.md)). Where the consuming agent had a shell, Shio shipped new
+capabilities as commands rather than tools, since a tool list is paid before any call
+([F8](../evidence/findings/F8.md)). And the evidence that a tool works came from named
 consumer repositories, where it found what the producer's own suite had passed
 ([F408](../evidence/findings/F408.md)).
 
@@ -126,6 +128,34 @@ Deleting a consumer's replacement is a test the producer cannot pass by construc
 proof was sometimes overstated, and winwright corrected its pportal entry the same day
 because two cases had never run, so a counted change is necessary and is not by itself
 sufficient: the cases it counts must have run.
+
+### AP-5 A capability for agents with a shell may land as a command
+
+**Where the agents that consume a capability have a shell, a product MAY offer it as a command-line verb rather than as an MCP tool, keeping MCP tools for clients without a shell and for input that is a structured document a served schema validates.**
+
+| Field | Value |
+|---|---|
+| Keyword | MAY |
+| Level | profile |
+| Checked | by judgement |
+| Findings | F8, F4 |
+| Harness facts | H9 |
+| Threat | external: a harness release decides how much of a tool list a session is sent |
+| Status | active |
+
+Rationale: Shio shipped three capabilities as CLI verbs and not as tools, because "a tool schema is paid on every turn of every session (P3) and a coding agent has a shell" [shio@821f18d74:docs/CHANGELOG.md#L392]
+([F8](../evidence/findings/F8.md), R2/S2), and the cost it names is the tool-list size
+Shio and roadkeep measured and held by a gate ([F4](../evidence/findings/F4.md), R3/S4).
+A verb costs context only when it runs. The scope is the evidence's. Shio's own first law
+still puts MCP first for clients without a shell, and winwright serves MCP tools because
+its input is a structured document whose schema refuses a mistyped key, after agents typed
+flag names from memory; the rule excludes that input rather than being lowered for it. It
+stands at MAY, one level below the SHOULD that F8's grade admits, because the harness
+disputes the cost the choice avoids: with tool search on by default, not every tool
+definition is sent up front (H9), the same dispute that holds IS-6 below its finding. F8
+has one origin, as freewilly's "CLI first" is a stated copy of Shio's. A measurement of what a tool list costs a session under
+tool search would settle whether it should rise. For a tool list a project serves to its
+own agent, IS-6 holds the list's size whichever way this choice goes.
 
 ## Open questions
 

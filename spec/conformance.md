@@ -91,6 +91,7 @@ is part of that level: a project meets it, or records a waiver.
 | AP-2 | MUST | profile | names in agent-facing text checked against the catalogue |
 | AP-3 | MUST | profile | tests run from the published artefact |
 | AP-4 | MUST | profile | adoption proved in a named consumer |
+| AP-5 | MAY | profile | a placement choice, made once per capability |
 
 ## Claiming conformance
 
