@@ -46,6 +46,7 @@
 - ✅ **CCF29** **no normative chapter says what an agent must run, keep and report before calling work done** — spec/VG.md states nine rules on what must run and pass before work is done, from gates on the committed change to the third verdict, CI on every push and expiring red exceptions.
 - ✅ **CCF30** **no normative chapter says which rules must be enforced by hooks rather than by instructions** — spec/GH.md states six rules on what the harness enforces: broken rules leave prose, a CI gate behind every guard, every route matched, silent failures surfaced, configuration gated.
 - ✅ **CCF31** **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — spec/PS.md states three permission rules the evidence carries: name what replaces removed prompts, refuse forbidden actions in configuration, keep credentials out of the tree.
+- ✅ **CCF32** **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — spec/EP.md states six portability rules bounded to Windows: a declared tool copy, pinned line endings, named encodings, BOM handling, bytes before blame and no heredoc edits.
 
 ## Block E — Patterns and anti-patterns
 

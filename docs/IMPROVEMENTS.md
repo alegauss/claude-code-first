@@ -8,20 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF32 Chapter: environment portability
-
-Rules: nothing the practice relies on may exist only in a user-level install, so
-plugins, engines and hooks reach a web session through committed files (RK1108; Shio
-`c215718bb`; freewilly's launcher); tool versions are pinned and a stale copy is
-detected (RK153, RK234; freewilly `89371b8`); line endings are pinned by
-`.gitattributes` and tested (RK1132: 45 modules ending CRLF and 11 ending LF); encoding
-is judged on bytes before a defect is filed (Shio SH519; polyweave `f203b0a`); source is
-never edited through a heredoc (RK1091); and PowerShell 5.1 adds a byte-order mark to
-piped input (polyweave's no-clobber, L59-62, corrected by CCF11). The first rule rests
-on observation O3 in evidence/harness.md, which the documentation now contradicts (H10:
-synced plugins load in cloud sessions); test a plugin in a cloud session before writing
-it. Each rule names the platform facts it depends on through the harness register.
-
 ### §CCF34 Chapter: the human role
 
 Rules: the person owns non-goals, priorities, releases and pushes; a judgement of
