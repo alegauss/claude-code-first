@@ -8,19 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF29 Chapter: verification gates
-
-Rules: the agent runs the project's gates before committing, and a red gate stops the
-work (Shio SH579); a gate's exit code and full log are kept and never filtered through a
-pipe (Shio agents.md L150-155, where `fail 2` printed above `EXIT=0`); a check that
-could not run is a third verdict, never a pass (winwright's skill, L71); discovered and
-executed tests are compared (winwright WW117: 352 of 374); a known red suite is an
-expiring exception tied to a task (Shio `red-suites.json`); CI runs on every push, and
-runs only checks whose verdict somebody can act on (winwright `7a37e95`); a defect
-closes with an assertion carrying its id (Shio SH527); figures and lists in
-documentation are generated or tested (Shio SH974; freewilly DD100); and measurement
-comes before building (winwright `5012473`; Shio SH1044).
-
 ### §CCF30 Chapter: guards and hooks
 
 Rules: a rule an agent is observed breaking moves from prose into a guard (roadkeep

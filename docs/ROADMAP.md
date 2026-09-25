@@ -8,7 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF29** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what an agent must run, keep and report before calling work done** — Silent greens, piped exit codes and suites red for nineteen commits recur across the corpus, each costing more than a gate would. → §CCF29
 - 📋 **CCF30** (deps: CCF13 ✅, CCF20 ✅, CCF24 ✅) **no normative chapter says which rules must be enforced by hooks rather than by instructions** — Every rule the corpus enforces reliably is a hook or a gate, and every rule left to prose recurs as an incident. → §CCF30
 - 📋 **CCF31** (deps: CCF21 ✅, CCF30) **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — Two projects bypass permission prompts locally; whether guards and gates compensate is a claim to test, not to recommend. → §CCF31
 - 📋 **CCF32** (deps: CCF13 ✅, CCF20 ✅, CCF24 ✅) **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — Plugins absent on the web, mixed line endings, cp1252 mojibake and heredoc corruption each cost sessions in more than one project. → §CCF32
