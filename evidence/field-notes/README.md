@@ -67,3 +67,10 @@ it marked verified were rechecked by hand at the pins (Shio table rows 40 and 90
 row 30, and the polyweave commit and ledger counts and winwright's trailer count), and all
 six held. That sample is too small to bound the verifier's own error rate, which is left
 to the audit-accuracy work.
+
+Writing the case studies (CCF15-CCF19) re-read the same sources and found three errors
+in the verification tables themselves, now corrected in place: Shio row 91 pointed its
+185,734-byte figure at a sibling of the split's parent, and polyweave rows 66 and 67
+counted 122 and 18 titles where the pin has 125 and 23. None changed a claim's status,
+but each is a verifier error that the resolver could not catch, since it checks where a
+pointer lands and not the count written beside it.

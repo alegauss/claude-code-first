@@ -8,6 +8,7 @@ several cases become one graded finding, is the findings register.
 | Case | Kind | File |
 |---|---|---|
 | roadkeep | greenfield | [roadkeep.md](roadkeep.md) |
+| polyweave | greenfield | [polyweave.md](polyweave.md) |
 | freewilly | greenfield | [freewilly.md](freewilly.md) |
 | winwright | greenfield | [winwright.md](winwright.md) |
 | Shio | brownfield | [shio.md](shio.md) |
