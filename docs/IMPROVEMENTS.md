@@ -130,16 +130,6 @@ not an experiment, and the report says so.
 
 ## Block I — Governance and publication of the specification
 
-### §CCF59 Changing the specification
-
-A proposal form, in the manner of a lightweight RFC or PEP: the rule text, the findings
-that support it with their grades, the projects it affects, its level, and the expected
-cost to adopters. An accepted proposal lands as a task here and as a decision record.
-Evidence may come from outside the original corpus: a new project joins through the same
-protocol and is pinned. A rule is deprecated before it is withdrawn, and a rule most
-adopters waive is reviewed. The process runs through this repository's roadkeep, so the
-history of every rule can be queried.
-
 ### §CCF60 Publishing for agents and people
 
 A static site with one addressable page per rule and per finding, a Markdown twin for

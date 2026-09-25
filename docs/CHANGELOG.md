@@ -76,3 +76,4 @@
 ## Block I — Governance and publication of the specification
 
 - ✅ **CCF58** **the specification has no version, so an audit cannot say which text it judged a project against** — The specification follows semantic versioning of its obligations, with the version in one place and a tool that writes release notes from the rule diff and refuses too small a bump.
+- ✅ **CCF59** **no process admits new evidence or a new rule, so the spec would either freeze or grow by opinion** — spec/changing.md sets the path for a change: a proposal with rule, findings, level, cost and class, evidence through the protocol, a task and decision, deprecation before withdrawal.

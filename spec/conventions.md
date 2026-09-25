@@ -55,7 +55,9 @@ Rationale: one paragraph on why, citing the findings by link.
   that name it are re-examined.
 - **Threat.** The threat to validity from [../evidence/validity.md](../evidence/validity.md)
   that bears on the rule most, in a phrase.
-- **Status.** `active` or `withdrawn`.
+- **Status.** `active`, `deprecated` (still binding, with a line under the title naming
+  its replacement, for at least one minor release; see [changing.md](changing.md)) or
+  `withdrawn`.
 - **Rationale.** One paragraph: why the rule holds, in terms of its findings.
 
 ## Addresses are permanent
