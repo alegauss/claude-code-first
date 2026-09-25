@@ -16,18 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-### §CCF54 Audit: winwright
-
-Run the deterministic checker and the audit skill against the project's current head and
-commit the report under `validation/`. Each failure is classified as drift, divergence
-or obsolescence. Realignment tasks are offered to the owner; filing them into that
-project's backlog is the owner's decision, and the report records which were accepted.
-The audit's own cost, in tokens and wall time, is recorded as data for the audit design.
-Include the product-surface profile. Of interest: no instruction file, justified by a
-test; CI deliberately limited to the host half of the suite; skill budgets already
-enforced. Record where winwright is stricter than the specification, since a stricter
-practice in the corpus is a candidate for raising a SHOULD to a MUST.
-
 ### §CCF55 Audit: shio
 
 Run the deterministic checker and the audit skill against the project's current head and

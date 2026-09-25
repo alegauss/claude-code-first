@@ -1,0 +1,455 @@
+{
+  "spec_version": "0.1.0",
+  "repository": "winwright",
+  "commit": "861b82e2cb7d0864cf2dc41799f04f4de3ec0e6e",
+  "date": "2026-09-25",
+  "claimed_level": 3,
+  "achieved_level": 0,
+  "profile": true,
+  "tools": {
+    "checker": "0.1.0",
+    "skill": "0.1.0"
+  },
+  "rules": [
+    {
+      "rule": "IS-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "no every-turn file (allowed by decision D2)"
+    },
+    {
+      "rule": "PG-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "planning files declared in roadkeep.toml, and a PreToolUse guard is wired"
+    },
+    {
+      "rule": "CD-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "checker",
+      "evidence": "20 commit(s) add several ledger entries, e.g. 0ebd67e, eaeb4cc, 3cc3d29"
+    },
+    {
+      "rule": "VG-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "4 instruction file(s) scanned, no piped gate"
+    },
+    {
+      "rule": "VG-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "on push: ci.yml, roadkeep.yml, site.yml"
+    },
+    {
+      "rule": "EP-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "line terminators declared in .gitattributes"
+    },
+    {
+      "rule": "AP-1",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tests/Winwright.Tests/McpTests.cs:82-93",
+      "evidence": "The tools/list test checks shape only, and no test caps the serialized schemas or tool responses; only the shipped skill is capped."
+    },
+    {
+      "rule": "AP-2",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "site/public/llms.txt:133-136",
+      "evidence": "llms.txt names the four MCP tools, and nothing checks it against Served.Tools."
+    },
+    {
+      "rule": "AP-3",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tests/Winwright.Tests/PluginTests.cs:42-43",
+      "evidence": "Plugin surfaces are read from the checkout, and no CI step installs or loads the plugin as a consumer does."
+    },
+    {
+      "rule": "AP-4",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md:400,401,449",
+      "evidence": "Each adoption entry gives a counted deletion in a named consumer."
+    },
+    {
+      "rule": "AW-1",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:148",
+      "evidence": "The skill says 33 criteria while the roadmap holds 32, and the criteria test does not match the wording."
+    },
+    {
+      "rule": "AW-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:15-24",
+      "evidence": "Limits declared and refused at the write."
+    },
+    {
+      "rule": "AW-3",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 5493b65",
+      "evidence": "Titles carry an em dash against the declared ASCII-title rule, and nothing checks titles."
+    },
+    {
+      "rule": "CD-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git log since 2026-09-17",
+      "evidence": "Recent commits ship one task each."
+    },
+    {
+      "rule": "CD-3",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:47-48",
+      "evidence": "The only commit route stages everything, while another session writes in the same checkout."
+    },
+    {
+      "rule": "CD-4",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit d44d623",
+      "evidence": "A commit opening Block L has a generic generated title with no task id."
+    },
+    {
+      "rule": "CD-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:27-29",
+      "evidence": "Open lines each name a defect."
+    },
+    {
+      "rule": "CD-6",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:32-54",
+      "evidence": "The commit rules never say whether commits credit the agent."
+    },
+    {
+      "rule": "CS-1",
+      "level": "2",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "Claims are uncommitted state; the clone holds no trace of them."
+    },
+    {
+      "rule": "CS-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "commit d44caee",
+      "evidence": "The commit staged only its task's files and the shared governed files, a case the CS chapter leaves open."
+    },
+    {
+      "rule": "CS-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "repository-wide",
+      "evidence": "No commit-time hook."
+    },
+    {
+      "rule": "CS-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/host-gate.ps1:137-160",
+      "evidence": "A run that did not happen is reported apart from a pass, and no disturbed run is recorded."
+    },
+    {
+      "rule": "CS-5",
+      "level": "3",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "Cannot be read from committed files."
+    },
+    {
+      "rule": "EP-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep/SKILL.md:10",
+      "evidence": "Two skills contradict each other on which roadkeep copy answers, CI uses @main, and no version is declared."
+    },
+    {
+      "rule": "EP-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tests/Winwright.Tests/Fixture.cs:99-103",
+      "evidence": "UTF-8 child output and MCP stdin are decoded with the default code page."
+    },
+    {
+      "rule": "EP-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/run-tests-vm.ps1:882-892",
+      "evidence": "A leading BOM is stripped or refused."
+    },
+    {
+      "rule": "EP-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "Encoding entries describe byte-level checks."
+    },
+    {
+      "rule": "EP-6",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills",
+      "evidence": "No heredoc instruction."
+    },
+    {
+      "rule": "GH-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 5493b65",
+      "evidence": "The ASCII-title rule, seen broken twice, is still prose only."
+    },
+    {
+      "rule": "GH-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".github/workflows/roadkeep.yml",
+      "evidence": "The guarded rule is re-checked by roadkeep lint in CI."
+    },
+    {
+      "rule": "GH-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "hooks/hooks.json:5",
+      "evidence": "The plugin guard matches only file-edit tools, so a harness written through Bash is not seen."
+    },
+    {
+      "rule": "GH-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "hooks/winwright-guard.cmd:26-29",
+      "evidence": "An unbuilt guard says on stderr that nothing is refusing, and a test holds it."
+    },
+    {
+      "rule": "GH-5",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/settings.json:17-27",
+      "evidence": "No test or workflow reads the committed settings or .mcp.json."
+    },
+    {
+      "rule": "GH-6",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit a18dd8d",
+      "evidence": "A stale-copy notice ran all session while commits landed, and the lint reports it as a note, not a failure."
+    },
+    {
+      "rule": "HR-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 6917d3f",
+      "evidence": "WW88 was recorded as shipped while the cases needing a controller had never run."
+    },
+    {
+      "rule": "HR-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "repository-wide",
+      "evidence": "No agent-chosen acceptance bar found."
+    },
+    {
+      "rule": "IS-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "repository root",
+      "evidence": "No every-turn file, so the condition does not hold."
+    },
+    {
+      "rule": "IS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/*/SKILL.md:3",
+      "evidence": "Skill descriptions say when to load."
+    },
+    {
+      "rule": "IS-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md",
+      "evidence": "Skill bodies and their pages have no gated ceiling; only skills/winwright is capped."
+    },
+    {
+      "rule": "IS-5",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:79-93",
+      "evidence": "The block table says eleven blocks while the roadmap declares Block L, unchecked."
+    },
+    {
+      "rule": "IS-6",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".mcp.json",
+      "evidence": "winwright's own MCP server is not served to its own agent."
+    },
+    {
+      "rule": "PG-2",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:28",
+      "evidence": "WW506's line goes past the symptom into the design."
+    },
+    {
+      "rule": "PG-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "False premises recorded in the ledger."
+    },
+    {
+      "rule": "PG-4",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "Ledger entries say where the design went."
+    },
+    {
+      "rule": "PG-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:42",
+      "evidence": "Criteria declared, and blocks close on them."
+    },
+    {
+      "rule": "PG-6",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:27-29",
+      "evidence": "No open line waits on a person or hardware."
+    },
+    {
+      "rule": "PS-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/settings.json",
+      "evidence": "No allow rules or permission mode committed."
+    },
+    {
+      "rule": "PS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:49-51",
+      "evidence": "Falling back to a raw git commit is forbidden in prose only."
+    },
+    {
+      "rule": "PS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/run-tests-vm.ps1:55-59",
+      "evidence": "The clone holds no credential file and the runner defaults to a location outside the tree."
+    },
+    {
+      "rule": "VG-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/roadmap-docs/SKILL.md:154-160",
+      "evidence": "The gate runs on the tree to be committed."
+    },
+    {
+      "rule": "VG-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/host-gate.ps1:150-156",
+      "evidence": "A run that did not execute is never counted as a pass."
+    },
+    {
+      "rule": "VG-4",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tools/Winwright.RollCall",
+      "evidence": "The roll call compares discovered with reported tests in CI."
+    },
+    {
+      "rule": "VG-6",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "commit 7a37e95",
+      "evidence": "The outside-cause red was filed and fixed by narrowing, not rerunning."
+    },
+    {
+      "rule": "VG-7",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 7a37e95",
+      "evidence": "CI stayed red for twenty-odd pushes while work continued, with no red-suite exception."
+    },
+    {
+      "rule": "VG-8",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "Recent behavioural ships carry covering cases."
+    },
+    {
+      "rule": "VG-9",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "commit 5012473",
+      "evidence": "WW249 measured and reverted."
+    }
+  ]
+}
