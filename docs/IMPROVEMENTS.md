@@ -14,17 +14,6 @@
 
 ## Block G — Adoption and realignment
 
-### §CCF49 Brownfield adoption
-
-`adoption/brownfield.md`, derived from the Shio case study: inventory the existing
-instructions and documentation before writing any; start with an index and a budget
-rather than one large file (Shio's growth to 185 KB and its later split); import an
-existing backlog through roadkeep's `adopt`, accepting legacy limits explicitly (Shio's
-changelog limit of 4,200 characters for 233 entries that predate the tool); keep legacy
-artefacts marked as such (Shio's root CHANGELOG ending in 2021); add gates that measure
-before the agent's first feature; and keep project skills apart from any published ones.
-Each step names the rule it satisfies and the level it reaches.
-
 ## Block H — Validation against the corpus
 
 ### §CCF51 Audit: roadkeep

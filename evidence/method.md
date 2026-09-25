@@ -68,7 +68,7 @@ A quoted string directly before a pointer is a quote the pointer vouches for, as
 `"the most violated rule in the project" [shio@821f18d74:agents.md#L247]`. It must occur,
 whitespace aside, in those lines, in the file when no range is given, or in the commit
 message for a bare commit. `scripts/resolve_citations.py` checks every pointer under
-`evidence/` and `spec/` against the corpus, and a pointer that does not resolve fails the
+`evidence/`, `spec/` and `adoption/` against the corpus, and a pointer that does not resolve fails the
 build. Pointers written inside code, as in this table, are examples and are not checked.
 
 ## 4. Extraction procedure

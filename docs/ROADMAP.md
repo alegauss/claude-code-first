@@ -14,8 +14,6 @@
 
 ## Block G — Adoption and realignment
 
-- 📋 **CCF49** (deps: CCF19 ✅, CCF47 ✅) **an existing codebase adopting the practice has no procedure, and Shio's transition lives only in its history** — Most future adopters are brownfield, and the one brownfield case shows the traps: a resident instruction file and an imported backlog. → §CCF49
-
 ## Block H — Validation against the corpus
 
 - 📋 **CCF51** (deps: CCF44 ✅, CCF45 ✅) **roadkeep has never been audited against the specification, so its conformance is asserted, not measured** — Roadkeep supplied many of the rules, so its audit tests whether the spec merely describes its source or can find fault in it. → §CCF51

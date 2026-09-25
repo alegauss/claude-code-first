@@ -1,7 +1,7 @@
 {
   "name": "claude-code-first",
   "version": "0.1.0",
-  "description": "Audit a repository against the Claude Code First specification: a deterministic checker, then a scanner per chapter and a verifier for the rules that need judgement.",
+  "description": "Adopt and audit the Claude Code First specification: bootstrap a new project, adopt it in an existing codebase, audit a repository with a deterministic checker, a scanner per chapter and a verifier, and realign a project that drifted.",
   "author": {
     "name": "Alexandre Oliveira",
     "url": "https://github.com/alegauss"

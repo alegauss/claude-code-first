@@ -37,7 +37,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 CORPUS = Path("evidence/corpus.md")
-SCANNED = ("evidence", "spec")
+SCANNED = ("evidence", "spec", "adoption")
 CACHE = Path(".cache/corpus")
 
 # A quote may wrap across lines, and may sit on the line before its pointer, but never
