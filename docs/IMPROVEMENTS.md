@@ -4,25 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF74 Session cost as evidence
-
-The owner asked whether a project's token budget can be measured and checked as the
-project progresses. The IS open question says the count would come from session
-transcripts, which method.md excludes because they are local to one machine and pinned
-by no commit. They do carry the figures: every assistant request in the JSONL under
-~/.claude/projects records its input, cache writes, cache reads and output, and
-claude-code-usage's measure-usage.mjs already reads them, folding subagents into the
-task that spawned them. What is missing is attribution to backlog work, which
-task-cost.mjs in that repository adds by assigning each request to the first commit
-after it and summing per id. The method change admits a session-cost aggregate as
-evidence on four conditions: it is produced by a named tool at a named commit, from a
-stated date range, it holds no prompt or content, and it is committed here with the
-command that made it, so the aggregate is pinned even though its source is not. Its
-observations grade at S3 at best, with a validity threat that no one else can rerun it.
-The harness facts it rests on, the transcript's usage fields, go into harness.md with
-the documentation read. The first aggregate covers Shio and roadkeep, and the IS open
-question is revised by what it shows.
-
 ## Block C — Case studies and the findings register
 
 ## Block D — The normative specification

@@ -23,6 +23,7 @@
 - ✅ **CCF64** **the citation resolver takes about five minutes over 795 pointers, so it will be the gate a commit skips first** — The resolver reads each corpus through one git cat-file batch process and the pin's ancestry set: 1,972 pointers take 1.5 s, down from 273 s.
 - ✅ **CCF63** **the resolver cannot check a quote that holds inline code or runs across comment-prefixed source lines** — A quote is now checked as written: it may wrap onto the line before its pointer, keep backticks and run across comment lines, and a wrapped quote no longer passes unread.
 - ✅ **CCF66** **CI still excuses winwright from the pointer check after its pin was pushed** — CI checks winwright's pointers against its remote, now that its pin is pushed; only the private Shio stays excused.
+- ✅ **CCF74** **the method admits no evidence of what a project's own sessions cost, so the session-budget question cannot be settled** — method.md admits session-cost aggregates on four conditions, harness.md records H16-H20 and O4, and evidence/sessions holds a cost per task for all five projects.
 
 ## Block C — Case studies and the findings register
 

@@ -4,8 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF74** (deps: claude-code-usage tools/task-cost.mjs) **the method admits no evidence of what a project's own sessions cost, so the session-budget question cannot be settled** — Transcripts hold per-request usage but are local and unpinned; a committed aggregate with its tool and command is citable. → §CCF74
-
 ## Block C — Case studies and the findings register
 
 ## Block D — The normative specification

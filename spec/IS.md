@@ -200,9 +200,16 @@ surfaces.
   whether IS-6 should be raised to MUST or withdrawn.
 - **A token budget on the project's own sessions.** The rules here bound what loads on every
   turn, AP-1 bounds what a product serves to other agents and AP-6 what its tasks cost
-  them, but no
-  project in the corpus measures what the Claude Code sessions that build it consume, or
-  fails a check when that grows. Such a count would come from session transcripts, which
-  are not a source of this study ([../evidence/method.md](../evidence/method.md)). Session
-  costs counted per task over a project's history, against the size of what each task
-  loaded, would say whether a budget on them bounds anything the gated surfaces do not.
+  them, but no project in the corpus fails a check when the sessions that build it grow
+  dearer. That cost is now counted: session-cost aggregates, admitted under
+  [../evidence/method.md](../evidence/method.md), give each of the five projects a cost per
+  backlog task over the transcripts still kept ([../evidence/sessions/](../evidence/sessions/README.md)).
+  They do not show sessions growing with the project. Comparing the median task of the
+  earlier half of each series with the later half, it fell in roadkeep, polyweave and
+  freewilly and rose in Shio and winwright, over windows of three to thirty days, and the
+  median Shio task cost about three times the median task of roadkeep, polyweave or
+  freewilly. A check on that
+  median can be run, and the tool that made the aggregates carries one, but no project has
+  run it against its own history, so there is no failure it caught and no evidence yet that
+  it bounds anything the gated surfaces do not. A series long enough to span a change to a
+  project's every-turn file, with the median before and after, would settle it.

@@ -33,10 +33,16 @@ Every quotation below is copied from the page named, as retrieved on the date ab
 | H13 | `claude plugin validate` checks a plugin before it is published | [plugins](https://code.claude.com/docs/en/plugins.md) | "Run `claude plugin validate ./your-plugin` locally before you submit" |
 | H15 | `${CLAUDE_PLUGIN_ROOT}` written in a plugin's skill or agent body is replaced with the plugin's installed path when the content loads, though it is not in the environment of Bash commands | [plugins reference](https://code.claude.com/docs/en/plugins-reference.md#where-each-variable-resolves) | "In skill, command, and agent content, write the `${...}` reference in the Markdown body instead, and Claude Code substitutes the path inline when it loads the content." |
 | H14 | `${CLAUDE_PROJECT_DIR}` in a hook command resolves to the project root | [hooks reference](https://code.claude.com/docs/en/hooks.md) | "`${CLAUDE_PROJECT_DIR}` is a path placeholder that resolves to the project root where the session started." |
+| H16 | Session transcripts are kept locally as JSONL, one file per session, in a directory named after the working directory | [sessions](https://code.claude.com/docs/en/sessions.md#where-transcripts-are-stored) | "By default, Claude Code stores transcripts as JSONL at `~/.claude/projects/<project>/<session-id>.jsonl`, where `<project>` is your working directory path with non-alphanumeric characters replaced by `-`." |
+| H17 | The transcript's entry format is internal and may change in any release | [sessions](https://code.claude.com/docs/en/sessions.md#where-transcripts-are-stored) | "The entry format is internal to Claude Code and changes between versions, so scripts that parse these files directly can break on any release." |
+| H18 | Transcripts are deleted after a retention period, thirty days unless `cleanupPeriodDays` changes it | [sessions](https://code.claude.com/docs/en/sessions.md#where-transcripts-are-stored) | "Change the 30-day retention" |
+| H19 | Token usage can be exported as an OpenTelemetry metric, split by input, output, cache read and cache creation | [monitoring](https://code.claude.com/docs/en/monitoring-usage.md) | "`claude_code.token.usage`" |
+| H20 | A print-mode run with JSON output reports its own cost | [headless](https://code.claude.com/docs/en/headless.md#get-structured-output) | "the response payload includes `total_cost_usd` and a per-model cost breakdown" |
 
 H1 to H14 were located by a documentation-lookup agent. H5 and H10 were then re-read by
 hand from the pages and match word for word. The others are quoted as that agent
-returned them.
+returned them. H16 to H20 were read on 2026-09-25 against Claude Code 2.1.282, by the same
+kind of agent, and are quoted as it returned them.
 
 ## Observed behaviour
 
@@ -69,3 +75,12 @@ in cloud sessions as a synced plugin. The practice may have outlived its cause, 
 plugins may not cover a plugin installed from a marketplace. Any rule about committed
 launchers names both O3 and H10, and must be re-checked in a cloud session before it is
 written.
+
+**O4. Each assistant entry in a transcript carries the request's token usage.** On
+2026-09-25, against Claude Code 2.1.282, every assistant line in the JSONL of H16 held a
+`message.usage` object with `input_tokens`, `cache_creation_input_tokens` (split into
+five-minute and one-hour writes), `cache_read_input_tokens` and `output_tokens`, repeated
+on each line of one response under the same `requestId`. No page documents these fields,
+and H17 says the format may change in any release, so the session-cost aggregates in
+[sessions/](sessions/README.md) name the version they were read on and the tool that read
+them.

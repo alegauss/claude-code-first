@@ -50,6 +50,25 @@ Session transcripts are not a source in the first extraction. They are local to 
 machine and are not part of any repository, so a claim resting on one could not be
 checked by a reader.
 
+**Session-cost aggregates** are a fifth source, admitted for claims about what a project's
+own sessions cost and for nothing else. The transcripts record each request's token usage
+(H16, O4), but they expire (H18) and their format is internal (H17), so what is admitted is
+an aggregate drawn from them, and only on four conditions:
+
+1. It is produced by a named tool at a named commit, and the command that ran it is
+   written beside it.
+2. It states the date range the transcripts covered and the harness version they were read
+   against.
+3. It holds counts and identifiers only: no prompt, no response, no commit subject and no
+   path inside the project.
+4. It is committed in this repository, under [sessions/](sessions/README.md), so the
+   aggregate is pinned by this history even though its source is pinned by none.
+
+A claim resting on one cites the file by path. Its observations grade at S3 at most,
+since a count is the strongest thing an aggregate can hold, and each carries the threat
+that no reader can rerun it against the same transcripts
+([validity.md](validity.md)).
+
 Every source is read at a pinned commit. The pins are recorded per case in
 [corpus.md](corpus.md), and an evidence pointer names the commit it was read at. A
 pointer without a commit is a lead, not evidence.

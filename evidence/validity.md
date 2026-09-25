@@ -103,6 +103,13 @@ prompts ([instruments/](instruments/extraction-2026-09-24.md)) are recorded so t
 extraction can be repeated. A repetition at the same pins by a different model or a
 person is the strongest test of reliability, and it has not been done.
 
+**Session-cost aggregates cannot be repeated.** The transcripts behind
+[sessions/](sessions/README.md) are on one machine and are deleted after thirty days, so
+no one can recount them, and the attribution of a request to a task is a rule about
+timing that concurrent sessions and uncommitted exploration break. A claim resting on an
+aggregate is therefore held at S3 at most, and read as the cost of one person's sessions
+under one harness version, not as the cost of the practice.
+
 ## References
 
 1. P. Runeson and M. Höst. "Guidelines for conducting and reporting case study research
