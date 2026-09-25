@@ -1,3 +1,7 @@
+# EP-2: line terminators are declared, so a Windows editor and a Unix runner commit the
+# same bytes (F404). Everything is stored LF.
+* text=auto eol=lf
+
 docs/ROADMAP.md merge=roadkeep
 docs/CHANGELOG.md merge=roadkeep
 docs/IMPROVEMENTS.md merge=roadkeep

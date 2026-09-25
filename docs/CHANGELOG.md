@@ -8,6 +8,7 @@
 - ✅ **CCF4** **nothing states how work is committed here, so batching, stray files and mislabelled docs commits are all possible** — Committing here is a trigger-loaded ccf-dev skill: one task per commit, staged by path, message from a file, the three gates first (design superseded: staged by path).
 - ✅ **CCF5** **the every-turn files carry no size budget, so they can grow the way Shio's agents.md reached 186 KB** — agents.md and .claude/CLAUDE.md now carry line and byte budgets lint enforces, and every skill written here is capped at 700 characters of description and 6,000 of body.
 - ✅ **CCF6** **a Write over an existing file is accepted silently here, the path that destroyed about 700 lines in pportal** — A Write over an existing non-empty file is now refused by a PreToolUse hook naming Edit, vendored from polyweave with its source commit in the header.
+- ✅ **CCF65** **this repository declares no line terminators in .gitattributes, so it fails its own rule EP-2** — This repository declares LF line endings in .gitattributes, claims level 2 in its own ccf.toml, and CI runs the conformance checker against it on every push.
 
 ## Block B — Research method and the evidence corpus
 

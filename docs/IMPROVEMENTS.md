@@ -2,17 +2,6 @@
 
 ## Block A — The repository follows its own rule
 
-### §CCF65 Line endings pinned here too
-
-Found by the conformance checker (CCF43) on its first run against this repository:
-`.gitattributes` carries only the roadkeep merge-driver lines, so line terminators are
-not declared and the repository fails rule EP-2 at level 2. Git has been warning that
-CRLF will be replaced by LF on files written from Windows, which is the drift the rule
-exists to stop (F404). Build: add `* text=auto eol=lf` above the merge lines, run `git
-add --renormalize .` so committed files match, and confirm with `python
-scripts/check_conformance.py .` that EP-2 passes; then add a CI step running the checker
-against this repository at level 2, so the specification's own repository is held to it.
-
 ## Block B — Research method and the evidence corpus
 
 ## Block C — Case studies and the findings register

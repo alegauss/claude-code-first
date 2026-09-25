@@ -42,6 +42,16 @@ jobs:
       # A skill's description is paid on every turn; the caps are in the script.
       - run: python3 scripts/check_skills.py
 
+  conformance:
+    name: this repository's own conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0  # CD-1 reads the whole history of the ledger
+      # The level comes from ccf.toml; the specification is held to what it asks of others.
+      - run: python3 scripts/check_conformance.py .
+
   plugin:
     name: plugin validate
     runs-on: ubuntu-latest

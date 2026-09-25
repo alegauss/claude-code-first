@@ -1,0 +1,7 @@
+# This repository's own claim under its specification (spec/deviations.md): it is held to
+# what it asks of others, and CI runs the checker against it on every push.
+level = 2
+spec_version = "0.1.0"
+profile = true
+
+# No waivers.
