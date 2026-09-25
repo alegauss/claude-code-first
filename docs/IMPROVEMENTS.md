@@ -6,23 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-### §CCF69 A CLI verb against an MCP tool
-
-The owner proposed that a CLI is better than MCP. F4 already records that served tool
-schemas were measured and held under ceilings, and that freewilly chose a CLI on the
-strength of Shio's measurement, but no finding states the placement decision itself or
-its limits. At the pins, Shio kept three capabilities off its MCP tool list on the same
-argument: instance memory in SH114, because a tool schema is paid on every turn of every
-session and a coding agent has a shell; the handoff report in SH104, whose consumer is a
-human; and raster snapshots in SH265, which stay in the CLI where the agent has a shell.
-freewilly's DD23 and DD33 decide CLI first and MCP only for a client with no shell, and
-say the measurement is borrowed, so they add no origin. Against it, Shio's own first law
-orders every capability MCP before files and CLI, for clients without a shell, and
-winwright serves MCP tools so that the input format arrives as the loader's own schema
-after agents typed keys from memory (WW66). H9 contests the per-turn cost. The finding
-is written in the F1 to F99 block with Shio as its origin, freewilly as a copy and
-winwright as contrary, scoped to a consuming agent that has a shell.
-
 ## Block D — The normative specification
 
 ### §CCF70 Where a capability lands

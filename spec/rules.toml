@@ -493,7 +493,7 @@ level = "3"
 statement = "A project that serves MCP tools to its own agent SHOULD hold the serialized size of their schemas under a ceiling that a gate enforces."
 checked = "by judgement"
 detector = ""
-findings = ["F4", "F406"]
+findings = ["F4", "F406", "F8"]
 harness = ["H8", "H9"]
 status = "active"
 

@@ -44,7 +44,7 @@ and each observation to its pinned source.
 | IS-3 | SHOULD | 1 | [F2](../evidence/findings/F2.md) R3/S3, [F406](../evidence/findings/F406.md) R3/S4 | freewilly, roadkeep, shio, winwright | 42 |
 | IS-4 | MUST | 3 | [F3](../evidence/findings/F3.md) R3/S3, [F406](../evidence/findings/F406.md) R3/S4 | freewilly, roadkeep, shio, winwright | 40 |
 | IS-5 | MUST | 3 | [F7](../evidence/findings/F7.md) R4/S4, [F306](../evidence/findings/F306.md) R3/S3 | freewilly, polyweave, roadkeep, shio, winwright | 33 |
-| IS-6 | SHOULD | 3 | [F4](../evidence/findings/F4.md) R3/S4, [F406](../evidence/findings/F406.md) R3/S4 | freewilly, roadkeep, shio, winwright | 48 |
+| IS-6 | SHOULD | 3 | [F4](../evidence/findings/F4.md) R3/S4, [F406](../evidence/findings/F406.md) R3/S4, [F8](../evidence/findings/F8.md) R2/S2 | freewilly, roadkeep, shio, winwright | 61 |
 | PG-1 | SHOULD | 1 | [F100](../evidence/findings/F100.md) R1/S2, [F101](../evidence/findings/F101.md) R1/S3 | freewilly, polyweave, roadkeep, shio, winwright | 26 |
 | PG-2 | SHOULD | 1 | [F103](../evidence/findings/F103.md) R3/S3 | polyweave, roadkeep, winwright | 10 |
 | PG-3 | SHOULD | 1 | [F102](../evidence/findings/F102.md) R3/S3, [F103](../evidence/findings/F103.md) R3/S3, [F106](../evidence/findings/F106.md) R2/S3 | freewilly, polyweave, roadkeep, shio, winwright | 36 |

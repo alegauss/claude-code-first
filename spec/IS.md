@@ -151,7 +151,7 @@ reason ([F7](../evidence/findings/F7.md)).
 | Keyword | SHOULD |
 | Level | 3 |
 | Checked | by judgement |
-| Findings | F4, F406 |
+| Findings | F4, F406, F8 |
 | Harness facts | H8, H9 |
 | Threat | external: a harness release decides how much of the schema a session is sent |
 | Status | active |
@@ -161,7 +161,9 @@ of a session, held them under ceilings that fail the build, and met each later a
 trimming a description or raising the ceiling with a written reason; Shio's test failed on
 a real change three tokens over, answered by a trim ([F4](../evidence/findings/F4.md),
 R3/S4). The ceiling did not keep roadkeep's total from rising twelve times; what it did was
-make each rise a recorded decision. The finding is contested by the harness documentation:
+make each rise a recorded decision. The other answer to the ceiling was to keep a
+capability off the list: Shio shipped three as CLI verbs because its agent had a shell
+([F8](../evidence/findings/F8.md), R2/S2). The finding is contested by the harness documentation:
 with tool search on, the default read on 2026-09-24, Claude Code does not send every tool
 definition up front (H9). The measured sizes are not in doubt, but what a session pays for
 them is, and that disagreement is a property of the harness version rather than of the
