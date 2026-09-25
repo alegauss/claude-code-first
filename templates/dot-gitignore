@@ -1,0 +1,24 @@
+# PS-3, CD-3: nothing a session leaves behind, and no credential, can reach a commit, even
+# through a commit tool that stages everything (F200).
+
+# per-machine permission grants
+.claude/settings.local.json
+
+# credentials
+.env
+.env.*
+*.pem
+*.key
+
+# the planning tool's vendored engine, pinned per machine
+.roadkeep/
+
+# what sessions and builds leave behind
+*.log
+*.log.progress
+*.tmp
+scratch/
+__pycache__/
+*.pyc
+node_modules/
+.cache/

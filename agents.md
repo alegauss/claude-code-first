@@ -27,6 +27,7 @@ evidence/field-notes/      extraction per corpus project, verified claim by clai
 spec/                      the specification: conventions, then one file per chapter
 scripts/                   the gates that are not roadkeep's, run by CI and by hand
 .claude-plugin/ skills/ agents/   the audit plugin other repositories install
+templates/                 conforming files for adopters, dotfiles stored as dot-*
 ```
 
 ## Where the rest is

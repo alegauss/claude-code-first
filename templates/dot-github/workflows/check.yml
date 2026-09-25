@@ -1,0 +1,35 @@
+# VG-5: the gates that decide whether work is done run on every push (F303).
+# VG-1: add the project's own build and test steps to the `gates` job.
+name: check
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  roadkeep:
+    name: roadkeep lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: alegauss/roadkeep@main
+
+  gates:
+    name: build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Replace with the project's gates. Never pipe a gate's output (VG-2).
+      - run: echo "add the build and test commands here" && exit 1
+
+  conformance:
+    name: Claude Code First conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # The level and waivers come from ccf.toml.
+      - run: git clone --depth 1 https://github.com/alegauss/claude-code-first.git "$RUNNER_TEMP/ccf"
+      - run: python3 "$RUNNER_TEMP/ccf/scripts/check_conformance.py" .

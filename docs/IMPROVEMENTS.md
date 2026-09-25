@@ -25,17 +25,6 @@ against this repository at level 2, so the specification's own repository is hel
 
 ## Block G — Adoption and realignment
 
-### §CCF47 Reference templates
-
-`templates/` holds a minimal conforming file per artefact, each with a comment block
-citing the rules it implements: an `agents.md` skeleton and the `.claude/CLAUDE.md`
-pointer; `.claude/settings.json` with guards and explicit deny rules; the hook launcher
-and the no-clobber hook, vendored with their source commit; `.gitignore` and
-`.gitattributes` fragments; a `roadkeep.toml` with budgets and criteria enabled; CI
-workflows; a dev skill for committing and a writing skill; and a `ccf.toml` declaring
-the level and the spec version. The templates are tested: the checker passes on a
-repository assembled from them.
-
 ### §CCF48 Greenfield bootstrap
 
 `adoption/greenfield.md` and a skill that performs it: the order in which to install the

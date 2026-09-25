@@ -54,8 +54,12 @@ class Detectors(Fixture):
     def test_vg_2(self):
         self.write("CLAUDE.md", "Run `./mvnw test`.\n")
         self.assertEqual(cc.vg_2(self.repo)[0], cc.PASSED)
+        self.write(".claude/skills/build/SKILL.md", "| `roadkeep lint` | the docs |\n")
+        self.assertEqual(cc.vg_2(self.repo)[0], cc.PASSED)  # a table border is not a pipe
         self.write(".claude/skills/build/SKILL.md", "./mvnw test 2>&1 | grep Tests\n")
         self.assertEqual(cc.vg_2(self.repo)[0], cc.FAILED)
+        self.write(".claude/skills/build/SKILL.md", "| `pytest -q | tail -1` | the suite |\n")
+        self.assertEqual(cc.vg_2(self.repo)[0], cc.FAILED)  # a pipe inside a table's code span
 
     def test_vg_5(self):
         self.assertEqual(cc.vg_5(self.repo)[0], cc.FAILED)

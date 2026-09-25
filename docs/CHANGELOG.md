@@ -68,6 +68,8 @@
 
 ## Block G — Adoption and realignment
 
+- ✅ **CCF47** **a new project has no starting kit, so each of the five wrote its own settings, hooks and skills** — templates/ holds a conforming file per artefact citing its rules, and a repository assembled from them passes the checker at level 2 in a test (design superseded: hooks referenced, not copied).
+
 ## Block H — Validation against the corpus
 
 ## Block I — Governance and publication of the specification

@@ -1,0 +1,7 @@
+# What this project claims under the Claude Code First specification (spec/deviations.md).
+level = 2
+spec_version = "0.1.0"
+profile = false
+
+# One [[waiver]] per rule departed from on purpose, with rule, reason, owner, date, and
+# expires or task. None yet.

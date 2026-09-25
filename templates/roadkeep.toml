@@ -1,0 +1,37 @@
+# PG-1: the planning files are governed; roadkeep writes them and its guard refuses a
+# hand edit. AW-2: the limits below are refused at the write, not reviewed afterwards.
+prefix = "EX"
+ref_scheme = "id"
+priority = []
+
+[files]
+roadmap = "docs/ROADMAP.md"
+changelog = "docs/CHANGELOG.md"
+improvements = "docs/IMPROVEMENTS.md"
+decisions = "docs/DECISIONS.md"
+
+[limits]
+symptom = 120
+why = 200
+line = 320
+section = 250
+prose = 88
+
+[markers]
+open = ["📋", "💭", "⏳", "🛠"]
+shipped = "✅"
+retired = "🗑"
+
+[claims]
+held = 60
+
+# PG-5: what must be true for a block to be finished is written with the block.
+[criteria]
+
+[non_goals]
+
+# IS-1: the every-turn files, with a budget roadkeep lint enforces. Set each just above
+# the size the file lands at, and lower it when content moves out (F1).
+[budgets]
+"agents.md" = { lines = 45, bytes = 2500 }
+".claude/CLAUDE.md" = { lines = 12, bytes = 400 }

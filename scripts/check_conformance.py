@@ -112,7 +112,9 @@ def vg_2(repo: Path) -> tuple[str, str]:
     hits = []
     for path in paths:
         for number, line in enumerate((read(repo, path) or "").splitlines(), 1):
-            if GATE_COMMAND.search(line):
+            # In a Markdown table the pipes are cell borders: examine only the code spans.
+            candidates = re.findall(r"`([^`]*)`", line) if line.lstrip().startswith("|") else [line]
+            if any(GATE_COMMAND.search(c) for c in candidates):
                 hits.append(f"{path}:{number}")
     if hits:
         return FAILED, "gate piped in " + ", ".join(hits[:5])
@@ -144,6 +146,10 @@ def cd_1(repo: Path) -> tuple[str, str]:
     if config is None:
         return UNDECIDED, "no ledger declared in a format this checker reads"
     changelog = config.get("files", {}).get("changelog", "docs/CHANGELOG.md")
+    head = subprocess.run(["git", "-C", str(repo), "rev-parse", "--verify", "--quiet", "HEAD"],
+                          capture_output=True, text=True)
+    if (repo / ".git").exists() and head.returncode != 0:
+        return PASSED, "no commits yet"
     log = subprocess.run(
         ["git", "-C", str(repo), "log", "-p", "--format=@@commit %h", "--", changelog],
         capture_output=True, text=True, encoding="utf-8", errors="replace",

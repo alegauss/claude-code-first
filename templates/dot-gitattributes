@@ -1,0 +1,12 @@
+# EP-2: line terminators are declared, so a Windows editor and a Unix runner commit the
+# same bytes (F404). After adding this to an existing repository, run
+# `git add --renormalize .` once.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# The governed planning files merge by entry, not by text (roadkeep's merge driver).
+docs/ROADMAP.md merge=roadkeep
+docs/CHANGELOG.md merge=roadkeep
+docs/IMPROVEMENTS.md merge=roadkeep
+docs/DECISIONS.md merge=roadkeep
