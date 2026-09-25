@@ -13,7 +13,7 @@ A change that breaks one is wrong even if requested.
 |---|---|
 | L1 | **Every normative statement traces to evidence**: a graded finding, or documented harness behaviour, cited by path and commit in the source project. A practice with no evidence is an open question, not a rule. |
 | L2 | **Every artefact is in English**: specification, evidence, backlog, commits, code and comments. |
-| L3 | **The governed docs are written by `roadkeep` only**: `docs/ROADMAP.md`, `CHANGELOG.md`, `IMPROVEMENTS.md` and `DECISIONS.md` are never hand-edited. |
+| L3 | **The governed docs are written by `roadkeep` only**: `docs/ROADMAP.md`, `CHANGELOG.md`, `IMPROVEMENTS.md`, `DECISIONS.md` and `DEFERRED.md` are never hand-edited. |
 
 ## Layout
 

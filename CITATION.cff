@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this specification, please cite it as below."
+title: "Claude Code First: an evidence-based specification of practice for software written with Claude Code"
+version: 0.1.0
+date-released: 2026-09-25
+type: software
+authors:
+  - family-names: Oliveira
+    given-names: Alexandre
+repository-code: "https://github.com/alegauss/claude-code-first"
+abstract: >-
+  A specification of how to run a software project in which Claude Code is the primary
+  author and a person governs what is built, derived as a multiple-case study of five
+  such projects. Every rule cites graded findings, and every finding cites pointers into
+  the projects' pinned sources, which a gate checks.
+keywords:
+  - Claude Code
+  - AI coding agents
+  - software engineering practice
+  - case study
