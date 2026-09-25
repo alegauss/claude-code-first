@@ -23,7 +23,7 @@ an agent may do without asking is the subject of chapter PS.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F300, F1, F5, F6 |
 | Harness facts | none |
@@ -51,7 +51,7 @@ fault ([F7](../evidence/findings/F7.md)), so the check reads what the rule gover
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F301, F303 |
 | Harness facts | H4, H6 |
@@ -75,7 +75,7 @@ had its guard.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F100, F301 |
 | Harness facts | H4, H6 |
@@ -98,7 +98,7 @@ tool's history, R1 at S2 with no contrary observation, which admits SHOULD.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F301, F403 |
 | Harness facts | H5 |
@@ -123,7 +123,7 @@ can see. A guard that never loaded cannot speak for itself; GH-2 covers that cas
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F306, F401 |
 | Harness facts | H7, H11, H13 |
@@ -149,7 +149,7 @@ committed file (H11), so the committed file is the one to hold.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F403 |
 | Harness facts | none |

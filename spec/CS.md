@@ -27,7 +27,7 @@ that case ([../evidence/validity.md](../evidence/validity.md), external validity
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F201 |
 | Harness facts | none |
@@ -50,7 +50,7 @@ so the keyword is SHOULD. How long a claim lasts is an open question.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F201, F200 |
 | Harness facts | none |
@@ -74,7 +74,7 @@ showed (F201); that case is an open question.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F201, F301 |
 | Harness facts | none |
@@ -98,7 +98,7 @@ project, so the keyword is SHOULD.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F202, F304 |
 | Harness facts | none |
@@ -126,7 +126,7 @@ run.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD NOT |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F202 |
 | Harness facts | none |

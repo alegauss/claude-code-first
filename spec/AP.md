@@ -27,7 +27,7 @@ consumer repositories, where it found what the producer's own suite had passed
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | profile |
 | Checked | by judgement |
 | Findings | F406, F4 |
 | Harness facts | H3, H9 |
@@ -54,7 +54,7 @@ cost every session is certain to pay. A change to H9 re-opens that part.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | profile |
 | Checked | by judgement |
 | Findings | F7, F306, F403 |
 | Harness facts | none |
@@ -80,7 +80,7 @@ agent-facing text in this sense, so the command it names is checked like any oth
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | profile |
 | Checked | by judgement |
 | Findings | F407, F306 |
 | Harness facts | H8, H13; O2 (observed) |
@@ -108,7 +108,7 @@ source on disk.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | profile |
 | Checked | by judgement |
 | Findings | F408 |
 | Harness facts | none |

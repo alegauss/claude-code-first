@@ -26,7 +26,7 @@ PG-6.
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F105, F104 |
 | Harness facts | none |
@@ -51,7 +51,7 @@ needs such an input, and keeps its level. PG-6 says how such a task is held inst
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F105 |
 | Harness facts | none |

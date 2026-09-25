@@ -23,7 +23,7 @@ as open questions.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F402, F301 |
 | Harness facts | H4, H6, H7 |
@@ -50,7 +50,7 @@ settled here (see Open questions).
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F300, F301, F402 |
 | Harness facts | H6, H7 |
@@ -78,7 +78,7 @@ of it; what a project should forbid is an open question.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD NOT |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F200 |
 | Harness facts | none |

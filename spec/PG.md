@@ -30,7 +30,7 @@ The length limit on planning prose, refused where the text is written, is rule A
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | automatically |
 | Findings | F100, F101 |
 | Harness facts | H4, H6 |
@@ -59,7 +59,7 @@ it is not repeated here.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F103 |
 | Harness facts | none |
@@ -82,7 +82,7 @@ be rewritten when the design changes, and the design lives where it can be repla
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F102, F103, F106 |
 | Harness facts | none |
@@ -107,7 +107,7 @@ in a different place.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F106 |
 | Harness facts | none |
@@ -130,7 +130,7 @@ history keeps them, but no later session reads history before deciding.
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F106 |
 | Harness facts | none |
@@ -155,7 +155,7 @@ that demonstrates it.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F105 |
 | Harness facts | none |

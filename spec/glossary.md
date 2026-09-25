@@ -97,8 +97,9 @@ conformance, starting from an audit that lists what drifted.
 
 ## conformance level
 
-A named subset of the rules that a project can claim to meet in full. The levels are
-defined in the conformance chapter.
+A named subset of the rules that a project can claim to meet in full. The three levels,
+governed, gated and measured, are cumulative and are defined in
+[conformance.md](conformance.md).
 
 ## waiver
 

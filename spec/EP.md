@@ -24,7 +24,7 @@ observations, and none has been seen to hold or fail on another platform
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F403 |
 | Harness facts | none |
@@ -50,7 +50,7 @@ Failing a gate when the copy that answers is stale is rule GH-6 in [GH.md](GH.md
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F404 |
 | Harness facts | none |
@@ -74,7 +74,7 @@ disagree about it; on another platform the risk may be smaller, and the corpus c
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F404, F405 |
 | Harness facts | none |
@@ -97,7 +97,7 @@ follows the locale, which the findings record for Windows only.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F404 |
 | Harness facts | none |
@@ -120,7 +120,7 @@ register; a later PowerShell, or another shell, may not add it.
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F405, F404 |
 | Harness facts | none |
@@ -144,7 +144,7 @@ corpus's Windows machines was the locale's ([F404](../evidence/findings/F404.md)
 | Field | Value |
 |---|---|
 | Keyword | SHOULD NOT |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F404 |
 | Harness facts | none |

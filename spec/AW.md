@@ -24,7 +24,7 @@ style a project chose is enforced.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F7 |
 | Harness facts | none |
@@ -49,7 +49,7 @@ present, not records of a moment such as a ledger entry's count on the day a tas
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F5, F101 |
 | Harness facts | none |
@@ -74,7 +74,7 @@ bounds length, not content ([F5](../evidence/findings/F5.md)).
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F6, F300 |
 | Harness facts | none |

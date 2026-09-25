@@ -36,17 +36,6 @@ allow rule could pre-empt).
 
 ## Block F — Conformance and the audit
 
-### §CCF40 Conformance levels
-
-Cumulative levels, each a coherent stopping point. Level 1, governed: an every-turn
-index with a budget, governed planning files, one task per commit. Level 2, gated:
-guards committed and portable, gates run before commit and in CI, the third verdict,
-red-suite discipline. Level 3, measured: generated figures, context-cost budgets,
-discoverability tested, drift checks between artefacts. Every rule is assigned a level,
-justified by its grade and its adoption cost. A project states its level and the spec
-version, and the claim is backed by an audit report. The optional chapter on
-agent-facing products is a profile, not a level.
-
 ### §CCF41 A machine-readable rule registry
 
 `spec/rules.toml`, in TOML because people author it (polyweave's convention: TOML for

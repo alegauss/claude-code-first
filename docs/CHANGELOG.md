@@ -56,6 +56,8 @@
 
 ## Block F — Conformance and the audit
 
+- ✅ **CCF40** **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — spec/conformance.md defines three cumulative levels, governed, gated and measured, plus the agent-facing profile, assigns all 56 rules with reasons, and says how a claim is made.
+
 ## Block G — Adoption and realignment
 
 ## Block H — Validation against the corpus

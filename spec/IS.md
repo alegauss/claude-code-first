@@ -26,7 +26,7 @@ of the file, not of its absence. IS-1 and IS-2 apply only where one exists.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F1, F2 |
 | Harness facts | H1, H2 |
@@ -51,7 +51,7 @@ fixed here; see the open questions.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F2 |
 | Harness facts | H1, H2, H3 |
@@ -74,7 +74,7 @@ content exceeded what it replaced ([F2](../evidence/findings/F2.md)).
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F2, F406 |
 | Harness facts | H3 |
@@ -97,7 +97,7 @@ observation, recorded at S2 with no contrary one, which admits SHOULD.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F3, F406 |
 | Harness facts | H3 |
@@ -123,7 +123,7 @@ content ([F3](../evidence/findings/F3.md)).
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F7, F306 |
 | Harness facts | none |
@@ -149,7 +149,7 @@ reason ([F7](../evidence/findings/F7.md)).
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F4, F406 |
 | Harness facts | H8, H9 |

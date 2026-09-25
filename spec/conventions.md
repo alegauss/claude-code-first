@@ -26,7 +26,7 @@ Every rule is written in this form, under its chapter:
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 1 |
 | Checked | automatically |
 | Findings | F1, F2 |
 | Harness facts | H2 |
@@ -44,8 +44,9 @@ Rationale: one paragraph on why, citing the findings by link.
   written in italics there, and `scripts/check_glossary.py` fails the build on an italic
   term with no entry.
 - **Keyword.** Repeated in the table, so a tool can read it without parsing prose.
-- **Level.** The conformance level the rule belongs to. Levels are defined in the
-  conformance chapter; until it exists, every rule carries `pending`.
+- **Level.** The conformance level the rule belongs to, `1`, `2` or `3`, or `profile`
+  for the agent-facing rules; [conformance.md](conformance.md) defines the levels and
+  justifies each assignment.
 - **Checked.** `automatically` where a script can decide conformance from the files of a
   repository, `by judgement` where a reader must.
 - **Findings.** The findings the rule rests on, by id. A rule with none is not a rule.

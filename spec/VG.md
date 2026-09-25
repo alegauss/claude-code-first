@@ -23,7 +23,7 @@ other sessions are writing is the subject of chapter CS.
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F305, F303, F104 |
 | Harness facts | none |
@@ -48,7 +48,7 @@ The only red this rule lets through is one recorded as a *red-suite exception* (
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 2 |
 | Checked | automatically |
 | Findings | F302, F300 |
 | Harness facts | none |
@@ -72,7 +72,7 @@ decide conformance by reading those files.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F302, F304 |
 | Harness facts | none |
@@ -95,7 +95,7 @@ product's checks: "A check that could not run is a third verdict and never a pas
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F302 |
 | Harness facts | none |
@@ -116,7 +116,7 @@ VG-3 for a test suite.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | automatically |
 | Findings | F303, F304 |
 | Harness facts | none |
@@ -140,7 +140,7 @@ the workflow files' triggers and the gates they call.
 | Field | Value |
 |---|---|
 | Keyword | MUST |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F304 |
 | Harness facts | none |
@@ -164,7 +164,7 @@ defect to file, not a state to live with.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F303, F304 |
 | Harness facts | none |
@@ -186,7 +186,7 @@ so the rule carries SHOULD.
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 2 |
 | Checked | by judgement |
 | Findings | F305, F104 |
 | Harness facts | none |
@@ -211,7 +211,7 @@ closed by the agent: that is the subject of chapter HR.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 3 |
 | Checked | by judgement |
 | Findings | F103, F102 |
 | Harness facts | none |

@@ -26,7 +26,7 @@ Where several sessions share one checkout, the rules in [CS.md](CS.md) apply as 
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | automatically |
 | Findings | F203, F206 |
 | Harness facts | none |
@@ -51,7 +51,7 @@ lower bound, since it cannot see a second task's code carried under one ledger l
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F203, F305 |
 | Harness facts | none |
@@ -75,7 +75,7 @@ whole, which is one prescription copied between the projects and never measured.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F200, F201 |
 | Harness facts | none |
@@ -101,7 +101,7 @@ shared commit tool, so the keyword is SHOULD.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F204, F206 |
 | Harness facts | none |
@@ -126,7 +126,7 @@ the agent wrote is conforming, as D5 decides, and so is a message the agent wrot
 | Field | Value |
 |---|---|
 | Keyword | MUST NOT |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F102 |
 | Harness facts | none |
@@ -150,7 +150,7 @@ names before it files it.
 | Field | Value |
 |---|---|
 | Keyword | SHOULD |
-| Level | pending |
+| Level | 1 |
 | Checked | by judgement |
 | Findings | F205 |
 | Harness facts | none |

@@ -39,7 +39,8 @@ It does not cover:
 ## How to read it
 
 Start with [conventions.md](conventions.md): the conformance keywords, the form of a rule
-and how rules are addressed. Then read the chapters in any order; each opens with the
+and how rules are addressed. [conformance.md](conformance.md) groups the rules into three
+cumulative levels and says how a project claims one. Then read the chapters in any order; each opens with the
 problem it answers, stated from the findings, and each rule links the findings it rests
 on. A reader who doubts a rule follows its findings to their observations, and the
 observations to the pinned sources.
