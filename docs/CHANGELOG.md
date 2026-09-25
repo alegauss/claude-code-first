@@ -45,6 +45,7 @@
 - ✅ **CCF33** **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — spec/AP.md states four rules for products agents use: gated token ceilings, names checked against the catalogue, tests from the published artefact, adoption proved in a consumer.
 - ✅ **CCF29** **no normative chapter says what an agent must run, keep and report before calling work done** — spec/VG.md states nine rules on what must run and pass before work is done, from gates on the committed change to the third verdict, CI on every push and expiring red exceptions.
 - ✅ **CCF30** **no normative chapter says which rules must be enforced by hooks rather than by instructions** — spec/GH.md states six rules on what the harness enforces: broken rules leave prose, a CI gate behind every guard, every route matched, silent failures surfaced, configuration gated.
+- ✅ **CCF31** **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — spec/PS.md states three permission rules the evidence carries: name what replaces removed prompts, refuse forbidden actions in configuration, keep credentials out of the tree.
 
 ## Block E — Patterns and anti-patterns
 

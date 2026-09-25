@@ -8,19 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF31 Chapter: permissions and safety
-
-The corpus shows blanket allows and `bypassPermissions` in local settings (roadkeep,
-freewilly), with safety carried by guards, gates and review of commits. The chapter must
-not endorse this by default. It weighs what the guards are shown to prevent (hand edits,
-clobbering writes, hand-written harnesses) against what nothing in the corpus guards:
-destructive shell commands, network access, secrets, and pushes, which polyweave and
-roadkeep forbid only in prose. It states a minimum: committed settings with explicit
-deny or ask rules for irreversible actions; a local bypass allowed only as a documented
-deviation naming its compensating controls; no secrets in the repository; and pushes
-made by the person. Anthropic's documentation on permission modes and sandboxing is
-cited through the harness register.
-
 ### §CCF32 Chapter: environment portability
 
 Rules: nothing the practice relies on may exist only in a user-level install, so

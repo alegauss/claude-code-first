@@ -53,7 +53,7 @@ observations to the pinned sources.
 | CD | [Change discipline](CD.md) | how finished work becomes commits |
 | VG | [Verification gates](VG.md) | what must run, and pass, before work is called done |
 | GH | [Guards and hooks](GH.md) | which rules the harness enforces rather than instructions |
-| PS | Permissions and safety | what an agent may do without asking, and what stands in for asking |
+| PS | [Permissions and safety](PS.md) | what an agent may do without asking, and what stands in for asking |
 | EP | Environment portability | where a session runs: web or local, shells, encodings |
 | AP | [Agent-facing product surfaces](AP.md) | projects that ship tools, skills or plugins for other agents |
 | HR | The human role | what the person decides, and what an agent must not certify |
