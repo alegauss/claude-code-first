@@ -28,7 +28,9 @@ It does not cover:
 
 ## Who it is for
 
-- **Researchers and experts**, who will want the method before any rule:
+- **Researchers and experts**, who will want the evidence chain before any rule: the
+  [traceability matrix](traceability.md) from each rule to its findings and the projects
+  they reach, then
   [../evidence/method.md](../evidence/method.md), the
   [grading scale](../evidence/grading.md), the [findings](../evidence/findings/index.md)
   and the [threats to validity](../evidence/validity.md).

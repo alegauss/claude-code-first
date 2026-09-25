@@ -12,16 +12,6 @@
 
 ## Block F — Conformance and the audit
 
-### §CCF42 The traceability gate
-
-A CI check that fails when a rule cites no finding; when a MUST rests on findings below
-the admission grade; when a finding cites no resolvable primary evidence; when a finding
-is cited by nothing and not marked as background; or when a pattern links a rule that
-does not exist. It generates a traceability matrix, rule to findings to citations to
-projects, as a committed artefact regenerated in the same commit as any change, the way
-polyweave regenerates its site module. The matrix is the first thing an expert reviewer
-reads.
-
 ### §CCF43 A deterministic conformance checker
 
 A script depending on nothing beyond its language's standard library (roadkeep's
