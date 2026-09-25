@@ -8,23 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF71 Two claims the corpus argues and never measured
-
-The owner proposed two more corrections. First, that an agent manipulating files is
-better served locally. Shio's P4 says files beat APIs for authoring because Edit, Write
-and Grep are the agent's cheapest tools, and it acted on that: content projects to a
-git-diffable tree (SH86), templates project as files so Grep reaches them (SH191), and
-shio read was not built because grep over a pulled tree is cheaper than a request
-(SH288). No commit at the pin measures authoring through files against authoring through
-the API; SH164's projection pair is field projection, not files. The cost is recorded: a
-two-way sync with a three-way merge, and SH519, a false defect produced by a local
-read-modify-write that decoded through cp1252. This goes in AP's open questions with
-what would settle it. Second, that every project must hold its own development to a
-token budget checked by tests. The corpus bounds what loads every turn (IS-1) and what a
-product serves (AP-1), but no project measures what its own Claude Code sessions
-consume, and transcripts are not a source of this study. This goes in IS's open
-questions beside the one on moved content.
-
 ### §CCF72 Benchmark the task, not only the surface
 
 The owner asked that every project be built around token consumption, with tests that

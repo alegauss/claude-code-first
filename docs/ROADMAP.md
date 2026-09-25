@@ -8,7 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF71** (deps: —) **the files-over-APIs and the per-project session token budget claims are recorded nowhere as open questions** — Both are argued in the corpus and measured in none of it, so the non-goal on rules that sound right sends them to their chapters' open questions. → §CCF71
 - 📋 **CCF72** (deps: CCF68 ✅) **no rule asks a product to benchmark canonical tasks through its agent surface against the generic path** — AP-1 bounds each surface's size, but a regression in what a whole task costs, or in the gap to the generic path, passes every per-surface ceiling. → §CCF72
 
 ## Block E — Patterns and anti-patterns
@@ -21,7 +20,7 @@
 
 ## Block I — Governance and publication of the specification
 
-- 📋 **CCF73** (deps: CCF70 ✅, CCF71, CCF72) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, and a reader should meet the corrected claims on REST, CLI, files and budgets there, with a count the build computes. → §CCF73
+- 📋 **CCF73** (deps: CCF70 ✅, CCF71 ✅, CCF72) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, so a reader should meet the corrected claims on REST, CLI, files and budgets there, counted by the build. → §CCF73
 
 ## Done when — Block A
 
