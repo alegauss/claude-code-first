@@ -1,0 +1,6 @@
+project,pin,commits,active_days,commits_per_active_day,conventional_share,ledger_shipped,ledger_retired,ledger_open,ledger_deferred,task_id_share,coauthored_share,every_turn_bytes,every_turn_tokens,test_declarations
+roadkeep,91754240f79a2c151eb6700f1ac4b9e5a41de04b,1946,45,43.2,0.996,1170,24,7,0,0.85,0.039,8628,2157,5125
+polyweave,6d1c1363270a0fe40c5a08e009ee9b5bac5c68e9,132,3,44.0,1.0,103,0,18,8,0.947,0.0,4362,1090,1296
+freewilly,c1c2eaf4694a03df85f8a8eeb83a7de03886b056,444,21,21.1,0.957,276,4,0,0,0.811,0.038,2169,542,1391
+winwright,861b82e2cb7d0864cf2dc41799f04f4de3ec0e6e,708,23,30.8,0.997,497,7,3,0,0.944,0.047,1192,298,2294
+shio,821f18d74e9760cdd6e50b66f21138dfec15a033,3446,515,6.7,0.395,997,14,75,0,0.333,0.035,27831,6957,4643

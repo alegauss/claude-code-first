@@ -6,18 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-### §CCF23 Reproducible corpus metrics
-
-A script under `tools/` that, given the corpus pins, computes for each project: commits,
-active days, commits per active day, the share of conventional commits and of commits
-carrying a task id, bytes and estimated tokens loaded on every turn (every-turn files,
-skill descriptions, MCP schemas where measurable), ledger counts (shipped, retired,
-open, deferred), test count, and the share of commits with Co-Authored-By. Its output is
-data (JSON and CSV) committed with the pin it was computed at, and every figure the spec
-quotes is generated from it, never typed: freewilly's `llms.txt` said four where there
-were five, and Shio's agents.md said 25 where there were 28. The token estimate states
-its method; freewilly divided characters by four.
-
 ## Block D — The normative specification
 
 ### §CCF24 The specification's frame

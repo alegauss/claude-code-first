@@ -32,6 +32,7 @@
 - ✅ **CCF20** **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — evidence/findings/ holds 37 graded findings across five topics, each merging observations by independent origin with resolving pointers, and a generated index CI checks.
 - ✅ **CCF21** **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — evidence/divergences.md settles seven divergences against graded findings, allowing a documented deviation where evidence cannot decide (design superseded: one register).
 - ✅ **CCF22** **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — evidence/drift.md inventories nine verified contradictions inside corpus projects at their pins, with dates, days standing and whether a check could catch each.
+- ✅ **CCF23** **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — scripts/corpus_metrics.py computes commits, cadence, commit conventions, ledgers, every-turn bytes and tests for all five pins into committed data, methods stated.
 
 ## Block D — The normative specification
 

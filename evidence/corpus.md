@@ -44,7 +44,9 @@ read. The other three notes record no uncommitted work, which is not proof there
 ## Descriptive data
 
 Counted at the pinned commit. *Adoption* is the first commit that touches `CLAUDE.md`,
-`agents.md`, `AGENTS.md` or `.claude/`. *Active days* are distinct committer dates.
+`agents.md`, `AGENTS.md` or `.claude/`. *Active days* are distinct committer dates. The
+commit and active-day counts below match the generated [metrics](metrics/README.md), which
+hold further figures computed the same way for all five projects.
 
 | Project | Language | What it is | First commit | Adoption | Commits | Active days | Kind |
 |---|---|---|---|---|---|---|---|

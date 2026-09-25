@@ -6,8 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-- 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
-
 ## Block D — The normative specification
 
 - 📋 **CCF24** (deps: CCF10 ✅) **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — Chapters written before the frame exists would each invent a rule format, and no reader could cite a rule by address. → §CCF24
