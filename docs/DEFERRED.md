@@ -20,5 +20,3 @@
 - ⏸ **CCF57** (deps: CCF50 ✅, CCF56 ✅) **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — set aside (Waits on an owner accepting tasks.): The spec's value is a hypothesis until one project is measured before and after realignment on the same metrics. → §CCF57
 
 ## Block I — Governance and publication of the specification
-
-- ⏸ **CCF61** (deps: —) **the work has no license, no citation metadata and no statement of how it was authored** — set aside (The licenses for the text and the code are the owner's decision; nothing here can choose them.): The owner chooses the licenses for the text and for the code, recorded as a decision. → §CCF61

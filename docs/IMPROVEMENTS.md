@@ -37,12 +37,3 @@ reasons, the models change, and the person learns. This is an observational meas
 not an experiment, and the report says so.
 
 ## Block I — Governance and publication of the specification
-
-### §CCF61 License, citation and authorship
-
-A license for the text (for example CC BY 4.0) and one for code and templates (for
-example MIT), chosen by the owner and recorded as a decision; `CITATION.cff` with the
-author, title, version and date; and an authorship statement describing the method:
-Claude Code as primary author under the owner's governance, and the checks that guard
-the result (the resolver, the traceability gate, the measured audit accuracy). The
-reader can then judge the work by the standard it asks of others.

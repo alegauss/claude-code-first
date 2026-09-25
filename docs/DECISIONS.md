@@ -45,3 +45,4 @@ carry trailers on 33 commits.
 
 ## Block I — Governance and publication of the specification
 
+- ✅ **CCF61** **the work has no license, no citation metadata and no statement of how it was authored** — The text is licensed CC BY 4.0 and the code, including the plugin, templates, scripts and CI, MIT, chosen by the owner so adopters can copy templates without a share-alike duty.

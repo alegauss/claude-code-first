@@ -8,6 +8,9 @@ authors:
   - family-names: Oliveira
     given-names: Alexandre
 repository-code: "https://github.com/alegauss/claude-code-first"
+license:
+  - CC-BY-4.0
+  - MIT
 abstract: >-
   A specification of how to run a software project in which Claude Code is the primary
   author and a person governs what is built, derived as a multiple-case study of five

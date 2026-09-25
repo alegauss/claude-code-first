@@ -41,9 +41,17 @@ The specification is at a 0.x version: its rules have not yet been tested by aud
 five projects they came from, which version 1.0 waits for
 ([spec/versioning.md](spec/versioning.md)). The current version is the `version` in
 [.claude-plugin/plugin.json](.claude-plugin/plugin.json). The figures about the corpus
-are generated, never typed: see [evidence/metrics/](evidence/metrics/README.md). No
-license has been chosen yet.
+are generated, never typed: see [evidence/metrics/](evidence/metrics/README.md).
 
 ## Citing it
 
 Cite it with [CITATION.cff](CITATION.cff), naming the version you read.
+
+## License
+
+The code is under the MIT License ([LICENSE](LICENSE)): `scripts/`, `skills/`, `agents/`,
+`.claude-plugin/`, `.claude/`, `.github/` and `templates/`, which adopters copy into
+their own repositories. Everything else, the specification, the evidence, the catalogue
+and the guides, is under Creative Commons Attribution 4.0 International
+([LICENSE-TEXT](LICENSE-TEXT)). A vendored file names its source in its header and keeps
+that source's terms.
