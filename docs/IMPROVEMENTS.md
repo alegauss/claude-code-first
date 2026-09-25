@@ -14,16 +14,6 @@
 
 ## Block G — Adoption and realignment
 
-### §CCF48 Greenfield bootstrap
-
-`adoption/greenfield.md` and a skill that performs it: the order in which to install the
-pieces so that each protects the next, with guards before the first planning file, gates
-before the first feature, and budgets from the first every-turn file; the decisions the
-person makes on day one (language, level, attribution, permission posture); and the
-first audit. Polyweave, governed from its first commit, is the reference case, but its
-speed must be measured by the corpus metrics before it is quoted, and compared fairly:
-it inherited a mature toolchain that the other projects had to build.
-
 ### §CCF49 Brownfield adoption
 
 `adoption/brownfield.md`, derived from the Shio case study: inventory the existing

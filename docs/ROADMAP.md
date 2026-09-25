@@ -14,7 +14,6 @@
 
 ## Block G — Adoption and realignment
 
-- 🛠 **CCF48** (deps: CCF47 ✅) **starting a project Claude Code first has no ordered procedure, so the order the five learned in is repeated** — The others added the same pieces over weeks, each after an incident; an ordered bootstrap installs them before the incidents. → §CCF48
 - 📋 **CCF49** (deps: CCF19 ✅, CCF47 ✅) **an existing codebase adopting the practice has no procedure, and Shio's transition lives only in its history** — Most future adopters are brownfield, and the one brownfield case shows the traps: a resident instruction file and an imported backlog. → §CCF49
 - 📋 **CCF50** (deps: CCF44 ✅, CCF46 ✅, CCF47 ✅) **a project already Claude Code first that drifted has no path back except rereading the whole spec** — The owner's own projects are the first to need this: the drift inventory already lists contradictions in three of them. → §CCF50
 

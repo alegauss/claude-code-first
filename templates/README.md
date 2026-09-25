@@ -18,7 +18,7 @@ own. `python scripts/assemble_templates.py <target>` writes them under their rea
 | `.gitignore` | PS-3, CD-3: logs, caches and credentials kept out of any commit |
 | `.gitattributes` | EP-2: line terminators declared; planning files merged by entry |
 | `roadkeep.toml` | PG-1, IS-1, AW-2: governed planning files, budgets, length limits |
-| `.github/workflows/check.yml` | VG-5, VG-1: the gates and the conformance checker on every push |
+| `.github/workflows/check.yml` | VG-5, VG-1: the gates and the conformance checker on every push (roadkeep's lint workflow is written by `roadkeep install`) |
 | `.claude/skills/example-dev/SKILL.md` | CD-1 to CD-6, VG-1: how finished work becomes a commit |
 | `.claude/skills/example-writing/SKILL.md` | AW-1, AW-3: the project's writing rules, and what checks them |
 | `ccf.toml` | the claimed level and specification version, and any waivers |
@@ -37,7 +37,11 @@ source, which is the failure rule GH-6 exists to catch:
 
 1. Run `python scripts/assemble_templates.py <repository>`, then replace `example`, `EX`
    and the placeholder text with the project's own names.
-2. Run `roadkeep install --committed` to write the launcher, and copy the no-clobber hook.
-3. Lower the budgets in `roadkeep.toml` to just above the size the files land at.
-4. Run `python <path-to-this-repository>/scripts/check_conformance.py .` and fix what it
+2. Run `roadkeep install --committed` to write the launcher and the `roadkeep.yml` lint
+   workflow, and copy the no-clobber hook.
+3. Create the governed planning files with `roadkeep init`, which refuses while a
+   configuration exists: the order that works is in
+   [../adoption/greenfield.md](../adoption/greenfield.md), step 3.
+4. Lower the budgets in `roadkeep.toml` to just above the size the files land at.
+5. Run `python <path-to-this-repository>/scripts/check_conformance.py .` and fix what it
    reports before the first commit.

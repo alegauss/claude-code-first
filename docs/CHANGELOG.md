@@ -70,6 +70,7 @@
 ## Block G — Adoption and realignment
 
 - ✅ **CCF47** **a new project has no starting kit, so each of the five wrote its own settings, hooks and skills** — templates/ holds a conforming file per artefact citing its rules, and a repository assembled from them passes the checker at level 2 in a test (design superseded: hooks referenced, not copied).
+- ✅ **CCF48** **starting a project Claude Code first has no ordered procedure, so the order the five learned in is repeated** — adoption/greenfield.md orders the install so each piece protects the next, from day-one decisions to the first audit, and skills/bootstrap performs it and stops before the first commit.
 
 ## Block H — Validation against the corpus
 
