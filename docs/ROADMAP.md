@@ -17,7 +17,6 @@
 - 📋 **CCF33** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — Four of five projects ship an agent surface, and their lessons on schemas, budgets and discoverability are the most measured. → §CCF33
 - 📋 **CCF34** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what the person decides and what an agent must never certify for itself** — Polyweave and roadkeep both found an agent judging its own output to be the weakest point, yet the boundary is not stated. → §CCF34
 - 📋 **CCF35** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35
-- 📋 **CCF36** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — 207 em dashes in freewilly and stale typed counts in three projects show that agent prose needs rules just as code does. → §CCF36
 
 ## Block E — Patterns and anti-patterns
 

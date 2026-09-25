@@ -39,6 +39,7 @@
 - ✅ **CCF24** **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — spec/ has its frame: scope, audience and chapter list in README.md, and in conventions.md the RFC 2119 keywords tied to evidence grades, the rule form and permanent addresses.
 - ✅ **CCF25** **terms such as every-turn file, governed file, gate, guard, ledger and verdict are used without definitions** — spec/glossary.md defines 18 terms, settling the corpus's two senses of a block, and a CI check fails any italic term in a rule sentence that has no entry.
 - ✅ **CCF26** **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — spec/IS.md states six rules on the instruction surface, each capped by its findings: a gated budget on any every-turn file, bounded skills and read-on-demand files, checked name lists.
+- ✅ **CCF36** **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — spec/AW.md states three rules on agent prose: generated or checked figures (MUST, F7), length limits refused at the write (MUST), and gated style rules (SHOULD, per D7).
 
 ## Block E — Patterns and anti-patterns
 

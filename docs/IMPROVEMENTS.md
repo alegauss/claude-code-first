@@ -124,18 +124,6 @@ generated files that every commit touches are reconciled against the index (RK39
 State the limit: the corpus has one person running several sessions, and no evidence on
 teams of several people with agents.
 
-### §CCF36 Chapter: agent-written prose
-
-Rules: a project written by an agent declares its writing rules in a trigger-loaded
-skill (freewilly's writing skill, created after the agent defended the old style itself,
-`0794e60`); counts and versions in prose are generated or tested (freewilly DD157,
-DD159; Shio SH974); length limits on planning prose are enforced where the text is
-written, not reviewed afterwards (roadkeep's founding rationale; Shio SH341); commit
-bodies record what was measured and how, rather than restating the diff (winwright's
-shift from generic bullets to measured prose; Shio `7820e57a7`); and the project's
-language is declared. Rules about truthfulness, such as generated figures, are graded
-separately from rules about style.
-
 ## Block E — Patterns and anti-patterns
 
 ### §CCF37 The pattern form

@@ -58,7 +58,7 @@ observations to the pinned sources.
 | AP | Agent-facing product surfaces | projects that ship tools, skills or plugins for other agents |
 | HR | The human role | what the person decides, and what an agent must not certify |
 | CS | Concurrent sessions | several agent sessions in one repository |
-| AW | Agent-written prose | the prose an agent writes, and how it is kept true |
+| AW | [Agent-written prose](AW.md) | the prose an agent writes, and how it is kept true |
 
 The chapters are written from the findings register and appear here as they are
 completed.
