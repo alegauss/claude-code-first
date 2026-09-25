@@ -8,18 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF35 Chapter: concurrent sessions
-
-Rules: a session claims the task it works on and the paths it owns, and a claim expires
-(roadkeep's claims, held for 60 minutes); staging is limited to the claimed paths
-(RK280, RK1117, RK320); gates that share state take a lock, and a run that could not
-complete is inconclusive rather than red (Shio SH803, where two concurrent runs reported
-3 errors over 1,092 tests on a tree that alone reported 1,894 green; SH828); planning
-files merge by entry rather than by text (roadkeep's merge driver); and version bumps or
-generated files that every commit touches are reconciled against the index (RK398).
-State the limit: the corpus has one person running several sessions, and no evidence on
-teams of several people with agents.
-
 ## Block E — Patterns and anti-patterns
 
 ### §CCF37 The pattern form

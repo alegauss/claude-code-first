@@ -8,8 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF35** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35
-
 ## Block E — Patterns and anti-patterns
 
 - 📋 **CCF37** (deps: CCF24 ✅) **no form fixes how a pattern or anti-pattern is written, so entries would mix problem, remedy and evidence** — A catalogue can be searched and compared only when every entry answers the same questions in the same order. → §CCF37
@@ -18,7 +16,7 @@
 
 ## Block F — Conformance and the audit
 
-- 📋 **CCF40** (deps: Block D) **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — All-or-nothing conformance would stop every brownfield project, Shio included, from ever claiming any of it. → §CCF40
+- 📋 **CCF40** (deps: Block D ✅) **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — All-or-nothing conformance would stop every brownfield project, Shio included, from ever claiming any of it. → §CCF40
 - 📋 **CCF41** (deps: CCF40) **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — An audit that must reread the whole spec to learn what to check spends the context the spec tells projects to save. → §CCF41
 - 📋 **CCF42** (deps: CCF9 ✅, CCF41) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
 - 📋 **CCF43** (deps: CCF41) **automatable rules have no checker, so each audit rederives by reading what a script could measure** — Budgets, hook wiring, ignore rules and CI presence are facts about files, and paying for an agent's judgement on them is waste. → §CCF43
@@ -28,7 +26,7 @@
 
 ## Block G — Adoption and realignment
 
-- 📋 **CCF47** (deps: Block D, CCF40) **a new project has no starting kit, so each of the five wrote its own settings, hooks and skills** — Five hand-written copies of one launcher and one skill have already drifted apart; templates carry the rules and their evidence. → §CCF47
+- 📋 **CCF47** (deps: Block D ✅, CCF40) **a new project has no starting kit, so each of the five wrote its own settings, hooks and skills** — Five hand-written copies of one launcher and one skill have already drifted apart; templates carry the rules and their evidence. → §CCF47
 - 📋 **CCF48** (deps: CCF47) **starting a project Claude Code first has no ordered procedure, so the order the five learned in is repeated** — The others added the same pieces over weeks, each after an incident; an ordered bootstrap installs them before the incidents. → §CCF48
 - 📋 **CCF49** (deps: CCF19 ✅, CCF47) **an existing codebase adopting the practice has no procedure, and Shio's transition lives only in its history** — Most future adopters are brownfield, and the one brownfield case shows the traps: a resident instruction file and an imported backlog. → §CCF49
 - 📋 **CCF50** (deps: CCF44, CCF46, CCF47) **a project already Claude Code first that drifted has no path back except rereading the whole spec** — The owner's own projects are the first to need this: the drift inventory already lists contradictions in three of them. → §CCF50

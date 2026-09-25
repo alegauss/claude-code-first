@@ -48,6 +48,7 @@
 - ✅ **CCF31** **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — spec/PS.md states three permission rules the evidence carries: name what replaces removed prompts, refuse forbidden actions in configuration, keep credentials out of the tree.
 - ✅ **CCF32** **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — spec/EP.md states six portability rules bounded to Windows: a declared tool copy, pinned line endings, named encodings, BOM handling, bytes before blame and no heredoc edits.
 - ✅ **CCF34** **no normative chapter says what the person decides and what an agent must never certify for itself** — spec/HR.md states that an agent does not close work needing a person's judgement or absent hardware, and applies a stored human bar instead of its own margin.
+- ✅ **CCF35** **no normative chapter covers several agent sessions working in one repository at once** — spec/CS.md states five rules for sessions sharing a checkout: claims on task and paths, staging within the claim, disturbed gate runs as could-not-run, no cited figures from a busy tree.
 
 ## Block E — Patterns and anti-patterns
 
