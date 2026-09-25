@@ -8,7 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF25** (deps: CCF24 ✅) **terms such as every-turn file, governed file, gate, guard, ledger and verdict are used without definitions** — The five projects use the same words with different meanings, and a spec whose terms drift cannot be conformed to. → §CCF25
 - 📋 **CCF26** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — Context economy is the most strongly supported finding, measured in three projects, and it still has no rule. → §CCF26
 - 📋 **CCF27** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says how an agent plans, records and closes work** — Every project converged on governed roadmap, ledger and rationale files after prose limits failed, and that convergence needs stating. → §CCF27
 - 📋 **CCF28** (deps: CCF20 ✅, CCF21 ✅, CCF24 ✅) **no normative chapter says how an agent turns finished work into commits** — One task per commit is called the most violated rule in two projects, and stray files reached commits in three. → §CCF28

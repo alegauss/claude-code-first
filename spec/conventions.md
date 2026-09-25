@@ -21,7 +21,7 @@ Every rule is written in this form, under its chapter:
 ```markdown
 ### IS-3 A budget on the every-turn file
 
-**The every-turn file MUST carry a size budget that a gate enforces.**
+**The *every-turn file* MUST carry a size budget that a *gate* enforces.**
 
 | Field | Value |
 |---|---|
@@ -40,7 +40,9 @@ Rationale: one paragraph on why, citing the findings by link.
   is separate from the backlog's `CCF` ids and from the findings' `F` ids.
 - **Title.** A short name, used when the rule is cited in prose.
 - **Normative sentence.** One sentence, in bold, carrying exactly one keyword. A rule
-  that needs two keywords is two rules.
+  that needs two keywords is two rules. A term defined in [glossary.md](glossary.md) is
+  written in italics there, and `scripts/check_glossary.py` fails the build on an italic
+  term with no entry.
 - **Keyword.** Repeated in the table, so a tool can read it without parsing prose.
 - **Level.** The conformance level the rule belongs to. Levels are defined in the
   conformance chapter; until it exists, every rule carries `pending`.

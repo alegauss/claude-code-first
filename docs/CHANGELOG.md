@@ -37,6 +37,7 @@
 ## Block D — The normative specification
 
 - ✅ **CCF24** **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — spec/ has its frame: scope, audience and chapter list in README.md, and in conventions.md the RFC 2119 keywords tied to evidence grades, the rule form and permanent addresses.
+- ✅ **CCF25** **terms such as every-turn file, governed file, gate, guard, ledger and verdict are used without definitions** — spec/glossary.md defines 18 terms, settling the corpus's two senses of a block, and a CI check fails any italic term in a rule sentence that has no entry.
 
 ## Block E — Patterns and anti-patterns
 

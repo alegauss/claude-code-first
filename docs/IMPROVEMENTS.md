@@ -8,18 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF25 A glossary of terms
-
-`spec/glossary.md` defines each term once and links its first use: Claude-Code-first
-project; every-turn file; trigger-loaded skill; governed file; ledger; rationale
-section; decision record; gate, a check whose failure stops the work; guard, a hook that
-refuses an action at the moment it is attempted; verdict, including the third verdict,
-could not run; red-suite exception; claim; deferral; realignment; conformance level;
-waiver. Where the corpus uses a term inconsistently, such as a block closed versus a
-block empty, the entry says which meaning the spec adopts and cites the variants. Rules
-use defined terms only, and a check reports a term that a rule uses and the glossary
-lacks.
-
 ### §CCF26 Chapter: instruction surface and context economy
 
 Rules to derive and grade from the findings: the every-turn file is an index with a

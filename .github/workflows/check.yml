@@ -51,6 +51,8 @@ jobs:
         run: python3 -m unittest discover -s scripts
       - name: The findings index is current and every finding well formed
         run: python3 scripts/index_findings.py --check
+      - name: Every term a rule uses is in the glossary
+        run: python3 scripts/check_glossary.py
       # Every evidence pointer against the pinned corpus, which the resolver clones from
       # the remotes in evidence/corpus.md. Two projects cannot be reached from here and
       # are named rather than skipped in silence: Shio's repository is private, and
