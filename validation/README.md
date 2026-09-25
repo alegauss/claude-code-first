@@ -14,6 +14,9 @@ tasks offered to the project's owner, and what the audit cost (`<project>-notes.
 | winwright | [winwright.md](winwright.md) | [winwright-notes.md](winwright-notes.md) |
 | Shio | [shio.md](shio.md) | [shio-notes.md](shio-notes.md) |
 
+roadkeep is also measured before and after its realignment, over windows of the same
+length: [roadkeep-notes.md](roadkeep-notes.md#before-and-after).
+
 A report's verdicts are the audit's, not the owner's: a failure is classified and acted on
 only when the owner decides. How far the audit itself can be trusted is measured
 separately, against verdicts a person records independently:

@@ -93,6 +93,12 @@
 - **Audit accuracy is measured against a person** Agreement and kappa over the 35
   sampled rules, and one repeated audit, are reported in validation/accuracy.md.
 
+## Done when — CCF57
+
+- **roadkeep-after.json exists and the notes compare it with roadkeep-before.json** Both
+  windows are written by scripts/window_metrics.py, so the comparison is between files a
+  rerun reproduces.
+
 ## Non-goals
 
 - **A rule admitted because it sounds right** Every MUST, SHOULD or MAY traces to graded

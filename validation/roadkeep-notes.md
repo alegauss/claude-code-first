@@ -51,9 +51,36 @@ be reported upstream). The owner decides; none is final until then.
 ## Tasks offered
 
 One realignment task per drifted rule is offered to roadkeep's owner, following
-[../adoption/realignment.md](../adoption/realignment.md). None has been filed: filing them
-into roadkeep's backlog is the owner's decision. This note records the decision when it
-is made.
+[../adoption/realignment.md](../adoption/realignment.md).
+
+**Decision (2026-09-25).** The owner accepted the tasks for the 18 rules proposed as
+drift above. The divergence and obsolescence proposals (CD-3, CS-2, VG-3, GH-4) are not
+yet decided. The tasks are filed in roadkeep's own backlog by a session in that
+repository, not from here, since this repository does not edit an adopter's.
+
+## Before and after
+
+roadkeep is the project measured for the effect of realignment. The window before is
+[roadkeep-before.json](roadkeep-before.json), the 14 days ending at the audited commit,
+written by `scripts/window_metrics.py`, whose docstring states how each figure is
+counted:
+
+| Measure | Before |
+|---|---|
+| commits, first parent | 36 |
+| tasks shipped | 24 |
+| commits per task | 1.5 |
+| bytes loaded every turn | 8,622 |
+| stray files | 3 |
+| days with a red gate, of days the gate ran | 5 of 5 |
+| drift findings | 22 |
+
+The window after is measured the same way, over 14 days ending a comparable period after
+the last realignment task ships, into `roadkeep-after.json`. The comparison is
+observational, not an experiment: roadkeep changes for other reasons, the models change,
+and the person learns, and the report of the difference will say which of those it can
+rule out. The gate ran only on the days work was pushed, so red days are counted against
+those days, and the run list comes from the GitHub API rather than from git.
 
 ## Cost
 

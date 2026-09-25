@@ -82,6 +82,7 @@
 - ✅ **CCF54** **winwright has never been audited against the specification, so its conformance is asserted, not measured** — winwright is audited at its head: 21 of 56 rules fail after the verifier rejected two scanner findings and added one, achieved level 0, with proposed classes and cost recorded.
 - ✅ **CCF55** **shio has never been audited against the specification, so its conformance is asserted, not measured** — Shio is audited at its head: 30 of 56 rules fail after the verifier rejected two scanner findings, achieved level 0, with proposed classes, offered tasks and cost recorded.
 - ✅ **CCF56 (agreement and sample sheet)** **nothing shows the audit is accurate: its false findings and misses are unmeasured** — validation/accuracy.md reports that the verifier confirmed 107 of 112 scanner findings, says why that is agreement not accuracy, and holds the sample for the person.
+- ✅ **CCF57 (baseline)** **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — roadkeep's owner accepted the drift tasks, and the 14 days before realignment are measured by a script that measures the window after the same way.
 
 ## Block I — Governance and publication of the specification
 

@@ -1,0 +1,20 @@
+{
+  "end": "77a3eaeb60540dc464a14e631fdc7ae4b3b82d7f",
+  "window_start": "2026-09-10T19:04:10-03:00",
+  "window_end": "2026-09-24T19:04:10-03:00",
+  "days": 14,
+  "commits": 36,
+  "tasks_shipped": 24,
+  "commits_per_task": 1.5,
+  "every_turn_bytes": 8622,
+  "stray_files": 3,
+  "stray_paths": [
+    "gui/.github/workflows/site.yml",
+    "gui/packages/shell/src/gloss-process.test.ts",
+    "gui/packages/shell/src/gloss-process.ts"
+  ],
+  "ci_runs": 20,
+  "red_days": 5,
+  "ci_days": 5,
+  "drift_findings": 22
+}
