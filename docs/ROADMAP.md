@@ -10,11 +10,10 @@
 ## Block C — Case studies and the findings register
 
 - 📋 **CCF16** (deps: CCF11 ✅) **no case study describes polyweave, the one project governed from its very first commit** — Polyweave shipped about a hundred tasks in three days, so it shows a mature practice applied from day one, with the least history. → §CCF16
-- 📋 **CCF18** (deps: CCF11 ✅) **no case study describes winwright, whose agent surface is shipped for other repositories to use** — Winwright designs for an agent that is not its author, which makes it the corpus's evidence on agent-facing products. → §CCF18
 - 📋 **CCF19** (deps: CCF11 ✅) **no case study describes shio, the only project that adopted the practice after years of history** — Shio had 1,778 commits before adoption, so its transition is the corpus's only record of adopting late. → §CCF19
-- 📋 **CCF20** (deps: CCF10 ✅, CCF15 ✅, CCF16, CCF17 ✅, CCF18, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
+- 📋 **CCF20** (deps: CCF10 ✅, CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
 - 📋 **CCF21** (deps: CCF20) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
-- 📋 **CCF22** (deps: CCF15 ✅, CCF16, CCF17 ✅, CCF18, CCF19) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
+- 📋 **CCF22** (deps: CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
 - 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
 ## Block D — The normative specification

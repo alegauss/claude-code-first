@@ -48,19 +48,6 @@ rationale; gates that run only locally, since pytest and ruff are not in CI; and
 lessons about a false first diagnosis (`f203b0a`) and designs falsified during
 implementation (`7024e7e`, `871a15b`).
 
-### §CCF18 Case study: winwright
-
-Structure shared by all five case studies: context (domain, size, dates, greenfield or
-brownfield); the agent surface as built (every-turn file, skills, hooks, MCP, plugin);
-planning governance; gates; commit practice; a dated timeline of incidents and the rule
-each produced; metrics from the corpus script; open questions. Specific to winwright: no
-instruction file, justified by a test (WW69); skill budgets and checks that names in a
-skill still exist; the MCP schema being the loader's own schema (WW66); the hook
-refusing hand-written harnesses (WW67); the split test suite, host and VMware guest, and
-the decision to run only the host half in CI after twenty red pushes (`7a37e95`); the
-roll call and the third verdict; proof of adoption by code deleted in consumer
-repositories (WW86, WW88); and done-when criteria born from six reopened blocks.
-
 ### §CCF19 Case study: shio
 
 Structure shared by all five case studies: context (domain, size, dates, greenfield or
