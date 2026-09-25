@@ -16,8 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-- 📋 **CCF57** (deps: CCF50 ✅, CCF56 ✅) **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — The spec's value is a hypothesis until one project is measured before and after realignment on the same metrics. → §CCF57
-
 ## Block I — Governance and publication of the specification
 
 ## Done when — Block A
