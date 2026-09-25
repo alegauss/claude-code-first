@@ -36,17 +36,6 @@ allow rule could pre-empt).
 
 ## Block F — Conformance and the audit
 
-### §CCF41 A machine-readable rule registry
-
-`spec/rules.toml`, in TOML because people author it (polyweave's convention: TOML for
-documents a person writes, JSON for records a machine writes), carries for each rule:
-the address, chapter, keyword, level, a one-line statement, its findings, the kind of
-check (automatic, assisted or manual), the detector's identifier where one exists, and
-the harness facts it depends on. The chapters remain the normative text; the registry is
-generated from them or tested against them, so the two cannot disagree. A query tool
-answers questions such as which level 2 rules are not automated, or which rules depend
-on plugin loading, without reading the chapters.
-
 ### §CCF42 The traceability gate
 
 A CI check that fails when a rule cites no finding; when a MUST rests on findings below

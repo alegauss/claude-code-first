@@ -15,12 +15,11 @@
 
 ## Block F — Conformance and the audit
 
-- 📋 **CCF41** (deps: CCF40 ✅) **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — An audit that must reread the whole spec to learn what to check spends the context the spec tells projects to save. → §CCF41
-- 📋 **CCF42** (deps: CCF9 ✅, CCF41) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
-- 📋 **CCF43** (deps: CCF41) **automatable rules have no checker, so each audit rederives by reading what a script could measure** — Budgets, hook wiring, ignore rules and CI presence are facts about files, and paying for an agent's judgement on them is waste. → §CCF43
+- 📋 **CCF42** (deps: CCF9 ✅, CCF41 ✅) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
+- 📋 **CCF43** (deps: CCF41 ✅) **automatable rules have no checker, so each audit rederives by reading what a script could measure** — Budgets, hook wiring, ignore rules and CI presence are facts about files, and paying for an agent's judgement on them is waste. → §CCF43
 - 📋 **CCF44** (deps: CCF43) **the rules that need judgement cannot be audited without an agent reading the whole spec** — Polyweave's scanner and verifier pair shows that a cheap scan plus a strong verification finds more, with fewer false findings. → §CCF44
-- 📋 **CCF45** (deps: CCF41) **an audit report has no fixed format, so two audits of one project cannot be compared over time** — Realignment is measured by the difference between two audits, which needs the same fields, the spec version and the commit audited. → §CCF45
-- 📋 **CCF46** (deps: CCF41) **a deliberate deviation from a rule cannot be recorded, so it reads as drift in every audit** — Shio's red-suite ledger shows exceptions work when dated, tied to a task and expiring; unrecorded ones become permanent. → §CCF46
+- 📋 **CCF45** (deps: CCF41 ✅) **an audit report has no fixed format, so two audits of one project cannot be compared over time** — Realignment is measured by the difference between two audits, which needs the same fields, the spec version and the commit audited. → §CCF45
+- 📋 **CCF46** (deps: CCF41 ✅) **a deliberate deviation from a rule cannot be recorded, so it reads as drift in every audit** — Shio's red-suite ledger shows exceptions work when dated, tied to a task and expiring; unrecorded ones become permanent. → §CCF46
 
 ## Block G — Adoption and realignment
 
@@ -43,7 +42,7 @@
 
 - 📋 **CCF58** (deps: CCF24 ✅) **the specification has no version, so an audit cannot say which text it judged a project against** — Rules will change as evidence arrives, and a conformance claim without a version becomes false the day a rule tightens. → §CCF58
 - 📋 **CCF59** (deps: CCF10 ✅, CCF58) **no process admits new evidence or a new rule, so the spec would either freeze or grow by opinion** — Other projects will realign and report what failed, and that feedback needs a path that keeps the evidence standard intact. → §CCF59
-- 📋 **CCF60** (deps: CCF41) **an agent in another repository cannot consume the spec cheaply: no llms.txt and no page per rule** — Winwright measured an agent rendering three pages to learn a tool; reading the spec must cost less than the waste it prevents. → §CCF60
+- 📋 **CCF60** (deps: CCF41 ✅) **an agent in another repository cannot consume the spec cheaply: no llms.txt and no page per rule** — Winwright measured an agent rendering three pages to learn a tool; reading the spec must cost less than the waste it prevents. → §CCF60
 - 📋 **CCF61** (deps: —) **the work has no license, no citation metadata and no statement of how it was authored** — An academic reader must know how to cite it, and that an agent wrote most of it under a person's direction and with which checks. → §CCF61
 - 📋 **CCF62** (deps: CCF24 ✅) **the repository has no README telling a newcomer what the spec is, how to read it and how to adopt it** — The README is the first page an expert or an adopter opens, and today it does not exist. → §CCF62
 

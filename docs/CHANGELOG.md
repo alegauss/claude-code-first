@@ -57,6 +57,7 @@
 ## Block F — Conformance and the audit
 
 - ✅ **CCF40** **conformance has no levels, so a project cannot say how far it adopts the spec or what to do next** — spec/conformance.md defines three cumulative levels, governed, gated and measured, plus the agent-facing profile, assigns all 56 rules with reasons, and says how a claim is made.
+- ✅ **CCF41** **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — spec/rules.toml lists all 56 rules with keyword, level, statement, findings and harness facts, generated from the chapters with a CI check, and a query command answers without reading them.
 
 ## Block G — Adoption and realignment
 
