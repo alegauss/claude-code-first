@@ -10,18 +10,6 @@
 
 ## Block E — Patterns and anti-patterns
 
-### §CCF39 The pattern catalogue
-
-Candidates: pointer instruction file; index, not encyclopedia; trigger-loaded skill;
-orientation and pages; write-time schema; deny with a door; committed launcher; budget
-as a gate; third verdict; roll call; red-suite ledger; assertion carries its id; grep
-then lint (Shio SH322); generated figure; capture comparison (freewilly's window skill);
-scanner and verifier (polyweave's agents); deferred for judgement; proof by deletion
-(winwright WW86); measure first; claim with paths. Each entry names the anti-pattern it
-resolves and the cost it adds, because several of them, guards and budgets especially,
-create friction that the corpus also records (roadkeep RK1689 removed prompts that no
-allow rule could pre-empt).
-
 ## Block F — Conformance and the audit
 
 ### §CCF42 The traceability gate

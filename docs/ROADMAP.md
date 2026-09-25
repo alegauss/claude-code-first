@@ -10,8 +10,6 @@
 
 ## Block E — Patterns and anti-patterns
 
-- 📋 **CCF39** (deps: CCF20 ✅, CCF37 ✅) **the practices that resolved those failures are described only inside the projects that invented them** — An adopter needs the remedy in a portable form, stripped of the project it was found in, with its evidence still attached. → §CCF39
-
 ## Block F — Conformance and the audit
 
 - 📋 **CCF42** (deps: CCF9 ✅, CCF41 ✅) **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — Being evidence-based is what sets this spec apart, so a broken trace must fail a build, not wait for a reader to notice. → §CCF42
