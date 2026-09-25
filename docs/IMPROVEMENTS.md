@@ -10,17 +10,6 @@
 
 ## Block E — Patterns and anti-patterns
 
-### §CCF37 The pattern form
-
-Adopt a form derived from Alexander and from the anti-pattern literature: name; one-line
-intent; context (which projects, under which conditions); problem; forces; solution, or
-for an anti-pattern the refactored solution; consequences, including costs; known uses
-with citations; related rules and findings; grade. Names are short noun phrases a
-reviewer can say aloud, such as "resident encyclopedia" or "deny with a door". A
-template file and a check that every entry has every section. Patterns describe and
-rules prescribe: an entry never uses RFC 2119 keywords, and each links to the rules that
-make it normative.
-
 ### §CCF38 The anti-pattern catalogue
 
 Candidates from the field notes, each to be confirmed by findings: resident encyclopedia

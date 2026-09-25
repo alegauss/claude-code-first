@@ -60,5 +60,6 @@ observations to the pinned sources.
 | CS | [Concurrent sessions](CS.md) | several agent sessions in one repository |
 | AW | [Agent-written prose](AW.md) | the prose an agent writes, and how it is kept true |
 
-The chapters are written from the findings register and appear here as they are
-completed.
+The chapters are written from the findings register. The [catalogue](catalogue/README.md)
+names the recurring failures and the practices that resolved them, each linked to the
+rules that make it normative.

@@ -52,6 +52,8 @@
 
 ## Block E — Patterns and anti-patterns
 
+- ✅ **CCF37** **no form fixes how a pattern or anti-pattern is written, so entries would mix problem, remedy and evidence** — spec/catalogue/README.md fixes the pattern and anti-pattern form, and a CI check holds every entry to its sections, bars RFC 2119 keywords and requires a rule link.
+
 ## Block F — Conformance and the audit
 
 ## Block G — Adoption and realignment

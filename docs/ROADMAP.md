@@ -10,9 +10,8 @@
 
 ## Block E — Patterns and anti-patterns
 
-- 📋 **CCF37** (deps: CCF24 ✅) **no form fixes how a pattern or anti-pattern is written, so entries would mix problem, remedy and evidence** — A catalogue can be searched and compared only when every entry answers the same questions in the same order. → §CCF37
-- 📋 **CCF38** (deps: CCF20 ✅, CCF37) **the recurring failures have no names, so a reviewer cannot say which one a project is committing** — A name turns a long explanation into a word two people share, and the corpus holds at least a dozen failures seen more than once. → §CCF38
-- 📋 **CCF39** (deps: CCF20 ✅, CCF37) **the practices that resolved those failures are described only inside the projects that invented them** — An adopter needs the remedy in a portable form, stripped of the project it was found in, with its evidence still attached. → §CCF39
+- 📋 **CCF38** (deps: CCF20 ✅, CCF37 ✅) **the recurring failures have no names, so a reviewer cannot say which one a project is committing** — A name turns a long explanation into a word two people share, and the corpus holds at least a dozen failures seen more than once. → §CCF38
+- 📋 **CCF39** (deps: CCF20 ✅, CCF37 ✅) **the practices that resolved those failures are described only inside the projects that invented them** — An adopter needs the remedy in a portable form, stripped of the project it was found in, with its evidence still attached. → §CCF39
 
 ## Block F — Conformance and the audit
 
