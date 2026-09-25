@@ -5,9 +5,11 @@ Run in, or pointed at, a target repository. Each detector returns one of three v
 check that could not run (VG-3). Rules no detector covers are left to the audit's
 judgement pass and are not reported here.
 
-    python scripts/check_conformance.py <repo> [--level 1|2|3] [--json]
+    python scripts/check_conformance.py <repo> [--level 1|2|3] [--json] [--report <path>]
 
-Exit 1 when a rule at or below the claimed level fails. Standard library only, so it
+The claimed level and the project's waivers come from the target's ccf.toml
+(spec/deviations.md): a current waiver reports its rule as waived, an expired one as
+failed. Exit 1 when a rule at or below the claimed level fails, or ccf.toml is malformed. Standard library only, so it
 runs in any repository with Python and git.
 """
 
@@ -161,7 +163,45 @@ def cd_1(repo: Path) -> tuple[str, str]:
     return PASSED, "every commit adds at most one ledger entry"
 
 
-REPORT_VERDICT = {PASSED: "pass", FAILED: "fail", UNDECIDED: "could not run"}
+WAIVED = "waived"
+REPORT_VERDICT = {PASSED: "pass", FAILED: "fail", UNDECIDED: "could not run", WAIVED: "waived"}
+WAIVER_FIELDS = ("rule", "reason", "owner", "date")
+
+
+def declarations(repo: Path) -> tuple[dict, list[str]]:
+    """The adopter's ccf.toml (spec/deviations.md), and the problems found in it."""
+    raw = read(repo, "ccf.toml")
+    if raw is None:
+        return {}, []
+    try:
+        config = tomllib.loads(raw)
+    except tomllib.TOMLDecodeError as error:
+        return {}, [f"ccf.toml does not parse: {error}"]
+    problems = []
+    for i, waiver in enumerate(config.get("waiver", [])):
+        missing = [f for f in WAIVER_FIELDS if not waiver.get(f)]
+        if not (waiver.get("expires") or waiver.get("task")):
+            missing.append("expires or task")
+        if missing:
+            problems.append(f"ccf.toml waiver {waiver.get('rule', i)}: missing {', '.join(missing)}")
+    return config, problems
+
+
+def apply_waivers(results: list[dict], waivers: list[dict], today: str) -> None:
+    """A waived rule reports waived; an expired waiver turns its rule into a failure."""
+    by_rule = {w.get("rule"): w for w in waivers}
+    for result in results:
+        waiver = by_rule.get(result["rule"])
+        if not waiver:
+            continue
+        expires = str(waiver.get("expires", ""))
+        if expires and expires < today:
+            result["verdict"] = FAILED
+            result["detail"] = f"waiver expired on {expires}: {waiver.get('reason', '')}"
+        else:
+            result["verdict"] = WAIVED
+            end = f"until {expires}" if expires else f"tracked by {waiver.get('task')}"
+            result["detail"] = f"{end}: {waiver.get('reason', '')} ({waiver.get('owner', '')})"
 
 
 def write_report(repo: Path, level: int, results: list[dict], target: Path) -> None:
@@ -171,11 +211,11 @@ def write_report(repo: Path, level: int, results: list[dict], target: Path) -> N
     here = Path(__file__).resolve().parent.parent
     head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True)
     manifest = json.loads((here / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
-    rules = [
-        {"rule": r["rule"], "level": str(r["level"]), "verdict": REPORT_VERDICT[r["verdict"]],
-         "by": "checker", "evidence": r["detail"]}
-        for r in results
-    ]
+    rules = []
+    for r in results:
+        entry = {"rule": r["rule"], "level": str(r["level"]), "verdict": REPORT_VERDICT[r["verdict"]], "by": "checker"}
+        entry["waiver" if r["verdict"] == WAIVED else "evidence"] = r["detail"]
+        rules.append(entry)
     report = {
         "spec_version": manifest.get("version", "unversioned"),
         "repository": repo.resolve().name,
@@ -201,25 +241,34 @@ DETECTORS = {"IS-1": (1, is_1), "PG-1": (1, pg_1), "CD-1": (1, cd_1),
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("repo", nargs="?", default=".")
-    parser.add_argument("--level", type=int, default=3, help="the level claimed (default 3)")
+    parser.add_argument("--level", type=int,
+                        help="the level claimed (default: the level in ccf.toml, else 1)")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--report", metavar="PATH",
                         help="also write a report skeleton (spec/report.schema.json) for the audit to complete")
+    parser.add_argument("--today", help=argparse.SUPPRESS)  # fixes the date in tests
     args = parser.parse_args(argv)
     repo = Path(args.repo)
+    config, problems = declarations(repo)
+    claimed = args.level or config.get("level") or 1
     results = []
     for address, (level, detector) in DETECTORS.items():
         verdict, detail = detector(repo)
         results.append({"rule": address, "level": level, "verdict": verdict, "detail": detail})
+    import datetime
+
+    apply_waivers(results, config.get("waiver", []), args.today or datetime.date.today().isoformat())
     if args.report:
-        write_report(repo, args.level, results, Path(args.report))
+        write_report(repo, claimed, results, Path(args.report))
+    for problem in problems:
+        print(problem)
     if args.json:
         print(json.dumps(results, indent=2))
     else:
         for r in results:
             print(f"{r['rule']:5} L{r['level']}  {r['verdict']:16} {r['detail']}")
-    failing = [r for r in results if r["verdict"] == FAILED and r["level"] <= args.level]
-    return 1 if failing else 0
+    failing = [r for r in results if r["verdict"] == FAILED and r["level"] <= claimed]
+    return 1 if failing or problems else 0
 
 
 if __name__ == "__main__":

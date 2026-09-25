@@ -15,8 +15,10 @@ The specification ships with this plugin at `${CLAUDE_PLUGIN_ROOT}`: the rules i
 ## 1. Settle the target and the level
 
 The target is the repository in the working directory unless the user names another.
-The level is the one the user claims, 1 to 3; if none is given, audit at level 1 and say
-so. Record the target's commit with `git -C <target> rev-parse HEAD` and the plugin's
+The level is the one the user names, else the `level` in the target's `ccf.toml`, else 1,
+and the report says which. The waivers in that file apply to judged rules as well: a
+current waiver makes a rule `waived`, an expired one makes it `fail`
+(`${CLAUDE_PLUGIN_ROOT}/spec/deviations.md`). Record the target's commit with `git -C <target> rev-parse HEAD` and the plugin's
 version from `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`.
 
 ## 2. Run the checker first

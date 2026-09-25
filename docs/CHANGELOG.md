@@ -64,6 +64,7 @@
 - ✅ **CCF43** **automatable rules have no checker, so each audit rederives by reading what a script could measure** — scripts/check_conformance.py decides six rules from a repository's files with a third verdict, exits non-zero below the claimed level, and passes and fails its fixture repositories.
 - ✅ **CCF44** **the rules that need judgement cannot be audited without an agent reading the whole spec** — The repository ships an audit plugin: a skill that runs the checker then a scanner per chapter and a verifier for judgement rules, validated strictly in CI with a pinned CLI.
 - ✅ **CCF45** **an audit report has no fixed format, so two audits of one project cannot be compared over time** — An audit report is JSON in a fixed schema with a Markdown rendering, a verdict per rule where could-not-run blocks the level, and tools to validate, render and diff two reports.
+- ✅ **CCF46** **a deliberate deviation from a rule cannot be recorded, so it reads as drift in every audit** — An adopter's ccf.toml declares its level, spec version and waivers with reason, owner, date and end; the checker and audit report them as waived, or failed once expired.
 
 ## Block G — Adoption and realignment
 

@@ -94,9 +94,8 @@ is part of that level: a project meets it, or records a waiver.
 
 ## Claiming conformance
 
-A project claims conformance in one sentence, in a file its readers and its agent both
-read: the level, the profile if it applies, and the version of this specification it
-was judged against. The claim holds only while an audit report, made against that version
-and a stated commit of the project, backs it. A rule the project departs from on purpose
-is recorded as a *waiver* in the audit report, with its reason and, where temporary, its
-end; a departure without a waiver is drift.
+A project claims conformance in its `ccf.toml` ([deviations.md](deviations.md)): the
+level, the profile if it applies, and the version of this specification it is judged
+against, with a waiver for each rule it departs from on purpose. The claim holds only while an audit report, made against that version
+and a stated commit of the project, backs it. A waived rule appears in the report as waived, with its reason; a departure
+without a waiver is drift and appears as a failure.

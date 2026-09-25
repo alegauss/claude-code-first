@@ -84,6 +84,38 @@ class Detectors(Fixture):
         self.assertEqual(cc.cd_1(self.repo)[0], cc.FAILED)
 
 
+class Waivers(Fixture):
+    def run_main(self, *args):
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            code = cc.main([str(self.repo), "--today", "2026-09-25", *args])
+        return code, out.getvalue()
+
+    def test_a_current_waiver_waives_and_an_expired_one_fails(self):
+        self.write(".gitattributes", "docs/X.md merge=roadkeep\n")  # EP-2 fails
+        self.write("ccf.toml", 'level = 2\n[[waiver]]\nrule = "EP-2"\nreason = "renormalising"\n'
+                               'owner = "the owner"\ndate = "2026-09-20"\nexpires = "2026-10-01"\n')
+        code, out = self.run_main("--json")
+        self.assertIn('"verdict": "waived"', out)
+        self.write("ccf.toml", 'level = 2\n[[waiver]]\nrule = "EP-2"\nreason = "renormalising"\n'
+                               'owner = "the owner"\ndate = "2026-09-20"\nexpires = "2026-09-21"\n')
+        code, out = self.run_main("--json")
+        self.assertIn("waiver expired on 2026-09-21", out)
+
+    def test_a_waiver_without_an_end_or_a_task_is_refused(self):
+        self.write("ccf.toml", '[[waiver]]\nrule = "EP-2"\nreason = "r"\nowner = "o"\ndate = "2026-09-20"\n')
+        code, out = self.run_main()
+        self.assertEqual(code, 1)
+        self.assertIn("missing expires or task", out)
+
+    def test_the_claimed_level_comes_from_ccf_toml(self):
+        self.write(".github/workflows/ci.yml", "on: workflow_dispatch\n")  # VG-5, level 2, fails
+        self.write("ccf.toml", "level = 1\n")
+        self.assertEqual(self.run_main()[0], 0)
+        self.write("ccf.toml", "level = 2\n")
+        self.assertEqual(self.run_main()[0], 1)
+
+
 class Levels(Fixture):
     def test_a_failure_above_the_claimed_level_does_not_fail_the_claim(self):
         self.write(".github/workflows/ci.yml", "on: workflow_dispatch\n")  # VG-5, level 2, fails

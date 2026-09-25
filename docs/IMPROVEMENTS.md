@@ -23,15 +23,6 @@ against this repository at level 2, so the specification's own repository is hel
 
 ## Block F — Conformance and the audit
 
-### §CCF46 Recorded deviations
-
-A file on the adopter's side, for example `ccf.toml`, lists each waived rule with a
-reason, an owner, a date, and either an expiry or a tracking task, the shape of Shio's
-`red-suites.json` (SH579). The checker and the audit read it: a waived rule reports
-waived, and an expired waiver reports fail. The same file declares the claimed level and
-the spec version. A waiver is also evidence for this specification, since a rule that
-most adopters waive is a rule to revisit (Block I).
-
 ## Block G — Adoption and realignment
 
 ### §CCF47 Reference templates
