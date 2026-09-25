@@ -16,19 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-### §CCF53 Audit: freewilly
-
-Run the deterministic checker and the audit skill against the project's current head and
-commit the report under `validation/`. Each failure is classified as drift, divergence
-or obsolescence. Realignment tasks are offered to the owner; filing them into that
-project's backlog is the owner's decision, and the report records which were accepted.
-The audit's own cost, in tokens and wall time, is recorded as data for the audit design.
-Expected: CONTRIBUTING describing a CI lint removal that was undone; the absence of an
-every-turn file, a divergence to classify under the recorded decision rather than assume
-to be a failure; and the local bypass of permissions. The report says whether the spec's
-rules would have caught the harness trimming settings, which freewilly caught with its
-own test.
-
 ### §CCF54 Audit: winwright
 
 Run the deterministic checker and the audit skill against the project's current head and
