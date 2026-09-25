@@ -65,6 +65,13 @@ class BuildSite(unittest.TestCase):
         template = (build_site.ROOT / "guide" / "index.html").read_text(encoding="utf-8")
         self.assertNotIn(f">{len(self.rules)}<", template)
 
+    def test_the_lesson_count_is_the_number_of_cards(self):
+        template = (build_site.ROOT / "guide" / "index.html").read_text(encoding="utf-8")
+        cards = build_site.LESSONS.search(template).group(1).count('<article class="card">')
+        word = build_site.NUMBER_WORDS[cards]
+        self.assertIn(f"{word} things the projects learned the hard way", self.guide)
+        self.assertNotIn(f"{word} things", template)
+
     def test_every_finding_and_rule_the_guide_cites_exists(self):
         cited = re.findall(r'href="spec/(rules|findings)/([A-Z0-9-]+)\.html"', self.guide)
         self.assertTrue(cited)

@@ -327,11 +327,24 @@ def project_cards(root: Path, metrics: list[dict]) -> str:
     return "\n".join(cards)
 
 
+LESSONS = re.compile(r'<section id="lessons">(.*?)</section>', re.DOTALL)
+NUMBER_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+                "Ten", "Eleven", "Twelve"]
+
+
+def lesson_count(template: str) -> str:
+    """The number of lesson cards, as the word the headings read, so adding a card cannot leave them stale."""
+    section = LESSONS.search(template)
+    count = section.group(1).count('<article class="card">') if section else 0
+    return NUMBER_WORDS[count] if count < len(NUMBER_WORDS) else str(count)
+
+
 def guide(out: Path, root: Path, version: str, registry: list[dict], findings: dict[str, dict]) -> None:
     """Render guide/index.html at the root, refusing a placeholder the build does not fill."""
     metrics = json.loads((root / "evidence" / "metrics" / "metrics.json").read_text(encoding="utf-8"))
     chapters = chapter_names(root)
     names = {row["name"].lower(): row["name"] for row in corpus_rows(root)}
+    template = (root / "guide" / "index.html").read_text(encoding="utf-8")
     values = {
         "version": html.escape(version),
         "rules": str(len(registry)),
@@ -345,8 +358,8 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
         "chart_every_turn": chart_every_turn(metrics, names),
         "chart_levels": chart_levels(registry, chapters),
         "chart_grades": chart_grades(findings),
+        "lessons": lesson_count(template),
     }
-    template = (root / "guide" / "index.html").read_text(encoding="utf-8")
     missing = sorted({name for name in PLACEHOLDER.findall(template) if name not in values})
     if missing:
         raise ValueError(f"guide/index.html names placeholders the build does not fill: {', '.join(missing)}")

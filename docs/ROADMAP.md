@@ -18,8 +18,6 @@
 
 ## Block I — Governance and publication of the specification
 
-- 📋 **CCF73** (deps: CCF70 ✅, CCF71 ✅, CCF72 ✅) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, so a reader should meet the corrected claims on REST, CLI, files and budgets there, counted by the build. → §CCF73
-
 ## Done when — Block A
 
 - **A hand edit of a governed file is denied in a fresh session** The guard is the

@@ -39,7 +39,7 @@
       every piece of advice links to what actually happened in the projects it came from.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#start">How to start a project</a>
-      <a class="btn btn-ghost" href="#lessons">Eight things to keep in mind</a>
+      <a class="btn btn-ghost" href="#lessons">{{lessons}} things to keep in mind</a>
     </div>
     <div class="pills">
       <span class="pill"><b>{{rules}}</b> rules</span>
@@ -97,7 +97,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">What to keep in mind</div>
-      <h2>Eight things the projects learned the hard way</h2>
+      <h2>{{lessons}} things the projects learned the hard way</h2>
       <p>Each card is one lesson in plain words. The tags under it are the proof: an
         <b>F</b> tag opens a finding with its sources, and a rule tag opens the rule
         that turns it into something you can adopt.</p>
@@ -206,6 +206,26 @@
         <div class="proof">Evidence
           <a href="spec/findings/F404.html">F404</a><a href="spec/findings/F403.html">F403</a>
           Rules <a class="rule" href="spec/rules/EP-2.html">EP-2</a><a class="rule" href="spec/rules/EP-5.html">EP-5</a><a class="rule" href="spec/rules/EP-1.html">EP-1</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ico">&#128207;</div>
+        <h3>9. Shape the agent's path to the task, then measure the task</h3>
+        <p>Two projects ran the same jobs twice: once through a path built for the agent,
+          and once through the ordinary API the application already had. The agent's path
+          cost a fraction of the tokens. The saving came from asking fewer, narrower
+          questions, such as finding a page by its path or getting one verdict instead of
+          reading every page. It did not come from REST, a CLI or MCP as such: in one
+          project the cheaper path was REST as well, and cleaning up the ordinary API
+          narrowed the gap.</p>
+        <p>What worked: keep a few real tasks, run them both ways in a test, and fail the
+          build when a task gets more expensive. Where the agent has a shell, a command can
+          do the job of an MCP tool without adding to what every session loads. Whether
+          editing files beats an API, and whether a project should budget its own sessions,
+          are still open questions.</p>
+        <div class="proof">Evidence
+          <a href="spec/findings/F409.html">F409</a><a href="spec/findings/F8.html">F8</a><a href="spec/findings/F4.html">F4</a>
+          Rules <a class="rule" href="spec/rules/AP-6.html">AP-6</a><a class="rule" href="spec/rules/AP-5.html">AP-5</a><a class="rule" href="spec/rules/AP-1.html">AP-1</a>
         </div>
       </article>
     </div>
