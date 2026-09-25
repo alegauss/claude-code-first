@@ -53,6 +53,7 @@
 ## Block E — Patterns and anti-patterns
 
 - ✅ **CCF37** **no form fixes how a pattern or anti-pattern is written, so entries would mix problem, remedy and evidence** — spec/catalogue/README.md fixes the pattern and anti-pattern form, and a CI check holds every entry to its sections, bars RFC 2119 keywords and requires a rule link.
+- ✅ **CCF38** **the recurring failures have no names, so a reviewer cannot say which one a project is committing** — spec/catalogue/anti-patterns/ names 15 recurring failures, each graded by its best finding and linked to the rules that prevent it and the pattern that resolved it.
 
 ## Block F — Conformance and the audit
 

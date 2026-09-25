@@ -10,18 +10,6 @@
 
 ## Block E — Patterns and anti-patterns
 
-### §CCF38 The anti-pattern catalogue
-
-Candidates from the field notes, each to be confirmed by findings: resident encyclopedia
-(an every-turn file that grows, Shio's 186 KB); moved bloat (a split that relocates
-size, Shio's 1.73 MB `docs/agents/`); rule in prose (a budget or ban only written down,
-roadkeep RK30); stage everything (logs and bytecode in commits); batch commit; absent
-guard (plugin hooks missing on the web); silent green (tests that never ran counted as
-passed); piped gate; permanent red; typed figure; self-certified look; filing treadmill
-(roadkeep `35fc90c2`); clobbering write; false-premise defect (Shio SH519); heredoc
-edit; drifted copy (a vendored skill behind its source); folklore threshold (polyweave
-`963b652`). Each links to the pattern that resolves it.
-
 ### §CCF39 The pattern catalogue
 
 Candidates: pointer instruction file; index, not encyclopedia; trigger-loaded skill;
