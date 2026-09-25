@@ -35,6 +35,7 @@
 - ✅ **CCF21** **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — evidence/divergences.md settles seven divergences against graded findings, allowing a documented deviation where evidence cannot decide (design superseded: one register).
 - ✅ **CCF22** **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — evidence/drift.md inventories nine verified contradictions inside corpus projects at their pins, with dates, days standing and whether a check could catch each.
 - ✅ **CCF23** **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — scripts/corpus_metrics.py computes commits, cadence, commit conventions, ledgers, every-turn bytes and tests for all five pins into committed data, methods stated.
+- ✅ **CCF68** **no finding records that a task-shaped agent path cost a fraction of the generic API's tokens, or where the gap came from** — F409 records that a task-shaped path cost Shio and freewilly a fraction of the generic API's tokens, graded R3/S4, and traces the gap to fewer reads rather than to REST.
 
 ## Block D — The normative specification
 

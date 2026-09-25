@@ -6,25 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-### §CCF68 A task-shaped path against the generic API
-
-The owner reviewed the specification against Shio and proposed that REST is the worst
-way for Claude Code to work, because it consumes the most tokens. The corpus measured
-something close to that, and it contradicts the transport part. Shio's SH112 runs four
-canonical jobs twice, once over the agent surface and once over the same instance's
-id-keyed console and CDA endpoints, and asserts calls, tokens and both ratios against
-ceilings in token-budgets.properties. The token advantage measured 3.8x to 23.3x, and
-fell to 2.1x to 12.1x when the console's own REST reads stopped serializing entities
-(SH117, SH120, SH176); the file concludes that a large part of the advantage was never
-the protocol. SH164 then attributed what remained: the lint and path addressing carry
-it, batching buys turns rather than bytes. The agent surface that won is itself REST.
-freewilly measured one canonical task at 6 calls and 11,711 tokens over the Docker
-Engine API against 4 calls and 812 tokens through its shaped verbs, and notes that the
-Docker CLI prints several times the Engine API's payload for the same entity. The
-finding is that the generic, id-keyed interface is the expensive path whatever its
-transport, and it goes in the F400 block with both origins counted under the copy rule,
-since freewilly adapts Shio's laws but built its own baseline.
-
 ### §CCF69 A CLI verb against an MCP tool
 
 The owner proposed that a CLI is better than MCP. F4 already records that served tool

@@ -50,14 +50,16 @@ disputed by the harness documentation, although the measured sizes are not.
 - roadkeep: "This budget lived in prose at" [roadkeep@91754240:roadkeep.toml#L235] the bottom
   of the file, and is now "lines = 125, bytes = 8400" [roadkeep@91754240:roadkeep.toml#L249],
   since "a line budget alone is met by writing longer lines" [roadkeep@91754240:roadkeep.toml#L239].
-- freewilly: "the budget gate that can go red for the wrong reason" [freewilly@f514e11].
+- freewilly: "the budget gate that can go red for the wrong reason" [freewilly@f514e11],
+  and the same gate over a whole canonical task "caught it on the commit" [freewilly@c1c2eaf:agent-budget.json#L113-L114]
+  that widened one response by 43 tokens.
 
 ## Related
 
 - Resolves: [Rule in prose](../anti-patterns/rule-in-prose.md) and
   [Resident encyclopedia](../anti-patterns/resident-encyclopedia.md).
 - Rules: [IS-1](../../IS.md), [IS-6](../../IS.md), [IS-4](../../IS.md) and [AP-1](../../AP.md).
-- Findings: [F4](../../../evidence/findings/F4.md), [F406](../../../evidence/findings/F406.md)
-  and [F1](../../../evidence/findings/F1.md).
+- Findings: [F4](../../../evidence/findings/F4.md), [F406](../../../evidence/findings/F406.md),
+  [F409](../../../evidence/findings/F409.md) and [F1](../../../evidence/findings/F1.md).
 - Patterns: [Index, not encyclopedia](index-not-encyclopedia.md) and
   [Write-time schema](write-time-schema.md).
