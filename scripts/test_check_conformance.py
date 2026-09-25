@@ -120,6 +120,15 @@ class Waivers(Fixture):
         self.assertEqual(self.run_main()[0], 1)
 
 
+class Target(Fixture):
+    def test_a_missing_target_is_refused_rather_than_read_as_empty(self):
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            code = cc.main([str(self.repo / "does-not-exist")])
+        self.assertEqual(code, 2)
+        self.assertIn("nothing was checked", out.getvalue())
+
+
 class Levels(Fixture):
     def test_a_failure_above_the_claimed_level_does_not_fail_the_claim(self):
         self.write(".github/workflows/ci.yml", "on: workflow_dispatch\n")  # VG-5, level 2, fails

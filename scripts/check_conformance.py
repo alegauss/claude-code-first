@@ -255,6 +255,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--today", help=argparse.SUPPRESS)  # fixes the date in tests
     args = parser.parse_args(argv)
     repo = Path(args.repo)
+    if not repo.is_dir():
+        # A missing target would read as an empty repository and pass rules it never saw.
+        print(f"{repo} is not a directory; nothing was checked")
+        return 2
     config, problems = declarations(repo)
     claimed = args.level or config.get("level") or 1
     results = []

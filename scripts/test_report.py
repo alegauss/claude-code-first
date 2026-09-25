@@ -51,6 +51,17 @@ class Report(unittest.TestCase):
         self.assertIn("IS-1: fail -> pass", lines)
         self.assertEqual(len(lines), 2)
 
+    def test_merge_adds_judged_verdicts_and_keeps_the_checkers(self):
+        base = make([rule("IS-1", "1", "pass")])
+        lines = ["IS-1 | fail | agents.md | ignored, the checker decided it",
+                 "PG-2 | fail | docs/ROADMAP.md:4 | a design in a task line",
+                 "VG-3 | pass | | ", "not a verdict line", "XX-9 | maybe |"]
+        found = report.merge(base, lines, {"IS-1": "1", "PG-2": "1", "VG-3": "2"})
+        verdicts = {r["rule"]: r["verdict"] for r in base["rules"]}
+        self.assertEqual(verdicts, {"IS-1": "pass", "PG-2": "fail", "VG-3": "pass"})
+        self.assertEqual(base["achieved_level"], 0)
+        self.assertTrue(any("XX-9" in p for p in found))
+
     def test_render_has_a_row_per_rule(self):
         text = report.render(make([rule("IS-1", "1", "pass", evidence="2 files under budget")]))
         self.assertIn("| IS-1 | 1 | pass | checker |", text)

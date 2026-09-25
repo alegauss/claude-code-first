@@ -99,6 +99,38 @@ def render(report: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+def merge(report: dict, lines: list[str], registry: dict[str, str]) -> list[str]:
+    """Add the judged verdicts, one line per rule: `<rule> | <verdict> | <locus> | <evidence>`.
+
+    The verdict is pass, fail or could not run. A rule the checker already decided is
+    left as it is. Returns the problems found in the lines.
+    """
+    decided = {r["rule"] for r in report["rules"]}
+    problems = []
+    for line in lines:
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 2 or not re.fullmatch(r"[A-Z]{2}-\d+", parts[0]):
+            continue
+        rule, verdict = parts[0], parts[1]
+        if verdict not in ("pass", "fail", "could not run"):
+            problems.append(f"{rule}: verdict {verdict!r} is not pass, fail or could not run")
+            continue
+        if rule in decided:
+            continue
+        if rule not in registry:
+            problems.append(f"{rule}: not in the registry")
+            continue
+        entry = {"rule": rule, "level": registry[rule], "verdict": verdict, "by": "verifier"}
+        if len(parts) > 2 and parts[2]:
+            entry["locus"] = parts[2]
+        if len(parts) > 3 and parts[3]:
+            entry["evidence"] = " | ".join(parts[3:]).replace("|", "/")
+        report["rules"].append(entry)
+        decided.add(rule)
+    report["achieved_level"] = achieved(report["rules"], report["claimed_level"])
+    return problems
+
+
 def diff(older: dict, newer: dict) -> list[str]:
     before = {r["rule"]: r["verdict"] for r in older["rules"]}
     after = {r["rule"]: r["verdict"] for r in newer["rules"]}
@@ -122,10 +154,28 @@ def main(argv: list[str] | None = None) -> int:
     d = sub.add_parser("diff")
     d.add_argument("older")
     d.add_argument("newer")
+    m = sub.add_parser("merge")
+    m.add_argument("report")
+    m.add_argument("verdicts", help="a text file of `<rule> | <verdict> | <locus> | <evidence>` lines")
+    m.add_argument("--profile", action="store_true", help="the agent-facing profile was audited")
     args = parser.parse_args(argv)
 
     def load(path: str) -> dict:
         return json.loads(Path(path).read_text(encoding="utf-8"))
+
+    if args.command == "merge":
+        import tomllib
+
+        registry = {r["address"]: r["level"] for r in tomllib.loads(
+            (Path(__file__).resolve().parent.parent / "spec" / "rules.toml").read_text(encoding="utf-8"))["rule"]}
+        report = load(args.report)
+        report["profile"] = report.get("profile", False) or args.profile
+        found = merge(report, Path(args.verdicts).read_text(encoding="utf-8").splitlines(), registry)
+        Path(args.report).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
+        for problem in found:
+            print(problem)
+        print(f"{len(report['rules'])} rule verdict(s); achieved level {report['achieved_level']}")
+        return 1 if found else 0
 
     if args.command == "validate":
         found = problems(load(args.report))

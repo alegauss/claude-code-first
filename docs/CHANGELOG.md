@@ -76,6 +76,8 @@
 
 ## Block H — Validation against the corpus
 
+- ✅ **CCF51** **roadkeep has never been audited against the specification, so its conformance is asserted, not measured** — roadkeep is audited at its head: 22 of 56 rules fail with none confirmed false, achieved level 0, with proposed classes, offered tasks, circularity and cost recorded.
+
 ## Block I — Governance and publication of the specification
 
 - ✅ **CCF58** **the specification has no version, so an audit cannot say which text it judged a project against** — The specification follows semantic versioning of its obligations, with the version in one place and a tool that writes release notes from the rule diff and refuses too small a bump.

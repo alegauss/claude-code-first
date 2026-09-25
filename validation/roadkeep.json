@@ -1,0 +1,455 @@
+{
+  "spec_version": "0.1.0",
+  "repository": "roadkeep",
+  "commit": "77a3eaeb60540dc464a14e631fdc7ae4b3b82d7f",
+  "date": "2026-09-25",
+  "claimed_level": 3,
+  "achieved_level": 0,
+  "profile": true,
+  "tools": {
+    "checker": "0.1.0",
+    "skill": "0.1.0"
+  },
+  "rules": [
+    {
+      "rule": "IS-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "2 every-turn file(s) under declared budgets"
+    },
+    {
+      "rule": "PG-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "planning files declared in roadkeep.toml, and a PreToolUse guard is wired"
+    },
+    {
+      "rule": "CD-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "checker",
+      "evidence": "11 commit(s) add several ledger entries, e.g. 59230344, 2d6ca3ab, 5657be7b"
+    },
+    {
+      "rule": "VG-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "3 instruction file(s) scanned, no piped gate"
+    },
+    {
+      "rule": "VG-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "on push: gate.yml, gui-site.yml, gui.yml, site.yml"
+    },
+    {
+      "rule": "EP-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "checker",
+      "evidence": "line terminators declared in .gitattributes"
+    },
+    {
+      "rule": "AP-1",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tests/test_commands.py:116",
+      "evidence": "Only the /help description of the four commands/*.md bodies is capped at 60 characters; no test or budget caps the bodies an agent receives, and [reads] caps only the brief, list and show responses."
+    },
+    {
+      "rule": "AP-2",
+      "level": "profile",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "tests/test_skill.py:256-259",
+      "evidence": "The names test checks only the hand-typed _MUST_NAME tuple, so a wrong write-tool name in skills/roadkeep/writing.md:17-24 would pass every gate."
+    },
+    {
+      "rule": "AP-3",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".github/workflows/gate.yml payload job",
+      "evidence": "The job installs the pinned CLAUDE_VERSION 2.1.220 and runs tests/test_plugin.py against the tree as the plugin loader reads it."
+    },
+    {
+      "rule": "AP-4",
+      "level": "profile",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "README.md:203",
+      "evidence": "Shio is named as the reference adoption with counted facts, and tests/corpora.py pins its revision."
+    },
+    {
+      "rule": "AW-1",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "README.md:169",
+      "evidence": "The README says the twelve MCP tools while serving.TOOLS holds 71 at this commit, and no test reads that sentence."
+    },
+    {
+      "rule": "AW-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:47-73",
+      "evidence": "[limits], [non_goals] and [criteria] declare widths that the write path refuses."
+    },
+    {
+      "rule": "AW-3",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/test_skill.py:289",
+      "evidence": "The declared prose-shape rules are held by tests that read the governed prose."
+    },
+    {
+      "rule": "CD-2",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit bc738ea6",
+      "evidence": "Filing Block J (9ecfa187) turned the suite red and bb40b38c fixed it later, so RK1690 was committed on a red tree."
+    },
+    {
+      "rule": "CD-3",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:65,69,83",
+      "evidence": "The default commit route stages everything, while the same skill says parallel sessions share this checkout."
+    },
+    {
+      "rule": "CD-4",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit 06e56a8c",
+      "evidence": "A docs commit writing ledger, decision, rationale and roadmap entries has a diff-generated title with no task id; 4473b6eb and 9a90f81a have the same shape."
+    },
+    {
+      "rule": "CD-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:47-51",
+      "evidence": "Each open line names a fault or a missing capability."
+    },
+    {
+      "rule": "CD-6",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:59",
+      "evidence": "No commit rule says whether commits carry attribution, and d71c1625 and cdf09ac9 carry a Co-Authored-By trailer."
+    },
+    {
+      "rule": "CS-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:69-73",
+      "evidence": "The skill requires claim with --path, and claim reads the scope back against the tree."
+    },
+    {
+      "rule": "CS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:69",
+      "evidence": "The prescribed stager adds every path in a checkout parallel sessions share, so it stages outside the claim."
+    },
+    {
+      "rule": "CS-3",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".githooks/pre-commit:15-26,37-44",
+      "evidence": "The hook derives the bump from the committed version and stages only the version files."
+    },
+    {
+      "rule": "CS-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/conftest.py:9-60",
+      "evidence": "Tests whose tree moved under the run skip with a warning instead of passing or failing."
+    },
+    {
+      "rule": "CS-5",
+      "level": "3",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "Whether a cited count was taken while another session had uncommitted work cannot be read from the repository."
+    },
+    {
+      "rule": "EP-1",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".mcp.json",
+      "evidence": "The committed .mcp.json declares the checkout's own scripts/roadkeep.py as the server that answers."
+    },
+    {
+      "rule": "EP-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "src/roadkeep/installing.py:2844-2848",
+      "evidence": "subprocess.run with text=True and no encoding decodes a child's output with the locale codec; scripts/like_ci.py does the same."
+    },
+    {
+      "rule": "EP-4",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "src/roadkeep/verbs/reading.py:45-62",
+      "evidence": "One leading U+FEFF is stripped from piped stdin."
+    },
+    {
+      "rule": "EP-5",
+      "level": "2",
+      "verdict": "could not run",
+      "by": "verifier",
+      "evidence": "The order in which past encoding defects were diagnosed is not recorded in a checkable form."
+    },
+    {
+      "rule": "EP-6",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:30",
+      "evidence": "Heredoc edits are forbidden and the only incident predates the rule."
+    },
+    {
+      "rule": "GH-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:30",
+      "evidence": "The heredoc rule was seen broken (RK1091) and stays prose only: no deny rule, and the guard does not refuse it."
+    },
+    {
+      "rule": "GH-2",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".github/workflows/gate.yml lint job",
+      "evidence": "The guarded rule is also checked by roadkeep lint in CI."
+    },
+    {
+      "rule": "GH-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "hooks/hooks.json:16",
+      "evidence": "The PreToolUse matcher leaves out the PowerShell tool, which can write a governed file on the Windows machine this project runs on."
+    },
+    {
+      "rule": "GH-4",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "hooks/roadkeep-launch.py:427",
+      "evidence": "When no engine runs, the guard returns 0 and writes nothing, so the session is not told it is unguarded."
+    },
+    {
+      "rule": "GH-5",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/test_plugin.py:140-346",
+      "evidence": "The hook wiring and manifest are held by tests that run in CI."
+    },
+    {
+      "rule": "GH-6",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "src/roadkeep/linting.py:1580-1662",
+      "evidence": "Lint reports install.stale and install.absent for a copy behind its source."
+    },
+    {
+      "rule": "HR-1",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:47,51",
+      "evidence": "Lines waiting on a person carry (requires: decision) and stay open."
+    },
+    {
+      "rule": "HR-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit a4c2ccec",
+      "evidence": "When the weighing test went red, the agent lowered its own margin from 1.5 to 1.2 with no bar set by a person."
+    },
+    {
+      "rule": "PG-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:47-51",
+      "evidence": "Open lines lead with the observed symptom."
+    },
+    {
+      "rule": "PG-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:306-308",
+      "evidence": "Falsified premises are recorded in place with the reason."
+    },
+    {
+      "rule": "PG-4",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/CHANGELOG.md",
+      "evidence": "Ship entries carry design-recorded-in pointers, and decisions go to DECISIONS.md."
+    },
+    {
+      "rule": "PG-5",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:289-294",
+      "evidence": "Blocks carry done-when criteria, and permanent headings keep an emptied block from reading as closed."
+    },
+    {
+      "rule": "PG-6",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "docs/ROADMAP.md:47,51",
+      "evidence": "Waiting lines carry the requirement with its declared reason."
+    },
+    {
+      "rule": "PS-1",
+      "level": "1",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "gui/.claude/settings.json:4-8",
+      "evidence": "This committed settings file carries allow rules, and nothing in gui/ names the guard or gate that stands in for the removed prompts."
+    },
+    {
+      "rule": "PS-2",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:30",
+      "evidence": "Heredoc edits are forbidden only in prose; no deny or ask rule and no guard refuses them."
+    },
+    {
+      "rule": "PS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git ls-files",
+      "evidence": "No tracked file has a credential-like name."
+    },
+    {
+      "rule": "VG-1",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit bc738ea6",
+      "evidence": "RK1690 was recorded as shipped while the suite was red from filing Block J, with no red-suite exception."
+    },
+    {
+      "rule": "VG-3",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".github/workflows/gate.yml:62-64",
+      "evidence": "The corpus round-trip cases skip in CI and the job reports success, so checks that did not execute count toward a green run."
+    },
+    {
+      "rule": "VG-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".github/workflows/gate.yml:64",
+      "evidence": "The test gate is a bare pytest run, and nothing compares the tests collected with the tests that reported a result."
+    },
+    {
+      "rule": "VG-6",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "tests/conftest.py",
+      "evidence": "The recorded red from an outside cause was answered by narrowing the tests, not by rerunning."
+    },
+    {
+      "rule": "VG-7",
+      "level": "2",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "git log",
+      "evidence": "No gate is recorded as kept red while other work continued."
+    },
+    {
+      "rule": "VG-8",
+      "level": "2",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "commit c66d7b30",
+      "evidence": "A behaviour change was recorded as shipped though the commit changes only settings and docs and no gate covers it."
+    },
+    {
+      "rule": "VG-9",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:75-232",
+      "evidence": "Each ceiling raise cites a reading taken before the change."
+    },
+    {
+      "rule": "IS-2",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "agents.md",
+      "evidence": "The every-turn file holds the laws and a layout index, and points to trigger-loaded skills."
+    },
+    {
+      "rule": "IS-3",
+      "level": "1",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md:3",
+      "evidence": "Skill descriptions name occasions and trigger words, held by a test."
+    },
+    {
+      "rule": "IS-4",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": ".claude/skills/roadkeep-dev/SKILL.md",
+      "evidence": "This 5,990-byte trigger-loaded body has no ceiling in [budgets] or in the skill tests."
+    },
+    {
+      "rule": "IS-5",
+      "level": "3",
+      "verdict": "fail",
+      "by": "verifier",
+      "locus": "skills/roadkeep/writing.md:17-24",
+      "evidence": "The list given as the whole write path leaves out served write tools, and no test checks it against serving.TOOLS."
+    },
+    {
+      "rule": "IS-6",
+      "level": "3",
+      "verdict": "pass",
+      "by": "verifier",
+      "locus": "roadkeep.toml:75-232",
+      "evidence": "Per-tool and session ceilings on served schemas are enforced by lint."
+    }
+  ]
+}

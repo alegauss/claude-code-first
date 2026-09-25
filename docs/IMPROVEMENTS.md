@@ -16,17 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-### §CCF51 Audit: roadkeep
-
-Run the deterministic checker and the audit skill against the project's current head and
-commit the report under `validation/`. Each failure is classified as drift, divergence
-or obsolescence. Realignment tasks are offered to the owner; filing them into that
-project's backlog is the owner's decision, and the report records which were accepted.
-The audit's own cost, in tokens and wall time, is recorded as data for the audit design.
-Expected tension: rules derived from roadkeep may pass trivially, which is circularity
-rather than validation, so the report lists the rules for which roadkeep was the only
-source.
-
 ### §CCF52 Audit: polyweave
 
 Run the deterministic checker and the audit skill against the project's current head and
