@@ -44,9 +44,12 @@ independent origin for this reason ([grading.md](grading.md)).
 **The direction of copying is traced from dates.** Shio adopted first, on 2026-03-24, and
 roadkeep was built from measurements of it. Roadkeep's development guide states the
 problem it solves as "In Viglet Shio: 92 roadmap lines averaging" [roadkeep@91754240:agents.md#L7].
-From roadkeep, the hook launcher that `roadkeep install`
-writes spread into Shio [shio@c215718bb], freewilly [freewilly@acc7fc1] and polyweave
-[polyweave@c45f7b3], which makes it one origin in three repositories. The no-clobber hook
+Copying also ran the other way. The committed hook launcher was first hand-written in Shio
+[shio@c215718bb], generalised by roadkeep four days later [roadkeep@7243dc05], and
+from there written into freewilly [freewilly@acc7fc1] and polyweave
+[polyweave@c45f7b3], which makes it one origin, Shio, in four repositories. An early draft
+of this paragraph had the direction reversed; the findings register caught it. The
+no-clobber hook
 came into polyweave from pportal, a project outside the corpus. Its header names the
 "repo, where this hook was written" [polyweave@6d1c136:.claude/hooks/no-clobber.py#L4].
 A finding that cites a practice in

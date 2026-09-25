@@ -58,11 +58,12 @@ Run all of them before every commit. A red gate is fixed, never skipped.
 | `python .claude/hooks/roadkeep-launch.py lint` | the governed docs, and the `[budgets]` on the every-turn files |
 | `python scripts/check_skills.py` | the size caps on every skill this repository writes |
 | `python -m unittest discover -s scripts` | the tests of the scripts themselves |
+| `python scripts/index_findings.py --check` | every finding's form, and an index that matches them; without `--check` it rewrites the index |
 | `python scripts/resolve_citations.py` | every evidence pointer against the pinned corpus; point it at local checkouts with `--source shio=<path>` or `CCF_SOURCE_SHIO`, since Shio is private |
 | `npx markdownlint-cli2 "**/*.md"` | the rule set in `.markdownlint-cli2.jsonc` |
 | `lychee --config lychee.toml "./**/*.md"` | every internal link and anchor; with no local lychee, run the `lycheeverse/lychee` image with the repository mounted at `/input` |
 
-CI runs the same six on every push (`.github/workflows/`), so a local green that CI
+CI runs the same seven on every push (`.github/workflows/`), so a local green that CI
 turns red means the two have drifted.
 
 ## Filing what a task revealed

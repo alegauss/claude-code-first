@@ -9,8 +9,7 @@
 
 ## Block C — Case studies and the findings register
 
-- 📋 **CCF20** (deps: CCF10 ✅, CCF15 ✅, CCF16 ✅, CCF17 ✅, CCF18 ✅, CCF19 ✅) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
-- 📋 **CCF21** (deps: CCF20) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
+- 📋 **CCF21** (deps: CCF20 ✅) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
 - 📋 **CCF22** (deps: CCF15 ✅, CCF16 ✅, CCF17 ✅, CCF18 ✅, CCF19 ✅) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
 - 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
@@ -18,23 +17,23 @@
 
 - 📋 **CCF24** (deps: CCF10 ✅) **the specification has no frame: no chapter order, no rule addresses and no conformance keywords** — Chapters written before the frame exists would each invent a rule format, and no reader could cite a rule by address. → §CCF24
 - 📋 **CCF25** (deps: CCF24) **terms such as every-turn file, governed file, gate, guard, ledger and verdict are used without definitions** — The five projects use the same words with different meanings, and a spec whose terms drift cannot be conformed to. → §CCF25
-- 📋 **CCF26** (deps: CCF20, CCF24) **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — Context economy is the most strongly supported finding, measured in three projects, and it still has no rule. → §CCF26
-- 📋 **CCF27** (deps: CCF20, CCF24) **no normative chapter says how an agent plans, records and closes work** — Every project converged on governed roadmap, ledger and rationale files after prose limits failed, and that convergence needs stating. → §CCF27
-- 📋 **CCF28** (deps: CCF20, CCF21, CCF24) **no normative chapter says how an agent turns finished work into commits** — One task per commit is called the most violated rule in two projects, and stray files reached commits in three. → §CCF28
-- 📋 **CCF29** (deps: CCF20, CCF24) **no normative chapter says what an agent must run, keep and report before calling work done** — Silent greens, piped exit codes and suites red for nineteen commits recur across the corpus, each costing more than a gate would. → §CCF29
-- 📋 **CCF30** (deps: CCF13 ✅, CCF20, CCF24) **no normative chapter says which rules must be enforced by hooks rather than by instructions** — Every rule the corpus enforces reliably is a hook or a gate, and every rule left to prose recurs as an incident. → §CCF30
+- 📋 **CCF26** (deps: CCF20 ✅, CCF24) **no normative chapter says what may load on every turn and what must be trigger-loaded instead** — Context economy is the most strongly supported finding, measured in three projects, and it still has no rule. → §CCF26
+- 📋 **CCF27** (deps: CCF20 ✅, CCF24) **no normative chapter says how an agent plans, records and closes work** — Every project converged on governed roadmap, ledger and rationale files after prose limits failed, and that convergence needs stating. → §CCF27
+- 📋 **CCF28** (deps: CCF20 ✅, CCF21, CCF24) **no normative chapter says how an agent turns finished work into commits** — One task per commit is called the most violated rule in two projects, and stray files reached commits in three. → §CCF28
+- 📋 **CCF29** (deps: CCF20 ✅, CCF24) **no normative chapter says what an agent must run, keep and report before calling work done** — Silent greens, piped exit codes and suites red for nineteen commits recur across the corpus, each costing more than a gate would. → §CCF29
+- 📋 **CCF30** (deps: CCF13 ✅, CCF20 ✅, CCF24) **no normative chapter says which rules must be enforced by hooks rather than by instructions** — Every rule the corpus enforces reliably is a hook or a gate, and every rule left to prose recurs as an incident. → §CCF30
 - 📋 **CCF31** (deps: CCF21, CCF30) **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — Two projects bypass permission prompts locally; whether guards and gates compensate is a claim to test, not to recommend. → §CCF31
-- 📋 **CCF32** (deps: CCF13 ✅, CCF20, CCF24) **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — Plugins absent on the web, mixed line endings, cp1252 mojibake and heredoc corruption each cost sessions in more than one project. → §CCF32
-- 📋 **CCF33** (deps: CCF20, CCF24) **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — Four of five projects ship an agent surface, and their lessons on schemas, budgets and discoverability are the most measured. → §CCF33
-- 📋 **CCF34** (deps: CCF20, CCF24) **no normative chapter says what the person decides and what an agent must never certify for itself** — Polyweave and roadkeep both found an agent judging its own output to be the weakest point, yet the boundary is not stated. → §CCF34
-- 📋 **CCF35** (deps: CCF20, CCF24) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35
-- 📋 **CCF36** (deps: CCF20, CCF24) **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — 207 em dashes in freewilly and stale typed counts in three projects show that agent prose needs rules just as code does. → §CCF36
+- 📋 **CCF32** (deps: CCF13 ✅, CCF20 ✅, CCF24) **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — Plugins absent on the web, mixed line endings, cp1252 mojibake and heredoc corruption each cost sessions in more than one project. → §CCF32
+- 📋 **CCF33** (deps: CCF20 ✅, CCF24) **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — Four of five projects ship an agent surface, and their lessons on schemas, budgets and discoverability are the most measured. → §CCF33
+- 📋 **CCF34** (deps: CCF20 ✅, CCF24) **no normative chapter says what the person decides and what an agent must never certify for itself** — Polyweave and roadkeep both found an agent judging its own output to be the weakest point, yet the boundary is not stated. → §CCF34
+- 📋 **CCF35** (deps: CCF20 ✅, CCF24) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35
+- 📋 **CCF36** (deps: CCF20 ✅, CCF24) **no normative chapter covers the prose an agent writes, though model-written prose was measurably detectable** — 207 em dashes in freewilly and stale typed counts in three projects show that agent prose needs rules just as code does. → §CCF36
 
 ## Block E — Patterns and anti-patterns
 
 - 📋 **CCF37** (deps: CCF24) **no form fixes how a pattern or anti-pattern is written, so entries would mix problem, remedy and evidence** — A catalogue can be searched and compared only when every entry answers the same questions in the same order. → §CCF37
-- 📋 **CCF38** (deps: CCF20, CCF37) **the recurring failures have no names, so a reviewer cannot say which one a project is committing** — A name turns a long explanation into a word two people share, and the corpus holds at least a dozen failures seen more than once. → §CCF38
-- 📋 **CCF39** (deps: CCF20, CCF37) **the practices that resolved those failures are described only inside the projects that invented them** — An adopter needs the remedy in a portable form, stripped of the project it was found in, with its evidence still attached. → §CCF39
+- 📋 **CCF38** (deps: CCF20 ✅, CCF37) **the recurring failures have no names, so a reviewer cannot say which one a project is committing** — A name turns a long explanation into a word two people share, and the corpus holds at least a dozen failures seen more than once. → §CCF38
+- 📋 **CCF39** (deps: CCF20 ✅, CCF37) **the practices that resolved those failures are described only inside the projects that invented them** — An adopter needs the remedy in a portable form, stripped of the project it was found in, with its evidence still attached. → §CCF39
 
 ## Block F — Conformance and the audit
 

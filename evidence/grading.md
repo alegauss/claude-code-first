@@ -26,8 +26,13 @@ comes from its source, not from how confidently it is stated.
 |---|---|
 | **S1** | asserted in prose: an instruction, a rationale or a comment says it is so |
 | **S2** | recorded as an incident: a commit, a ledger entry or a decision records that it happened, and when |
-| **S3** | measured: the source gives a number that was counted, such as bytes, lines, commits or a failure count |
+| **S3** | measured: a number that was counted, such as bytes, lines, commits or a failure count, either given by the source or counted at the pin with the command stated so anyone can repeat it |
 | **S4** | encoded in a test or gate: a check fails when the finding stops holding, and it has been seen to fail |
+
+A count made at the pin measures the finding only if what it counts is the finding's own
+effect: counting commits that ship several tasks measures batching, but counting commits
+that mention a rule does not measure whether the rule was followed. The finding's Grade
+section names the command and says what it counts.
 
 A finding is written with both grades, as **R3/S2**. Its recurrence is the number of
 independent origins among its verified observations. Its strength is the highest strength

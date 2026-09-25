@@ -57,10 +57,12 @@ The failure left no message, which is why roadkeep then pinned the validator its
 "CLAUDE_VERSION:" [roadkeep@91754240:.github/workflows/gate.yml#L71] is set to 2.1.220
 (RK335).
 
-**O3. Plugins did not load in Claude Code on the web.** In August 2026 roadkeep built a
-launcher committed to the repository because cloud sessions could not install plugins:
-"which do not support plugin installations" [roadkeep@7243dc05].
-The launcher then spread to Shio, freewilly and polyweave. **H10 now contradicts this**:
+**O3. Plugins did not load in Claude Code on the web.** On 2026-08-08 a Claude session on
+the web committed a self-locating launcher to Shio so that the guard would load there
+[shio@c215718bb]. Four days later roadkeep generalised it into `install --committed`,
+"which do not support plugin installations" [roadkeep@7243dc05],
+and its ledger records the origin: a project "hand-writes the launcher that finds one" [roadkeep@91754240:docs/CHANGELOG.md#L1067].
+From roadkeep the launcher reached freewilly and polyweave. **H10 now contradicts this**:
 the documentation read on 2026-09-24 says a plugin enabled for the claude.ai account loads
 in cloud sessions as a synced plugin. The practice may have outlived its cause, or synced
 plugins may not cover a plugin installed from a marketplace. Any rule about committed

@@ -179,8 +179,9 @@ Figures the project recorded itself: the skill caps of 700 and 6,000 characters 
 2026-09-20 [winwright@7a37e95], and 2222 in the guest on 2026-09-21 [winwright@d81f637];
 for claude-tray, "23 cases check 95 claims in 128-159 s" [winwright@861b82e:docs/CHANGELOG.md#L449].
 Block J's criterion asks for exactly this kind of figure: "the number of lines removed is reported rather than described" [winwright@861b82e:docs/ROADMAP.md#L137].
-`git rev-list --count --since=2026-09-17 7a37e95` gives 22 commits between the start of
-the red and the CI change. Git records commits, not pushes, so the count is consistent
+`git rev-list --count --since=2026-09-17T00:00:00-03:00 7a37e95^` gives 25 commits between
+the start of the red and the CI change (a date with no time of day makes `--since` depend
+on when the command runs, which is how a first draft of this count read 22). Git records commits, not pushes, so the count is consistent
 with "twenty-odd" but does not measure it.
 
 ## 8. What is particular to this case

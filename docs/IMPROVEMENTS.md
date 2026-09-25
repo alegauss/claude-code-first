@@ -34,17 +34,6 @@ both figures in the commit.
 
 ## Block C — Case studies and the findings register
 
-### §CCF20 The findings register
-
-`evidence/findings/` holds one file per finding, with a stable identifier in its own
-namespace distinct from the backlog prefix, a one-sentence claim, the mechanism, every
-supporting observation per project as resolvable citations, counter-evidence, the grade
-on both axes, and the harness facts it depends on. Findings are synthesised across the
-case studies rather than copied from one: "every-turn instruction files grow until a
-gate caps them" merges roadkeep RK30, Shio's 186 KB and winwright's WW69. A generated
-index lists findings by grade and topic. A finding may be withdrawn but is never
-deleted, so a rule that cited it can still be traced after it falls.
-
 ### §CCF21 Resolving divergent practice
 
 Enumerate every divergence the case studies expose. Co-Authored-By trailers are present
@@ -65,16 +54,18 @@ removal that `714360e` undid; Shio's agents.md saying the suites run on every pu
 suites.yml runs only on 2026.3, main, pull requests and dispatch
 (evidence/cases/shio.md); Shio's build skill piping a gate into grep, which agents.md
 forbids; Shio's `roadkeep.toml` header denying the vendoring that agents.md describes;
-roadkeep's roadkeep.toml calling the index the cheap cut while agents.md says the prose
-is what to compress (evidence/cases/roadkeep.md); polyweave's audit skill naming blocks
-A to H and three governed files where the pin has J and four
-(evidence/cases/polyweave.md); polyweave's five non-goals, which match at the pin (the
-sixth was uncommitted, so drop it unless a later pin shows it); freewilly's ledger
-listing DD118 as shipped while cd630d6 deleted its gate and 714360e never restored it
-(evidence/cases/freewilly.md); and freewilly's DD23 law overridden by `4575583` without
-amendment. For each: the two loci, how long the contradiction has stood, and whether any
-check could have caught it. The inventory supports the rule that a fact lives in one
-place, and feeds the realignment of those projects in Block H.
+roadkeep's roadkeep.toml saying Shio's file declared 150 lines about itself, which
+Shio's agents.md at e73516a9f does not (evidence/findings/F1.md); roadkeep's
+roadkeep.toml calling the index the cheap cut while agents.md says the prose is what to
+compress (evidence/cases/roadkeep.md); polyweave's audit skill naming blocks A to H and
+three governed files where the pin has J and four (evidence/cases/polyweave.md);
+polyweave's five non-goals, which match at the pin (the sixth was uncommitted, so drop
+it unless a later pin shows it); freewilly's ledger listing DD118 as shipped while
+cd630d6 deleted its gate and 714360e never restored it (evidence/cases/freewilly.md);
+and freewilly's DD23 law overridden by `4575583` without amendment. For each: the two
+loci, how long the contradiction has stood, and whether any check could have caught it.
+The inventory supports the rule that a fact lives in one place, and feeds the
+realignment of those projects in Block H.
 
 ### §CCF23 Reproducible corpus metrics
 
