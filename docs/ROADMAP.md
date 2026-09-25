@@ -6,7 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-- 📋 **CCF22** (deps: CCF15 ✅, CCF16 ✅, CCF17 ✅, CCF18 ✅, CCF19 ✅) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
 - 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
 ## Block D — The normative specification

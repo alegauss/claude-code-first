@@ -6,27 +6,6 @@
 
 ## Block C — Case studies and the findings register
 
-### §CCF22 A drift inventory
-
-`evidence/drift.md` lists each place where two artefacts of one project state
-contradictory facts at the pinned commit: freewilly's CONTRIBUTING describing a CI lint
-removal that `714360e` undid; Shio's agents.md saying the suites run on every push while
-suites.yml runs only on 2026.3, main, pull requests and dispatch
-(evidence/cases/shio.md); Shio's build skill piping a gate into grep, which agents.md
-forbids; Shio's `roadkeep.toml` header denying the vendoring that agents.md describes;
-roadkeep's roadkeep.toml saying Shio's file declared 150 lines about itself, which
-Shio's agents.md at e73516a9f does not (evidence/findings/F1.md); roadkeep's
-roadkeep.toml calling the index the cheap cut while agents.md says the prose is what to
-compress (evidence/cases/roadkeep.md); polyweave's audit skill naming blocks A to H and
-three governed files where the pin has J and four (evidence/cases/polyweave.md);
-polyweave's five non-goals, which match at the pin (the sixth was uncommitted, so drop
-it unless a later pin shows it); freewilly's ledger listing DD118 as shipped while
-cd630d6 deleted its gate and 714360e never restored it (evidence/cases/freewilly.md);
-and freewilly's DD23 law overridden by `4575583` without amendment. For each: the two
-loci, how long the contradiction has stood, and whether any check could have caught it.
-The inventory supports the rule that a fact lives in one place, and feeds the
-realignment of those projects in Block H.
-
 ### §CCF23 Reproducible corpus metrics
 
 A script under `tools/` that, given the corpus pins, computes for each project: commits,
