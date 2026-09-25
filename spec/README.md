@@ -56,7 +56,7 @@ observations to the pinned sources.
 | PS | [Permissions and safety](PS.md) | what an agent may do without asking, and what stands in for asking |
 | EP | [Environment portability](EP.md) | where a session runs: web or local, shells, encodings |
 | AP | [Agent-facing product surfaces](AP.md) | projects that ship tools, skills or plugins for other agents |
-| HR | The human role | what the person decides, and what an agent must not certify |
+| HR | [The human role](HR.md) | what the person decides, and what an agent must not certify |
 | CS | Concurrent sessions | several agent sessions in one repository |
 | AW | [Agent-written prose](AW.md) | the prose an agent writes, and how it is kept true |
 

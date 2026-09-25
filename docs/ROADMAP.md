@@ -8,7 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF34** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what the person decides and what an agent must never certify for itself** — Polyweave and roadkeep both found an agent judging its own output to be the weakest point, yet the boundary is not stated. → §CCF34
 - 📋 **CCF35** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35
 
 ## Block E — Patterns and anti-patterns

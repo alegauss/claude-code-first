@@ -47,6 +47,7 @@
 - ✅ **CCF30** **no normative chapter says which rules must be enforced by hooks rather than by instructions** — spec/GH.md states six rules on what the harness enforces: broken rules leave prose, a CI gate behind every guard, every route matched, silent failures surfaced, configuration gated.
 - ✅ **CCF31** **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — spec/PS.md states three permission rules the evidence carries: name what replaces removed prompts, refuse forbidden actions in configuration, keep credentials out of the tree.
 - ✅ **CCF32** **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — spec/EP.md states six portability rules bounded to Windows: a declared tool copy, pinned line endings, named encodings, BOM handling, bytes before blame and no heredoc edits.
+- ✅ **CCF34** **no normative chapter says what the person decides and what an agent must never certify for itself** — spec/HR.md states that an agent does not close work needing a person's judgement or absent hardware, and applies a stored human bar instead of its own margin.
 
 ## Block E — Patterns and anti-patterns
 

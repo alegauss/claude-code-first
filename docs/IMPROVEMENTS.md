@@ -8,18 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF34 Chapter: the human role
-
-Rules: the person owns non-goals, priorities, releases and pushes; a judgement of
-quality with no measurable bar belongs to the person, is recorded as a verdict against
-the shipped entry (roadkeep `validate`, RK1692) and is never inferred by the agent
-(polyweave's sixth non-goal; `113f220`); work waiting on a person or on absent hardware
-is deferred with its reason, never left open or faked (polyweave `DEFERRED.md`;
-`5a3a26c` then `0a82ee0`); a bar a person sets once is stored and reused (polyweave
-Block J); and paid or irreversible acts are asked for, not assumed. The chapter also
-says what the person should not spend time on: formatting planning files, writing commit
-bodies, and reproducing measurements the agent can take.
-
 ### §CCF35 Chapter: concurrent sessions
 
 Rules: a session claims the task it works on and the paths it owns, and a claim expires
