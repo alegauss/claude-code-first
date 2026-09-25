@@ -55,6 +55,7 @@
 - ✅ **CCF35** **no normative chapter covers several agent sessions working in one repository at once** — spec/CS.md states five rules for sessions sharing a checkout: claims on task and paths, staging within the claim, disturbed gate runs as could-not-run, no cited figures from a busy tree.
 - ✅ **CCF70** **no rule says when a capability belongs on a CLI verb rather than on an MCP tool list** — AP-5 lets a product offer a capability as a CLI verb where its agents have a shell, keeping MCP for shell-less clients and schema-checked input, at MAY because H9 disputes the cost.
 - ✅ **CCF71** **the files-over-APIs and the per-project session token budget claims are recorded nowhere as open questions** — AP's open questions now hold files over an API for authoring, argued by Shio and never measured, and IS's hold a token budget on a project's own sessions, which no corpus project counts.
+- ✅ **CCF72** **no rule asks a product to benchmark canonical tasks through its agent surface against the generic path** — AP-6 asks a product to benchmark canonical tasks through its surface and the generic path, gated on calls, tokens and the ratio, at SHOULD though F409 admits MUST.
 
 ## Block E — Patterns and anti-patterns
 

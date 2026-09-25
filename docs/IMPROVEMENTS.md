@@ -8,22 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF72 Benchmark the task, not only the surface
-
-The owner asked that every project be built around token consumption, with tests that
-fail when the project's progression overruns the tokens intended. AP-1 and IS-6 already
-cap what each surface costs, per tool list, skill and response. What they cannot see is
-a task that got more expensive because it now takes more calls, each within its ceiling.
-Shio and freewilly answered that with a canonical-task benchmark: named tasks run
-through the agent surface and through the generic interface, with calls and tokens
-asserted against ceilings and the ratio against a floor, and wall clock recorded but
-never asserted. Shio lowered its floors when the baseline improved rather than defend
-them, and isolated each benchmark's database after shared fixtures made one measurement
-an input to another (SH315). The rule belongs in the AP chapter at profile level,
-admitted by the finding CCF68 writes. Its scope is the evidence's: products whose
-surface agents consume, not every project, since no corpus project benchmarks the
-sessions that build it. That wider claim goes to the open question CCF71 records.
-
 ## Block E — Patterns and anti-patterns
 
 ## Block F — Conformance and the audit

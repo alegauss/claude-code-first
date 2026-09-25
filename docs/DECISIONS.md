@@ -36,6 +36,7 @@ carry trailers on 33 commits.
 ## Block D — The normative specification
 
 - ✅ **CCF70** **no rule says when a capability belongs on a CLI verb rather than on an MCP tool list** — A CLI verb over an MCP tool stays a MAY scoped to agents with a shell until the cost of a tool list under tool search is measured; winwright's typed input is excluded, not a reason to lower it.
+- ✅ **CCF72** **no rule asks a product to benchmark canonical tasks through its agent surface against the generic path** — A canonical-task benchmark stays a SHOULD while roadkeep and winwright ship agent surfaces without one and no failure is recorded against its absence; one such failure would raise it.
 
 ### §CCF70 A CLI verb or an MCP tool
 
@@ -48,6 +49,19 @@ first law puts MCP first for clients without a shell, which the rule keeps. H9 d
 the cost the choice avoids, as it does for IS-6, so the rule stands one level lower, at
 MAY. A measurement of what a tool list costs a session with tool search on and off
 re-opens it.
+
+### §CCF72 A benchmark of the whole task
+
+Proposed by the owner as "every project is built around token consumption, with tests
+that fail when its progression overruns the tokens intended". Weighed: F409 (R3/S4)
+admits MUST, from Shio's and freewilly's canonical-task benchmarks, and freewilly's
+fired on a real change. The scope is narrowed to products whose surface agents consume,
+because that is what both benchmarks measure; a budget on a project's own sessions has
+no evidence and is an open question in IS. The keyword is lowered to SHOULD because
+roadkeep and winwright ship surfaces to agents with no such benchmark and nothing
+records a failure its absence caused, while the benchmark costs a fixture for the
+generic path too. The rule says the ratio is read with its baseline, since Shio's
+advantage halved when its own REST console improved.
 
 ## Block E — Patterns and anti-patterns
 

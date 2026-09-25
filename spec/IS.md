@@ -199,7 +199,8 @@ surfaces.
   session is sent, at a stated harness version with tool search on and off, would settle
   whether IS-6 should be raised to MUST or withdrawn.
 - **A token budget on the project's own sessions.** The rules here bound what loads on every
-  turn, and AP-1 bounds what a product serves to other agents, but no
+  turn, AP-1 bounds what a product serves to other agents and AP-6 what its tasks cost
+  them, but no
   project in the corpus measures what the Claude Code sessions that build it consume, or
   fails a check when that grows. Such a count would come from session transcripts, which
   are not a source of this study ([../evidence/method.md](../evidence/method.md)). Session

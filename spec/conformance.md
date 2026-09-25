@@ -92,6 +92,7 @@ is part of that level: a project meets it, or records a waiver.
 | AP-3 | MUST | profile | tests run from the published artefact |
 | AP-4 | MUST | profile | adoption proved in a named consumer |
 | AP-5 | MAY | profile | a placement choice, made once per capability |
+| AP-6 | SHOULD | profile | a benchmark with fixtures for both paths |
 
 ## Claiming conformance
 

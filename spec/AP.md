@@ -18,7 +18,9 @@ never loaded by their own repository ([F407](../evidence/findings/F407.md)). Nam
 counts written into agent-facing prose went stale when the product changed
 ([F7](../evidence/findings/F7.md)). Where the consuming agent had a shell, Shio shipped new
 capabilities as commands rather than tools, since a tool list is paid before any call
-([F8](../evidence/findings/F8.md)). And the evidence that a tool works came from named
+([F8](../evidence/findings/F8.md)). Shio and freewilly benchmarked whole tasks through their
+surface and through the generic interface, and found the gap in fewer reads rather than in
+the transport ([F409](../evidence/findings/F409.md)). And the evidence that a tool works came from named
 consumer repositories, where it found what the producer's own suite had passed
 ([F408](../evidence/findings/F408.md)).
 
@@ -156,6 +158,36 @@ definition is sent up front (H9), the same dispute that holds IS-6 below its fin
 has one origin, as freewilly's "CLI first" is a stated copy of Shio's. A measurement of what a tool list costs a session under
 tool search would settle whether it should rise. For a tool list a project serves to its
 own agent, IS-6 holds the list's size whichever way this choice goes.
+
+### AP-6 Canonical tasks benchmarked against the generic path
+
+**A product whose surface agents consume SHOULD benchmark named canonical tasks through that surface and through the generic interface the same tasks would otherwise use, with a *gate* that fails when a task's calls or tokens pass their ceiling or its ratio to the generic path falls below its floor.**
+
+| Field | Value |
+|---|---|
+| Keyword | SHOULD |
+| Level | profile |
+| Checked | by judgement |
+| Findings | F409 |
+| Harness facts | none |
+| Threat | construct: each baseline was written by the author of the surface it is compared with |
+| Status | active |
+
+Rationale: AP-1 caps each surface, but a task that got dearer by taking more calls, each
+under its ceiling, passes every one of them. Shio and freewilly each ran named tasks both
+ways and held the result by a test ([F409](../evidence/findings/F409.md), R3/S4), and
+freewilly's assertion "caught it on the commit" [freewilly@c1c2eaf:agent-budget.json#L113-L114]
+that widened one response by 43 tokens. The generic path is the point of the comparison:
+Shio found that a single number per task "could no longer distinguish" [shio@821f18d74:docs/CHANGELOG.md#L478]
+a cheaper protocol from a wasteful console, and that its token advantage fell by more than
+half when its own REST reads were fixed. So a ratio is reported with its baseline, and its
+floor drops with a better baseline rather than being defended. What the benchmark measures
+is the shape of the path, not its transport, since Shio's shaped surface is HTTP as well.
+Both projects learned to isolate the inputs, since shared fixtures and a date in a fixture
+turned the gate red with no regression to blame, and neither asserts wall clock. The rule
+is a SHOULD although F409 admits MUST: roadkeep and winwright ship surfaces to agents with
+no such benchmark and no failure recorded against its absence, and building one costs a
+fixture for the generic path as well as the shaped one.
 
 ## Open questions
 

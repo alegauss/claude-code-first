@@ -69,6 +69,19 @@ harness = ["H9"]
 status = "active"
 
 [[rule]]
+address = "AP-6"
+chapter = "AP"
+title = "Canonical tasks benchmarked against the generic path"
+keyword = "SHOULD"
+level = "profile"
+statement = "A product whose surface agents consume SHOULD benchmark named canonical tasks through that surface and through the generic interface the same tasks would otherwise use, with a gate that fails when a task's calls or tokens pass their ceiling or its ratio to the generic path falls below its floor."
+checked = "by judgement"
+detector = ""
+findings = ["F409"]
+harness = []
+status = "active"
+
+[[rule]]
 address = "AW-1"
 chapter = "AW"
 title = "Figures in prose are generated or checked"

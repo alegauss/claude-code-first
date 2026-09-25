@@ -12,6 +12,7 @@ and each observation to its pinned source.
 | AP-3 | MUST | profile | [F407](../evidence/findings/F407.md) R3/S2, [F306](../evidence/findings/F306.md) R3/S3 | freewilly, roadkeep, shio, winwright | 27 |
 | AP-4 | MUST | profile | [F408](../evidence/findings/F408.md) R3/S3 | polyweave, roadkeep, winwright | 19 |
 | AP-5 | MAY | profile | [F8](../evidence/findings/F8.md) R2/S2, [F4](../evidence/findings/F4.md) R3/S4 | freewilly, roadkeep, shio, winwright | 34 |
+| AP-6 | SHOULD | profile | [F409](../evidence/findings/F409.md) R3/S4 | freewilly, shio | 26 |
 | AW-1 | MUST | 3 | [F7](../evidence/findings/F7.md) R4/S4 | freewilly, polyweave, roadkeep, shio, winwright | 22 |
 | AW-2 | MUST | 1 | [F5](../evidence/findings/F5.md) R3/S3, [F101](../evidence/findings/F101.md) R1/S3 | polyweave, roadkeep, shio, winwright | 22 |
 | AW-3 | SHOULD | 3 | [F6](../evidence/findings/F6.md) R3/S4, [F300](../evidence/findings/F300.md) R3/S3 | freewilly, polyweave, roadkeep, shio, winwright | 35 |

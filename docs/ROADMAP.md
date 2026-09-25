@@ -8,8 +8,6 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF72** (deps: CCF68 ✅) **no rule asks a product to benchmark canonical tasks through its agent surface against the generic path** — AP-1 bounds each surface's size, but a regression in what a whole task costs, or in the gap to the generic path, passes every per-surface ceiling. → §CCF72
-
 ## Block E — Patterns and anti-patterns
 
 ## Block F — Conformance and the audit
@@ -20,7 +18,7 @@
 
 ## Block I — Governance and publication of the specification
 
-- 📋 **CCF73** (deps: CCF70 ✅, CCF71 ✅, CCF72) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, so a reader should meet the corrected claims on REST, CLI, files and budgets there, counted by the build. → §CCF73
+- 📋 **CCF73** (deps: CCF70 ✅, CCF71 ✅, CCF72 ✅) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, so a reader should meet the corrected claims on REST, CLI, files and budgets there, counted by the build. → §CCF73
 
 ## Done when — Block A
 

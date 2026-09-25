@@ -58,7 +58,8 @@ disputed by the harness documentation, although the measured sizes are not.
 
 - Resolves: [Rule in prose](../anti-patterns/rule-in-prose.md) and
   [Resident encyclopedia](../anti-patterns/resident-encyclopedia.md).
-- Rules: [IS-1](../../IS.md), [IS-6](../../IS.md), [IS-4](../../IS.md) and [AP-1](../../AP.md).
+- Rules: [IS-1](../../IS.md), [IS-6](../../IS.md), [IS-4](../../IS.md), [AP-1](../../AP.md)
+  and [AP-6](../../AP.md).
 - Findings: [F4](../../../evidence/findings/F4.md), [F406](../../../evidence/findings/F406.md),
   [F409](../../../evidence/findings/F409.md) and [F1](../../../evidence/findings/F1.md).
 - Patterns: [Index, not encyclopedia](index-not-encyclopedia.md) and
