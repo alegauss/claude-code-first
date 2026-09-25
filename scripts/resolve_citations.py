@@ -10,7 +10,8 @@ A pointer names a corpus project, a commit, and optionally a path and a line ran
 A quoted string directly before a pointer is a quote the pointer vouches for:
 "the single most violated rule" [shio@821f18d74:agents.md#L247] must find that text,
 whitespace aside, within those lines (within the file with no range, and in the commit
-message for a bare commit).
+message for a bare commit). A quote may wrap onto the line before its pointer, may keep
+backticks, and may run across the lines of a source comment; see `quoted`.
 
 The grammar and the reasons for it are in evidence/method.md. Pointers inside fenced
 code blocks or inline code are examples and are not checked.
@@ -39,13 +40,17 @@ CORPUS = Path("evidence/corpus.md")
 SCANNED = ("evidence", "spec")
 CACHE = Path(".cache/corpus")
 
+# A quote may wrap across lines, and may sit on the line before its pointer, but never
+# across a blank line: a quote that crosses a paragraph is no longer one sentence.
 POINTER = re.compile(
-    r"(?:[\"“](?P<quote>[^\"“”\n]+)[\"”]\s*)?"
+    r"(?:[\"“](?P<quote>(?:(?!\n[ \t]*\n)[^\"“”]){1,400})[\"”]\s*)?"
     r"\[(?P<project>[a-z][a-z0-9-]*)@(?P<commit>[0-9a-f]{7,40})"
     r"(?::(?P<path>[^\]\s#]+)(?:#L(?P<start>\d+)(?:-L(?P<end>\d+))?)?)?\]"
 )
 FENCE = re.compile(r"^\s*(```|~~~)")
 INLINE_CODE = re.compile(r"`[^`\n]*`")
+COMMENT_MARKER = re.compile(r"^\s*(?:///|//|#|\*|--|;)\s?")
+FORMATTING = re.compile(r"[`*]")
 PIN_ROW = re.compile(
     r"^\|\s*(?P<name>[^|]+?)\s*\|\s*`(?P<remote>[^`]+)`\s*\|[^|]*\|\s*`(?P<pin>[0-9a-f]{40})`"
 )
@@ -74,34 +79,66 @@ def read_pins(corpus: Path) -> dict[str, tuple[str, str]]:
     return pins
 
 
+def prose(text: str) -> str:
+    """The text with fenced code blocks blanked out, line count kept."""
+    lines, fenced = [], False
+    for line in text.split("\n"):
+        if FENCE.match(line):
+            fenced = not fenced
+            lines.append("")
+        else:
+            lines.append("" if fenced else line)
+    return "\n".join(lines)
+
+
 def scan(root: Path) -> list[Pointer]:
-    """Every pointer in the scanned Markdown files, outside code."""
+    """Every pointer in the scanned Markdown files, outside code.
+
+    A whole file is matched at once, so a quote that wraps onto the line before its
+    pointer is still read as its quote (CCF63). A pointer that starts inside an inline
+    code span is an example and is skipped; code inside a quote is kept as written.
+    """
     found = []
     for top in SCANNED:
         for md in sorted((root / top).rglob("*.md")):
-            fenced = False
-            for number, raw in enumerate(md.read_text(encoding="utf-8").splitlines(), 1):
-                if FENCE.match(raw):
-                    fenced = not fenced
+            text = prose(md.read_text(encoding="utf-8").replace("\r\n", "\n"))
+            spans = [m.span() for m in INLINE_CODE.finditer(text)]
+            for m in POINTER.finditer(text):
+                opening = m.start("project") - 1
+                if any(start <= opening < end for start, end in spans):
                     continue
-                if fenced:
-                    continue
-                line = INLINE_CODE.sub("", raw)
-                for m in POINTER.finditer(line):
-                    found.append(
-                        Pointer(
-                            file=md.relative_to(root),
-                            line=number,
-                            text=m.group(0),
-                            project=m["project"],
-                            commit=m["commit"],
-                            path=m["path"],
-                            start=int(m["start"]) if m["start"] else None,
-                            end=int(m["end"]) if m["end"] else (int(m["start"]) if m["start"] else None),
-                            quote=m["quote"],
-                        )
+                found.append(
+                    Pointer(
+                        file=md.relative_to(root),
+                        line=text.count("\n", 0, opening) + 1,
+                        text=" ".join(m.group(0).split()),
+                        project=m["project"],
+                        commit=m["commit"],
+                        path=m["path"],
+                        start=int(m["start"]) if m["start"] else None,
+                        end=int(m["end"]) if m["end"] else (int(m["start"]) if m["start"] else None),
+                        quote=" ".join(m["quote"].split()) if m["quote"] else None,
                     )
+                )
     return found
+
+
+def quoted(quote: str, haystack: str) -> bool:
+    """Whether the quote occurs in the source text, whitespace aside.
+
+    Two looser readings are tried after the literal one: with a comment marker (`///`,
+    `//`, `#`, `*`) dropped from each source line, so a quote can run across the lines of
+    a doc comment; and with Markdown emphasis and backticks dropped from both sides, so a
+    quote need not reproduce the source's bold or code formatting.
+    """
+    wanted = normalise(quote)
+    if wanted in normalise(haystack):
+        return True
+    uncommented = "\n".join(COMMENT_MARKER.sub("", line) for line in haystack.splitlines())
+    if wanted in normalise(uncommented):
+        return True
+    plain = normalise(FORMATTING.sub("", quote))
+    return plain in normalise(FORMATTING.sub("", uncommented))
 
 
 def git(repo: Path, *args: str) -> subprocess.CompletedProcess:
@@ -175,6 +212,7 @@ class Source:
     def close(self):
         self.batch.stdin.close()
         self.batch.wait()
+        self.batch.stdout.close()
 
 
 def check(pointer: Pointer, source: Source, pin: str) -> str | None:
@@ -200,7 +238,7 @@ def check(pointer: Pointer, source: Source, pin: str) -> str | None:
             if pointer.end > len(lines):
                 return f"{pointer.path} has {len(lines)} lines at {pointer.commit}, not {pointer.end}"
             haystack = "\n".join(lines[pointer.start - 1 : pointer.end])
-    if pointer.quote and normalise(pointer.quote) not in normalise(haystack):
+    if pointer.quote and not quoted(pointer.quote, haystack):
         return f'quote "{pointer.quote}" not found there'
     return None
 

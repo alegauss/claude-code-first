@@ -4,8 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF63** (deps: —) **the resolver cannot check a quote that holds inline code or runs across comment-prefixed source lines** — Verifiers had to rewrite or split such quotes, so the text a finding quotes is not always the text that was checked. → §CCF63
-
 ## Block C — Case studies and the findings register
 
 - 📋 **CCF22** (deps: CCF15 ✅, CCF16 ✅, CCF17 ✅, CCF18 ✅, CCF19 ✅) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22

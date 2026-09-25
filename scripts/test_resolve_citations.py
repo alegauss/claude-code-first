@@ -29,7 +29,11 @@ class ResolveCitations(unittest.TestCase):
         git(self.source, "config", "user.email", "t@example.com")
         git(self.source, "config", "user.name", "t")
         (self.source / "rules.md").write_text("one\nthe single most\nviolated rule\nfour\n", encoding="utf-8")
-        git(self.source, "add", "rules.md")
+        (self.source / "Doc.cs").write_text(
+            "/// The whole content is loaded\n/// on every turn, **by design**,\n/// through `LoadAll`.\n",
+            encoding="utf-8",
+        )
+        git(self.source, "add", "rules.md", "Doc.cs")
         git(self.source, "commit", "-q", "-m", "add the rules file")
         self.pin = git(self.source, "rev-parse", "HEAD")
         (self.source / "later.md").write_text("after the pin\n", encoding="utf-8")
@@ -108,6 +112,28 @@ class ResolveCitations(unittest.TestCase):
         code, out = self.run_on("```text\n[demo@deadbeef1]\n```\nand `[demo@deadbeef1]` inline\n")
         self.assertEqual(code, 0, out)
         self.assertIn("0 pointer(s)", out)
+
+    def test_a_quote_wrapped_onto_the_line_before_its_pointer_is_still_checked(self):
+        # CCF63: before, the quote was not read as one and passed unchecked.
+        code, out = self.run_on(f'as "no such words"\n[demo@{self.pin[:9]}:rules.md#L2]\n')
+        self.assertEqual(code, 1)
+        self.assertIn("not found there", out)
+        code, out = self.run_on(f'as "the single\nmost violated rule"\n[demo@{self.pin[:9]}:rules.md#L2-L3]\n')
+        self.assertEqual(code, 0, out)
+
+    def test_a_quote_may_keep_backticks(self):
+        code, out = self.run_on(f'"through `LoadAll`." [demo@{self.pin[:9]}:Doc.cs#L3]\n')
+        self.assertEqual(code, 0, out)
+
+    def test_a_quote_runs_across_comment_lines_and_formatting(self):
+        text = f'"The whole content is loaded on every turn, by design," [demo@{self.pin[:9]}:Doc.cs#L1-L2]\n'
+        code, out = self.run_on(text)
+        self.assertEqual(code, 0, out)
+
+    def test_a_quote_never_crosses_a_blank_line(self):
+        code, out = self.run_on(f'"violated\n\nrule" [demo@{self.pin[:9]}:rules.md]\n')
+        self.assertEqual(code, 0, out)
+        self.assertIn("1 pointer(s): 1 resolved", out)
 
     def test_an_unreachable_project_fails_unless_allowed(self):
         text = f"[gone@{self.pin[:9]}]\n"

@@ -4,21 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF63 A quote checked as written
-
-Found while verifying the field notes (CCF11). `scripts/resolve_citations.py` strips
-inline code spans from a line before it matches pointers, so a quote that contains a
-backticked name loses those words and can no longer be checked as written; the winwright
-verifier rewrote such quotes. It also compares whitespace-normalised text only, so a
-quote spanning several lines of a C# `///` comment, or two JSON strings, never matches,
-and verifiers split those into one pointer per line. Worse, a quote wrapped onto the
-line before its pointer is not read as a quote at all, so it passes unchecked and
-nothing reports it; CCF12 met this. Match the quote across a line break too. Build: skip
-only pointers that lie inside a code span, rather than deleting the spans before
-matching, and let the quote keep its backticks; when comparing, drop a leading comment
-marker (`///`, `//`, `#`, `*`) from each source line of the range. Add test cases for
-both, and re-run the resolver on the five notes, which must stay green.
-
 ## Block C — Case studies and the findings register
 
 ### §CCF22 A drift inventory
