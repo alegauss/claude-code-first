@@ -6,7 +6,14 @@
 
 ## Block C — Case studies and the findings register
 
+- 📋 **CCF68** (deps: —) **no finding records that a task-shaped agent path cost a fraction of the generic API's tokens, or where the gap came from** — Shio and freewilly each ran canonical tasks both ways, and a claim that REST is the costly transport needs the gap graded and traced to its sources. → §CCF68
+- 📋 **CCF69** (deps: —) **no finding records putting capabilities on a CLI rather than an MCP tool list where the consuming agent has a shell** — Shio decided it three times on the tool list's cost, freewilly copied it and winwright chose MCP for a typed schema, so a CLI-over-MCP claim needs its scope graded. → §CCF69
+
 ## Block D — The normative specification
+
+- 📋 **CCF70** (deps: CCF69) **no rule says when a capability belongs on a CLI verb rather than on an MCP tool list** — F4 prices the tool list and IS-6 caps it, but neither says where a new capability should land, and the corpus decided that repeatedly and not always the same way. → §CCF70
+- 📋 **CCF71** (deps: —) **the files-over-APIs and the per-project session token budget claims are recorded nowhere as open questions** — Both are argued in the corpus and measured in none of it, so the non-goal on rules that sound right sends them to their chapters' open questions. → §CCF71
+- 📋 **CCF72** (deps: CCF68) **no rule asks a product to benchmark canonical tasks through its agent surface against the generic path** — AP-1 bounds each surface's size, but a regression in what a whole task costs, or in the gap to the generic path, passes every per-surface ceiling. → §CCF72
 
 ## Block E — Patterns and anti-patterns
 
@@ -17,6 +24,8 @@
 ## Block H — Validation against the corpus
 
 ## Block I — Governance and publication of the specification
+
+- 📋 **CCF73** (deps: CCF70, CCF71, CCF72) **the guide's lessons say nothing about what an agent-facing surface costs, and the page types its lesson count** — The guide is the site's way in, and a reader should meet the corrected claims on REST, CLI, files and budgets there, with a count the build computes. → §CCF73
 
 ## Done when — Block A
 
