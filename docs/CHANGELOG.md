@@ -28,6 +28,7 @@
 - ✅ **CCF19** **no case study describes shio, the only project that adopted the practice after years of history** — evidence/cases/shio.md tells Shio's brownfield case in the shared structure with 114 resolving pointers, splitting before and after adoption by commit rather than by date.
 - ✅ **CCF16** **no case study describes polyweave, the one project governed from its very first commit** — evidence/cases/polyweave.md tells polyweave's case in the shared structure with 112 resolving pointers, measuring throughput from the ledger and correcting the design on 871a15b.
 - ✅ **CCF20** **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — evidence/findings/ holds 37 graded findings across five topics, each merging observations by independent origin with resolving pointers, and a generated index CI checks.
+- ✅ **CCF21** **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — evidence/divergences.md settles seven divergences against graded findings, allowing a documented deviation where evidence cannot decide (design superseded: one register).
 
 ## Block D — The normative specification
 

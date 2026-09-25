@@ -19,6 +19,20 @@ names that as `engine.disagreement`.
 
 ## Block C — Case studies and the findings register
 
+- ✅ **CCF21** **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — Divergent practice is settled in one register, evidence/divergences.md, capped by the grades of its findings; a practice no evidence decides is a documented deviation, not a rule.
+
+### §CCF21 One register for divergent practice
+
+The design asked for one decision record per divergence, each written by `ship
+--decides`. A ship records one decision, so seven divergences would have meant seven
+filler tasks. The alternative taken is one register, `evidence/divergences.md`, with an
+entry per divergence (D1-D7) that names what each project does at its pin, the findings
+that bear on it, and a decision capped by the grading scale. Where the corpus holds no
+failure on either side, the decision allows a documented deviation instead of inventing
+a rule. The register also corrects two premises of the design: roadkeep's attribution
+change was an intermittent trailer that stopped, not a stated policy, and winwright does
+carry trailers on 33 commits.
+
 ## Block D — The normative specification
 
 ## Block E — Patterns and anti-patterns

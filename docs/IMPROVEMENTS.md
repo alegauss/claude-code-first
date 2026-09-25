@@ -34,18 +34,6 @@ both figures in the commit.
 
 ## Block C — Case studies and the findings register
 
-### §CCF21 Resolving divergent practice
-
-Enumerate every divergence the case studies expose. Co-Authored-By trailers are present
-in Shio and freewilly, dropped by policy in roadkeep, and absent in winwright and
-polyweave. The every-turn file is a pointer to agents.md in roadkeep and Shio, a
-CLAUDE.md in polyweave, and absent in freewilly and winwright. Permissions range from
-blanket allows with local bypass to scoped rules. CI runs full tests in roadkeep, lint
-only in polyweave and the host half in winwright. Commit bodies are written by the agent
-or by another model. For each divergence, record a decision through `ship --decides` in
-`docs/DECISIONS.md`, with a body weighing the alternatives against the evidence, and
-allow a documented deviation where the evidence cannot decide.
-
 ### §CCF22 A drift inventory
 
 `evidence/drift.md` lists each place where two artefacts of one project state
