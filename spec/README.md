@@ -42,7 +42,8 @@ It does not cover:
 
 Start with [conventions.md](conventions.md): the conformance keywords, the form of a rule
 and how rules are addressed. [conformance.md](conformance.md) groups the rules into three
-cumulative levels and says how a project claims one. [rules.toml](rules.toml) is every rule
+cumulative levels and says how a project claims one, and [report.md](report.md) fixes
+the form of the audit report that backs a claim. [rules.toml](rules.toml) is every rule
 in one machine-readable file, generated from the chapters; `python scripts/rules.py query`
 answers questions such as which level 2 rules need judgement, without reading the chapters. Then read the chapters in any order; each opens with the
 problem it answers, stated from the findings, and each rule links the findings it rests

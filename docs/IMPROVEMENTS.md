@@ -23,15 +23,6 @@ against this repository at level 2, so the specification's own repository is hel
 
 ## Block F — Conformance and the audit
 
-### §CCF45 The audit report format
-
-A JSON schema with a Markdown rendering: the spec version; the audited repository and
-commit; the claimed and achieved level; for each rule a verdict (pass, fail, waived, not
-applicable, could not run) with its locus and evidence; a summary by chapter; and the
-versions of the checker and the skill. Could not run is a verdict of its own, never
-folded into pass. Reports are committed in the audited project under a declared path so
-that its history shows the trend, and a diff tool compares two reports.
-
 ### §CCF46 Recorded deviations
 
 A file on the adopter's side, for example `ccf.toml`, lists each waived rule with a

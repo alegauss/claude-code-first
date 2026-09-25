@@ -161,6 +161,39 @@ def cd_1(repo: Path) -> tuple[str, str]:
     return PASSED, "every commit adds at most one ledger entry"
 
 
+REPORT_VERDICT = {PASSED: "pass", FAILED: "fail", UNDECIDED: "could not run"}
+
+
+def write_report(repo: Path, level: int, results: list[dict], target: Path) -> None:
+    """A report skeleton holding the checker's verdicts; the audit adds the judged rules."""
+    import datetime
+
+    here = Path(__file__).resolve().parent.parent
+    head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True)
+    manifest = json.loads((here / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+    rules = [
+        {"rule": r["rule"], "level": str(r["level"]), "verdict": REPORT_VERDICT[r["verdict"]],
+         "by": "checker", "evidence": r["detail"]}
+        for r in results
+    ]
+    report = {
+        "spec_version": manifest.get("version", "unversioned"),
+        "repository": repo.resolve().name,
+        "commit": head.stdout.strip() or "0000000",
+        "date": datetime.date.today().isoformat(),
+        "claimed_level": level if level in (1, 2, 3) else 1,
+        "achieved_level": 0,
+        "profile": False,
+        "tools": {"checker": manifest.get("version", "unversioned"), "skill": manifest.get("version", "unversioned")},
+        "rules": rules,
+    }
+    sys.path.insert(0, str(Path(__file__).parent))
+    from report import achieved  # noqa: E402
+
+    report["achieved_level"] = achieved(rules, report["claimed_level"])
+    target.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+
+
 DETECTORS = {"IS-1": (1, is_1), "PG-1": (1, pg_1), "CD-1": (1, cd_1),
              "VG-2": (2, vg_2), "VG-5": (2, vg_5), "EP-2": (2, ep_2)}
 
@@ -170,12 +203,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("repo", nargs="?", default=".")
     parser.add_argument("--level", type=int, default=3, help="the level claimed (default 3)")
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--report", metavar="PATH",
+                        help="also write a report skeleton (spec/report.schema.json) for the audit to complete")
     args = parser.parse_args(argv)
     repo = Path(args.repo)
     results = []
     for address, (level, detector) in DETECTORS.items():
         verdict, detail = detector(repo)
         results.append({"rule": address, "level": level, "verdict": verdict, "detail": detail})
+    if args.report:
+        write_report(repo, args.level, results, Path(args.report))
     if args.json:
         print(json.dumps(results, indent=2))
     else:

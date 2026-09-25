@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alegauss/claude-code-first/spec/report.schema.json",
+  "title": "Claude Code First audit report",
+  "type": "object",
+  "required": ["spec_version", "repository", "commit", "date", "claimed_level", "achieved_level", "tools", "rules"],
+  "properties": {
+    "spec_version": { "type": "string", "description": "The version of the specification the repository was judged against." },
+    "repository": { "type": "string", "description": "The audited repository, as a name or URL." },
+    "commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$", "description": "The audited commit." },
+    "date": { "type": "string", "format": "date" },
+    "claimed_level": { "enum": [1, 2, 3] },
+    "achieved_level": { "enum": [0, 1, 2, 3], "description": "The highest level whose rules, and those below it, all pass, are waived or do not apply. 0 when level 1 is not met." },
+    "profile": { "type": "boolean", "description": "Whether the agent-facing profile was audited." },
+    "tools": {
+      "type": "object",
+      "required": ["checker", "skill"],
+      "properties": {
+        "checker": { "type": "string", "description": "Version or commit of scripts/check_conformance.py." },
+        "skill": { "type": "string", "description": "Version of the audit plugin." }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "level", "verdict", "by"],
+        "properties": {
+          "rule": { "type": "string", "pattern": "^[A-Z]{2}-[0-9]+$" },
+          "level": { "enum": ["1", "2", "3", "profile"] },
+          "verdict": { "enum": ["pass", "fail", "waived", "not applicable", "could not run"] },
+          "by": { "enum": ["checker", "verifier", "person"] },
+          "locus": { "type": "string" },
+          "evidence": { "type": "string" },
+          "waiver": { "type": "string", "description": "The reason and, where temporary, the end date. Required when the verdict is waived." }
+        }
+      }
+    }
+  }
+}

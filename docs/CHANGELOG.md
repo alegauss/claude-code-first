@@ -63,6 +63,7 @@
 - ✅ **CCF42** **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — A CI gate traces every rule to findings whose grade admits its keyword and every finding to a primary pointer, and regenerates spec/traceability.md, the matrix.
 - ✅ **CCF43** **automatable rules have no checker, so each audit rederives by reading what a script could measure** — scripts/check_conformance.py decides six rules from a repository's files with a third verdict, exits non-zero below the claimed level, and passes and fails its fixture repositories.
 - ✅ **CCF44** **the rules that need judgement cannot be audited without an agent reading the whole spec** — The repository ships an audit plugin: a skill that runs the checker then a scanner per chapter and a verifier for judgement rules, validated strictly in CI with a pinned CLI.
+- ✅ **CCF45** **an audit report has no fixed format, so two audits of one project cannot be compared over time** — An audit report is JSON in a fixed schema with a Markdown rendering, a verdict per rule where could-not-run blocks the level, and tools to validate, render and diff two reports.
 
 ## Block G — Adoption and realignment
 

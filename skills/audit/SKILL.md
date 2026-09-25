@@ -22,7 +22,7 @@ version from `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`.
 ## 2. Run the checker first
 
 ```sh
-python "${CLAUDE_PLUGIN_ROOT}/scripts/check_conformance.py" <target> --level <N> --json
+python "${CLAUDE_PLUGIN_ROOT}/scripts/check_conformance.py" <target> --level <N> --report <report.json>
 ```
 
 Keep its verdicts as they are. Never re-examine a rule the checker decided, and never
@@ -49,11 +49,12 @@ count against conformance.
 
 ## 6. Write the report
 
-Write the report as Markdown in the format of `${CLAUDE_PLUGIN_ROOT}/spec/report.md`
-where that file exists; otherwise with these sections: the target and its commit, the
-specification version, the claimed level; the checker's table; confirmed findings by
-rule; unverifiable findings; rules passed; and the verdict: conforms at the level, or
-the rules that stop it. Save it where the user asks, or print it.
+Add a verdict to `<report.json>` for every rule you selected, in the form of
+`${CLAUDE_PLUGIN_ROOT}/spec/report.md`: a confirmed finding is `fail` with its locus and
+evidence, a rule with no finding is `pass`, an unverifiable finding is `could not run`,
+and `by` is `verifier`. Recompute `achieved_level` from the verdicts, then run
+`python "${CLAUDE_PLUGIN_ROOT}/scripts/report.py" validate <report.json>` and `render`
+it to Markdown. Save both where the user asks, or print the rendering.
 
 State the limits in the report: a scanner reads a sample of the repository, and a
 verifier that could not reproduce a finding says so rather than guessing.

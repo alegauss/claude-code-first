@@ -14,7 +14,6 @@
 
 ## Block F — Conformance and the audit
 
-- 📋 **CCF45** (deps: CCF41 ✅) **an audit report has no fixed format, so two audits of one project cannot be compared over time** — Realignment is measured by the difference between two audits, which needs the same fields, the spec version and the commit audited. → §CCF45
 - 📋 **CCF46** (deps: CCF41 ✅) **a deliberate deviation from a rule cannot be recorded, so it reads as drift in every audit** — Shio's red-suite ledger shows exceptions work when dated, tied to a task and expiring; unrecorded ones become permanent. → §CCF46
 
 ## Block G — Adoption and realignment
@@ -26,11 +25,11 @@
 
 ## Block H — Validation against the corpus
 
-- 📋 **CCF51** (deps: CCF44 ✅, CCF45) **roadkeep has never been audited against the specification, so its conformance is asserted, not measured** — Roadkeep supplied many of the rules, so its audit tests whether the spec merely describes its source or can find fault in it. → §CCF51
-- 📋 **CCF52** (deps: CCF44 ✅, CCF45) **polyweave has never been audited against the specification, so its conformance is asserted, not measured** — Polyweave was governed from its first commit, so its audit tests whether early adoption leaves fewer gaps than late adoption. → §CCF52
-- 📋 **CCF53** (deps: CCF44 ✅, CCF45) **freewilly has never been audited against the specification, so its conformance is asserted, not measured** — Freewilly has no instruction file and a stale contributor guide, so its audit tests the spec on a project that chose another shape. → §CCF53
-- 📋 **CCF54** (deps: CCF44 ✅, CCF45) **winwright has never been audited against the specification, so its conformance is asserted, not measured** — Winwright ships a plugin to other repositories, so its audit is the first to exercise the chapter on agent-facing products. → §CCF54
-- 📋 **CCF55** (deps: CCF44 ✅, CCF45) **shio has never been audited against the specification, so its conformance is asserted, not measured** — Shio is the largest and only brownfield project, with known drift between its skills and its index, so its audit is the hardest test. → §CCF55
+- 📋 **CCF51** (deps: CCF44 ✅, CCF45 ✅) **roadkeep has never been audited against the specification, so its conformance is asserted, not measured** — Roadkeep supplied many of the rules, so its audit tests whether the spec merely describes its source or can find fault in it. → §CCF51
+- 📋 **CCF52** (deps: CCF44 ✅, CCF45 ✅) **polyweave has never been audited against the specification, so its conformance is asserted, not measured** — Polyweave was governed from its first commit, so its audit tests whether early adoption leaves fewer gaps than late adoption. → §CCF52
+- 📋 **CCF53** (deps: CCF44 ✅, CCF45 ✅) **freewilly has never been audited against the specification, so its conformance is asserted, not measured** — Freewilly has no instruction file and a stale contributor guide, so its audit tests the spec on a project that chose another shape. → §CCF53
+- 📋 **CCF54** (deps: CCF44 ✅, CCF45 ✅) **winwright has never been audited against the specification, so its conformance is asserted, not measured** — Winwright ships a plugin to other repositories, so its audit is the first to exercise the chapter on agent-facing products. → §CCF54
+- 📋 **CCF55** (deps: CCF44 ✅, CCF45 ✅) **shio has never been audited against the specification, so its conformance is asserted, not measured** — Shio is the largest and only brownfield project, with known drift between its skills and its index, so its audit is the hardest test. → §CCF55
 - 📋 **CCF56** (deps: CCF51, CCF52, CCF53, CCF54, CCF55) **nothing shows the audit is accurate: its false findings and misses are unmeasured** — An audit with an unknown error rate cannot be cited as evidence of conformance, and experts will ask for that rate first. → §CCF56
 - 📋 **CCF57** (deps: CCF50, CCF56) **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — The spec's value is a hypothesis until one project is measured before and after realignment on the same metrics. → §CCF57
 
