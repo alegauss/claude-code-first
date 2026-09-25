@@ -130,15 +130,6 @@ not an experiment, and the report says so.
 
 ## Block I — Governance and publication of the specification
 
-### §CCF58 Versioning the specification
-
-Semantic versioning for the normative content: a new MUST or a stricter level is a major
-change; a new SHOULD, MAY or chapter is minor; editorial and evidence-only changes are
-patches. Tagged releases carry notes generated from the decision records and from the
-rule registry's diff, kept separate from the backlog ledger. Every conformance claim and
-audit report names the version. Version 1.0 waits for the validation block, so that 0.x
-signals rules not yet tested against the corpus.
-
 ### §CCF59 Changing the specification
 
 A proposal form, in the manner of a lightweight RFC or PEP: the rule text, the findings
