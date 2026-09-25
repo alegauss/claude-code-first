@@ -81,6 +81,7 @@
 - ✅ **CCF53** **freewilly has never been audited against the specification, so its conformance is asserted, not measured** — freewilly is audited at its head: 26 of 56 rules fail, one scanner finding rejected by the verifier and one added, achieved level 0, with proposed classes and cost recorded.
 - ✅ **CCF54** **winwright has never been audited against the specification, so its conformance is asserted, not measured** — winwright is audited at its head: 21 of 56 rules fail after the verifier rejected two scanner findings and added one, achieved level 0, with proposed classes and cost recorded.
 - ✅ **CCF55** **shio has never been audited against the specification, so its conformance is asserted, not measured** — Shio is audited at its head: 30 of 56 rules fail after the verifier rejected two scanner findings, achieved level 0, with proposed classes, offered tasks and cost recorded.
+- ✅ **CCF56 (agreement and sample sheet)** **nothing shows the audit is accurate: its false findings and misses are unmeasured** — validation/accuracy.md reports that the verifier confirmed 107 of 112 scanner findings, says why that is agreement not accuracy, and holds the sample for the person.
 
 ## Block I — Governance and publication of the specification
 

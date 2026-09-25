@@ -16,8 +16,7 @@
 
 ## Block H — Validation against the corpus
 
-- 📋 **CCF56** (deps: CCF51 ✅, CCF52 ✅, CCF53 ✅, CCF54 ✅, CCF55 ✅) **nothing shows the audit is accurate: its false findings and misses are unmeasured** — An audit with an unknown error rate cannot be cited as evidence of conformance, and experts will ask for that rate first. → §CCF56
-- 📋 **CCF57** (deps: CCF50 ✅, CCF56) **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — The spec's value is a hypothesis until one project is measured before and after realignment on the same metrics. → §CCF57
+- 📋 **CCF57** (deps: CCF50 ✅, CCF56 ✅) **the claim that conformance reduces cost has no before-and-after measurement on any realigned project** — The spec's value is a hypothesis until one project is measured before and after realignment on the same metrics. → §CCF57
 
 ## Block I — Governance and publication of the specification
 
@@ -90,6 +89,11 @@
   release is what an expert or an adopter can refer to.
 - **Every rule is published on its own page with its grade** People and agents can link
   to, and read, one rule without the rest.
+
+## Done when — CCF56
+
+- **Audit accuracy is measured against a person** Agreement and kappa over the 35
+  sampled rules, and one repeated audit, are reported in validation/accuracy.md.
 
 ## Non-goals
 

@@ -16,4 +16,5 @@ tasks offered to the project's owner, and what the audit cost (`<project>-notes.
 
 A report's verdicts are the audit's, not the owner's: a failure is classified and acted on
 only when the owner decides. How far the audit itself can be trusted is measured
-separately, against verdicts a person records independently.
+separately, against verdicts a person records independently:
+[accuracy.md](accuracy.md).
