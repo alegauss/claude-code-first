@@ -8,8 +8,7 @@
 
 ## Block D — The normative specification
 
-- 📋 **CCF30** (deps: CCF13 ✅, CCF20 ✅, CCF24 ✅) **no normative chapter says which rules must be enforced by hooks rather than by instructions** — Every rule the corpus enforces reliably is a hook or a gate, and every rule left to prose recurs as an incident. → §CCF30
-- 📋 **CCF31** (deps: CCF21 ✅, CCF30) **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — Two projects bypass permission prompts locally; whether guards and gates compensate is a claim to test, not to recommend. → §CCF31
+- 📋 **CCF31** (deps: CCF21 ✅, CCF30 ✅) **no normative chapter states a permission and safety posture, and the corpus runs with prompts bypassed** — Two projects bypass permission prompts locally; whether guards and gates compensate is a claim to test, not to recommend. → §CCF31
 - 📋 **CCF32** (deps: CCF13 ✅, CCF20 ✅, CCF24 ✅) **no normative chapter covers where a session runs: web versus local, shells, encodings and line endings** — Plugins absent on the web, mixed line endings, cp1252 mojibake and heredoc corruption each cost sessions in more than one project. → §CCF32
 - 📋 **CCF34** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter says what the person decides and what an agent must never certify for itself** — Polyweave and roadkeep both found an agent judging its own output to be the weakest point, yet the boundary is not stated. → §CCF34
 - 📋 **CCF35** (deps: CCF20 ✅, CCF24 ✅) **no normative chapter covers several agent sessions working in one repository at once** — Sessions committing each other's code and concurrent gate runs reporting false reds were measured in roadkeep and Shio. → §CCF35

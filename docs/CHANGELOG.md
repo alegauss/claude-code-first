@@ -44,6 +44,7 @@
 - ✅ **CCF27** **no normative chapter says how an agent plans, records and closes work** — spec/PG.md states six planning rules satisfiable by any tool: governed files, symptom-first tasks, recorded false premises, rationale moved before deletion, criteria-closed blocks and deferral.
 - ✅ **CCF33** **no normative chapter covers projects that ship tools, skills or plugins for other agents to use** — spec/AP.md states four rules for products agents use: gated token ceilings, names checked against the catalogue, tests from the published artefact, adoption proved in a consumer.
 - ✅ **CCF29** **no normative chapter says what an agent must run, keep and report before calling work done** — spec/VG.md states nine rules on what must run and pass before work is done, from gates on the committed change to the third verdict, CI on every push and expiring red exceptions.
+- ✅ **CCF30** **no normative chapter says which rules must be enforced by hooks rather than by instructions** — spec/GH.md states six rules on what the harness enforces: broken rules leave prose, a CI gate behind every guard, every route matched, silent failures surfaced, configuration gated.
 
 ## Block E — Patterns and anti-patterns
 

@@ -8,19 +8,6 @@
 
 ## Block D — The normative specification
 
-### §CCF30 Chapter: guards and hooks
-
-Rules: a rule an agent is observed breaking moves from prose into a guard (roadkeep
-RK22, where Edit was "cheaper than reading a --help"; polyweave's no-clobber hook); a
-refusal names the command to use instead; a guard never blocks a turn on its own failure
-and never emits an allow that would override the user's permissions (roadkeep
-`guarding.py`); guards are committed together with a launcher, so they load where
-plugins do not, such as the web (RK1108; Shio `c215718bb`); a guard shipped to others
-fails loudly on a missing build (winwright WW221); the wiring of guards and permissions
-is protected by a test, because the harness can rewrite settings (freewilly DD115,
-`ac7e7ec`); and a vendored copy that drifted from its source is detected (RK234;
-winwright `a18dd8d`).
-
 ### §CCF31 Chapter: permissions and safety
 
 The corpus shows blanket allows and `bypassPermissions` in local settings (roadkeep,
