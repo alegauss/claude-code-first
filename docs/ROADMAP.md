@@ -4,7 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-- 📋 **CCF14** (deps: —) **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — An academic reader first asks what a work adds to what already exists, and without a survey the answer is an assertion. → §CCF14
 - 📋 **CCF63** (deps: —) **the resolver cannot check a quote that holds inline code or runs across comment-prefixed source lines** — Verifiers had to rewrite or split such quotes, so the text a finding quotes is not always the text that was checked. → §CCF63
 - 📋 **CCF64** (deps: —) **the citation resolver takes about five minutes over 795 pointers, so it will be the gate a commit skips first** — Every pointer spawns several git processes, and each new case study or chapter adds hundreds of pointers. → §CCF64
 

@@ -4,19 +4,6 @@
 
 ## Block B — Research method and the evidence corpus
 
-### §CCF14 Related work and bibliography
-
-A bibliography file and `evidence/related-work.md` covering: architecture decision
-records (Nygard; MADR); requirement keywords (RFC 2119, RFC 8174); pattern languages
-(Alexander; Gamma et al.) and the anti-pattern form; documentation frameworks such as
-Diátaxis; Conventional Commits; case study methodology (Yin; Runeson and Höst); evidence
-grading in software engineering; Anthropic's published guidance on Claude Code and
-agentic coding; and empirical studies, peer-reviewed or preprint, of language-model
-coding agents working in real repositories. For each: one paragraph on what it
-contributes and where this specification agrees, departs or extends. Web sources carry
-retrieval dates. Mark the claims for which no precedent was found, since those carry the
-burden of evidence.
-
 ### §CCF63 A quote checked as written
 
 Found while verifying the field notes (CCF11). `scripts/resolve_citations.py` strips
