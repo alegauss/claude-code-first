@@ -48,20 +48,6 @@ rationale; gates that run only locally, since pytest and ruff are not in CI; and
 lessons about a false first diagnosis (`f203b0a`) and designs falsified during
 implementation (`7024e7e`, `871a15b`).
 
-### §CCF17 Case study: freewilly
-
-Structure shared by all five case studies: context (domain, size, dates, greenfield or
-brownfield); the agent surface as built (every-turn file, skills, hooks, MCP, plugin);
-planning governance; gates; commit practice; a dated timeline of incidents and the rule
-each produced; metrics from the corpus script; open questions. Specific to freewilly:
-rules stored as comments where they are enforced rather than in an instruction file; the
-harness rewriting `.claude/settings.json` mid-session and the build test that answered
-it (DD115); the CI lint removed and restored while CONTRIBUTING stayed stale;
-`agent-budget.json` as a token budget on the product's agent-facing output; the writing
-skill created after 207 em dashes (DD184); commits authored by Claude through a pull
-request from a web session; and the local bypass of permission prompts, with what, if
-anything, stood in for them.
-
 ### §CCF18 Case study: winwright
 
 Structure shared by all five case studies: context (domain, size, dates, greenfield or
@@ -122,10 +108,12 @@ agents.md forbids; Shio's `roadkeep.toml` header denying the vendoring that agen
 describes; roadkeep's roadkeep.toml calling the index the cheap cut while agents.md says
 the prose is what to compress (evidence/cases/roadkeep.md); polyweave's five non-goals,
 which match at the pin (the sixth was uncommitted, so drop it unless a later pin shows
-it); and freewilly's DD23 law overridden by `4575583` without amendment. For each: the
-two loci, how long the contradiction has stood, and whether any check could have caught
-it. The inventory supports the rule that a fact lives in one place, and feeds the
-realignment of those projects in Block H.
+it); freewilly's ledger listing DD118 as shipped while cd630d6 deleted its gate and
+714360e never restored it (evidence/cases/freewilly.md); and freewilly's DD23 law
+overridden by `4575583` without amendment. For each: the two loci, how long the
+contradiction has stood, and whether any check could have caught it. The inventory
+supports the rule that a fact lives in one place, and feeds the realignment of those
+projects in Block H.
 
 ### §CCF23 Reproducible corpus metrics
 

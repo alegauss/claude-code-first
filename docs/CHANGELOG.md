@@ -23,6 +23,7 @@
 ## Block C — Case studies and the findings register
 
 - ✅ **CCF15** **no case study describes roadkeep: its timeline, agent surfaces, gates and the incidents that shaped them** — evidence/cases/roadkeep.md tells roadkeep's case in the shared nine sections with 121 resolving pointers, correcting the design where the pinned sources disagree.
+- ✅ **CCF17** **no case study describes freewilly, the project that works without any instruction file** — evidence/cases/freewilly.md tells freewilly's case in the shared structure with 103 resolving pointers, and corrects the design on CONTRIBUTING, DD115 and the web-session commits.
 
 ## Block D — The normative specification
 

@@ -8,6 +8,7 @@ several cases become one graded finding, is the findings register.
 | Case | Kind | File |
 |---|---|---|
 | roadkeep | greenfield | [roadkeep.md](roadkeep.md) |
+| freewilly | greenfield | [freewilly.md](freewilly.md) |
 
 ## The shared structure
 
