@@ -21,19 +21,6 @@ absent resources is deferred, not left open (polyweave `DEFERRED.md`); a false p
 is restated or retired, never silently rewritten (freewilly DD195, DD268). Separate what
 the evidence makes a MUST from what only one tool's design motivates.
 
-### §CCF28 Chapter: change discipline
-
-Rules: one task, one commit, carrying the code, the tests and the planning-file writes
-together (Shio L247; roadkeep's dev skill); a batch is worked one task at a time with a
-check in between (the `/loop` practice; freewilly's self-check); staging is by path, or
-the working tree is kept clean by ignore rules before any stage-everything tool runs
-(Shio `b04ee918`, `44e6ef232`; freewilly DD117; roadkeep RK280); the commit title states
-intent rather than being inferred from the diff; follow-up work discovered is named in
-the commit and filed, while a task that revealed nothing files nothing (roadkeep
-`35fc90c2`); the commit says whether downstream adopters are affected (winwright
-`7a37e95`). Attribution and who writes commit bodies follow the recorded divergence
-decisions.
-
 ### §CCF29 Chapter: verification gates
 
 Rules: the agent runs the project's gates before committing, and a red gate stops the
