@@ -25,18 +25,6 @@ artefacts marked as such (Shio's root CHANGELOG ending in 2021); add gates that 
 before the agent's first feature; and keep project skills apart from any published ones.
 Each step names the rule it satisfies and the level it reaches.
 
-### §CCF50 Realignment procedure
-
-`adoption/realignment.md` and a skill: run the audit; classify each failure as drift
-(the project meant to conform), divergence (a deliberate choice, to be waived with a
-reason) or obsolescence (the rule no longer fits, to be reported upstream to this
-specification); file the drift as tasks in the project's own backlog through its
-roadkeep, one per rule, with the rule's address in the rationale; order them by level,
-so the project reaches a stable level before attempting the next; and re-audit after
-each level, committing the report. Migrations with a known recipe, such as splitting an
-every-turn file, moving a procedure into a skill, or committing a launcher, get a guide
-each.
-
 ## Block H — Validation against the corpus
 
 ### §CCF51 Audit: roadkeep
