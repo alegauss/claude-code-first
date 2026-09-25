@@ -42,6 +42,22 @@ jobs:
       # A skill's description is paid on every turn; the caps are in the script.
       - run: python3 scripts/check_skills.py
 
+  plugin:
+    name: plugin validate
+    runs-on: ubuntu-latest
+    env:
+      # Pinned: a validator that changes under the gate is a gate that moves (harness.md, O2).
+      CLAUDE_VERSION: "2.1.280"
+    steps:
+      - uses: actions/checkout@v7
+      - run: curl -fsSL https://claude.ai/install.sh | bash -s "$CLAUDE_VERSION"
+      - run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: claude --version | grep -F "$CLAUDE_VERSION"
+      - run: claude plugin validate --strict .claude-plugin/plugin.json
+      - run: claude plugin validate --strict .
+      - run: claude plugin validate --strict skills
+      - run: claude plugin validate --strict agents
+
   citations:
     name: citations
     runs-on: ubuntu-latest

@@ -17,6 +17,7 @@ from pathlib import Path
 DESCRIPTION_MAX = 700
 BODY_MAX = 6000
 SKILLS = Path(".claude/skills")
+PLUGIN_SKILLS = Path("skills")  # the skills the audit plugin ships to other repositories
 NOT_OURS = {"roadkeep"}
 
 
@@ -37,7 +38,7 @@ def split(text):
 def main():
     failures = []
     checked = 0
-    for skill in sorted(SKILLS.glob("*/SKILL.md")):
+    for skill in sorted([*SKILLS.glob("*/SKILL.md"), *PLUGIN_SKILLS.glob("*/SKILL.md")]):
         if skill.parent.name in NOT_OURS:
             continue
         checked += 1

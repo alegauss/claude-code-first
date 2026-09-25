@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-first",
+  "version": "0.1.0",
+  "description": "Audit a repository against the Claude Code First specification: a deterministic checker, then a scanner per chapter and a verifier for the rules that need judgement.",
+  "author": {
+    "name": "Alexandre Oliveira",
+    "url": "https://github.com/alegauss"
+  },
+  "homepage": "https://github.com/alegauss/claude-code-first",
+  "repository": "https://github.com/alegauss/claude-code-first",
+  "license": "UNLICENSED"
+}

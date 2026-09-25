@@ -23,18 +23,6 @@ against this repository at level 2, so the specification's own repository is hel
 
 ## Block F — Conformance and the audit
 
-### §CCF44 The audit skill and its agents
-
-Ship a Claude Code plugin from this repository with an audit skill and two agents
-modelled on polyweave's: a read-only scanner per chapter, on a cheaper model, with a
-fixed output of rule, locus, observation and evidence, since "an invented finding costs
-more than a missed one"; and a verifier on a stronger model that classifies each finding
-as confirmed, false positive or unverifiable. The skill runs the deterministic checker
-first and never re-reports what the checker covers, and it loads only the rules for the
-claimed level. Its output is the report; filing tasks into the adopter's backlog is a
-separate, explicit step through the adopter's own roadkeep. The skill's description and
-body are budgeted as the spec requires of others.
-
 ### §CCF45 The audit report format
 
 A JSON schema with a Markdown rendering: the spec version; the audited repository and

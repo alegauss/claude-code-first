@@ -26,6 +26,7 @@ evidence/                  the research method, its registers and the related wo
 evidence/field-notes/      extraction per corpus project, verified claim by claim
 spec/                      the specification: conventions, then one file per chapter
 scripts/                   the gates that are not roadkeep's, run by CI and by hand
+.claude-plugin/ skills/ agents/   the audit plugin other repositories install
 ```
 
 ## Where the rest is

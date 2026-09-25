@@ -1,0 +1,15 @@
+{
+  "name": "claude-code-first",
+  "description": "The Claude Code First specification's audit plugin.",
+  "owner": {
+    "name": "Alexandre Oliveira",
+    "url": "https://github.com/alegauss"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-first",
+      "source": "./",
+      "category": "development"
+    }
+  ]
+}

@@ -62,6 +62,7 @@
 - ✅ **CCF41** **rules exist only as prose, so no tool can list them, filter them by level or check a repository against them** — spec/rules.toml lists all 56 rules with keyword, level, statement, findings and harness facts, generated from the chapters with a CI check, and a query command answers without reading them.
 - ✅ **CCF42** **traceability is unchecked: a rule citing no finding, or a finding citing no evidence, would pass** — A CI gate traces every rule to findings whose grade admits its keyword and every finding to a primary pointer, and regenerates spec/traceability.md, the matrix.
 - ✅ **CCF43** **automatable rules have no checker, so each audit rederives by reading what a script could measure** — scripts/check_conformance.py decides six rules from a repository's files with a third verdict, exits non-zero below the claimed level, and passes and fails its fixture repositories.
+- ✅ **CCF44** **the rules that need judgement cannot be audited without an agent reading the whole spec** — The repository ships an audit plugin: a skill that runs the checker then a scanner per chapter and a verifier for judgement rules, validated strictly in CI with a pinned CLI.
 
 ## Block G — Adoption and realignment
 
