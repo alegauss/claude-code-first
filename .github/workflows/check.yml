@@ -97,11 +97,10 @@ jobs:
       - name: Every rule traces to graded findings, and the matrix is current
         run: python3 scripts/traceability.py --check
       # Every evidence pointer against the pinned corpus, which the resolver clones from
-      # the remotes in evidence/corpus.md. Two projects cannot be reached from here and
-      # are named rather than skipped in silence: Shio's repository is private, and
-      # winwright's pinned commit has not been pushed. Drop a name once it is reachable.
+      # the remotes in evidence/corpus.md. Shio cannot be reached from here, its
+      # repository being private, and is named rather than skipped in silence. Drop the
+      # name once it is reachable.
       - name: Every pointer resolves
         run: >-
           python3 scripts/resolve_citations.py
           --allow-unreachable shio
-          --allow-unreachable winwright

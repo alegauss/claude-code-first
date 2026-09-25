@@ -22,6 +22,7 @@
 - ✅ **CCF14** **no related work is surveyed, so the spec cannot say what is new and what restates ADRs, RFC 2119 or pattern languages** — evidence/related-work.md surveys ADRs, RFC 2119, patterns, Diataxis, commits, method, Anthropic's guide and four agent studies, and names five claims with no precedent.
 - ✅ **CCF64** **the citation resolver takes about five minutes over 795 pointers, so it will be the gate a commit skips first** — The resolver reads each corpus through one git cat-file batch process and the pin's ancestry set: 1,972 pointers take 1.5 s, down from 273 s.
 - ✅ **CCF63** **the resolver cannot check a quote that holds inline code or runs across comment-prefixed source lines** — A quote is now checked as written: it may wrap onto the line before its pointer, keep backticks and run across comment lines, and a wrapped quote no longer passes unread.
+- ✅ **CCF66** **CI still excuses winwright from the pointer check after its pin was pushed** — CI checks winwright's pointers against its remote, now that its pin is pushed; only the private Shio stays excused.
 
 ## Block C — Case studies and the findings register
 
