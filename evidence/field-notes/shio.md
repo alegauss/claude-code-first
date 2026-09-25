@@ -214,7 +214,7 @@ Checked against `821f18d74` on 2026-09-24. 131 claims: 108 verified, 17 correcte
 | 88 | 6 | agents.md was 9.8 KB at `6bf11b754` (03-24) | verified | `git cat-file -s 6bf11b754:agents.md` = 9843 [shio@6bf11b754] | |
 | 89 | 6 | 40 KB on 07-26 | verified | `git cat-file -s db3edb114:agents.md` = 40375, dated 2026-07-26 [shio@db3edb114] | |
 | 90 | 6 | Then 130 KB | verified | `git cat-file -s 2424f20e1:agents.md` = 130166 (2026-07-28) [shio@2424f20e1] | |
-| 91 | 6 | 185,734 B at `f4ffdb0d9~1` | verified | `git cat-file -s f4ffdb0d9~1:agents.md` = 185734 [shio@490a698a0] | |
+| 91 | 6 | 185,734 B at `f4ffdb0d9~1` | verified | `git cat-file -s f4ffdb0d9~1:agents.md` = 185734 [shio@e73516a9f] | |
 | 92 | 6 | 14.4 KB after the split | verified | `git cat-file -s f4ffdb0d9:agents.md` = 14433 [shio@f4ffdb0d9] | |
 | 93 | 6 | "P3 violated by the file that declares P3" (L283-285) | verified | "P3 violated by the file that declares P3" [shio@821f18d74:agents.md#L283-L285] | |
 | 94 | 6 | build.md grew from 5,238 B to 149,685 B | verified | `git cat-file -s f4ffdb0d9:docs/agents/build.md` = 5238 [shio@f4ffdb0d9]; 149685 at the pin [shio@821f18d74:docs/agents/build.md] | |

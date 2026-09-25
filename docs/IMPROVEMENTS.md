@@ -48,21 +48,6 @@ rationale; gates that run only locally, since pytest and ruff are not in CI; and
 lessons about a false first diagnosis (`f203b0a`) and designs falsified during
 implementation (`7024e7e`, `871a15b`).
 
-### §CCF19 Case study: shio
-
-Structure shared by all five case studies: context (domain, size, dates, greenfield or
-brownfield); the agent surface as built (every-turn file, skills, hooks, MCP, plugin);
-planning governance; gates; commit practice; a dated timeline of incidents and the rule
-each produced; metrics from the corpus script; open questions. Specific to Shio: the
-adoption timeline (agents.md on 2026-03-24, the agent-native pivot on 07-26, roadkeep on
-07-30, the committed launcher on 08-08) against monthly commit counts; agents.md growing
-to 185,734 bytes and a split into `docs/agents/` that moved the size rather than
-removing it (1.73 MB); skills contradicting the index; the gate runner, its stamps and
-the red-suite ledger; half-shipped fixes and the assertion-debt test; project skills
-kept apart from the published plugin's (SH949); commit bodies written by another
-vendor's model; and root log files as working-tree pollution. Compare the periods before
-and after adoption wherever the history allows.
-
 ### §CCF20 The findings register
 
 `evidence/findings/` holds one file per finding, with a stable identifier in its own
@@ -90,17 +75,18 @@ allow a documented deviation where the evidence cannot decide.
 
 `evidence/drift.md` lists each place where two artefacts of one project state
 contradictory facts at the pinned commit: freewilly's CONTRIBUTING describing a CI lint
-removal that `714360e` undid; Shio's build skill piping a gate into grep, which
-agents.md forbids; Shio's `roadkeep.toml` header denying the vendoring that agents.md
-describes; roadkeep's roadkeep.toml calling the index the cheap cut while agents.md says
-the prose is what to compress (evidence/cases/roadkeep.md); polyweave's five non-goals,
-which match at the pin (the sixth was uncommitted, so drop it unless a later pin shows
-it); freewilly's ledger listing DD118 as shipped while cd630d6 deleted its gate and
-714360e never restored it (evidence/cases/freewilly.md); and freewilly's DD23 law
-overridden by `4575583` without amendment. For each: the two loci, how long the
-contradiction has stood, and whether any check could have caught it. The inventory
-supports the rule that a fact lives in one place, and feeds the realignment of those
-projects in Block H.
+removal that `714360e` undid; Shio's agents.md saying the suites run on every push while
+suites.yml runs only on 2026.3, main, pull requests and dispatch
+(evidence/cases/shio.md); Shio's build skill piping a gate into grep, which agents.md
+forbids; Shio's `roadkeep.toml` header denying the vendoring that agents.md describes;
+roadkeep's roadkeep.toml calling the index the cheap cut while agents.md says the prose
+is what to compress (evidence/cases/roadkeep.md); polyweave's five non-goals, which
+match at the pin (the sixth was uncommitted, so drop it unless a later pin shows it);
+freewilly's ledger listing DD118 as shipped while cd630d6 deleted its gate and 714360e
+never restored it (evidence/cases/freewilly.md); and freewilly's DD23 law overridden by
+`4575583` without amendment. For each: the two loci, how long the contradiction has
+stood, and whether any check could have caught it. The inventory supports the rule that
+a fact lives in one place, and feeds the realignment of those projects in Block H.
 
 ### §CCF23 Reproducible corpus metrics
 

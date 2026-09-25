@@ -10,10 +10,9 @@
 ## Block C — Case studies and the findings register
 
 - 📋 **CCF16** (deps: CCF11 ✅) **no case study describes polyweave, the one project governed from its very first commit** — Polyweave shipped about a hundred tasks in three days, so it shows a mature practice applied from day one, with the least history. → §CCF16
-- 📋 **CCF19** (deps: CCF11 ✅) **no case study describes shio, the only project that adopted the practice after years of history** — Shio had 1,778 commits before adoption, so its transition is the corpus's only record of adopting late. → §CCF19
-- 📋 **CCF20** (deps: CCF10 ✅, CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
+- 📋 **CCF20** (deps: CCF10 ✅, CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19 ✅) **lessons are scattered over five ledgers, so one is counted five times and a contradiction not at all** — A specification cites findings, not anecdotes, and the register is where five observations become one graded claim. → §CCF20
 - 📋 **CCF21** (deps: CCF20) **the projects disagree on attribution, instruction files, permissions and CI scope, and nothing settles it** — A divergence left open becomes either silence in the spec or a rule chosen by whoever edited it last. → §CCF21
-- 📋 **CCF22** (deps: CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
+- 📋 **CCF22** (deps: CCF15 ✅, CCF16, CCF17 ✅, CCF18 ✅, CCF19 ✅) **the drift already present in the corpus is uncatalogued, though each case shows prose rules decaying** — A stale contributor guide, a skill contradicting its index and a config contradicting agents.md are the failure this spec must prevent. → §CCF22
 - 📋 **CCF23** (deps: CCF8 ✅) **no cross-project metrics exist, so claims about scale, cadence and context cost are adjectives** — Figures such as bytes loaded per turn or commits per active day mean something only when computed the same way for all five. → §CCF23
 
 ## Block D — The normative specification
@@ -52,7 +51,7 @@
 
 - 📋 **CCF47** (deps: Block D, CCF40) **a new project has no starting kit, so each of the five wrote its own settings, hooks and skills** — Five hand-written copies of one launcher and one skill have already drifted apart; templates carry the rules and their evidence. → §CCF47
 - 📋 **CCF48** (deps: CCF47) **starting a project Claude Code first has no ordered procedure, so the order the five learned in is repeated** — The others added the same pieces over weeks, each after an incident; an ordered bootstrap installs them before the incidents. → §CCF48
-- 📋 **CCF49** (deps: CCF19, CCF47) **an existing codebase adopting the practice has no procedure, and Shio's transition lives only in its history** — Most future adopters are brownfield, and the one brownfield case shows the traps: a resident instruction file and an imported backlog. → §CCF49
+- 📋 **CCF49** (deps: CCF19 ✅, CCF47) **an existing codebase adopting the practice has no procedure, and Shio's transition lives only in its history** — Most future adopters are brownfield, and the one brownfield case shows the traps: a resident instruction file and an imported backlog. → §CCF49
 - 📋 **CCF50** (deps: CCF44, CCF46, CCF47) **a project already Claude Code first that drifted has no path back except rereading the whole spec** — The owner's own projects are the first to need this: the drift inventory already lists contradictions in three of them. → §CCF50
 
 ## Block H — Validation against the corpus

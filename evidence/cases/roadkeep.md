@@ -1,4 +1,4 @@
-# roadkeep: case study
+# Case study: roadkeep
 
 ## 1. Context
 
