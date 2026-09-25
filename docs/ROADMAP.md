@@ -4,6 +4,8 @@
 
 ## Block B — Research method and the evidence corpus
 
+- 📋 **CCF74** (deps: claude-code-usage tools/task-cost.mjs) **the method admits no evidence of what a project's own sessions cost, so the session-budget question cannot be settled** — Transcripts hold per-request usage but are local and unpinned; a committed aggregate with its tool and command is citable. → §CCF74
+
 ## Block C — Case studies and the findings register
 
 ## Block D — The normative specification
@@ -15,6 +17,8 @@
 ## Block G — Adoption and realignment
 
 ## Block H — Validation against the corpus
+
+- 📋 **CCF75** (deps: Shio SH1141) **the files-over-APIs open question names what would settle it, and nothing has been measured against it** — Shio's SH1141 benchmarks one authoring task both ways; its figures, cited at the commit that holds them, decide whether AP keeps an open question or gains a finding. → §CCF75
 
 ## Block I — Governance and publication of the specification
 
