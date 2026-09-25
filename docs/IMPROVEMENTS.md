@@ -36,19 +36,4 @@ Report the differences with the confounders stated: the project changes for othe
 reasons, the models change, and the person learns. This is an observational measurement,
 not an experiment, and the report says so.
 
-### §CCF75 Files against the API, measured
-
-CCF71 recorded Shio's "files beat APIs for authoring" as an open question and named what
-would settle it: one canonical authoring task benchmarked both ways, in calls and
-tokens. Shio's SH1141 builds that benchmark in its CLI suite, against the fake server
-the content commands are tested with, counting only what reaches the agent's context on
-each path, including the Read the harness requires before an Edit. Once it lands, its
-figures are cited at the commit that holds them, which is past Shio's pin, and the
-citation says so, as corpus.md requires; a re-pin is its own task and is not needed for
-one pointer. If the file path is cheaper by a margin the test holds, the result becomes
-a finding at R1 and the open question is replaced by a pointer to it; if it is not, the
-open question is rewritten to say what was measured and what it showed, which is itself
-a correction to Shio's P4. Either way the guide's lesson on the agent's path is checked
-against the result.
-
 ## Block I — Governance and publication of the specification

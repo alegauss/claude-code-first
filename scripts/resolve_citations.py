@@ -17,9 +17,10 @@ The grammar and the reasons for it are in evidence/method.md. Pointers inside fe
 code blocks or inline code are examples and are not checked.
 
 Each pointer is checked for: a project named in evidence/corpus.md; a commit that exists
-and lies in the history of that project's pin; a path that exists at that commit; a line
-range inside the file; and the quote. Exit 1 if any check fails, or if a project could
-not be reached and is not named with --allow-unreachable.
+and lies in the history of that project's pin, or of a commit corpus.md lists as cited
+past that pin; a path that exists at that commit; a line range inside the file; and the
+quote. Exit 1 if any check fails, or if a project could not be reached and is not named
+with --allow-unreachable.
 
 Sources are found, in order: `--source name=path`; the environment variable
 `CCF_SOURCE_<NAME>`; a partial clone of the remote in evidence/corpus.md, kept under
@@ -54,6 +55,8 @@ FORMATTING = re.compile(r"[`*]")
 PIN_ROW = re.compile(
     r"^\|\s*(?P<name>[^|]+?)\s*\|\s*`(?P<remote>[^`]+)`\s*\|[^|]*\|\s*`(?P<pin>[0-9a-f]{40})`"
 )
+PAST_PIN_HEADING = "## Commits cited past a pin"
+PAST_PIN_ROW = re.compile(r"^\|\s*(?P<name>[^|`]+?)\s*\|\s*`(?P<commit>[0-9a-f]{40})`\s*\|")
 
 
 @dataclass
@@ -77,6 +80,24 @@ def read_pins(corpus: Path) -> dict[str, tuple[str, str]]:
         if match:
             pins[match["name"].lower()] = (match["remote"], match["pin"])
     return pins
+
+
+def read_past_pins(corpus: Path) -> dict[str, list[str]]:
+    """Map each project to the commits corpus.md admits past its pin, each with its reason.
+
+    Only rows under the section's own heading count, so a hash in another table can never
+    widen what a pointer may cite without the reason the section asks for beside it.
+    """
+    past: dict[str, list[str]] = {}
+    inside = False
+    for row in corpus.read_text(encoding="utf-8").splitlines():
+        if row.startswith("## "):
+            inside = row.strip() == PAST_PIN_HEADING
+            continue
+        match = PAST_PIN_ROW.match(row) if inside else None
+        if match:
+            past.setdefault(match["name"].lower(), []).append(match["commit"])
+    return past
 
 
 def prose(text: str) -> str:
@@ -147,8 +168,9 @@ def git(repo: Path, *args: str) -> subprocess.CompletedProcess:
     )
 
 
-def locate(name: str, remote: str, pin: str, sources: dict[str, str], root: Path) -> Path | None:
-    """A local repository holding the pin, or None where none can be reached."""
+def locate(name: str, remote: str, pin: str, sources: dict[str, str], root: Path,
+           past: tuple[str, ...] = ()) -> Path | None:
+    """A local repository holding the pin and every commit admitted past it, or None."""
     given = sources.get(name) or os.environ.get(f"CCF_SOURCE_{name.upper().replace('-', '_')}")
     if given:
         repo = Path(given)
@@ -165,10 +187,11 @@ def locate(name: str, remote: str, pin: str, sources: dict[str, str], root: Path
             )
             if cloned.returncode != 0:
                 return None
-    if git(repo, "cat-file", "-e", f"{pin}^{{commit}}").returncode != 0:
-        git(repo, "fetch", "--quiet", "--filter=blob:none", "origin", pin)
-    if git(repo, "cat-file", "-e", f"{pin}^{{commit}}").returncode != 0:
-        return None
+    for wanted in (pin, *past):
+        if git(repo, "cat-file", "-e", f"{wanted}^{{commit}}").returncode != 0:
+            git(repo, "fetch", "--quiet", "--filter=blob:none", "origin", wanted)
+        if git(repo, "cat-file", "-e", f"{wanted}^{{commit}}").returncode != 0:
+            return None
     return repo
 
 
@@ -184,14 +207,14 @@ class Source:
     and each object is read at most once.
     """
 
-    def __init__(self, repo: Path, pin: str):
+    def __init__(self, repo: Path, pin: str, past: tuple[str, ...] = ()):
         self.batch = subprocess.Popen(
             ["git", "-C", str(repo), "cat-file", "--batch"],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},
         )
-        history = git(repo, "rev-list", pin)
+        history = git(repo, "rev-list", pin, *past)
         self.ancestry = set(history.stdout.split())
         self.objects: dict[str, tuple[str, bytes] | None] = {}
 
@@ -222,7 +245,8 @@ def check(pointer: Pointer, source: Source, pin: str) -> str | None:
         return f"no commit {pointer.commit} in {pointer.project}"
     commit, body = found
     if commit not in source.ancestry:
-        return f"{pointer.commit} is not in the history of the {pointer.project} pin {pin[:12]}"
+        return (f"{pointer.commit} is not in the history of the {pointer.project} pin {pin[:12]}"
+                f" or of a commit {CORPUS.as_posix()} cites past it")
     if pointer.path is None:
         text = body.decode("utf-8", "replace")
         haystack = text.split("\n\n", 1)[1] if "\n\n" in text else ""
@@ -255,6 +279,7 @@ def main(argv: list[str] | None = None) -> int:
     root = Path(args.root)
     sources = dict(item.split("=", 1) for item in args.source)
     pins = read_pins(root / CORPUS)
+    past = read_past_pins(root / CORPUS)
     pointers = scan(root)
 
     failures, unreachable, resolved = [], {}, 0
@@ -266,8 +291,9 @@ def main(argv: list[str] | None = None) -> int:
             continue
         remote, pin = pins[pointer.project]
         if pointer.project not in repos:
-            repo = locate(pointer.project, remote, pin, sources, root)
-            repos[pointer.project] = Source(repo, pin) if repo else None
+            extra = tuple(past.get(pointer.project, ()))
+            repo = locate(pointer.project, remote, pin, sources, root, extra)
+            repos[pointer.project] = Source(repo, pin, extra) if repo else None
         source = repos[pointer.project]
         if source is None:
             unreachable[pointer.project] = unreachable.get(pointer.project, 0) + 1

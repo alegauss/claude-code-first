@@ -220,11 +220,13 @@
           narrowed the gap.</p>
         <p>What worked: keep a few real tasks, run them both ways in a test, and fail the
           build when a task gets more expensive. Where the agent has a shell, a command can
-          do the job of an MCP tool without adding to what every session loads. Whether
-          editing files beats an API, and whether a project should budget its own sessions,
-          are still open questions.</p>
+          do the job of an MCP tool without adding to what every session loads. Editing
+          files instead of calling an API was cheaper in one measured task, mostly in what
+          the agent had to write, since it must read each file before changing it; that is
+          one measurement, not yet a rule. What a project's own sessions cost per task can
+          now be counted too, but no one has yet shown a budget on it catching anything.</p>
         <div class="proof">Evidence
-          <a href="spec/findings/F409.html">F409</a><a href="spec/findings/F8.html">F8</a><a href="spec/findings/F4.html">F4</a>
+          <a href="spec/findings/F409.html">F409</a><a href="spec/findings/F8.html">F8</a><a href="spec/findings/F410.html">F410</a><a href="spec/findings/F4.html">F4</a>
           Rules <a class="rule" href="spec/rules/AP-6.html">AP-6</a><a class="rule" href="spec/rules/AP-5.html">AP-5</a><a class="rule" href="spec/rules/AP-1.html">AP-1</a>
         </div>
       </article>

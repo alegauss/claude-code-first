@@ -27,6 +27,19 @@ window: it is dated before the window opened, and the next commit on its branch 
 after it closed (roadkeep `5c8529a8` at 18:22, polyweave `347ab20` at 18:04:33, Shio
 `92b882459` at 18:16; freewilly and winwright had no later commit).
 
+## Commits cited past a pin
+
+A citation may name a commit after its project's pin only when that commit is listed here
+with its reason, so that "saying so" is a row a reader and the resolver both read, not a
+sentence one of them can miss. `scripts/resolve_citations.py` admits a pointer whose commit
+lies in the history of the pin or of a commit in this table, and no other. Every other
+citation into the project still reads at the pin: this admits one commit's history, and
+is not a re-pin.
+
+| Project | Commit | Why |
+|---|---|---|
+| shio | `0dd3b9119ed9c7c094f9ca2002dc96e117864e8a` | SH1141, the files-against-API authoring benchmark, written to settle an open question of this specification after the pin (F410) |
+
 ## Work outside the pins at extraction
 
 Two checkouts held uncommitted work that the extractors could read and a later reader of

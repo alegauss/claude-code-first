@@ -16,8 +16,6 @@
 
 ## Block H — Validation against the corpus
 
-- 📋 **CCF75** (deps: Shio SH1141) **the files-over-APIs open question names what would settle it, and nothing has been measured against it** — Shio's SH1141 benchmarks one authoring task both ways; its figures, cited at the commit that holds them, decide whether AP keeps an open question or gains a finding. → §CCF75
-
 ## Block I — Governance and publication of the specification
 
 ## Done when — Block A

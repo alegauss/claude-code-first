@@ -98,6 +98,29 @@ class ResolveCitations(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn("not in the history", out)
 
+    def test_a_commit_listed_past_the_pin_resolves_with_its_reason(self):
+        corpus = self.root / "evidence" / "corpus.md"
+        corpus.write_text(
+            corpus.read_text(encoding="utf-8")
+            + "\n## Commits cited past a pin\n\n| Project | Commit | Why |\n|---|---|---|\n"
+            + f"| demo | `{self.later}` | a measurement made after the pin |\n",
+            encoding="utf-8",
+        )
+        code, out = self.run_on(f'"after the pin" [demo@{self.later[:9]}:later.md#L1]\n')
+        self.assertEqual(code, 0, out)
+
+    def test_a_commit_in_another_table_does_not_widen_the_history(self):
+        corpus = self.root / "evidence" / "corpus.md"
+        corpus.write_text(
+            corpus.read_text(encoding="utf-8")
+            + "\n## Something else\n\n| Project | Commit | Why |\n|---|---|---|\n"
+            + f"| demo | `{self.later}` | no reason this section asks for |\n",
+            encoding="utf-8",
+        )
+        code, out = self.run_on(f"[demo@{self.later[:9]}]\n")
+        self.assertEqual(code, 1)
+        self.assertIn("not in the history", out)
+
     def test_an_unknown_commit_fails(self):
         code, out = self.run_on("[demo@deadbeef1]\n")
         self.assertEqual(code, 1)

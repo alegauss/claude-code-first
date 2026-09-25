@@ -217,11 +217,14 @@ fixture for the generic path as well as the shaped one.
   with tool search on and off would say whether the schema ceiling should stay as strict as
   the others.
 - **Files instead of an API for authoring.** Shio's law is "Files beat APIs for authoring" [shio@821f18d74:agents.md#L23],
-  and it projects content to a text tree (SH86) and declined a read command because
-  "grep is cheaper than a request (P4), so read would be a worse version of a file" [shio@821f18d74:docs/CHANGELOG.md#L1086].
-  No commit at the pin measures authoring through files against authoring through the API:
-  the benchmark in [F409](../evidence/findings/F409.md) runs both paths over HTTP, and its
-  projection pair projects fields, not files. The cost is recorded instead: a two-way sync
-  with a three-way merge, and a false defect that a local read-modify-write produced when it
-  decoded through the wrong code page, "the mojibake was mine, not the CLI's" [shio@c17ed995a].
-  One canonical authoring task benchmarked both ways, in calls and tokens, would settle it.
+  and one task now measures it: renaming a product in ten of thirty posts, the file path
+  cost less than the API path in all and several times less in what the agent wrote, while
+  it received almost as much, because the harness requires a Read of each file before its
+  Edit ([F410](../evidence/findings/F410.md), R1/S3). That is one project, one task shape
+  and a benchmark written for this question, so it admits no rule above MAY and none is
+  written: the practice that would follow, projecting content to files for an agent that
+  edits a small part of each, needs the same measurement on a second task shape, one that
+  rewrites most of a file, and in a second project before it is a recommendation. The cost
+  the projection carries is recorded too: a two-way sync with a three-way merge, and a
+  false defect that a local read-modify-write produced when it decoded through the wrong
+  code page, "the mojibake was mine, not the CLI's" [shio@c17ed995a].
