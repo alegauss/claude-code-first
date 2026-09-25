@@ -130,14 +130,6 @@ not an experiment, and the report says so.
 
 ## Block I — Governance and publication of the specification
 
-### §CCF60 Publishing for agents and people
-
-A static site with one addressable page per rule and per finding, a Markdown twin for
-each page, and an `llms.txt` listing them (winwright WW495). The rule registry is
-published as data, so the audit plugin can fetch one version's rules without the prose.
-Every page shows the spec version and the evidence grade. The site is generated in CI
-from the repository, and nothing on it is edited by hand.
-
 ### §CCF61 License, citation and authorship
 
 A license for the text (for example CC BY 4.0) and one for code and templates (for

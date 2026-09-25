@@ -30,7 +30,6 @@
 
 ## Block I — Governance and publication of the specification
 
-- 📋 **CCF60** (deps: CCF41 ✅) **an agent in another repository cannot consume the spec cheaply: no llms.txt and no page per rule** — Winwright measured an agent rendering three pages to learn a tool; reading the spec must cost less than the waste it prevents. → §CCF60
 - 📋 **CCF61** (deps: —) **the work has no license, no citation metadata and no statement of how it was authored** — An academic reader must know how to cite it, and that an agent wrote most of it under a person's direction and with which checks. → §CCF61
 - 📋 **CCF62** (deps: CCF24 ✅) **the repository has no README telling a newcomer what the spec is, how to read it and how to adopt it** — The README is the first page an expert or an adopter opens, and today it does not exist. → §CCF62
 

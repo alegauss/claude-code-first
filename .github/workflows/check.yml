@@ -52,6 +52,17 @@ jobs:
       # The level comes from ccf.toml; the specification is held to what it asks of others.
       - run: python3 scripts/check_conformance.py .
 
+  site:
+    name: site builds with no broken link
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/build_site.py --out site
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress './site/**/*.md' './site/**/*.html' './site/llms.txt'
+          fail: true
+
   plugin:
     name: plugin validate
     runs-on: ubuntu-latest

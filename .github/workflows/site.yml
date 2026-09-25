@@ -1,0 +1,24 @@
+# Deploys the generated site to GitHub Pages. Run by hand: publishing is the owner's
+# decision, and GitHub Pages must be enabled for the repository (Settings, Pages, source:
+# GitHub Actions) before the first run. The build itself runs on every push in check.yml.
+name: site
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/build_site.py --out site
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - uses: actions/deploy-pages@v5
