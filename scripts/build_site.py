@@ -35,6 +35,19 @@ from index_findings import parse as parse_finding  # noqa: E402
 
 RULE_HEADING = re.compile(r"^### ([A-Z]{2}-\d+) ")
 
+# The Google Analytics tag, placed in <head> of every HTML page the build emits: to_html
+# writes it into each specification page, and the guide fills {{gtag}} with it.
+GTAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HG45Q9BHP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6HG45Q9BHP');
+</script>
+"""
+
 
 def inline(text: str) -> str:
     text = html.escape(text, quote=False)
@@ -96,7 +109,8 @@ def to_html(markdown: str, title: str, version: str, home: str) -> str:
     flush()
     return (
         "<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">"
-        f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>{html.escape(title)}</title>"
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + GTAG
+        + f"<title>{html.escape(title)}</title>"
         "<style>body{max-width:46rem;margin:2rem auto;padding:0 1rem;font:16px/1.55 system-ui,sans-serif}"
         "table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:.25rem .5rem;text-align:left}"
         "code{font-size:.9em}pre{overflow-x:auto}</style></head><body>"
@@ -359,6 +373,7 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
         "chart_levels": chart_levels(registry, chapters),
         "chart_grades": chart_grades(findings),
         "lessons": lesson_count(template),
+        "gtag": GTAG.rstrip("\n"),
     }
     missing = sorted({name for name in PLACEHOLDER.findall(template) if name not in values})
     if missing:

@@ -93,6 +93,16 @@ class BuildSite(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "nothing_fills_this"):
                 build_site.guide(root, root, "0", self.rules, {})
 
+    def test_every_page_carries_the_analytics_tag_once_in_its_head(self):
+        pages = sorted(self.out.rglob("*.html"))
+        self.assertGreater(len(pages), 1)
+        for page in pages:
+            text = page.read_text(encoding="utf-8")
+            head = text[:text.index("</head>")]
+            self.assertEqual(text.count(build_site.GTAG.rstrip("\n")), 1, page.name)
+            self.assertEqual(text.count("G-6HG45Q9BHP"), 2, page.name)  # the loader URL and the config call
+            self.assertIn(build_site.GTAG.rstrip("\n"), head, page.name)
+
 
 if __name__ == "__main__":
     unittest.main()
