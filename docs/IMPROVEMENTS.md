@@ -40,27 +40,6 @@ not an experiment, and the report says so.
 
 ## Block J — The site's mark and look
 
-### §CCF76 A mark, a favicon and a social card
-
-Since 2026-10-20 the project has a mark: a page with two lines of text and a checked
-seal, in rose (`214,84,120`, bright `#E8799A`). It is drawn inline in the hub's
-catalogue (`alegauss.github.io/src/data/projects.ts`, entry `claude-code-first`) and
-kept as a file in the profile repository (`alegauss/alegauss`,
-`assets/claude-code-first.svg`). The site has none of it. `guide/index.html` and the
-specification pages link no icon, the header shows no logo, and there is no `og:image`,
-so a link shared anywhere renders as bare text.
-
-The change:
-
-- `guide/icon.svg`, the same drawing, copied into `site/` by `scripts/build_site.py`.
-- `<link rel="icon">` on every page the build writes, the guide and every page under
-  `spec/`, and the mark beside the title in the header.
-- A 1200 × 630 `og.png` generated at build from the mark, the title and the guide's
-  description, with `og:image` and `twitter:image` on every page.
-
-Done when every built page links the icon and carries `og:image`, the card renders the
-mark and title, and `test_build_site.py` fails when a page is written without either.
-
 ### §CCF77 The site on the shared design system
 
 `scripts/build_site.py` builds `site/` from `guide/` and the specification: the guide,

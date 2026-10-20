@@ -12,7 +12,8 @@ published: for every rule and every finding, an HTML page and its Markdown twin
 data (rules.toml and rules.json) so a tool can fetch one version's rules without the
 prose. `llms.txt` stays at the root, where agents look for it, and lists the twins. Every
 specification page names the version and the evidence grade, and links back to the
-guide. Standard library only: the HTML conversion covers the Markdown this repository
+guide. Every page links the mark (guide/icon.svg) as its icon and the social card
+(og.png, drawn by og_card.py) as its og:image. Standard library only: the HTML conversion covers the Markdown this repository
 writes (headings, paragraphs, lists, tables, emphasis, code and links).
 """
 
@@ -31,6 +32,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).parent))
+import og_card  # noqa: E402
 from index_findings import parse as parse_finding  # noqa: E402
 
 RULE_HEADING = re.compile(r"^### ([A-Z]{2}-\d+) ")
@@ -48,6 +50,25 @@ GTAG = """<!-- Google tag (gtag.js) -->
 </script>
 """
 
+# Where the site is published: og:image must be an absolute URL, which a relative path is not.
+SITE = "https://alegauss.github.io/claude-code-first/"
+DESCRIPTION = re.compile(r'<meta name="description" content="([^"]+)">')
+
+
+def brand_head(title: str, home: str, description: str) -> str:
+    """The icon and the social card, for <head>: `home` is the page's relative path to the root."""
+    icon = home.replace("index.html", "icon.svg")
+    title, description = html.escape(title), html.escape(description)
+    return (f'<link rel="icon" href="{icon}" type="image/svg+xml">\n'
+            f'<meta property="og:type" content="website">\n'
+            f'<meta property="og:title" content="{title}">\n'
+            f'<meta property="og:description" content="{description}">\n'
+            f'<meta property="og:image" content="{SITE}og.png">\n'
+            f'<meta property="og:image:width" content="{og_card.WIDTH}">\n'
+            f'<meta property="og:image:height" content="{og_card.HEIGHT}">\n'
+            f'<meta name="twitter:card" content="summary_large_image">\n'
+            f'<meta name="twitter:image" content="{SITE}og.png">\n')
+
 
 def inline(text: str) -> str:
     text = html.escape(text, quote=False)
@@ -57,7 +78,7 @@ def inline(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
 
 
-def to_html(markdown: str, title: str, version: str, home: str) -> str:
+def to_html(markdown: str, title: str, version: str, home: str, description: str) -> str:
     out, paragraph, in_list, in_code, table = [], [], False, False, []
 
     def flush():
@@ -110,11 +131,14 @@ def to_html(markdown: str, title: str, version: str, home: str) -> str:
     return (
         "<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">"
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + GTAG
+        + brand_head(title, home, description)
         + f"<title>{html.escape(title)}</title>"
         "<style>body{max-width:46rem;margin:2rem auto;padding:0 1rem;font:16px/1.55 system-ui,sans-serif}"
         "table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:.25rem .5rem;text-align:left}"
-        "code{font-size:.9em}pre{overflow-x:auto}</style></head><body>"
-        f"<p><small>Claude Code First, specification version {html.escape(version)}. "
+        "code{font-size:.9em}pre{overflow-x:auto}.mark{width:1.5em;height:1.5em;vertical-align:middle}</style>"
+        "</head><body>"
+        f"<p><small><img class=\"mark\" src=\"{home.replace('index.html', 'icon.svg')}\" alt=\"\"> "
+        f"Claude Code First, specification version {html.escape(version)}. "
         f"<a href=\"{home}\">The plain-language guide</a></small></p>"
         + "\n".join(out) + "</body></html>\n"
     )
@@ -170,6 +194,7 @@ def build(out: Path, root: Path = ROOT) -> dict:
     (spec / "rules").mkdir(parents=True)
     (spec / "findings").mkdir()
     sections = rule_sections(root)
+    description = DESCRIPTION.search((root / "guide" / "index.html").read_text(encoding="utf-8")).group(1)
 
     def grade_of(rule: dict) -> str:
         grades = [findings[f][0]["Grade"] for f in rule["findings"] if f in findings]
@@ -181,13 +206,14 @@ def build(out: Path, root: Path = ROOT) -> dict:
         (spec / "rules" / f"{rule['address']}.md").write_text(text, encoding="utf-8", newline="\n")
         title = f"{rule['address']} {rule['title']}"
         (spec / "rules" / f"{rule['address']}.html").write_text(
-            to_html(text.replace(".md)", ".html)"), title, version, "../../index.html"),
+            to_html(text.replace(".md)", ".html)"), title, version, "../../index.html", description),
             encoding="utf-8", newline="\n")
     for fid, (finding, text) in sorted(findings.items(), key=lambda kv: int(kv[0][1:])):
         body = f"Version {version}. Grade {finding['Grade']}.\n\n" + relink(text, "evidence/findings")
         (spec / "findings" / f"{fid}.md").write_text(body, encoding="utf-8", newline="\n")
         (spec / "findings" / f"{fid}.html").write_text(
-            to_html(body, f"{fid} {finding['claim']}", version, "../../index.html"), encoding="utf-8", newline="\n")
+            to_html(body, f"{fid} {finding['claim']}", version, "../../index.html", description),
+            encoding="utf-8", newline="\n")
 
     shutil.copyfile(root / "spec" / "rules.toml", spec / "rules.toml")
     (spec / "rules.json").write_text(json.dumps({"version": version, "rules": registry}, indent=2) + "\n",
@@ -214,8 +240,9 @@ def build(out: Path, root: Path = ROOT) -> dict:
              "| Rule | Keyword | Level | Statement |", "|---|---|---|---|"]
     index += [f"| [{r['address']}](rules/{r['address']}.html) | {r['keyword']} | {r['level']} | {r['statement']} |"
               for r in registry]
-    (spec / "index.html").write_text(to_html("\n".join(index), "Claude Code First", version, "../index.html"),
-                                     encoding="utf-8", newline="\n")
+    (spec / "index.html").write_text(
+        to_html("\n".join(index), "Claude Code First", version, "../index.html", description),
+        encoding="utf-8", newline="\n")
     guide(out, root, version, registry, {fid: f for fid, (f, _) in findings.items()})
     return {"rules": len(registry), "findings": len(findings)}
 
@@ -359,6 +386,7 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
     chapters = chapter_names(root)
     names = {row["name"].lower(): row["name"] for row in corpus_rows(root)}
     template = (root / "guide" / "index.html").read_text(encoding="utf-8")
+    description = DESCRIPTION.search(template)
     values = {
         "version": html.escape(version),
         "rules": str(len(registry)),
@@ -374,6 +402,8 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
         "chart_grades": chart_grades(findings),
         "lessons": lesson_count(template),
         "gtag": GTAG.rstrip("\n"),
+        "brand_head": brand_head("Claude Code First", "index.html",
+                                 description.group(1) if description else "").rstrip("\n"),
     }
     missing = sorted({name for name in PLACEHOLDER.findall(template) if name not in values})
     if missing:
@@ -381,6 +411,8 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
     page = PLACEHOLDER.sub(lambda m: values[m.group(1)], template)
     (out / "index.html").write_text(page, encoding="utf-8", newline="\n")
     shutil.copyfile(root / "guide" / "style.css", out / "style.css")
+    shutil.copyfile(root / "guide" / "icon.svg", out / "icon.svg")
+    og_card.write(out / "og.png")
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -5,12 +5,14 @@ Run from the repository root: python -m unittest discover -s scripts
 
 import json
 import re
+import struct
 import tempfile
 import tomllib
 import unittest
 from pathlib import Path
 
 import build_site
+import og_card
 
 
 class BuildSite(unittest.TestCase):
@@ -102,6 +104,32 @@ class BuildSite(unittest.TestCase):
             self.assertEqual(text.count(build_site.GTAG.rstrip("\n")), 1, page.name)
             self.assertEqual(text.count("G-6HG45Q9BHP"), 2, page.name)  # the loader URL and the config call
             self.assertIn(build_site.GTAG.rstrip("\n"), head, page.name)
+
+    def test_every_page_links_the_icon_and_the_social_card_in_its_head(self):
+        pages = sorted(self.out.rglob("*.html"))
+        for page in pages:
+            text = page.read_text(encoding="utf-8")
+            head = text[:text.index("</head>")]
+            depth = len(page.relative_to(self.out).parts) - 1
+            self.assertIn(f'<link rel="icon" href="{"../" * depth}icon.svg"', head, page.name)
+            self.assertIn(f'<meta property="og:image" content="{build_site.SITE}og.png">', head, page.name)
+            self.assertIn('<meta name="twitter:card" content="summary_large_image">', head, page.name)
+            self.assertEqual(text.count('property="og:image"'), 1, page.name)
+        self.assertTrue((self.out / "icon.svg").exists())
+        self.assertIn('src="icon.svg"', self.guide)
+
+    def test_the_social_card_is_a_1200_by_630_png_showing_the_mark_and_title(self):
+        data = (self.out / "og.png").read_bytes()
+        self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(struct.unpack(">II", data[16:24]), (1200, 630))
+        pixels = og_card.render()
+        colours = {bytes(pixels[i:i + 3]) for i in range(0, len(pixels), 3)}
+        for colour in (og_card.ROSE, og_card.SEAL, og_card.INK):
+            self.assertIn(bytes(colour), colours)
+
+    def test_the_card_refuses_a_letter_its_alphabet_lacks(self):
+        with self.assertRaisesRegex(ValueError, "no glyph"):
+            og_card.text_shapes("Claude Code Zero", 0, 0, 10)
 
 
 if __name__ == "__main__":
