@@ -95,15 +95,43 @@ class BuildSite(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "nothing_fills_this"):
                 build_site.guide(root, root, "0", self.rules, {})
 
-    def test_every_page_carries_the_analytics_tag_once_in_its_head(self):
+    def test_analytics_loads_only_from_the_consent_script(self):
         pages = sorted(self.out.rglob("*.html"))
         self.assertGreater(len(pages), 1)
         for page in pages:
             text = page.read_text(encoding="utf-8")
+            self.assertNotIn("googletagmanager", text, page.name)
+            self.assertIn('class="consent-settings"', text, page.name)
+        script = (self.out / "site.js").read_text(encoding="utf-8")
+        self.assertIn('localStorage.getItem(KEY)', script)
+        self.assertIn('"G-6HG45Q9BHP"', script)
+
+    def test_every_page_takes_the_design_system_at_one_pinned_version(self):
+        template = (build_site.ROOT / "guide" / "index.html").read_text(encoding="utf-8")
+        links = build_site.design_links(template)
+        self.assertRegex(links, r"@\d+\.\d+\.\d+/dist/site\.css")
+        for page in sorted(self.out.rglob("*.html")):
+            text = page.read_text(encoding="utf-8")
             head = text[:text.index("</head>")]
-            self.assertEqual(text.count(build_site.GTAG.rstrip("\n")), 1, page.name)
-            self.assertEqual(text.count("G-6HG45Q9BHP"), 2, page.name)  # the loader URL and the config call
-            self.assertIn(build_site.GTAG.rstrip("\n"), head, page.name)
+            depth = len(page.relative_to(self.out).parts) - 1
+            self.assertIn(links, head + "\n", page.name)
+            self.assertIn(f'href="{"../" * depth}style.css"', head, page.name)
+            self.assertIn(f'src="{"../" * depth}site.js"', head, page.name)
+            self.assertIn(build_site.THEME_SCRIPT, head, page.name)
+            self.assertIn('<body class="vg-site">', text, page.name)
+            self.assertIn('data-tone="cool"', text, page.name)
+
+    def test_design_links_at_two_versions_are_refused(self):
+        mixed = ('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@viglet/viglet-design-system@1.0.0/dist/a.css">'
+                 '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@viglet/viglet-design-system@1.0.0/dist/b.css">'
+                 '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@viglet/viglet-design-system@2.0.0/dist/c.css">')
+        with self.assertRaisesRegex(ValueError, "one pinned version"):
+            build_site.design_links(mixed)
+
+    def test_style_css_restates_no_rule_site_css_draws(self):
+        style = (build_site.ROOT / "guide" / "style.css").read_text(encoding="utf-8")
+        for old in ("nav {", ".hero {", ".btn {", ".eyebrow {", "footer {", ".pill {", "--azure"):
+            self.assertNotIn(old, style)
 
     def test_every_page_links_the_icon_and_the_social_card_in_its_head(self):
         pages = sorted(self.out.rglob("*.html"))

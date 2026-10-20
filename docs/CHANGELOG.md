@@ -106,3 +106,4 @@
 
 - ✅ **CCF78** **markdownlint lints the governed docs/DEFERRED.md, and fails on a blank line roadkeep wrote there** — markdownlint now ignores docs/DEFERRED.md beside the other four governed files, and its gate passes with the file as roadkeep wrote it.
 - ✅ **CCF76** **The site shows no mark of its own: no favicon, no logo in the header, no social card** — Every built page links icon.svg and carries og:image, the guide header shows the mark, and a stdlib-drawn og.png renders the mark and title.
+- ✅ **CCF77** **The guide and specification pages carry their own 892-line stylesheet, outside the design system** — The guide and spec pages take fonts, tokens and site.css at 2026.3.22, re-keyed to the mark's rose, with analytics behind consent; style.css keeps only this site's own blocks.

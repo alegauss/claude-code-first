@@ -40,26 +40,40 @@ not an experiment, and the report says so.
 
 ## Block J — The site's mark and look
 
-### §CCF77 The site on the shared design system
+### §CCF79 The family chip and the repository button in the header
 
-`scripts/build_site.py` builds `site/` from `guide/` and the specification: the guide,
-then one page per rule and finding under `spec/`. Every page links `guide/style.css`,
-copied into `site/` as is: 892 lines that declare their own `--bg`, `--text` and
-`--accent` tokens in both colour modes and draw the nav, hero, cards and footer by hand.
-The hub and the other alegauss sites are moving onto `@viglet/viglet-design-system`, and
-VDS216 ships the plain CSS a page with no build can link.
+The other alegauss sites draw one header: the brand, a chip that says the product is
+part of alegauss and links `https://alegauss.github.io/`, the section links, and the
+actions, which hold a ghost button to the repository on GitHub beside the theme toggle
+(`claude-tray/site/src/components/Chrome.tsx`, `Nav`: `parent` and the `★ GitHub`
+`SiteButton`). This site's guide header has the brand, the anchors, a "Full
+specification" button and the toggle: nothing leads to the family it belongs to, and the
+repository is reached only from a banner near the end of the page and the footer.
 
-The move:
+The change, in the `SiteNav` markup class for class, once CCF77 has put the page on
+`site.css`:
 
-- Link `tokens.css` and `site.css` at a pinned version, and drop the rules they cover. The
-  reading styles for rules, findings and tables stay local.
-- `data-tone="cool"`, since the ground is a blue-tinted white and near-black, not clay.
-- The accent is settled first. The page is blue (`#17699c`, `#2e9bd6` in dark), which is
-  FreeWilly's accent on the hub, so the hub gave this project rose instead. One value goes
-  into the hub's `projects.json` and the page takes it.
-- The `{{gtag}}` that `build_site.py` writes loads only after consent, as on the hub.
+- `vg-site-nav-left` holds the brand and the `vg-site-parent` chip, "part of
+  **alegauss**" with the arrow icon, titled "alegauss: small developer tools", as
+  claude-tray words it.
+- The actions gain `★ GitHub` as a `vg-site-btn-ghost` to the repository, beside "Full
+  specification".
+- The specification pages, which carry a one-line header, gain the same two links.
 
-Done when no rule in `style.css` duplicates one `site.css` provides, every built page
-holds the same text as before, light and dark screenshots of the guide and of one rule
-page are compared before and after, and the site is listed in the design system's
-`consumers.json`.
+Done when every built page links `https://alegauss.github.io/` and the repository from
+its header, and `test_build_site.py` fails when either is missing.
+
+### §CCF80 Bold around an italic term on the rule pages
+
+Every rule's normative sentence is bold, and most hold an italic glossary term: `**Each
+planning file an agent writes SHOULD be a *governed file*.**` (spec/PG.md, PG-1).
+`inline()` in `scripts/build_site.py` matches bold as `\*\*([^*]+)\*\*`, which cannot
+span the inner asterisks, so the bold never matches; the italic then does, and the page
+prints `**Each planning file ... <em>governed file</em>.**` with the four asterisks as
+text. The rule page is the one place a reader goes for the sentence the rule is, and it
+renders wrong on every rule that cites a term. The guide is not affected.
+
+The change: match bold as `\*\*(.+?)\*\*` before italic, so the inner pair is left to
+the italic pass. Done when PG-1's page holds `<strong>Each planning file` and no `**`,
+and a test in `test_build_site.py` fails on any rule page that still prints two
+asterisks.

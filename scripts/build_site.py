@@ -37,18 +37,49 @@ from index_findings import parse as parse_finding  # noqa: E402
 
 RULE_HEADING = re.compile(r"^### ([A-Z]{2}-\d+) ")
 
-# The Google Analytics tag, placed in <head> of every HTML page the build emits: to_html
-# writes it into each specification page, and the guide fills {{gtag}} with it.
-GTAG = """<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HG45Q9BHP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+# The shared design system (CCF77): its fonts, its tokens and the site layer that draws the
+# nav, hero, sections and footer. guide/index.html links the three files from the CDN at a
+# pinned version, written there so the design system's consumer census can read them, and
+# every specification page takes the same links from it. guide/style.css comes after them
+# and keeps what is this site's.
+DESIGN_LINK = re.compile(
+    r'<link rel="stylesheet" href="https://cdn\.jsdelivr\.net/npm/@viglet/viglet-design-system@([^/"]+)/dist/[\w.]+">')
+THEME_KEY = "ccf-theme"
+# The design system's siteThemeScript: the stored choice, else the OS, set as data-theme
+# before the first frame, since the tokens' dark ground keys on that attribute alone.
+THEME_SCRIPT = (
+    f'(function(){{var t=null;try{{t=localStorage.getItem("{THEME_KEY}")}}catch(e){{}}'
+    'if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";'
+    'document.documentElement.setAttribute("data-theme",t)})();'
+)
+THEME_TOGGLE = (
+    '<button class="vg-site-theme-toggle" id="theme" type="button" aria-label="Switch theme">'
+    '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+    'stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 '
+    '1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>'
+    '<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+    'stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+    "</button>"
+)
 
-  gtag('config', 'G-6HG45Q9BHP');
-</script>
-"""
+
+def design_links(template: str) -> str:
+    """The guide's links to the design system, refused unless all three name one version."""
+    links = [m.group(0) for m in DESIGN_LINK.finditer(template)]
+    versions = {m.group(1) for m in DESIGN_LINK.finditer(template)}
+    if len(links) != 3 or len(versions) != 1:
+        raise ValueError(f"guide/index.html links the design system {len(links)} time(s) at {sorted(versions)}; "
+                         "it takes fonts.css, tokens.css and site.css at one pinned version")
+    return "\n".join(links) + "\n"
+
+
+def site_head(home: str) -> str:
+    """The theme, this site's stylesheet and its script, for <head>, after the design system.
+    Analytics is not here: site.js adds the tag only after the visitor allows it."""
+    base = home.replace("index.html", "")
+    return (f"<script>{THEME_SCRIPT}</script>\n"
+            f'<link rel="stylesheet" href="{base}style.css">\n'
+            f'<script src="{base}site.js" defer></script>\n')
 
 # Where the site is published: og:image must be an absolute URL, which a relative path is not.
 SITE = "https://alegauss.github.io/claude-code-first/"
@@ -78,7 +109,8 @@ def inline(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
 
 
-def to_html(markdown: str, title: str, version: str, home: str, description: str) -> str:
+def to_html(markdown: str, title: str, version: str, home: str, chrome: dict) -> str:
+    """One specification page; `chrome` holds the guide's description and design links."""
     out, paragraph, in_list, in_code, table = [], [], False, False, []
 
     def flush():
@@ -128,19 +160,23 @@ def to_html(markdown: str, title: str, version: str, home: str, description: str
         else:
             paragraph.append(line.strip())
     flush()
+    icon = home.replace("index.html", "icon.svg")
     return (
-        "<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">"
-        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + GTAG
-        + brand_head(title, home, description)
-        + f"<title>{html.escape(title)}</title>"
-        "<style>body{max-width:46rem;margin:2rem auto;padding:0 1rem;font:16px/1.55 system-ui,sans-serif}"
-        "table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:.25rem .5rem;text-align:left}"
-        "code{font-size:.9em}pre{overflow-x:auto}.mark{width:1.5em;height:1.5em;vertical-align:middle}</style>"
-        "</head><body>"
-        f"<p><small><img class=\"mark\" src=\"{home.replace('index.html', 'icon.svg')}\" alt=\"\"> "
-        f"Claude Code First, specification version {html.escape(version)}. "
+        "<!doctype html>\n<html lang=\"en\" data-tone=\"cool\"><head><meta charset=\"utf-8\">"
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+        + chrome["design"] + site_head(home) + brand_head(title, home, chrome["description"])
+        + f"<title>{html.escape(title)}</title></head><body class=\"vg-site\">"
+        f"<nav class=\"vg-site-nav\"><div class=\"vg-site-wrap\"><div class=\"vg-site-nav-left\">"
+        f"<a class=\"vg-site-brand\" href=\"{home}\"><img src=\"{icon}\" alt=\"\">Claude Code First</a></div>"
+        f"<div class=\"vg-site-nav-links\">{THEME_TOGGLE}</div></div></nav>\n"
+        "<main class=\"vg-site-wrap reading\">"
+        f"<p><small>Claude Code First, specification version {html.escape(version)}. "
         f"<a href=\"{home}\">The plain-language guide</a></small></p>"
-        + "\n".join(out) + "</body></html>\n"
+        + "\n".join(out) + "</main>\n"
+        "<footer class=\"vg-site-footer\"><div class=\"vg-site-wrap\"><p class=\"vg-site-disclaimer\">"
+        "Not affiliated with Anthropic; Claude Code is Anthropic's product. "
+        "<button type=\"button\" class=\"consent-settings\">Analytics settings</button></p></div></footer>"
+        "</body></html>\n"
     )
 
 
@@ -194,7 +230,8 @@ def build(out: Path, root: Path = ROOT) -> dict:
     (spec / "rules").mkdir(parents=True)
     (spec / "findings").mkdir()
     sections = rule_sections(root)
-    description = DESCRIPTION.search((root / "guide" / "index.html").read_text(encoding="utf-8")).group(1)
+    template = (root / "guide" / "index.html").read_text(encoding="utf-8")
+    chrome = {"description": DESCRIPTION.search(template).group(1), "design": design_links(template)}
 
     def grade_of(rule: dict) -> str:
         grades = [findings[f][0]["Grade"] for f in rule["findings"] if f in findings]
@@ -206,13 +243,13 @@ def build(out: Path, root: Path = ROOT) -> dict:
         (spec / "rules" / f"{rule['address']}.md").write_text(text, encoding="utf-8", newline="\n")
         title = f"{rule['address']} {rule['title']}"
         (spec / "rules" / f"{rule['address']}.html").write_text(
-            to_html(text.replace(".md)", ".html)"), title, version, "../../index.html", description),
+            to_html(text.replace(".md)", ".html)"), title, version, "../../index.html", chrome),
             encoding="utf-8", newline="\n")
     for fid, (finding, text) in sorted(findings.items(), key=lambda kv: int(kv[0][1:])):
         body = f"Version {version}. Grade {finding['Grade']}.\n\n" + relink(text, "evidence/findings")
         (spec / "findings" / f"{fid}.md").write_text(body, encoding="utf-8", newline="\n")
         (spec / "findings" / f"{fid}.html").write_text(
-            to_html(body, f"{fid} {finding['claim']}", version, "../../index.html", description),
+            to_html(body, f"{fid} {finding['claim']}", version, "../../index.html", chrome),
             encoding="utf-8", newline="\n")
 
     shutil.copyfile(root / "spec" / "rules.toml", spec / "rules.toml")
@@ -241,7 +278,7 @@ def build(out: Path, root: Path = ROOT) -> dict:
     index += [f"| [{r['address']}](rules/{r['address']}.html) | {r['keyword']} | {r['level']} | {r['statement']} |"
               for r in registry]
     (spec / "index.html").write_text(
-        to_html("\n".join(index), "Claude Code First", version, "../index.html", description),
+        to_html("\n".join(index), "Claude Code First", version, "../index.html", chrome),
         encoding="utf-8", newline="\n")
     guide(out, root, version, registry, {fid: f for fid, (f, _) in findings.items()})
     return {"rules": len(registry), "findings": len(findings)}
@@ -368,7 +405,7 @@ def project_cards(root: Path, metrics: list[dict]) -> str:
     return "\n".join(cards)
 
 
-LESSONS = re.compile(r'<section id="lessons">(.*?)</section>', re.DOTALL)
+LESSONS = re.compile(r'<section[^>]* id="lessons">(.*?)</section>', re.DOTALL)
 NUMBER_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
                 "Ten", "Eleven", "Twelve"]
 
@@ -401,7 +438,8 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
         "chart_levels": chart_levels(registry, chapters),
         "chart_grades": chart_grades(findings),
         "lessons": lesson_count(template),
-        "gtag": GTAG.rstrip("\n"),
+        "site_head": site_head("index.html").rstrip("\n"),
+        "theme_toggle": THEME_TOGGLE,
         "brand_head": brand_head("Claude Code First", "index.html",
                                  description.group(1) if description else "").rstrip("\n"),
     }
@@ -412,6 +450,7 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
     (out / "index.html").write_text(page, encoding="utf-8", newline="\n")
     shutil.copyfile(root / "guide" / "style.css", out / "style.css")
     shutil.copyfile(root / "guide" / "icon.svg", out / "icon.svg")
+    shutil.copyfile(root / "guide" / "site.js", out / "site.js")
     og_card.write(out / "og.png")
 
 

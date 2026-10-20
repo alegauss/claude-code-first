@@ -20,7 +20,8 @@
 
 ## Block J — The site's mark and look
 
-- 📋 **CCF77** (deps: viglet-design-system: VDS216, CCF76 ✅) **The guide and specification pages carry their own 892-line stylesheet, outside the design system** — The hub and every other alegauss site take the look from one package, and this one would stay the copy that drifts. → §CCF77
+- 📋 **CCF79** (deps: CCF77 ✅) **The site header links neither alegauss.github.io nor the GitHub repository, unlike every other alegauss site** — A reader who arrives from a search cannot see the family the project belongs to or reach its source from the top of the page. → §CCF79
+- 📋 **CCF80** (deps: —) **Rule pages print literal asterisks around every normative sentence that holds an italic term** — The sentence a rule is renders as markup on the one page a reader opens to read it. → §CCF80
 
 ## Done when — Block A
 
