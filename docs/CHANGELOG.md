@@ -104,3 +104,4 @@
 
 ## Block J — The site's mark and look
 
+- ✅ **CCF78** **markdownlint lints the governed docs/DEFERRED.md, and fails on a blank line roadkeep wrote there** — markdownlint now ignores docs/DEFERRED.md beside the other four governed files, and its gate passes with the file as roadkeep wrote it.

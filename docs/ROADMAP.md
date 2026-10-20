@@ -20,7 +20,7 @@
 
 ## Block J — The site's mark and look
 
-- 📋 **CCF76** (deps: —) **The site shows no mark of its own: no favicon, no logo in the header, no social card** — The hub and the GitHub profile now show a mark for this project, and the site those links open shows none. → §CCF76
+- 🛠 **CCF76** (deps: —) **The site shows no mark of its own: no favicon, no logo in the header, no social card** — The hub and the GitHub profile now show a mark for this project, and the site those links open shows none. → §CCF76
 - 📋 **CCF77** (deps: viglet-design-system: VDS216, CCF76) **The guide and specification pages carry their own 892-line stylesheet, outside the design system** — The hub and every other alegauss site take the look from one package, and this one would stay the copy that drifts. → §CCF77
 
 ## Done when — Block A

@@ -28,6 +28,7 @@
     "docs/CHANGELOG.md",
     "docs/IMPROVEMENTS.md",
     "docs/DECISIONS.md",
+    "docs/DEFERRED.md",
     ".claude/skills/roadkeep/**",
     ".roadkeep/**"
   ]
