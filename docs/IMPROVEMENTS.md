@@ -37,3 +37,50 @@ reasons, the models change, and the person learns. This is an observational meas
 not an experiment, and the report says so.
 
 ## Block I — Governance and publication of the specification
+
+## Block J — The site's mark and look
+
+### §CCF76 A mark, a favicon and a social card
+
+Since 2026-10-20 the project has a mark: a page with two lines of text and a checked
+seal, in rose (`214,84,120`, bright `#E8799A`). It is drawn inline in the hub's
+catalogue (`alegauss.github.io/src/data/projects.ts`, entry `claude-code-first`) and
+kept as a file in the profile repository (`alegauss/alegauss`,
+`assets/claude-code-first.svg`). The site has none of it. `guide/index.html` and the
+specification pages link no icon, the header shows no logo, and there is no `og:image`,
+so a link shared anywhere renders as bare text.
+
+The change:
+
+- `guide/icon.svg`, the same drawing, copied into `site/` by `scripts/build_site.py`.
+- `<link rel="icon">` on every page the build writes, the guide and every page under
+  `spec/`, and the mark beside the title in the header.
+- A 1200 × 630 `og.png` generated at build from the mark, the title and the guide's
+  description, with `og:image` and `twitter:image` on every page.
+
+Done when every built page links the icon and carries `og:image`, the card renders the
+mark and title, and `test_build_site.py` fails when a page is written without either.
+
+### §CCF77 The site on the shared design system
+
+`scripts/build_site.py` builds `site/` from `guide/` and the specification: the guide,
+then one page per rule and finding under `spec/`. Every page links `guide/style.css`,
+copied into `site/` as is: 892 lines that declare their own `--bg`, `--text` and
+`--accent` tokens in both colour modes and draw the nav, hero, cards and footer by hand.
+The hub and the other alegauss sites are moving onto `@viglet/viglet-design-system`, and
+VDS216 ships the plain CSS a page with no build can link.
+
+The move:
+
+- Link `tokens.css` and `site.css` at a pinned version, and drop the rules they cover. The
+  reading styles for rules, findings and tables stay local.
+- `data-tone="cool"`, since the ground is a blue-tinted white and near-black, not clay.
+- The accent is settled first. The page is blue (`#17699c`, `#2e9bd6` in dark), which is
+  FreeWilly's accent on the hub, so the hub gave this project rose instead. One value goes
+  into the hub's `projects.json` and the page takes it.
+- The `{{gtag}}` that `build_site.py` writes loads only after consent, as on the hub.
+
+Done when no rule in `style.css` duplicates one `site.css` provides, every built page
+holds the same text as before, light and dark screenshots of the guide and of one rule
+page are compared before and after, and the site is listed in the design system's
+`consumers.json`.
