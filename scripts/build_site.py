@@ -63,6 +63,20 @@ THEME_TOGGLE = (
 )
 
 
+# The family chip and the repository button every alegauss site's header carries (CCF79),
+# as SiteNav renders `parent` and claude-tray words it.
+PARENT_CHIP = (
+    '<a class="vg-site-parent" href="https://alegauss.github.io/" title="alegauss: small developer tools">'
+    '<span class="vg-site-parent-pre">part of</span><b>alegauss</b>'
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" '
+    'stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a>'
+)
+
+
+def github_button() -> str:
+    return f'<a class="vg-site-btn vg-site-btn-ghost" href="{SOURCE.removesuffix("blob/main/")}">&#9733; GitHub</a>'
+
+
 def design_links(template: str) -> str:
     """The guide's links to the design system, refused unless all three name one version."""
     links = [m.group(0) for m in DESIGN_LINK.finditer(template)]
@@ -167,8 +181,8 @@ def to_html(markdown: str, title: str, version: str, home: str, chrome: dict) ->
         + chrome["design"] + site_head(home) + brand_head(title, home, chrome["description"])
         + f"<title>{html.escape(title)}</title></head><body class=\"vg-site\">"
         f"<nav class=\"vg-site-nav\"><div class=\"vg-site-wrap\"><div class=\"vg-site-nav-left\">"
-        f"<a class=\"vg-site-brand\" href=\"{home}\"><img src=\"{icon}\" alt=\"\">Claude Code First</a></div>"
-        f"<div class=\"vg-site-nav-links\">{THEME_TOGGLE}</div></div></nav>\n"
+        f"<a class=\"vg-site-brand\" href=\"{home}\"><img src=\"{icon}\" alt=\"\">Claude Code First</a>{PARENT_CHIP}</div>"
+        f"<div class=\"vg-site-nav-links\">{github_button()}{THEME_TOGGLE}</div></div></nav>\n"
         "<main class=\"vg-site-wrap reading\">"
         f"<p><small>Claude Code First, specification version {html.escape(version)}. "
         f"<a href=\"{home}\">The plain-language guide</a></small></p>"
@@ -440,6 +454,8 @@ def guide(out: Path, root: Path, version: str, registry: list[dict], findings: d
         "lessons": lesson_count(template),
         "site_head": site_head("index.html").rstrip("\n"),
         "theme_toggle": THEME_TOGGLE,
+        "parent_chip": PARENT_CHIP,
+        "github": github_button(),
         "brand_head": brand_head("Claude Code First", "index.html",
                                  description.group(1) if description else "").rstrip("\n"),
     }
