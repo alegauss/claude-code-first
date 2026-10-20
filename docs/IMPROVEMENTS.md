@@ -39,18 +39,3 @@ not an experiment, and the report says so.
 ## Block I — Governance and publication of the specification
 
 ## Block J — The site's mark and look
-
-### §CCF80 Bold around an italic term on the rule pages
-
-Every rule's normative sentence is bold, and most hold an italic glossary term: `**Each
-planning file an agent writes SHOULD be a *governed file*.**` (spec/PG.md, PG-1).
-`inline()` in `scripts/build_site.py` matches bold as `\*\*([^*]+)\*\*`, which cannot
-span the inner asterisks, so the bold never matches; the italic then does, and the page
-prints `**Each planning file ... <em>governed file</em>.**` with the four asterisks as
-text. The rule page is the one place a reader goes for the sentence the rule is, and it
-renders wrong on every rule that cites a term. The guide is not affected.
-
-The change: match bold as `\*\*(.+?)\*\*` before italic, so the inner pair is left to
-the italic pass. Done when PG-1's page holds `<strong>Each planning file` and no `**`,
-and a test in `test_build_site.py` fails on any rule page that still prints two
-asterisks.

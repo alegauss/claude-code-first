@@ -20,8 +20,6 @@
 
 ## Block J — The site's mark and look
 
-- 📋 **CCF80** (deps: —) **Rule pages print literal asterisks around every normative sentence that holds an italic term** — The sentence a rule is renders as markup on the one page a reader opens to read it. → §CCF80
-
 ## Done when — Block A
 
 - **A hand edit of a governed file is denied in a fresh session** The guard is the
