@@ -51,7 +51,7 @@ held = 60
 # declared = ["hardware"]
 
 [install]
-wired = "0.2.489"
+wired = "0.2.576"
 
 [budgets]
 # Measured at 37 lines and 1923 bytes when the index was written (CCF1); the headroom is
