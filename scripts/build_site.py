@@ -66,7 +66,7 @@ THEME_TOGGLE = (
 # The family chip and the repository button every alegauss site's header carries (CCF79),
 # as SiteNav renders `parent` and claude-tray words it.
 PARENT_CHIP = (
-    '<a class="vg-site-parent" href="https://alegauss.github.io/" title="alegauss: small developer tools">'
+    '<a class="vg-site-parent" href="https://alegauss.com/" title="alegauss: small developer tools">'
     '<span class="vg-site-parent-pre">part of</span><b>alegauss</b>'
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" '
     'stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a>'
@@ -96,7 +96,7 @@ def site_head(home: str) -> str:
             f'<script src="{base}site.js" defer></script>\n')
 
 # Where the site is published: og:image must be an absolute URL, which a relative path is not.
-SITE = "https://alegauss.github.io/claude-code-first/"
+SITE = "https://alegauss.com/claude-code-first/"
 DESCRIPTION = re.compile(r'<meta name="description" content="([^"]+)">')
 
 

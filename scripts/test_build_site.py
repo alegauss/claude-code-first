@@ -132,7 +132,7 @@ class BuildSite(unittest.TestCase):
         for page in sorted(self.out.rglob("*.html")):
             text = page.read_text(encoding="utf-8")
             nav = text[text.index('<nav class="vg-site-nav">'):text.index("</nav>")]
-            self.assertIn('class="vg-site-parent" href="https://alegauss.github.io/"', nav, page.name)
+            self.assertIn('class="vg-site-parent" href="https://alegauss.com/"', nav, page.name)
             self.assertIn(f'class="vg-site-btn vg-site-btn-ghost" href="{repo}"', nav, page.name)
 
     def test_design_links_at_two_versions_are_refused(self):

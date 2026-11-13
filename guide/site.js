@@ -5,7 +5,7 @@
 // the footer's "Analytics settings" asks again.
 //
 // The key and the measurement id are the hub's on purpose. This site is served from the
-// same origin (alegauss.github.io/claude-code-first/), so the two share one localStorage
+// same origin (alegauss.com/claude-code-first/), so the two share one localStorage
 // and one property, and a visitor who has answered on either has answered for both.
 (function () {
   var THEME_KEY = "ccf-theme";
